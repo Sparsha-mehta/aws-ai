@@ -49,3 +49,22 @@ With the **PaaS** (Platform as a Service), we manage even less, so everything fr
 
 See the image below for better understanding:
 ![alt text](image.png)
+
+Finally if you are using Software as a service (SaaS), Everything is going to be managed by the AWS 
+![alt text](image-1.png)
+
+## Examples of Cloud Computing Types
+Well with the **IaaS**, we can use:
+1. EC2 (With AWS)
+2. GCP, Azure, Rackspace, Digital Ocean, Linode
+
+With **PaaS**, also exists on AWS, and example include:
+1. Elastic Beanstalk (on AWS)
+2. Outside of AWS, the examples include:  Heroku, Google App Engine (GCP), Windows Azure (Microsoft)
+
+For **SaaS**, we will also have this on AWS, that represents many services:
+1. Rekognition for ML (AWS service)
+2. Real world applications like Gmail (Google App), Dropbox, Zoom for Meetings
+
+## Pricing of the Cloud
+- AWS has 3 pricing fundamentals
