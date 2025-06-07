@@ -19,5 +19,5 @@
 Here are the links to notes which were similar in preparation for AWS Cloud Computing Practioner Exam:
 1. [Traditional IT Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/traditionalc.html)
 2. [What is Cloud Computing](https://pratham-mehta.github.io/aws/content/cloudcomp/cc.html)
-3. [Types of Cloud Computing][]
+3. [Types of Cloud Computing](https://github.com/Sparsha-mehta/aws-ai/blob/main/typesofCC.md)
 4. [AWS Cloud Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/awscc.html)
