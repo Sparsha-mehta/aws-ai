@@ -1,7 +1,7 @@
 # AWS AI Practioner Exam Prep
 
 ## Index of Contents
-1. [Introduction to AWS and Cloud Computing](#introduction-to-aws-and-cloud-computing)
+1. Introduction to AWS and Cloud Computing
 2. Amazon Bedrock and Generative AI
 3. Prompt Engineering
 4. Amazon Q - Deep Dive
