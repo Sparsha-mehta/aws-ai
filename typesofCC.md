@@ -47,3 +47,5 @@ With the **PaaS** (Platform as a Service), we manage even less, so everything fr
 8. Storage (AWS will handle it)
 9. Networking (AWS will handle it)
 
+See the image below for better understanding:
+![alt text](image.png)
