@@ -21,3 +21,4 @@ Here are the links to notes which were similar in preparation for AWS Cloud Comp
 2. [What is Cloud Computing](https://pratham-mehta.github.io/aws/content/cloudcomp/cc.html)
 3. [Types of Cloud Computing](https://github.com/Sparsha-mehta/aws-ai/blob/main/typesofCC.md)
 4. [AWS Cloud Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/awscc.html)
+5. [Shared Responsibility Model & AWS Acceptable Policy](https://pratham-mehta.github.io/aws/content/cloudcomp/ssresponsibilitymodel.html)
