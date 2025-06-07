@@ -67,4 +67,12 @@ For **SaaS**, we will also have this on AWS, that represents many services:
 2. Real world applications like Gmail (Google App), Dropbox, Zoom for Meetings
 
 ## Pricing of the Cloud
-- AWS has 3 pricing fundamentals
+- AWS has 3 pricing fundamentals. It will follow the pay-as-you-go pricing model 
+- For Compute: (Since for compute, it is involved in various services)
+  - We are going to pay for exact compute time
+![alt text](image-2.png)
+- For Storage:
+  - We are going to pay for the exact amount of the data stored in the cloud
+- For Networking:
+  - We are going to only pay when the data leaves the cloud. 
+  - Any data that goes into the cloud is **Free**. (This solves the expensive issue of Traditional IT)
