@@ -73,6 +73,7 @@ For **SaaS**, we will also have this on AWS, that represents many services:
 ![alt text](image-2.png)
 - For Storage:
   - We are going to pay for the exact amount of the data stored in the cloud
+![alt text](image-3.png)
 - For Networking:
   - We are going to only pay when the data leaves the cloud. 
   - Any data that goes into the cloud is **Free**. (This solves the expensive issue of Traditional IT)
