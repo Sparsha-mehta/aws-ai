@@ -100,7 +100,7 @@ So let's understand why though it is non-deterministic. Let's take an example:
 
 *“After the rain, the streets were…”*
 
-When an LLM sees this prompt, it calculates a **list of possible next words** along with **probabilities**:
+When an LLM sees this prompt, it calculates a **list of potential next words** along with **probabilities**:
 
 | Word     | Probability |
 | -------- | ----------- |
@@ -124,28 +124,27 @@ So the model outputs:
 This selection is based on **random sampling with probabilities**, not fixed logic.
 
 
+The process **repeats for every next word**.
 
+Given:
 
+> *“After the rain, the streets were flooded...”*
 
+The next word could be:
 
+| Word     | Probability |
+| -------- | ----------- |
+| and      | 0.40        |
+| with     | 0.25        |
+| from     | 0.15        |
+| because  | 0.05        |
+| until    | 0.05        |
+| `.`      | 0.04        |
+| ...      | ...         |
 
-
-
-* Generated text is **non-deterministic**:
-
-  * Same prompt may give **different answers** each time.
-  * Responses are **statistically generated**, not fixed.
-
-**Example**:
-Prompt – *"After the rain, the streets were..."*
-LLM may choose:
-
-* Wet (0.4 probability)
-* Flooded (0.25)
-* Slippery (0.15), etc.
-
-An algorithm selects the next word based on **probabilities**, not certainty.
-
+* All of these again, have associated probabilites, then the next word is going to be selected based on these probabilities.
+* This is why when you ask the AI twice the same prompt, you may not get the same answers
+* Because the sentence is determined with the statistical methods and not with the deterministic methods.
 
 ### Gen AI for Images
 
