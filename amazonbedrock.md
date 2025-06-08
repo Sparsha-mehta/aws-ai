@@ -22,23 +22,36 @@ Generative AI is a **subset of deep learning**, which is itself a **subset of ma
   * And more
 
 **Example**:
-If we train a Gen AI model on a lot of dog images and also on hand-drawn cartoons, then ask it to generate a “cartoon dog,” it will combine its understanding of both to create a new, unique cartoon-style dog.
+If we train a Gen AI model on a lot of dog images and also on hand-drawn cartoons, then ask it to generate a “cartoon dog,” it will combine the two together and create a dog that looks like a cartoon. That is the power of Generative AI
 
-* This is the **power of Gen AI**: it **combines its knowledge in creative, unique ways**.
+* This is the **power of Gen AI**: it **combines its knowledge into new, and unique ways**.
 
+![GenAI Model Image](image-4.png)
+
+* We are going to start with lots of unlabelled data (we will look later in the course, what it means by unlabelled data).
+* We are going to train Foundational Model.
+* Foundational Model (FM) are very broad, they are very big and very wide.
+* FM can easily adapt to different kind of general tasks.
+* A good foundational model can do:
+  * Text Generation
+  * Text Summarization
+  * Information Extraction
+  * Image Generation
+  * Can become a **Chatbot**
+  * Question Answering
+* In general, we feed a lot of data into a foundational model, which has a option to do a lot of different tasks.
+
+Now let's talk about Foundational Models
 
 ### Foundation Models
-
-* We start with a large amount of **unlabeled data** to train what's called a **foundation model**.
-* Foundation models are:
-
-  * Broad and capable of **multiple general tasks**
-  * Able to **generate text**, **summarize**, **extract info**, **generate images**, **act as a chatbot**, etc.
+* In order to generate data, as we said, we need to have Foundational Model.
+* FM are trained on a wide variety of inputs.
+* Now to train foundational models:
 
 **Training foundation models:**
 
-* Requires **millions of dollars**, massive computing resources, and a lot of data.
-* Typically built by **large companies** like:
+* It requires **millions of dollars**, massive computing resources, and a lot of data.
+* It is typically built by **large companies** like:
 
   * **OpenAI** – (e.g., GPT-4o)
   * **Meta**
@@ -56,20 +69,21 @@ If we train a Gen AI model on a lot of dog images and also on hand-drawn cartoon
 
   * Example: OpenAI’s GPT models, Anthropic models
 
+We will also see how to access these models on AWS as well.
+
 ### Large Language Models (LLMs)
 
-* LLMs are a **type of AI** that rely on foundation models and are designed to **generate human-like text**.
+* LLMs are a **type of AI** that rely on foundation models and are designed to **generate coherent human-like text**.
 * Example: **ChatGPT** using **GPT-4**
-
-**How it works:**
-
-1. LLMs are trained on large text datasets: books, websites, articles, etc.
-2. They can perform:
-
-   * Translation
-   * Summarization
-   * Q\&A
-   * Content creation
+* These LLMs are usually very Big Models:
+  * They are trained on large corpus of text data
+  * They are computionally heavy and use **Billions of parameters**
+  * They are trained on Books, articles, websites, other textual data
+* They can perform wide range of language related tasks, which involves:
+  * Translation, Summarization
+  * Question Answering
+  * Content Creation
+* How does it work when we interact with the LLM
 
 **Interaction:**
 
