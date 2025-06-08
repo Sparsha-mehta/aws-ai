@@ -27,4 +27,5 @@ Here are the links to notes which were similar in preparation for AWS Cloud Comp
 
 # [Amazon Bedrock and Generative AI (GenAI)](https://github.com/Sparsha-mehta/aws-ai/blob/main/amazonbedrock.md)
 1. [What is Generative AI?](https://github.com/Sparsha-mehta/aws-ai/blob/main/amazonbedrock.md#section-1--what-is-genai)
-2. Amazon Bedrock - Overview
+2. [Amazon Bedrock - Overview]()
+3. [Amazon Bedrock - Hands On](https://github.com/Sparsha-mehta/aws-ai/blob/main/Bedrock%20Hands%20On.pdf)
