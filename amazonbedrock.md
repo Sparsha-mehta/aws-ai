@@ -191,3 +191,40 @@ Used by models like **Stable Diffusion**
 * **LLMs** generate human-like text and are based on probability, not fixed rules.
 * **Non-deterministic output** ensures variability in responses.
 * **Diffusion models** generate images by reversing a noise process.
+
+
+## Section 2 : Amazon Bedrock - Overview
+
+## Amazon Bedrock - Hands On
+
+## Section 3 : Foundational Model
+
+## Foundational Model - Hands On
+
+## Section 4 : Fine-Tuning a Model
+
+## Section 5 : FM Evaluation
+
+## FM Evaluation - Hands On
+
+## Section 6 : RAG & Knowledge Base
+
+## RAG & Knowledege Base - Hands On
+
+## Section 7 : More GenAI Concepts
+
+## Section 8 : GuardRails
+
+## GuardRails - Hands On
+
+## Section 9 : Agents
+
+## Section 10 : CloudWatch Integration
+
+## CloudWatch Integration - Hands On
+
+## Section 11 : Pricing
+
+## Section 12 : AI Stylist
+
+## Quiz
