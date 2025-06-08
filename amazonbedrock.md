@@ -87,9 +87,12 @@ We will also see how to access these models on AWS as well.
 
 **Interaction:**
 
-* You **send a prompt**, like: *“What is AWS?”*
-* The LLM uses internal knowledge to **generate a relevant response**.
+* We interact with the LLM by giving a prompt, for example : *"What is AWS"*
+> Note that, we will have dedicated section to understand about how to create prompt
+* Then the model is going to leverage all the existing content that it has learned from to generate new content.
+* The generated text is **Non Deterministic**,that means that for every user that is using the same prompt, will get different generated text. (it won't be the same answer every time)
 
+![alt text](image-5.png)
 
 ### Non-Determinism in LLMs
 
