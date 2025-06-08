@@ -90,11 +90,46 @@ We will also see how to access these models on AWS as well.
 * We interact with the LLM by giving a prompt, for example : *"What is AWS"*
 > Note that, we will have dedicated section to understand about how to create prompt
 * Then the model is going to leverage all the existing content that it has learned from to generate new content.
-* The generated text is **Non Deterministic**,that means that for every user that is using the same prompt, will get different generated text. (it won't be the same answer every time)
+* The generated text is **Non Deterministic**,that means that for every user that is using the same prompt, will get different generated text. (it won't be the same answer every time, see the image below)
 
 ![alt text](image-5.png)
 
 ### Non-Determinism in LLMs
+So let's understand why though it is non-deterministic. Let's take an example:
+#### Example sentence:
+
+*“After the rain, the streets were…”*
+
+When an LLM sees this prompt, it calculates a **list of possible next words** along with **probabilities**:
+
+| Word     | Probability |
+| -------- | ----------- |
+| wet      | 0.40        |
+| flooded  | 0.25        |
+| slippery | 0.15        |
+| empty    | 0.05        |
+| muddy    | 0.05        |
+| clean    | 0.04        |
+| blocked  | 0.03        |
+| ...      | ...         |
+
+- These are **statistically likely next words**, based on what the model has seen during training.
+
+- Then, an **algorithm picks** one of the words — maybe “flooded”.
+
+So the model outputs:
+
+> *“After the rain, the streets were flooded.”*
+
+This selection is based on **random sampling with probabilities**, not fixed logic.
+
+
+
+
+
+
+
+
 
 * Generated text is **non-deterministic**:
 
