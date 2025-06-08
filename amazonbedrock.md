@@ -40,14 +40,14 @@ If we train a Gen AI model on a lot of dog images and also on hand-drawn cartoon
   * Can become a **Chatbot**
   * Question Answering
 * In general, we feed a lot of data into a foundational model, which has a option to do a lot of different tasks.
-
+![alt text](image-14.png)
 Now let's talk about Foundational Models
 
 ### Foundation Models
 * In order to generate data, as we said, we need to have Foundational Model.
 * FM are trained on a wide variety of inputs.
 * Now to train foundational models:
-
+![alt text](image-13.png)
 **Training foundation models:**
 
 * It requires **millions of dollars**, massive computing resources, and a lot of data.
@@ -195,22 +195,50 @@ Gen AI is not limited to text. It can also **generate images** based on prompts 
 - The model is capable of **understanding the contents of the image** and generating relevant, human-like answers.
 
 
-### Diffusion Models for Image Generation
+### Diffusion Models (Behind the Scenes)
 
-Used by models like **Stable Diffusion**
+One popular technique behind image generation is called a **diffusion model**. A well-known example is **Stable Diffusion**, which is based on this method.
 
-**How it works:**
+Let’s break this down into two key processes:
 
-1. **Forward Diffusion (Training):**
+---
 
-   * Start with an image (e.g., a cat)
-   * Add noise step-by-step until it becomes pure noise
+#### **1. Forward Diffusion (Training Phase)**
 
-2. **Reverse Diffusion (Generation):**
+- We start with a **clear image**, like a picture of a cat.
 
-   * Start with random noise
-   * De-noise it step-by-step using the trained model
-   * Final output: A generated image, e.g., *“cat with a computer”*
+- Then, we **gradually add noise** to the image, step by step:
+  
+  - Slight noise → more noise → until the image becomes **pure noise**.
+
+![alt text](image-11.png)
+
+- Eventually, the image becomes **completely unrecognizable**.
+
+- This teaches the model **how images degrade into noise**.
+
+This is called the **forward diffusion process**.
+
+This process is done for a lot of pictures. Once the algorithm is trained to take images and create noise out of it,  then we do the opposite that is  **Reverse Diffusion**
+
+#### **2. Reverse Diffusion (Image Generation Phase)**
+
+- Now we want to **generate a new image** from scratch.
+
+- The model starts with **random noise** and a **text prompt** like:
+  
+  > *“A cat with a computer”*
+
+- The model then works **in reverse**:
+  
+  - It **removes the noise step-by-step**, each time refining the image.
+  
+  - Over multiple steps, the image **gradually becomes clear**.
+  
+  - Final output: A unique image of **a cat with a computer**.
+
+![alt text](image-12.png)
+> This image is **new** — not taken from training data — but created using the knowledge learned from how **real images look and how noise distorts them**.
 
 
 ### Summary of Key Concepts
