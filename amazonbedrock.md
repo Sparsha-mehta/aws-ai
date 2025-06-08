@@ -157,7 +157,7 @@ Gen AI is not limited to text. It can also **generate images** based on prompts 
 #### Types of Image-Based Gen AI Tasks
 
 ##### 1. **Text-to-Image Generation**
-
+![alt text](image-8.png)
 - You give a prompt like:
   
   > *“Generate a blue sky with white clouds and the word ‘Hello’ written in the sky.”*
@@ -167,7 +167,7 @@ Gen AI is not limited to text. It can also **generate images** based on prompts 
 - The image is generated **from scratch**, not copied from a dataset.
 
 ##### 2. **Image-to-Image Translation**
-
+![alt text](image-9.png)
 - You provide an **input image** and a **style transformation instruction**.
 
 - Example:
@@ -179,7 +179,7 @@ Gen AI is not limited to text. It can also **generate images** based on prompts 
 - Output: A version of the same image that now looks like it was drawn in **manga/anime style**.
 
 ##### 3. **Image-to-Text (Visual Question Answering)**
-
+![alt text](image-10.png)
 - You give a picture and ask a question about it.
 
 - Example:
