@@ -122,7 +122,7 @@ So the model outputs:
 > *“After the rain, the streets were flooded.”*
 
 This selection is based on **random sampling with probabilities**, not fixed logic.
-
+![alt text](image-6.png)
 
 The process **repeats for every next word**.
 
@@ -145,25 +145,54 @@ The next word could be:
 * All of these again, have associated probabilites, then the next word is going to be selected based on these probabilities.
 * This is why when you ask the AI twice the same prompt, you may not get the same answers
 * Because the sentence is determined with the statistical methods and not with the deterministic methods.
+![alt text](image-7.png)
 
-### Gen AI for Images
+### Generative AI for Images
 
-#### 1. **Text-to-Image Generation**
+Let’s now understand how **Generative AI works with images**.
 
-* Input: *"Generate a blue sky with white clouds and 'Hello' written in the sky"*
-* Output: An image generated matching the prompt.
+Gen AI is not limited to text. It can also **generate images** based on prompts or existing images, and it can even **understand images** to generate text descriptions.
 
-#### 2. **Image-to-Image Transformation**
 
-* Input image: Someone playing piano
-* Prompt: *“Transform this image to Japanese anime style”*
-* Output: Stylized image in manga style
+#### Types of Image-Based Gen AI Tasks
 
-#### 3. **Image-to-Text**
+##### 1. **Text-to-Image Generation**
 
-* Input: Picture with an apple and an orange
-* Prompt: *“How many apples do you see?”*
-* Output: *“One apple and the other fruit is an orange.”*
+- You give a prompt like:
+  
+  > *“Generate a blue sky with white clouds and the word ‘Hello’ written in the sky.”*
+
+- The Gen AI model uses that input to **create a new image** that visually matches the description.
+
+- The image is generated **from scratch**, not copied from a dataset.
+
+##### 2. **Image-to-Image Translation**
+
+- You provide an **input image** and a **style transformation instruction**.
+
+- Example:
+  
+  - Input: A photo of someone playing the piano
+  
+  - Prompt: *“Transform this into Japanese anime style.”*
+
+- Output: A version of the same image that now looks like it was drawn in **manga/anime style**.
+
+##### 3. **Image-to-Text (Visual Question Answering)**
+
+- You give a picture and ask a question about it.
+
+- Example:
+  
+  - Image: One apple and one orange
+  
+  - Prompt: *“How many apples do you see in the picture?”*
+
+- Output:
+  
+  > *“The picture shows one apple and the other fruit is an orange.”*
+
+- The model is capable of **understanding the contents of the image** and generating relevant, human-like answers.
 
 
 ### Diffusion Models for Image Generation
