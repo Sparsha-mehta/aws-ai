@@ -17,11 +17,11 @@
 # Introduction to AWS and Cloud Computing
 
 Here are the links to notes which were similar in preparation for AWS Cloud Computing Practioner Exam:
-1. [Traditional IT Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/traditionalc.html)
-2. [What is Cloud Computing](https://pratham-mehta.github.io/aws/content/cloudcomp/cc.html)
-3. [Types of Cloud Computing](https://github.com/Sparsha-mehta/aws-ai/blob/main/typesofCC.md)
-4. [AWS Cloud Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/awscc.html)
-5. [Shared Responsibility Model & AWS Acceptable Policy](https://pratham-mehta.github.io/aws/content/cloudcomp/ssresponsibilitymodel.html)
+1. [Traditional IT Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/traditionalc.html) <br>
+2. [What is Cloud Computing](https://pratham-mehta.github.io/aws/content/cloudcomp/cc.html) <br>
+3. [Types of Cloud Computing](https://github.com/Sparsha-mehta/aws-ai/blob/main/typesofCC.md) <br>
+4. [AWS Cloud Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/awscc.html) <br>
+5. [Shared Responsibility Model & AWS Acceptable Policy](https://pratham-mehta.github.io/aws/content/cloudcomp/ssresponsibilitymodel.html) <br>
 
 ---
 
