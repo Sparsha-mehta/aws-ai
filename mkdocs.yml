@@ -12,7 +12,7 @@ theme:
 nav:
   - Home: index.md
   - Amazon Bedrock: amazonbedrock.md
-  - Types of CC: typeofCC.md
+  - Types of CC: typesofCC.md
 
 markdown_extensions:
   - admonition
