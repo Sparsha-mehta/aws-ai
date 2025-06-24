@@ -1,3 +1,3 @@
-# Prompt Engineering
+# Managed AI Services
 
 Coming soon — stay tuned!
