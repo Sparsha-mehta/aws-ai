@@ -1,0 +1,27 @@
+[book]
+title = "AWS AI Practitioner Study Guide"
+authors = ["Pratham Mehta"]
+description = "A complete and motivating study guide for the AWS Certified AI Practitioner exam"
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+favicon = "src/assets/aws-icon.png"
+logo = "src/assets/aws-logo.png"
+git-repository-url = "https://github.com/YOUR_ORG/YOUR_REPO"
+git-repository-icon = "fa-github"
+
+[output.html.print]
+enable = true
+
+[output.html.fold]
+enable = true
+level = 1
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
