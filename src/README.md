@@ -1,4 +1,48 @@
 # AWS AI Practioner Exam Prep
+# Welcome to the AWS Certified AI Practitioner Study Guide 🧠☁️
+
+This interactive study guide is designed to help you **master the concepts and services required for the AWS Certified AI Practitioner certification** — with clear explanations, practical examples, and a structured flow.
+
+---
+
+## 🚀 What You’ll Learn
+
+- 📘 **AI/ML Fundamentals**  
+  Understand the difference between AI, ML, and DL, and how they apply to real-world use cases.
+
+- ☁️ **AWS AI/ML Services**  
+  Dive deep into services like Amazon Bedrock, Amazon Q, SageMaker, and more.
+
+- 🔐 **Security & Responsible AI**  
+  Learn about data privacy, ethical considerations, and AWS shared responsibility.
+
+- 💼 **Real-World Applications**  
+  See how AI/ML is transforming industries like healthcare, finance, and retail.
+
+- 📝 **Practice Questions & Exam Prep**  
+  Reinforce your knowledge with practice questions and a final exam checklist.
+
+---
+
+## 🧭 How to Use This Guide
+
+Use the left-hand sidebar to navigate through the topics.  
+Each section builds on the previous one, so we recommend studying in order — but feel free to jump around if you're reviewing specific areas.
+
+> ✅ Pro Tip: Bookmark this page and revisit often while preparing.
+
+---
+
+## 🧑‍💻 Maintainer
+
+**Pratham Mehta**  
+Contributor to open-source AI projects, AWS practitioner, and lifelong learner.
+
+---
+
+Let’s begin your AWS AI learning journey → 📚  
+Navigate to the next chapter from the sidebar!
+
 
 ## Index of Contents
 1. Introduction to AWS and Cloud Computing
