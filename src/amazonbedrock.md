@@ -8,6 +8,8 @@ Now that we are about to dive into **Amazon Bedrock**, which is a service for Ge
 
 Generative AI is a **subset of deep learning**, which is itself a **subset of machine learning**, and in turn, a subset of **artificial intelligence (AI)**.
 
+![alt text](image-16.png)
+
 
 ### What is Generative AI?
 
