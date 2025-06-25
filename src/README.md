@@ -61,15 +61,15 @@ Navigate to the next chapter from the sidebar!
 # Introduction to AWS and Cloud Computing
 
 Here are the links to notes which were similar in preparation for AWS Cloud Computing Practioner Exam:
-1. [Traditional IT Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/traditionalc.html)
-2. [What is Cloud Computing](https://pratham-mehta.github.io/aws/content/cloudcomp/cc.html)
+1. [Traditional IT Overview](https://pratham-mehta.github.io/ccp/content/cloudcomp/traditionalc.html)
+2. [What is Cloud Computing](https://pratham-mehta.github.io/ccp/content/cloudcomp/cc.html)
 3. [Types of Cloud Computing](https://github.com/Sparsha-mehta/aws-ai/blob/main/typesofCC.md)
-4. [AWS Cloud Overview](https://pratham-mehta.github.io/aws/content/cloudcomp/awscc.html)
-5. [Shared Responsibility Model & AWS Acceptable Policy](https://pratham-mehta.github.io/aws/content/cloudcomp/ssresponsibilitymodel.html)
+4. [AWS Cloud Overview](https://pratham-mehta.github.io/ccp/content/cloudcomp/awscc.html)
+5. [Shared Responsibility Model & AWS Acceptable Policy](https://pratham-mehta.github.io/ccp/content/cloudcomp/ssresponsibilitymodel.html)
 
 ---
 
 # [Amazon Bedrock and Generative AI (GenAI)](https://github.com/Sparsha-mehta/aws-ai/blob/main/amazonbedrock.md)
 1. [What is Generative AI?](https://github.com/Sparsha-mehta/aws-ai/blob/main/amazonbedrock.md#section-1--what-is-genai)
-2. [Amazon Bedrock - Overview]()
-3. [Amazon Bedrock - Hands On](https://github.com/Sparsha-mehta/aws-ai/blob/main/Bedrock%20Hands%20On.pdf)
+2. [Amazon Bedrock - Overview](https://sparsha-mehta.github.io/aws-ai/amazonbedrock.html#section-2--amazon-bedrock---overview)
+3. [Amazon Bedrock - Hands On](Bedrock Hands On.pdf)

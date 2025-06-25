@@ -2,6 +2,7 @@
 
 - [🏠 Home](README.md)
 - [AWS Introduction to Cloud](refernce.md)
+- [Types of Cloud Computing](typesofCC.md)
 - [AWS AI (AWS Bedrock)](amazonbedrock.md)
 - [AWS AI (Prompt Engineering)](prompt-engineering.md)
 - [AWS AI (Amazon Q)](amazon-q.md)
