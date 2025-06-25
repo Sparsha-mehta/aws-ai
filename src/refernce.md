@@ -1,4 +1,4 @@
-# Index of Contents
+## Index of Contents
 1. Introduction to AWS and Cloud Computing
 2. Amazon Bedrock and Generative AI
 3. Prompt Engineering
