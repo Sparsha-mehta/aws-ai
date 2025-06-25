@@ -1,1 +1,41 @@
+# macOS files
+.DS_Store
+
+# Python virtual environments
 venv/
+.env/
+.venv/
+
+# mdBook build directory
+book/
+deploy-tmp/
+
+# Node modules (if ever used)
+node_modules/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# VSCode settings
+.vscode/
+*.code-workspace
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Coverage & test reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Ignore lock and package files (if used with JS or Rust tooling)
+package-lock.json
+yarn.lock
+Cargo.lock

@@ -1,30 +1,39 @@
 #!/bin/bash
 
-set -e  # Exit immediately if a command fails
+set -e  # Exit if any command fails
 
-# Step 1: Build the mdBook site
+WORKING_BRANCH="aws-ai-mdbook"
+DEPLOY_BRANCH="mdbook-deploy"
+
+echo "📦 Building the mdBook site..."
 mdbook build
 
-# Step 2: Create a temporary directory to store the built book
+echo "🗂️  Preparing temporary deployment folder..."
+rm -rf deploy-tmp
 mkdir -p deploy-tmp
 cp -r book/* deploy-tmp
 
-# Step 3: Create or reset the deployment branch
-git checkout --orphan mdbook-deploy
+echo "🔀 Switching to deployment branch: $DEPLOY_BRANCH"
+if git show-ref --verify --quiet refs/heads/$DEPLOY_BRANCH; then
+    git checkout $DEPLOY_BRANCH
+else
+    git checkout --orphan $DEPLOY_BRANCH
+fi
 
-# Step 4: Remove all tracked files (from this orphan branch)
-git rm -rf . > /dev/null 2>&1
+echo "🧹 Cleaning old files..."
+git rm -rf . > /dev/null 2>&1 || true
 
-# Step 5: Copy the book contents into the root of this branch
+echo "📂 Copying built files to root of $DEPLOY_BRANCH..."
 cp -r deploy-tmp/* .
 rm -rf deploy-tmp
+touch .nojekyll
 
-# Step 6: Commit and push to the mdbook-deploy branch
+echo "✅ Committing and pushing to $DEPLOY_BRANCH..."
 git add .
-git commit -m "Deploy mdBook site to mdbook-deploy branch"
-git push origin mdbook-deploy --force
+git commit -m "Deploy mdBook site with .nojekyll to $DEPLOY_BRANCH" || echo "Nothing to commit"
+git push origin $DEPLOY_BRANCH --force
 
-# Step 7: Return to your working branch (update this if your branch is named differently)
-git checkout aws-ai-mdbook
+echo "🔁 Switching back to your working branch: $WORKING_BRANCH"
+git checkout $WORKING_BRANCH
 
-echo "✅ Deployment complete. Ask Sparsha to enable GitHub Pages from the 'mdbook-deploy' branch."
+echo "🚀 Deployment complete! Ask Sparsha to enable GitHub Pages from the '$DEPLOY_BRANCH' branch."
