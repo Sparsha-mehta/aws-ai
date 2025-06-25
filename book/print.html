@@ -1,0 +1,1003 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>AWS AI Practitioner Study Guide</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="aws-ai-practioner-exam-prep"><a class="header" href="#aws-ai-practioner-exam-prep">AWS AI Practioner Exam Prep</a></h1>
+<h1 id="welcome-to-the-aws-certified-ai-practitioner-study-guide-"><a class="header" href="#welcome-to-the-aws-certified-ai-practitioner-study-guide-">Welcome to the AWS Certified AI Practitioner Study Guide 🧠☁️</a></h1>
+<p>This interactive study guide is designed to help you <strong>master the concepts and services required for the AWS Certified AI Practitioner certification</strong> — with clear explanations, practical examples, and a structured flow.</p>
+<hr />
+<h2 id="-what-youll-learn"><a class="header" href="#-what-youll-learn">🚀 What You’ll Learn</a></h2>
+<ul>
+<li>
+<p>📘 <strong>AI/ML Fundamentals</strong><br />
+Understand the difference between AI, ML, and DL, and how they apply to real-world use cases.</p>
+</li>
+<li>
+<p>☁️ <strong>AWS AI/ML Services</strong><br />
+Dive deep into services like Amazon Bedrock, Amazon Q, SageMaker, and more.</p>
+</li>
+<li>
+<p>🔐 <strong>Security &amp; Responsible AI</strong><br />
+Learn about data privacy, ethical considerations, and AWS shared responsibility.</p>
+</li>
+<li>
+<p>💼 <strong>Real-World Applications</strong><br />
+See how AI/ML is transforming industries like healthcare, finance, and retail.</p>
+</li>
+<li>
+<p>📝 <strong>Practice Questions &amp; Exam Prep</strong><br />
+Reinforce your knowledge with practice questions and a final exam checklist.</p>
+</li>
+</ul>
+<hr />
+<h2 id="-how-to-use-this-guide"><a class="header" href="#-how-to-use-this-guide">🧭 How to Use This Guide</a></h2>
+<p>Use the left-hand sidebar to navigate through the topics.<br />
+Each section builds on the previous one, so we recommend studying in order — but feel free to jump around if you're reviewing specific areas.</p>
+<blockquote>
+<p>✅ Pro Tip: Bookmark this page and revisit often while preparing.</p>
+</blockquote>
+<hr />
+<h2 id="-maintainer"><a class="header" href="#-maintainer">🧑‍💻 Maintainer</a></h2>
+<p><strong>Pratham Mehta</strong><br />
+Contributor to open-source AI projects, AWS practitioner, and lifelong learner.</p>
+<hr />
+<p>Let’s begin your AWS AI learning journey → 📚<br />
+Navigate to the next chapter from the sidebar!</p>
+<h2 id="index-of-contents"><a class="header" href="#index-of-contents">Index of Contents</a></h2>
+<ol>
+<li>Introduction to AWS and Cloud Computing</li>
+<li>Amazon Bedrock and Generative AI</li>
+<li>Prompt Engineering</li>
+<li>Amazon Q - Deep Dive</li>
+<li>Artificial Intelligence and Machine Learning</li>
+<li>AWS Managed AI Services</li>
+<li>Amazon Sagemaker - Deep Dive</li>
+<li>AI Challenges and Responsibilities</li>
+<li>AWS Security and More</li>
+<li>Tips for the Exam</li>
+</ol>
+<hr />
+<h1 id="introduction-to-aws-and-cloud-computing"><a class="header" href="#introduction-to-aws-and-cloud-computing">Introduction to AWS and Cloud Computing</a></h1>
+<p>Here are the links to notes which were similar in preparation for AWS Cloud Computing Practioner Exam:</p>
+<ol>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/traditionalc.html">Traditional IT Overview</a></li>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/cc.html">What is Cloud Computing</a></li>
+<li><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/typesofCC.md">Types of Cloud Computing</a></li>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/awscc.html">AWS Cloud Overview</a></li>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/ssresponsibilitymodel.html">Shared Responsibility Model &amp; AWS Acceptable Policy</a></li>
+</ol>
+<hr />
+<h1 id="amazon-bedrock-and-generative-ai-genai"><a class="header" href="#amazon-bedrock-and-generative-ai-genai"><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/amazonbedrock.md">Amazon Bedrock and Generative AI (GenAI)</a></a></h1>
+<ol>
+<li><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/amazonbedrock.md#section-1--what-is-genai">What is Generative AI?</a></li>
+<li><a href="https://sparsha-mehta.github.io/aws-ai/amazonbedrock.html#section-2--amazon-bedrock---overview">Amazon Bedrock - Overview</a></li>
+<li>[Amazon Bedrock - Hands On](Bedrock Hands On.pdf)</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="1-introduction-to-aws-and-cloud-computing"><a class="header" href="#1-introduction-to-aws-and-cloud-computing">1. Introduction to AWS and Cloud Computing</a></h2>
+<p>Here are the links to notes which were similar in preparation for AWS Cloud Computing Practioner Exam:</p>
+<ol>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/traditionalc.html">Traditional IT Overview</a></li>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/cc.html">What is Cloud Computing</a></li>
+<li><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/typesofCC.md">Types of Cloud Computing</a></li>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/awscc.html">AWS Cloud Overview</a></li>
+<li><a href="https://pratham-mehta.github.io/ccp/content/cloudcomp/ssresponsibilitymodel.html">Shared Responsibility Model &amp; AWS Acceptable Policy</a></li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="types-of-cloud-computing"><a class="header" href="#types-of-cloud-computing">Types of Cloud Computing</a></h1>
+<h3 id="1-infrastructure-as-a-service-iaas"><a class="header" href="#1-infrastructure-as-a-service-iaas">1. <strong>Infrastructure as a Service (IaaS)</strong></a></h3>
+<ul>
+<li>
+<p>There are the building blocks for Cloud IT</p>
+</li>
+<li>
+<p>With the IaaS, we are going to provide networking, computers, and data storage space in its raw form</p>
+</li>
+<li>
+<p>Using this building blocks (like Legos), we will get High Level of Flexibility</p>
+</li>
+<li>
+<p>With this, we can easily migrate from Traditional on Premises-IT to Cloud</p>
+</li>
+</ul>
+<h3 id="2-platform-as-a-service-paas"><a class="header" href="#2-platform-as-a-service-paas">2. <strong>Platform as a Service (PaaS)</strong></a></h3>
+<ul>
+<li>
+<p>In this, we are going to remove the need for your organization to manage the underlying infrastructure</p>
+</li>
+<li>
+<p>You can focus on the deployment and management of your applications</p>
+</li>
+</ul>
+<h3 id="3-software-as-a-service-saas"><a class="header" href="#3-software-as-a-service-saas">3. <strong>Software as a Service (SaaS)</strong></a></h3>
+<ul>
+<li>This is a completed product that is going to be run and managed by the Service Provider</li>
+</ul>
+<h2 id="so-if-you-want-to-compare-all-of-these-things"><a class="header" href="#so-if-you-want-to-compare-all-of-these-things">So if you want to compare all of these things:</a></h2>
+<p>Let us take an example → <strong>On Premises</strong>, you are going to manage everything. This will involve your:</p>
+<ol>
+<li>
+<p>Applications</p>
+</li>
+<li>
+<p>Data</p>
+</li>
+<li>
+<p>Runtime</p>
+</li>
+<li>
+<p>Middleware</p>
+</li>
+<li>
+<p>OS (Operating System)</p>
+</li>
+<li>
+<p>Virtualization</p>
+</li>
+<li>
+<p>Servers</p>
+</li>
+<li>
+<p>Storage</p>
+</li>
+<li>
+<p>Networking</p>
+</li>
+</ol>
+<h3 id="with-iaas-infrastructure-as-a-service-we-manage"><a class="header" href="#with-iaas-infrastructure-as-a-service-we-manage">With <strong>IaaS</strong> (Infrastructure as a Service), we manage:</a></h3>
+<ol>
+<li>
+<p>Applications</p>
+</li>
+<li>
+<p>Data</p>
+</li>
+<li>
+<p>Runtime</p>
+</li>
+<li>
+<p>Middleware</p>
+</li>
+<li>
+<p>OS</p>
+</li>
+</ol>
+<p>While AWS manages:<br />
+6. Virtualization<br />
+7. Servers<br />
+8. Storage<br />
+9. Networking</p>
+<p>With the <strong>PaaS</strong> (Platform as a Service), we manage even less, so everything from the runtime to the networking is managed by AWS and the only thing we care about when we use a platform as a service is our application and our data, meaning:<br></p>
+<ol>
+<li>Application (we will manage this)<br></li>
+<li>Data (we will manage this)<br></li>
+<li>Runtime (AWS will handle it)<br></li>
+<li>Middleware (AWS will handle it)<br></li>
+<li>OS (AWS will handle it)<br></li>
+<li>Virtualization (AWS will handle it)<br></li>
+<li>Servers (AWS will handle it)<br></li>
+<li>Storage (AWS will handle it)<br></li>
+<li>Networking (AWS will handle it)<br></li>
+</ol>
+<p>See the image below for better understanding:<br>
+<img src="image.png" alt="alt text" /></p>
+<p>Finally if you are using Software as a service (SaaS), Everything is going to be managed by the AWS
+<img src="image-1.png" alt="alt text" /></p>
+<h2 id="examples-of-cloud-computing-types"><a class="header" href="#examples-of-cloud-computing-types">Examples of Cloud Computing Types</a></h2>
+<p>Well with the <strong>IaaS</strong>, we can use:<br></p>
+<ol>
+<li>EC2 (With AWS)<br></li>
+<li>GCP, Azure, Rackspace, Digital Ocean, Linode<br></li>
+</ol>
+<p>With <strong>PaaS</strong>, also exists on AWS, and example include:<br></p>
+<ol>
+<li>Elastic Beanstalk (on AWS)<br></li>
+<li>Outside of AWS, the examples include:  Heroku, Google App Engine (GCP), Windows Azure (Microsoft)</li>
+</ol>
+<p>For <strong>SaaS</strong>, we will also have this on AWS, that represents many services:<br></p>
+<ol>
+<li>Rekognition for ML (AWS service)<br></li>
+<li>Real world applications like Gmail (Google App), Dropbox, Zoom for Meetings</li>
+</ol>
+<h2 id="pricing-of-the-cloud"><a class="header" href="#pricing-of-the-cloud">Pricing of the Cloud</a></h2>
+<ul>
+<li>AWS has 3 pricing fundamentals. It will follow the pay-as-you-go pricing model</li>
+<li>For Compute: (Since for compute, it is involved in various services)<br>
+<ul>
+<li>We are going to pay for exact compute time<br>
+<img src="image-2.png" alt="alt text" /></li>
+</ul>
+</li>
+<li>For Storage:<br>
+<ul>
+<li>We are going to pay for the exact amount of the data stored in the cloud<br>
+<img src="image-3.png" alt="alt text" /></li>
+</ul>
+</li>
+<li>For Networking:<br>
+<ul>
+<li>We are going to only pay when the data leaves the cloud. <br></li>
+<li>Any data that goes into the cloud is <strong>Free</strong>. (This solves the expensive issue of Traditional IT)</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-bedrock-and-generative-ai"><a class="header" href="#amazon-bedrock-and-generative-ai">Amazon Bedrock and Generative AI</a></h1>
+<p>In this section, we are going to talk about generative AI, and amazon bedrock (which is the main service on AWS that does generative AI). This is actually one of the main topic of the exam and one of the fastest growing AWS service.</p>
+<h2 id="section-1--what-is-genai"><a class="header" href="#section-1--what-is-genai">Section 1 : What is GenAI?</a></h2>
+<h3 id="introduction-to-generative-ai"><a class="header" href="#introduction-to-generative-ai">Introduction to Generative AI</a></h3>
+<p>Now that we are about to dive into <strong>Amazon Bedrock</strong>, which is a service for Generative AI (Gen AI) on AWS, let’s take a step back and understand <strong>what Gen AI actually is</strong>.</p>
+<p>Generative AI is a <strong>subset of deep learning</strong>, which is itself a <strong>subset of machine learning</strong>, and in turn, a subset of <strong>artificial intelligence (AI)</strong>.</p>
+<h3 id="what-is-generative-ai"><a class="header" href="#what-is-generative-ai">What is Generative AI?</a></h3>
+<ul>
+<li>
+<p>Gen AI is used to <strong>generate new data</strong> that resembles the data it was trained on.</p>
+</li>
+<li>
+<p>It can be trained on <strong>various types of data</strong>:</p>
+<ul>
+<li>Text</li>
+<li>Images</li>
+<li>Audio</li>
+<li>Code</li>
+<li>Video</li>
+<li>And more</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong>:
+If we train a Gen AI model on a lot of dog images and also on hand-drawn cartoons, then ask it to generate a “cartoon dog,” it will combine the two together and create a dog that looks like a cartoon. That is the power of Generative AI</p>
+<ul>
+<li>This is the <strong>power of Gen AI</strong>: it <strong>combines its knowledge into new, and unique ways</strong>.</li>
+</ul>
+<p><img src="image-4.png" alt="GenAI Model Image" /></p>
+<ul>
+<li>We are going to start with lots of unlabelled data (we will look later in the course, what it means by unlabelled data).</li>
+<li>We are going to train Foundational Model.</li>
+<li>Foundational Model (FM) are very broad, they are very big and very wide.</li>
+<li>FM can easily adapt to different kind of general tasks.</li>
+<li>A good foundational model can do:
+<ul>
+<li>Text Generation</li>
+<li>Text Summarization</li>
+<li>Information Extraction</li>
+<li>Image Generation</li>
+<li>Can become a <strong>Chatbot</strong></li>
+<li>Question Answering</li>
+</ul>
+</li>
+<li>In general, we feed a lot of data into a foundational model, which has a option to do a lot of different tasks.
+<img src="image-14.png" alt="alt text" />
+Now let's talk about Foundational Models</li>
+</ul>
+<h3 id="foundation-models"><a class="header" href="#foundation-models">Foundation Models</a></h3>
+<ul>
+<li>
+<p>In order to generate data, as we said, we need to have Foundational Model.</p>
+</li>
+<li>
+<p>FM are trained on a wide variety of inputs.</p>
+</li>
+<li>
+<p>Now to train foundational models:
+<img src="image-13.png" alt="alt text" />
+<strong>Training foundation models:</strong></p>
+</li>
+<li>
+<p>It requires <strong>millions of dollars</strong>, massive computing resources, and a lot of data.</p>
+</li>
+<li>
+<p>It is typically built by <strong>large companies</strong> like:</p>
+<ul>
+<li><strong>OpenAI</strong> – (e.g., GPT-4o)</li>
+<li><strong>Meta</strong></li>
+<li><strong>Amazon</strong></li>
+<li><strong>Google</strong></li>
+<li><strong>Anthropic</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="open-source-vs-commercial-models"><a class="header" href="#open-source-vs-commercial-models">Open Source vs Commercial Models</a></h3>
+<ul>
+<li>
+<p>Some foundation models are <strong>open source</strong> (free to use):</p>
+<ul>
+<li>Example: Meta’s open-source efforts, Google’s BERT</li>
+</ul>
+</li>
+<li>
+<p>Others are <strong>commercially licensed</strong>:</p>
+<ul>
+<li>Example: OpenAI’s GPT models, Anthropic models</li>
+</ul>
+</li>
+</ul>
+<p>We will also see how to access these models on AWS as well.</p>
+<h3 id="large-language-models-llms"><a class="header" href="#large-language-models-llms">Large Language Models (LLMs)</a></h3>
+<ul>
+<li>LLMs are a <strong>type of AI</strong> that rely on foundation models and are designed to <strong>generate coherent human-like text</strong>.</li>
+<li>Example: <strong>ChatGPT</strong> using <strong>GPT-4</strong></li>
+<li>These LLMs are usually very Big Models:
+<ul>
+<li>They are trained on large corpus of text data</li>
+<li>They are computionally heavy and use <strong>Billions of parameters</strong></li>
+<li>They are trained on Books, articles, websites, other textual data</li>
+</ul>
+</li>
+<li>They can perform wide range of language related tasks, which involves:
+<ul>
+<li>Translation, Summarization</li>
+<li>Question Answering</li>
+<li>Content Creation</li>
+</ul>
+</li>
+<li>How does it work when we interact with the LLM</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>We interact with the LLM by giving a prompt, for example : <em>"What is AWS"</em></li>
+</ul>
+<blockquote>
+<p>Note that, we will have dedicated section to understand about how to create prompt</p>
+</blockquote>
+<ul>
+<li>Then the model is going to leverage all the existing content that it has learned from to generate new content.</li>
+<li>The generated text is <strong>Non Deterministic</strong>,that means that for every user that is using the same prompt, will get different generated text. (it won't be the same answer every time, see the image below)</li>
+</ul>
+<p><img src="image-5.png" alt="alt text" /></p>
+<h3 id="non-determinism-in-llms"><a class="header" href="#non-determinism-in-llms">Non-Determinism in LLMs</a></h3>
+<p>So let's understand why though it is non-deterministic. Let's take an example:</p>
+<h4 id="example-sentence"><a class="header" href="#example-sentence">Example sentence:</a></h4>
+<p><em>“After the rain, the streets were…”</em></p>
+<p>When an LLM sees this prompt, it calculates a <strong>list of potential next words</strong> along with <strong>probabilities</strong>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Word</th><th>Probability</th></tr></thead><tbody>
+<tr><td>wet</td><td>0.40</td></tr>
+<tr><td>flooded</td><td>0.25</td></tr>
+<tr><td>slippery</td><td>0.15</td></tr>
+<tr><td>empty</td><td>0.05</td></tr>
+<tr><td>muddy</td><td>0.05</td></tr>
+<tr><td>clean</td><td>0.04</td></tr>
+<tr><td>blocked</td><td>0.03</td></tr>
+<tr><td>...</td><td>...</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li>
+<p>These are <strong>statistically likely next words</strong>, based on what the model has seen during training.</p>
+</li>
+<li>
+<p>Then, an <strong>algorithm picks</strong> one of the words — maybe “flooded”.</p>
+</li>
+</ul>
+<p>So the model outputs:</p>
+<blockquote>
+<p><em>“After the rain, the streets were flooded.”</em></p>
+</blockquote>
+<p>This selection is based on <strong>random sampling with probabilities</strong>, not fixed logic.
+<img src="image-6.png" alt="alt text" /></p>
+<p>The process <strong>repeats for every next word</strong>.</p>
+<p>Given:</p>
+<blockquote>
+<p><em>“After the rain, the streets were flooded...”</em></p>
+</blockquote>
+<p>The next word could be:</p>
+<div class="table-wrapper"><table><thead><tr><th>Word</th><th>Probability</th></tr></thead><tbody>
+<tr><td>and</td><td>0.40</td></tr>
+<tr><td>with</td><td>0.25</td></tr>
+<tr><td>from</td><td>0.15</td></tr>
+<tr><td>because</td><td>0.05</td></tr>
+<tr><td>until</td><td>0.05</td></tr>
+<tr><td><code>.</code></td><td>0.04</td></tr>
+<tr><td>...</td><td>...</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li>All of these again, have associated probabilites, then the next word is going to be selected based on these probabilities.</li>
+<li>This is why when you ask the AI twice the same prompt, you may not get the same answers</li>
+<li>Because the sentence is determined with the statistical methods and not with the deterministic methods.
+<img src="image-7.png" alt="alt text" /></li>
+</ul>
+<h3 id="generative-ai-for-images"><a class="header" href="#generative-ai-for-images">Generative AI for Images</a></h3>
+<p>Let’s now understand how <strong>Generative AI works with images</strong>.</p>
+<p>Gen AI is not limited to text. It can also <strong>generate images</strong> based on prompts or existing images, and it can even <strong>understand images</strong> to generate text descriptions.</p>
+<h4 id="types-of-image-based-gen-ai-tasks"><a class="header" href="#types-of-image-based-gen-ai-tasks">Types of Image-Based Gen AI Tasks</a></h4>
+<h5 id="1-text-to-image-generation"><a class="header" href="#1-text-to-image-generation">1. <strong>Text-to-Image Generation</strong></a></h5>
+<p><img src="image-8.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>You give a prompt like:</p>
+<blockquote>
+<p><em>“Generate a blue sky with white clouds and the word ‘Hello’ written in the sky.”</em></p>
+</blockquote>
+</li>
+<li>
+<p>The Gen AI model uses that input to <strong>create a new image</strong> that visually matches the description.</p>
+</li>
+<li>
+<p>The image is generated <strong>from scratch</strong>, not copied from a dataset.</p>
+</li>
+</ul>
+<h5 id="2-image-to-image-translation"><a class="header" href="#2-image-to-image-translation">2. <strong>Image-to-Image Translation</strong></a></h5>
+<p><img src="image-9.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>You provide an <strong>input image</strong> and a <strong>style transformation instruction</strong>.</p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>Input: A photo of someone playing the piano</p>
+</li>
+<li>
+<p>Prompt: <em>“Transform this into Japanese anime style.”</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Output: A version of the same image that now looks like it was drawn in <strong>manga/anime style</strong>.</p>
+</li>
+</ul>
+<h5 id="3-image-to-text-visual-question-answering"><a class="header" href="#3-image-to-text-visual-question-answering">3. <strong>Image-to-Text (Visual Question Answering)</strong></a></h5>
+<p><img src="image-10.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>You give a picture and ask a question about it.</p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>Image: One apple and one orange</p>
+</li>
+<li>
+<p>Prompt: <em>“How many apples do you see in the picture?”</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Output:</p>
+<blockquote>
+<p><em>“The picture shows one apple and the other fruit is an orange.”</em></p>
+</blockquote>
+</li>
+<li>
+<p>The model is capable of <strong>understanding the contents of the image</strong> and generating relevant, human-like answers.</p>
+</li>
+</ul>
+<h3 id="diffusion-models-behind-the-scenes"><a class="header" href="#diffusion-models-behind-the-scenes">Diffusion Models (Behind the Scenes)</a></h3>
+<p>One popular technique behind image generation is called a <strong>diffusion model</strong>. A well-known example is <strong>Stable Diffusion</strong>, which is based on this method.</p>
+<p>Let’s break this down into two key processes:</p>
+<h4 id="1-forward-diffusion-training-phase"><a class="header" href="#1-forward-diffusion-training-phase"><strong>1. Forward Diffusion (Training Phase)</strong></a></h4>
+<ul>
+<li>
+<p>We start with a <strong>clear image</strong>, like a picture of a cat.</p>
+</li>
+<li>
+<p>Then, we <strong>gradually add noise</strong> to the image, step by step:</p>
+<ul>
+<li>Slight noise → more noise → until the image becomes <strong>pure noise</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-11.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>Eventually, the image becomes <strong>completely unrecognizable</strong>.</p>
+</li>
+<li>
+<p>This teaches the model <strong>how images degrade into noise</strong>.</p>
+</li>
+</ul>
+<p>This is called the <strong>forward diffusion process</strong>.</p>
+<p>This process is done for a lot of pictures. Once the algorithm is trained to take images and create noise out of it,  then we do the opposite that is  <strong>Reverse Diffusion</strong></p>
+<h4 id="2-reverse-diffusion-image-generation-phase"><a class="header" href="#2-reverse-diffusion-image-generation-phase"><strong>2. Reverse Diffusion (Image Generation Phase)</strong></a></h4>
+<ul>
+<li>
+<p>Now we want to <strong>generate a new image</strong> from scratch.</p>
+</li>
+<li>
+<p>The model starts with <strong>random noise</strong> and a <strong>text prompt</strong> like:</p>
+<blockquote>
+<p><em>“A cat with a computer”</em></p>
+</blockquote>
+</li>
+<li>
+<p>The model then works <strong>in reverse</strong>:</p>
+<ul>
+<li>
+<p>It <strong>removes the noise step-by-step</strong>, each time refining the image.</p>
+</li>
+<li>
+<p>Over multiple steps, the image <strong>gradually becomes clear</strong>.</p>
+</li>
+<li>
+<p>Final output: A unique image of <strong>a cat with a computer</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-12.png" alt="alt text" /></p>
+<blockquote>
+<p>This image is <strong>new</strong> — not taken from training data — but created using the knowledge learned from how <strong>real images look and how noise distorts them</strong>.</p>
+</blockquote>
+<h3 id="summary-of-key-concepts"><a class="header" href="#summary-of-key-concepts">Summary of Key Concepts</a></h3>
+<ul>
+<li><strong>Gen AI</strong> creates new content (text, images, audio) from training data.</li>
+<li><strong>Foundation models</strong> are trained on vast, diverse data to support multiple tasks.</li>
+<li><strong>LLMs</strong> generate human-like text and are based on probability, not fixed rules.</li>
+<li><strong>Non-deterministic output</strong> ensures variability in responses.</li>
+<li><strong>Diffusion models</strong> generate images by reversing a noise process.</li>
+</ul>
+<h2 id="section-2--amazon-bedrock---overview"><a class="header" href="#section-2--amazon-bedrock---overview">Section 2 : Amazon Bedrock - Overview</a></h2>
+<h3 id="introduction-to-amazon-bedrock"><a class="header" href="#introduction-to-amazon-bedrock">Introduction to Amazon Bedrock</a></h3>
+<p>Now that we've learned about Generative AI and foundation models, it's time to talk about <strong>Amazon Bedrock</strong>, the <strong>main service on AWS used to build generative AI applications</strong>.</p>
+<p>Amazon Bedrock is a <strong>fully managed service</strong>, which means you don’t have to worry about managing the underlying infrastructure. It provides a simple way to access and interact with multiple foundation models through a unified interface.</p>
+<h3 id="key-features-of-amazon-bedrock"><a class="header" href="#key-features-of-amazon-bedrock">Key Features of Amazon Bedrock</a></h3>
+<ul>
+<li>
+<p><strong>Fully managed service</strong>:</p>
+<ul>
+<li>No need to manage infrastructure</li>
+<li>AWS handles everything behind the scenes</li>
+</ul>
+</li>
+<li>
+<p><strong>Data privacy</strong>:</p>
+<ul>
+<li>Your data stays <strong>within your AWS account</strong></li>
+<li>It is <strong>not used to retrain</strong> the underlying foundation models</li>
+</ul>
+</li>
+<li>
+<p><strong>Pay-per-use pricing model</strong>:</p>
+<ul>
+<li>You only pay for what you use</li>
+<li>Pricing details will be discussed later</li>
+</ul>
+</li>
+<li>
+<p><strong>Unified API</strong>:</p>
+<ul>
+<li>One standardized method to interact with all foundation models</li>
+<li>Simplifies application development</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiple foundation models available</strong>:</p>
+<ul>
+<li>Easily choose and configure models from different providers</li>
+</ul>
+</li>
+<li>
+<p><strong>Advanced features</strong> included:</p>
+<ul>
+<li><strong>RAG</strong> (Retrieval Augmented Generation)</li>
+<li><strong>LLM Agents</strong></li>
+<li><strong>Security, privacy, governance, and responsible AI</strong> built-in in Amazon Bedrock</li>
+</ul>
+</li>
+</ul>
+<h3 id="what-type-of-foundation-models-are-available-in-bedrock"><a class="header" href="#what-type-of-foundation-models-are-available-in-bedrock">What type of Foundation Models are Available in Bedrock</a></h3>
+<p>Amazon Bedrock offers access to models from various top-tier AI providers:</p>
+<ul>
+<li><strong>AI21 Labs</strong></li>
+<li><strong>Cohere</strong></li>
+<li><strong>Stability.ai</strong></li>
+<li><strong>Amazon</strong></li>
+<li><strong>Anthropic</strong></li>
+<li><strong>Meta</strong></li>
+<li><strong>Mistral AI</strong></li>
+</ul>
+<blockquote>
+<p>📌 More providers and models will continue to be added over time.</p>
+</blockquote>
+<h3 id="how-bedrock-handles-models"><a class="header" href="#how-bedrock-handles-models">How Bedrock Handles Models</a></h3>
+<ul>
+<li>
+<p>When you use a foundation model:</p>
+<ul>
+<li><strong>Bedrock creates a copy</strong> of the model instance for <strong>your exclusive use</strong></li>
+<li>This ensures data isolation and privacy</li>
+</ul>
+</li>
+<li>
+<p>In some cases, you can <strong>fine-tune the model with your own data</strong> to better align it with your specific needs</p>
+</li>
+<li>
+<p>Again, <strong>none of your data is sent back</strong> to the original model providers</p>
+</li>
+</ul>
+<hr />
+<h3 id="bedrock-architecture-overview"><a class="header" href="#bedrock-architecture-overview">Bedrock Architecture Overview</a></h3>
+<p>Let’s visualize how Bedrock works, using a simplified diagram explained during the lecture:</p>
+<h4 id="core-flow"><a class="header" href="#core-flow">Core Flow:</a></h4>
+<p><img src="image-15.png" alt="alt text" /></p>
+<ol>
+<li>
+<p><strong>Users interact with an interactive playground</strong></p>
+<ul>
+<li>
+<p>Users <strong>select the model</strong> to use</p>
+</li>
+<li>
+<p>Input a question like:</p>
+<blockquote>
+<p><em>“What is the most popular dish in Italy?”</em></p>
+</blockquote>
+</li>
+<li>
+<p>Model responds with an answer, for example:</p>
+<blockquote>
+<p><em>“Pizza and pasta”</em></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>We can have <strong>Knowledge Bases / RAG</strong> (Retrieval Augmented Generation)</p>
+<ul>
+<li>This allows fetching <strong>external data</strong> to provide <strong>more accurate and relevant answers</strong> (will be covered in detail in later sections)</li>
+</ul>
+</li>
+<li>
+<p><strong>Model Fine-Tuning</strong></p>
+<ul>
+<li>You can upload and apply your <strong>own data</strong> to personalize the foundation model</li>
+<li>All fine-tuning stays <strong>within your AWS account</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Unified API Access</strong></p>
+<ul>
+<li>All apps communicate with Bedrock using a <strong>single API format</strong></li>
+<li>Bedrock manages model selection and orchestration behind the scenes</li>
+</ul>
+</li>
+</ol>
+<h3 id="summary"><a class="header" href="#summary">Summary</a></h3>
+<ul>
+<li>Amazon Bedrock makes it easy to <strong>build, test, and deploy</strong> Gen AI applications using various foundation models.</li>
+<li>It gives you <strong>data privacy</strong>, <strong>scalability</strong>, <strong>fine-tuning</strong>, and a <strong>unified developer experience</strong>.</li>
+<li>In the next lecture, we’ll explore <strong>hands-on practice</strong> with Bedrock’s <strong>interactive playground</strong>.</li>
+</ul>
+<h2 id="amazon-bedrock---hands-on"><a class="header" href="#amazon-bedrock---hands-on"><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/Bedrock%20Hands%20On.pdf">Amazon Bedrock - Hands On</a></a></h2>
+<h2 id="section-3--foundational-model"><a class="header" href="#section-3--foundational-model">Section 3 : Foundational Model</a></h2>
+<p>This section covers the key considerations and trade-offs involved in selecting a <strong>base foundation model</strong> within Amazon Bedrock. The choice of model depends on several factors including:</p>
+<ul>
+<li>
+<p>performance,</p>
+</li>
+<li>
+<p>token capacity,</p>
+</li>
+<li>
+<p>language support,</p>
+</li>
+<li>
+<p>modality,</p>
+</li>
+<li>
+<p>cost,</p>
+</li>
+<li>
+<p>customization options, and</p>
+</li>
+<li>
+<p>inference speed.</p>
+</li>
+</ul>
+<p>There is no single best option, as each model brings unique strengths and constraints. Therefore, experimentation and alignment with business needs are crucial.</p>
+<h3 id="factors-to-consider-when-selecting-a-model"><a class="header" href="#factors-to-consider-when-selecting-a-model">Factors to Consider When Selecting a Model</a></h3>
+<p>Several key parameters influence the choice of a foundation model:</p>
+<ul>
+<li>
+<p>The required level of <strong>performance</strong> and <strong>capability</strong></p>
+</li>
+<li>
+<p>The <strong>maximum token context window</strong>, which determines how much input data the model can process</p>
+</li>
+<li>
+<p>Whether the model supports <strong>multimodal input and output</strong>, such as text, image, audio, or video</p>
+</li>
+<li>
+<p>The <strong>cost per 1,000 tokens</strong> or per request</p>
+</li>
+<li>
+<p>The ability to perform <strong>fine-tuning</strong> with your own data</p>
+</li>
+<li>
+<p>The <strong>licensing agreements</strong>, which may vary across models</p>
+</li>
+<li>
+<p>The expected <strong>latency</strong> during inference</p>
+</li>
+</ul>
+<p>Some models are optimized for cost-effectiveness while others are designed to deliver high-accuracy outputs. Multimodal capabilities, in particular, are important for applications involving diverse media formats.</p>
+<h3 id="amazon-titan-and-its-role-in-the-aws-ecosystem-v-imp-for-exam"><a class="header" href="#amazon-titan-and-its-role-in-the-aws-ecosystem-v-imp-for-exam">Amazon Titan and Its Role in the AWS Ecosystem (V Imp for Exam)</a></h3>
+<p>Since this course focuses on AWS, special attention is given to <strong>Amazon Titan</strong>, which is Amazon’s High-performing foundation model suite.</p>
+<p>Titan supports <strong>text and image generation</strong>, as well as <strong>multimodal capabilities</strong>.</p>
+<p>The model can be <strong>fine-tuned</strong> with custom datasets using a <strong>unified API</strong> within Amazon Bedrock.</p>
+<p>Smaller versions of Titan may be more <strong>cost-effective</strong> but will likely have <strong>reduced knowledge coverage</strong> compared to larger, more capable models. Deciding which version to use is a balance between <strong>cost and quality</strong>.</p>
+<h3 id="comparing-four-popular-foundation-models"><a class="header" href="#comparing-four-popular-foundation-models">Comparing Four Popular Foundation Models</a></h3>
+<p>The following comparison covers four commonly available models on Amazon Bedrock:</p>
+<div class="table-wrapper"><table><thead><tr><th>Model</th><th>Max Tokens</th><th>Features</th><th>Use Cases</th><th>Pricing (per 1K tokens)</th></tr></thead><tbody>
+<tr><td><strong>Amazon Titan (Text Express)</strong></td><td>8K</td><td>High-performance text model, supports 100+ languages</td><td>Content creation, classification, education</td><td>Input: $0.0008, Output: $0.0016</td></tr>
+<tr><td><strong>Llama 2 (70B-chat)</strong></td><td>4K</td><td>Suited for large-scale tasks and English dialogue</td><td>Text generation, customer service</td><td>Input: $0.0019, Output: $0.0025</td></tr>
+<tr><td><strong>Claude 2.1</strong></td><td>200K</td><td>High-capacity text generation, multilingual</td><td>Analysis, forecasting, document comparison</td><td>Input: $0.008, Output: $0.024</td></tr>
+<tr><td><strong>Stable Diffusion (SDXL 1.0)</strong></td><td>77 Tokens/Prompt</td><td>Image generation only</td><td>Image creation for advertising, media...</td><td>$0.04–$0.08 per image</td></tr>
+</tbody></table>
+</div>
+<h3 id="observations-based-on-the-comparison"><a class="header" href="#observations-based-on-the-comparison">Observations Based on the Comparison</a></h3>
+<ul>
+<li>
+<p><strong>Claude 2.1</strong> offers the <strong>largest context window</strong> (200K tokens), making it suitable for processing large codebases, books, or documents. This is critical in use cases that require deep memory of long inputs.</p>
+</li>
+<li>
+<p><strong>Amazon Titan</strong> is significantly <strong>cheaper</strong> than both Llama 2 and Claude, while still supporting multilingual capabilities.</p>
+</li>
+<li>
+<p><strong>Llama 2</strong> provides strong performance for conversational and English-based tasks but has a smaller context window and slightly higher cost than Titan.</p>
+</li>
+<li>
+<p><strong>Stable Diffusion</strong> is purely for image-related generation and accepts shorter prompts. Its cost is per image rather than per token, and it supports features like object removal, background replacement, and visual modification.</p>
+</li>
+</ul>
+<h3 id="final-thoughts-on-model-selection"><a class="header" href="#final-thoughts-on-model-selection">Final Thoughts on Model Selection</a></h3>
+<p>While all these models are converging toward similar capabilities, the real decision comes down to <strong>testing</strong> each one for your specific needs:</p>
+<ul>
+<li>
+<p><strong>Claude</strong> may be preferred for heavy document analysis and large prompt sizes.</p>
+</li>
+<li>
+<p><strong>Titan</strong> offers a strong balance between performance, cost, and multilingual support.</p>
+</li>
+<li>
+<p><strong>Llama 2</strong> is ideal for scalable dialogue and customer-facing tasks.</p>
+</li>
+<li>
+<p><strong>Stable Diffusion</strong> is the go-to for image and creative generation needs.</p>
+</li>
+</ul>
+<p>Pricing is a key differentiator. <strong>Claude is the most expensive</strong>, while <strong>Amazon Titan offers the lowest cost</strong> per token. Rapid cost accumulation is possible with large-scale inference or continuous image generation, so monitoring usage is essential.</p>
+<h2 id="foundational-model---hands-on"><a class="header" href="#foundational-model---hands-on"><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/Foundation%20Models%20Hands%20On.pdf">Foundational Model - Hands On</a></a></h2>
+<h2 id="section-4--fine-tuning-a-model"><a class="header" href="#section-4--fine-tuning-a-model">Section 4 : Fine-Tuning a Model</a></h2>
+<h2 id="section-5--fm-evaluation"><a class="header" href="#section-5--fm-evaluation">Section 5 : FM Evaluation</a></h2>
+<h2 id="fm-evaluation---hands-on"><a class="header" href="#fm-evaluation---hands-on">FM Evaluation - Hands On</a></h2>
+<h2 id="section-6--rag--knowledge-base"><a class="header" href="#section-6--rag--knowledge-base">Section 6 : RAG &amp; Knowledge Base</a></h2>
+<h2 id="rag--knowledege-base---hands-on"><a class="header" href="#rag--knowledege-base---hands-on">RAG &amp; Knowledege Base - Hands On</a></h2>
+<h2 id="section-7--more-genai-concepts"><a class="header" href="#section-7--more-genai-concepts">Section 7 : More GenAI Concepts</a></h2>
+<h2 id="section-8--guardrails"><a class="header" href="#section-8--guardrails">Section 8 : GuardRails</a></h2>
+<h2 id="guardrails---hands-on"><a class="header" href="#guardrails---hands-on">GuardRails - Hands On</a></h2>
+<h2 id="section-9--agents"><a class="header" href="#section-9--agents">Section 9 : Agents</a></h2>
+<h2 id="section-10--cloudwatch-integration"><a class="header" href="#section-10--cloudwatch-integration">Section 10 : CloudWatch Integration</a></h2>
+<h2 id="cloudwatch-integration---hands-on"><a class="header" href="#cloudwatch-integration---hands-on">CloudWatch Integration - Hands On</a></h2>
+<h2 id="section-11--pricing"><a class="header" href="#section-11--pricing">Section 11 : Pricing</a></h2>
+<h2 id="section-12--ai-stylist"><a class="header" href="#section-12--ai-stylist">Section 12 : AI Stylist</a></h2>
+<h2 id="quiz"><a class="header" href="#quiz">Quiz</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
+<p>Coming soon — stay tuned!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q"><a class="header" href="#amazon-q">Amazon Q</a></h1>
+<p>Coming soon — stay tuned!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ai--ml--dl-concepts"><a class="header" href="#ai--ml--dl-concepts">AI &amp; ML &amp; DL Concepts</a></h1>
+<p>Coming soon — stay tuned!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="managed-ai-services"><a class="header" href="#managed-ai-services">Managed AI Services</a></h1>
+<p>Coming soon — stay tuned!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sagemaker"><a class="header" href="#sagemaker">Sagemaker</a></h1>
+<p>Coming soon — stay tuned!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="challenges-and-responsibilites"><a class="header" href="#challenges-and-responsibilites">Challenges and Responsibilites</a></h1>
+<p>Coming soon — stay tuned!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="security-and-more"><a class="header" href="#security-and-more">Security and More</a></h1>
+<p>Coming soon — stay tuned!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="practice-test"><a class="header" href="#practice-test">Practice Test</a></h1>
+<p>Coming soon — stay tuned!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
