@@ -959,7 +959,57 @@ Now let's talk about Foundational Models</li>
 <li><a href="">Quiz</a></li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="what-is-prompt-engineering"><a class="header" href="#what-is-prompt-engineering">What is Prompt Engineering?</a></h1>
-<p>Coming Soon!!</p>
+<h2 id="introduction-to-prompt-engineering"><a class="header" href="#introduction-to-prompt-engineering">Introduction to Prompt Engineering</a></h2>
+<p>So now let's talk about Prompt Engineering. What is Prompt Engineering exactly? Well, say we have a naive prompt, for example, "summarize what is AWS," and we submit this prompt to our LLM. This prompt is okay - we're going to get an answer from the LLM, but is it the answer we really want?</p>
+<p>Prompting with this type of prompt will give little guidance and leaves a lot to the model's interpretation. So we can do Prompt Engineering, which means we're going to develop, design, and optimize these kinds of prompts to make sure that the foundation model's output will fit our needs.</p>
+<h2 id="the-four-blocks-of-improved-prompting"><a class="header" href="#the-four-blocks-of-improved-prompting"><strong>The Four Blocks of Improved Prompting</strong></a></h2>
+<p>To have an improved prompting technique, we have four blocks:</p>
+<ol>
+<li>
+<p><strong>Instructions</strong> - What is the task for the model to do? We describe how the model should perform the task.</p>
+</li>
+<li>
+<p><strong>Context</strong> - What is external information to guide the model?</p>
+</li>
+<li>
+<p><strong>Input Data</strong> - What is the data for which we want a response?</p>
+</li>
+<li>
+<p><strong>Output Indicator</strong> - What is the type or format of the output that we want?</p>
+</li>
+</ol>
+<p>All these things together are going to give us a much better prompt and a much better answer.</p>
+<h2 id="enhanced-prompt-example"><a class="header" href="#enhanced-prompt-example"><strong>Enhanced Prompt Example</strong></a></h2>
+<p>Here is a concrete example where we are going to improve our naive prompt:
+<img src="image-17.png" alt="alt text" /></p>
+<h3 id="instructions"><a class="header" href="#instructions">Instructions</a></h3>
+<p>Instead of just asking what AWS is, we want to write a concise summary that captures the main points of an article about learning AWS. We need to ensure that the summary is clear and informative, focusing on key services relevant to beginners, including details about general learning resources and career benefits associated with acquiring AWS skills.</p>
+<h3 id="context"><a class="header" href="#context">Context</a></h3>
+<p>I am teaching a beginner's course on AWS, so therefore, the model will respond in a way that can be understood by beginners.</p>
+<h3 id="input-data"><a class="header" href="#input-data">Input Data</a></h3>
+<p>Here is some input data about AWS - this is what I want the foundation model to summarize:</p>
+<p>"Amazon Web Services (AWS) is a leading cloud platform providing a variety of services suitable for different business needs. Learning AWS involves getting familiar with essential services like EC2 for computing, S3 for storage, RDS for databases, Lambda for serverless computing, and Redshift for data warehousing. Beginners can start with free courses and basic tutorials available online. The platform also includes more complex services like Lambda for serverless computing and Redshift for data warehousing, which are suited for advanced users. The article emphasizes the value of understanding AWS for career advancement and the availability of numerous certifications to validate cloud skills."</p>
+<h3 id="output-indicator"><a class="header" href="#output-indicator">Output Indicator</a></h3>
+<p>I want the foundation model to provide a 2-3 sentence summary that will capture the essence of the article.</p>
+<p>This is great because I'm very clear - I have provided very clear instructions, good context, input data, and an output indicator. Therefore, when I use it on my LLM, I will get the expected output, which are 2-3 sentences that summarize what AWS is based on this article from a beginner's context.</p>
+<h2 id="negative-prompting-technique"><a class="header" href="#negative-prompting-technique"><strong>Negative Prompting Technique</strong></a></h2>
+<p>Next, we have the technique called Negative Prompting. This is a technique where we explicitly instruct the model on what not to include or do in its response.</p>
+<h3 id="benefits-of-negative-prompting"><a class="header" href="#benefits-of-negative-prompting">Benefits of Negative Prompting:</a></h3>
+<p>• <strong>Helps to avoid unwanted content</strong> - We specify explicitly what we don't want and therefore reduce the chances of irrelevant or inappropriate content</p>
+<p>• <strong>Maintains focus</strong> - We make sure that the prompt and the model will stay on the topic</p>
+<p>• <strong>Enhanced clarity</strong> - For example, we can say "Don't use complex terminology" or "Don't use detailed data," so we can make the output clearer</p>
+<h2 id="enhanced-prompting-with-negative-prompting"><a class="header" href="#enhanced-prompting-with-negative-prompting"><strong>Enhanced Prompting with Negative Prompting</strong></a></h2>
+<p>Let's look at the enhanced prompting from before, but now we're going to add negative prompting:</p>
+<p><img src="image-18.png" alt="alt text" /></p>
+<h3 id="instructions-enhanced"><a class="header" href="#instructions-enhanced">Instructions (Enhanced)</a></h3>
+<p>The instructions are going to be exactly the same as before, but now I'm going to add: "Avoid discussing detailed technical configurations, specific AWS tutorials, or personal learning experiences."</p>
+<h3 id="context-input-data"><a class="header" href="#context-input-data">Context, Input Data</a></h3>
+<p>The context and input data will stay the same.</p>
+<h3 id="output-indicator-enhanced"><a class="header" href="#output-indicator-enhanced">Output Indicator (Enhanced)</a></h3>
+<p>For the output indicator, I'm going to say: "Provide a 2-3 sentence summary that captures the essence of the article. Do not include technical terms, in-depth data analysis, or speculation."</p>
+<p>As you can see, by adding negative prompting, we are even more clear about what we want and what we don't want in an output from an LLM.</p>
+<h2 id="conclusion"><a class="header" href="#conclusion"><strong>Conclusion</strong></a></h2>
+<p>That's it for this lecture on Prompt Engineering. I suggest that you try a little bit on your own to see what you can and cannot get out of this technique.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q"><a class="header" href="#amazon-q">Amazon Q</a></h1>
 <p>Coming soon — stay tuned!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ai--ml--dl-concepts"><a class="header" href="#ai--ml--dl-concepts">AI &amp; ML &amp; DL Concepts</a></h1>
