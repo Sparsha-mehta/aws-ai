@@ -1011,7 +1011,47 @@ Now let's talk about Foundational Models</li>
 <h2 id="conclusion"><a class="header" href="#conclusion"><strong>Conclusion</strong></a></h2>
 <p>That's it for this lecture on Prompt Engineering. I suggest that you try a little bit on your own to see what you can and cannot get out of this technique.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering---hands-on"><a class="header" href="#prompt-engineering---hands-on">Prompt Engineering - Hands On</a></h1>
-<p>Coming soon</p>
+<p>Okay, so let's practice how to do good prompting. We're going to go into <strong>chats</strong> and select a <strong>model</strong>. We're going to select <strong>Anthropic</strong>, and then we select <strong>Claude 3 Haiku</strong>.</p>
+<p><img src="image-19.png" alt="alt text" /></p>
+<h2 id="naive-prompt-example"><a class="header" href="#naive-prompt-example"><strong>Naive Prompt Example</strong></a></h2>
+<p>Let's start with a basic example. We'll just write a prompt: <code>"write me a travel itinerary."</code></p>
+<p><img src="IMG_9270.jpeg" alt="alt text" /></p>
+<p>This prompt is very naive - it's not very detailed. Here the model just responds with a seven-day trip showing Rome, Florence, and Venice in Italy. This is an answer that is possible for us to deal with, but it's not the one I want because I was not very precise.</p>
+<p><img src="IMG_9271.jpeg" alt="alt text" /></p>
+<h2 id="using-the-prompting-framework"><a class="header" href="#using-the-prompting-framework"><strong>Using the Prompting Framework</strong></a></h2>
+<p>Instead, we want to use the framework we had of giving instructions, giving context, giving input data, and then giving an output format. (as seen in previous lecture)</p>
+<p>Under our code, under prompting, I've created prompting.txt, and we're going to use the first format - the instructions, the context, and the output.</p>
+<p><img src="IMG_9272.jpeg" alt="alt text" /></p>
+<h3 id="enhanced-prompt-structure"><a class="header" href="#enhanced-prompt-structure"><strong>Enhanced Prompt Structure</strong></a></h3>
+<p>(See the example in the picture, below are explanations provided explaining how to do prompt engineering)
+<strong>Instructions:</strong>
+Please create a three-day itinerary for Paris, France. It should include visits to historical landmarks, art museums, and popular local restaurants. You want good balance, you want to have suggestions for breakfast, lunch, and dinner.</p>
+<p><strong>Context:</strong>
+We've never traveled to Paris before and we want to experience both the well-known and hidden gems. Of course, some people who have already been to Paris may want something different, so the <strong>context is very important</strong>.</p>
+<p><strong>Input Data:</strong>
+Right now is just a three-day trip to Paris. But we may want to add articles that we've read in the news, and this would be a good way to enhance the outcome of this prompt.</p>
+<p><strong>Output Indicator:</strong>
+We want the travel itinerary with specific times, locations, descriptions, and dining recommendations.</p>
+<h3 id="results-of-enhanced-prompting"><a class="header" href="#results-of-enhanced-prompting"><strong>Results of Enhanced Prompting</strong></a></h3>
+<p>This is quite a complete prompt. As you can see, now the model is telling us a lot (see the image below) of things about what to do on each specific day. This is quite nice because we are getting the recommendation we want for the exact prompt we cared about. It really shows you the difference of quality between a good and a bad prompt.</p>
+<p><img src="IMG_9273.jpeg" alt="alt text" /></p>
+<h2 id="adding-negative-prompting"><a class="header" href="#adding-negative-prompting"><strong>Adding Negative Prompting</strong></a></h2>
+<p>Now, we also must include, if we want to improve it, negative prompting. Negative prompting is what do we not want to see? (see the example image below)
+<img src="IMG_9274.jpeg" alt="alt text" /></p>
+<h3 id="negative-prompting-example"><a class="header" href="#negative-prompting-example"><strong>Negative Prompting Example:</strong></a></h3>
+<p>Here, for example:
+• Do not include activities that are primarily for children or families
+• Avoid overly touristy restaurants<br />
+• Include anything that requires too much travel, except Versailles</p>
+<p>Let's paste it and run it. Again, you can have a look at whether this output was better than the previous one or not based on the negative prompting.
+<img src="IMG_9275.jpeg" alt="alt text" /></p>
+<h2 id="creative-negative-prompting"><a class="header" href="#creative-negative-prompting"><strong>Creative Negative Prompting</strong></a></h2>
+<p>We can do any kind of creative negative prompting. For example, we can say:
+• Here's the instructions
+• Do not recommend more than three activities per day</p>
+<p>We run it, and again, with the negative prompting, now we're getting fewer activities per day. So it's a bit shorter day and maybe we'll have more time to do stuff in Paris.</p>
+<h2 id="conclusion-1"><a class="header" href="#conclusion-1"><strong>Conclusion</strong></a></h2>
+<p>I cannot tell you if this is a good recommendation or not. I lived in Paris, but AI can be sometimes surprising. Anyway, if you would trust AI to organize your next travel, you know how to do it now and you know how to properly build a prompt for it.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-performance-optimization"><a class="header" href="#prompt-performance-optimization">Prompt Performance Optimization</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-performance-optimization---hands-on"><a class="header" href="#prompt-performance-optimization---hands-on">Prompt Performance Optimization - Hands On</a></h1>
