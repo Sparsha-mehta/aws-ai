@@ -8,9 +8,9 @@ Mastering Prompt Engineering, will help you keep ahead in AI race. I hope you ar
 
 ## Index:
 1. [What is Prompt Engineering?](promptengg.md)
-2. [Prompt Engineering - Hands On]()
-3. [Prompt Performance Optimization]()
-4. [Prompt Performance Optimization - Hands On]()
-5. [Prompt Engineering Techniques]()
-6. [Prompt Templates]()
-7. [Quiz]()
+2. [Prompt Engineering - Hands On](promptengg-handson.md)
+3. [Prompt Performance Optimization](promptperf.md)
+4. [Prompt Performance Optimization - Hands On](promptperf-handson.md)
+5. [Prompt Engineering Techniques](promptenggtech.md)
+6. [Prompt Templates](promptemp.md)
+7. [Quiz](quiz3.md)
