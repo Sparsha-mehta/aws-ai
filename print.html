@@ -406,6 +406,105 @@ Navigate to the next chapter from the sidebar!</p>
 <h2 id="section-11--pricing"><a class="header" href="#section-11--pricing">Section 11 : Pricing</a></h2>
 <h2 id="section-12--ai-stylist"><a class="header" href="#section-12--ai-stylist">Section 12 : AI Stylist</a></h2>
 <h2 id="quiz"><a class="header" href="#quiz">Quiz</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="foundational-model"><a class="header" href="#foundational-model">Foundational Model</a></h1>
+<p>This section covers the key considerations and trade-offs involved in selecting a <strong>base foundation model</strong> within Amazon Bedrock. The choice of model depends on several factors including:</p>
+<ul>
+<li>
+<p>performance,</p>
+</li>
+<li>
+<p>token capacity,</p>
+</li>
+<li>
+<p>language support,</p>
+</li>
+<li>
+<p>modality,</p>
+</li>
+<li>
+<p>cost,</p>
+</li>
+<li>
+<p>customization options, and</p>
+</li>
+<li>
+<p>inference speed.</p>
+</li>
+</ul>
+<p>There is no single best option, as each model brings unique strengths and constraints. Therefore, experimentation and alignment with business needs are crucial.</p>
+<h2 id="factors-to-consider-when-selecting-a-model"><a class="header" href="#factors-to-consider-when-selecting-a-model">Factors to Consider When Selecting a Model</a></h2>
+<p>Several key parameters influence the choice of a foundation model:</p>
+<ul>
+<li>
+<p>The required level of <strong>performance</strong> and <strong>capability</strong></p>
+</li>
+<li>
+<p>The <strong>maximum token context window</strong>, which determines how much input data the model can process</p>
+</li>
+<li>
+<p>Whether the model supports <strong>multimodal input and output</strong>, such as text, image, audio, or video</p>
+</li>
+<li>
+<p>The <strong>cost per 1,000 tokens</strong> or per request</p>
+</li>
+<li>
+<p>The ability to perform <strong>fine-tuning</strong> with your own data</p>
+</li>
+<li>
+<p>The <strong>licensing agreements</strong>, which may vary across models</p>
+</li>
+<li>
+<p>The expected <strong>latency</strong> during inference</p>
+</li>
+</ul>
+<p>Some models are optimized for cost-effectiveness while others are designed to deliver high-accuracy outputs. Multimodal capabilities, in particular, are important for applications involving diverse media formats.</p>
+<h2 id="amazon-titan-and-its-role-in-the-aws-ecosystem-v-imp-for-exam"><a class="header" href="#amazon-titan-and-its-role-in-the-aws-ecosystem-v-imp-for-exam">Amazon Titan and Its Role in the AWS Ecosystem (V Imp for Exam)</a></h2>
+<p>Since this course focuses on AWS, special attention is given to <strong>Amazon Titan</strong>, which is Amazon’s High-performing foundation model suite.</p>
+<p>Titan supports <strong>text and image generation</strong>, as well as <strong>multimodal capabilities</strong>.</p>
+<p>The model can be <strong>fine-tuned</strong> with custom datasets using a <strong>unified API</strong> within Amazon Bedrock.</p>
+<p>Smaller versions of Titan may be more <strong>cost-effective</strong> but will likely have <strong>reduced knowledge coverage</strong> compared to larger, more capable models. Deciding which version to use is a balance between <strong>cost and quality</strong>.</p>
+<h2 id="comparing-four-popular-foundation-models"><a class="header" href="#comparing-four-popular-foundation-models">Comparing Four Popular Foundation Models</a></h2>
+<p>The following comparison covers four commonly available models on Amazon Bedrock:</p>
+<div class="table-wrapper"><table><thead><tr><th>Model</th><th>Max Tokens</th><th>Features</th><th>Use Cases</th><th>Pricing (per 1K tokens)</th></tr></thead><tbody>
+<tr><td><strong>Amazon Titan (Text Express)</strong></td><td>8K</td><td>High-performance text model, supports 100+ languages</td><td>Content creation, classification, education</td><td>Input: $0.0008, Output: $0.0016</td></tr>
+<tr><td><strong>Llama 2 (70B-chat)</strong></td><td>4K</td><td>Suited for large-scale tasks and English dialogue</td><td>Text generation, customer service</td><td>Input: $0.0019, Output: $0.0025</td></tr>
+<tr><td><strong>Claude 2.1</strong></td><td>200K</td><td>High-capacity text generation, multilingual</td><td>Analysis, forecasting, document comparison</td><td>Input: $0.008, Output: $0.024</td></tr>
+<tr><td><strong>Stable Diffusion (SDXL 1.0)</strong></td><td>77 Tokens/Prompt</td><td>Image generation only</td><td>Image creation for advertising, media...</td><td>$0.04–$0.08 per image</td></tr>
+</tbody></table>
+</div>
+<h2 id="observations-based-on-the-comparison"><a class="header" href="#observations-based-on-the-comparison">Observations Based on the Comparison</a></h2>
+<ul>
+<li>
+<p><strong>Claude 2.1</strong> offers the <strong>largest context window</strong> (200K tokens), making it suitable for processing large codebases, books, or documents. This is critical in use cases that require deep memory of long inputs.</p>
+</li>
+<li>
+<p><strong>Amazon Titan</strong> is significantly <strong>cheaper</strong> than both Llama 2 and Claude, while still supporting multilingual capabilities.</p>
+</li>
+<li>
+<p><strong>Llama 2</strong> provides strong performance for conversational and English-based tasks but has a smaller context window and slightly higher cost than Titan.</p>
+</li>
+<li>
+<p><strong>Stable Diffusion</strong> is purely for image-related generation and accepts shorter prompts. Its cost is per image rather than per token, and it supports features like object removal, background replacement, and visual modification.</p>
+</li>
+</ul>
+<h2 id="final-thoughts-on-model-selection"><a class="header" href="#final-thoughts-on-model-selection">Final Thoughts on Model Selection</a></h2>
+<p>While all these models are converging toward similar capabilities, the real decision comes down to <strong>testing</strong> each one for your specific needs:</p>
+<ul>
+<li>
+<p><strong>Claude</strong> may be preferred for heavy document analysis and large prompt sizes.</p>
+</li>
+<li>
+<p><strong>Titan</strong> offers a strong balance between performance, cost, and multilingual support.</p>
+</li>
+<li>
+<p><strong>Llama 2</strong> is ideal for scalable dialogue and customer-facing tasks.</p>
+</li>
+<li>
+<p><strong>Stable Diffusion</strong> is the go-to for image and creative generation needs.</p>
+</li>
+</ul>
+<p>Pricing is a key differentiator. <strong>Claude is the most expensive</strong>, while <strong>Amazon Titan offers the lowest cost</strong> per token. Rapid cost accumulation is possible with large-scale inference or continuous image generation, so monitoring usage is essential.</p>
+<h2 id="foundational-model---hands-on"><a class="header" href="#foundational-model---hands-on"><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/Foundation%20Models%20Hands%20On.pdf">Foundational Model - Hands On</a></a></h2>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
 <p>In this section, we are going to study about Prompt Engineering. It is important because:</p>
 <ol>
