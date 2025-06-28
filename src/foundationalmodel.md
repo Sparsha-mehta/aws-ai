@@ -1,4 +1,5 @@
 # Foundational Model
+
 This section covers the key considerations and trade-offs involved in selecting a **base foundation model** within Amazon Bedrock. The choice of model depends on several factors including:
 
 - performance, 

@@ -1,5 +1,6 @@
 # What is GenAI?
-### Introduction to Generative AI
+
+## Introduction to Generative AI
 
 Now that we are about to dive into **Amazon Bedrock**, which is a service for Generative AI (Gen AI) on AWS, let’s take a step back and understand **what Gen AI actually is**.
 
@@ -8,7 +9,7 @@ Generative AI is a **subset of deep learning**, which is itself a **subset of ma
 ![alt text](image-16.png)
 
 
-### What is Generative AI?
+## What is Generative AI?
 
 * Gen AI is used to **generate new data** that resembles the data it was trained on.
 * It can be trained on **various types of data**:
@@ -42,7 +43,7 @@ If we train a Gen AI model on a lot of dog images and also on hand-drawn cartoon
 ![alt text](image-14.png)
 Now let's talk about Foundational Models
 
-### Foundation Models
+## Foundation Models
 * In order to generate data, as we said, we need to have Foundational Model.
 * FM are trained on a wide variety of inputs.
 * Now to train foundational models:
@@ -59,7 +60,7 @@ Now let's talk about Foundational Models
   * **Anthropic**
 
 
-### Open Source vs Commercial Models
+## Open Source vs Commercial Models
 
 * Some foundation models are **open source** (free to use):
 
@@ -70,7 +71,7 @@ Now let's talk about Foundational Models
 
 We will also see how to access these models on AWS as well.
 
-### Large Language Models (LLMs)
+## Large Language Models (LLMs)
 
 * LLMs are a **type of AI** that rely on foundation models and are designed to **generate coherent human-like text**.
 * Example: **ChatGPT** using **GPT-4**
@@ -93,9 +94,9 @@ We will also see how to access these models on AWS as well.
 
 ![alt text](image-5.png)
 
-### Non-Determinism in LLMs
+## Non-Determinism in LLMs
 So let's understand why though it is non-deterministic. Let's take an example:
-#### Example sentence:
+### Example sentence:
 
 *“After the rain, the streets were…”*
 
@@ -146,16 +147,16 @@ The next word could be:
 * Because the sentence is determined with the statistical methods and not with the deterministic methods.
 ![alt text](image-7.png)
 
-### Generative AI for Images
+## Generative AI for Images
 
 Let’s now understand how **Generative AI works with images**.
 
 Gen AI is not limited to text. It can also **generate images** based on prompts or existing images, and it can even **understand images** to generate text descriptions.
 
 
-#### Types of Image-Based Gen AI Tasks
+### Types of Image-Based Gen AI Tasks
 
-##### 1. **Text-to-Image Generation**
+#### 1. **Text-to-Image Generation**
 ![alt text](image-8.png)
 - You give a prompt like:
   
@@ -165,7 +166,7 @@ Gen AI is not limited to text. It can also **generate images** based on prompts 
 
 - The image is generated **from scratch**, not copied from a dataset.
 
-##### 2. **Image-to-Image Translation**
+#### 2. **Image-to-Image Translation**
 ![alt text](image-9.png)
 - You provide an **input image** and a **style transformation instruction**.
 
@@ -177,7 +178,7 @@ Gen AI is not limited to text. It can also **generate images** based on prompts 
 
 - Output: A version of the same image that now looks like it was drawn in **manga/anime style**.
 
-##### 3. **Image-to-Text (Visual Question Answering)**
+#### 3. **Image-to-Text (Visual Question Answering)**
 ![alt text](image-10.png)
 - You give a picture and ask a question about it.
 
@@ -194,14 +195,14 @@ Gen AI is not limited to text. It can also **generate images** based on prompts 
 - The model is capable of **understanding the contents of the image** and generating relevant, human-like answers.
 
 
-### Diffusion Models (Behind the Scenes)
+## Diffusion Models (Behind the Scenes)
 
 One popular technique behind image generation is called a **diffusion model**. A well-known example is **Stable Diffusion**, which is based on this method.
 
 Let’s break this down into two key processes:
 
 
-#### **1. Forward Diffusion (Training Phase)**
+### **1. Forward Diffusion (Training Phase)**
 
 - We start with a **clear image**, like a picture of a cat.
 
@@ -219,7 +220,7 @@ This is called the **forward diffusion process**.
 
 This process is done for a lot of pictures. Once the algorithm is trained to take images and create noise out of it,  then we do the opposite that is  **Reverse Diffusion**
 
-#### **2. Reverse Diffusion (Image Generation Phase)**
+### **2. Reverse Diffusion (Image Generation Phase)**
 
 - Now we want to **generate a new image** from scratch.
 
@@ -239,7 +240,7 @@ This process is done for a lot of pictures. Once the algorithm is trained to tak
 > This image is **new** — not taken from training data — but created using the knowledge learned from how **real images look and how noise distorts them**.
 
 
-### Summary of Key Concepts
+## Summary of Key Concepts
 
 * **Gen AI** creates new content (text, images, audio) from training data.
 * **Foundation models** are trained on vast, diverse data to support multiple tasks.
