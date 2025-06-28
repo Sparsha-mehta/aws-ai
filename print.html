@@ -1143,7 +1143,77 @@ We want the travel itinerary with specific times, locations, descriptions, and d
 <h3 id="important-note-about-latency"><a class="header" href="#important-note-about-latency"><strong>Important Note About Latency</strong></a></h3>
 <p>These are very important factors, but you should know as well that <strong>latency is NOT impacted by Top P, Top K, or the Temperature parameters</strong>. It's good for you to know because the exam may ask you some questions about it.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-performance-optimization---hands-on"><a class="header" href="#prompt-performance-optimization---hands-on">Prompt Performance Optimization - Hands On</a></h1>
-<p>Coming Soon</p>
+<p>Now that we are hands-on with prompt engineering, let’s practice using different configurations to see how we can influence the creativity of a model using Claude 3 Sonnet on AWS.</p>
+<h3 id="initial-setup"><a class="header" href="#initial-setup"><strong>Initial Setup</strong></a></h3>
+<ul>
+<li>We select <strong>Claude 3 Sonnet</strong> from <strong>Anthropic</strong> as our model.
+<img src="image-21.png" alt="alt text" /></li>
+<li>The prompt we enter:
+<code>"Please write a short story about a robot learning how to cook."</code></li>
+<li>We define the story to be <strong>short</strong>.</li>
+<li>The <strong>maximum length</strong> is set to <strong>600 tokens</strong> to ensure brevity.</li>
+</ul>
+<h3 id="running-with-conservative-settings"><a class="header" href="#running-with-conservative-settings"><strong>Running with Conservative Settings</strong></a></h3>
+<p>We begin with <strong>low creativity settings</strong> by configuring:</p>
+<ul>
+<li><strong>Temperature</strong>: Low</li>
+<li><strong>Top P</strong>: Low</li>
+<li><strong>Top K</strong>: Low</li>
+</ul>
+<blockquote>
+<p>These settings are known to generate more <strong>conservative</strong> and predictable outputs.</p>
+</blockquote>
+<p><img src="image-22.png" alt="alt text" /></p>
+<p><strong>Result</strong>:</p>
+<ul>
+<li>The model outputs a story with a <strong>kitchen scene</strong>, a <strong>chef</strong>, and a robot.</li>
+<li>While the output looks interesting at a glance, it reads as <strong>plain and potentially boring</strong>.</li>
+</ul>
+<h3 id="increasing-creativity"><a class="header" href="#increasing-creativity"><strong>Increasing Creativity</strong></a></h3>
+<p>Now we modify the settings to boost the model’s creativity:</p>
+<ul>
+<li><strong>Temperature</strong>: Increased</li>
+<li><strong>Top P</strong>: Set to maximum</li>
+<li><strong>Top K</strong>: Set to <strong>500</strong></li>
+</ul>
+<p><img src="image-23.png" alt="alt text" /></p>
+<blockquote>
+<p>These changes allow the model to explore a <strong>wider range of vocabulary</strong> and <strong>creative paths</strong>.</p>
+</blockquote>
+<p><strong>New Prompt (same as before)</strong>:</p>
+<ul>
+<li><code>"Please write a short story about a robot learning how to cook."</code></li>
+</ul>
+<p><strong>Result</strong>:</p>
+<ul>
+<li>
+<p>The output becomes <strong>much more creative</strong>.</p>
+</li>
+<li>
+<p>Elements include:</p>
+<ul>
+<li><strong>Optical sensors</strong></li>
+<li>A <strong>human instructor</strong></li>
+<li>Cooking <strong>crepes</strong></li>
+<li>The robot even tries <strong>eating</strong> the food</li>
+</ul>
+</li>
+</ul>
+<h3 id="comparison-and-summary"><a class="header" href="#comparison-and-summary"><strong>Comparison and Summary</strong></a></h3>
+<ul>
+<li>Both <strong>low-temperature</strong> and <strong>high-temperature</strong> prompt outputs will be saved in the code directory for comparison.</li>
+<li>This exercise shows <strong>how different configurations affect the output</strong>.</li>
+</ul>
+<hr />
+<h3 id="key-takeaways"><a class="header" href="#key-takeaways"><strong>Key Takeaways</strong></a></h3>
+<ul>
+<li><strong>Temperature</strong>: Controls the <strong>overall creativity</strong> of the model.</li>
+<li><strong>Top P</strong>: Determines the <strong>percentile</strong> of word probabilities considered.</li>
+<li><strong>Top K</strong>: Specifies <strong>how many words</strong> are considered for the next word prediction.</li>
+</ul>
+<blockquote>
+<p>Hopefully, this demonstration helped you understand how model configurations influence outputs.</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering-techniques"><a class="header" href="#prompt-engineering-techniques">Prompt Engineering Techniques</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-templates"><a class="header" href="#prompt-templates">Prompt Templates</a></h1>
