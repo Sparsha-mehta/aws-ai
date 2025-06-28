@@ -1215,7 +1215,67 @@ We want the travel itinerary with specific times, locations, descriptions, and d
 <p>Hopefully, this demonstration helped you understand how model configurations influence outputs.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering-techniques"><a class="header" href="#prompt-engineering-techniques">Prompt Engineering Techniques</a></h1>
-<p>Coming Soon</p>
+<h2 id="introduction"><a class="header" href="#introduction">Introduction</a></h2>
+<p>So let's have a look at more prompt engineering techniques to improve your prompt. We're going to explore several advanced techniques that can help you get better outputs from your Gen-AI models.</p>
+<h2 id="zero-shot-prompting"><a class="header" href="#zero-shot-prompting"><strong>Zero-Shot Prompting</strong></a></h2>
+<p>This is to present a task to a model without providing any examples or explicit training for that specific task. We have a very general Gen-AI model, a foundation model, and for example, we say "write a short story about a dog that helps solve a mystery."</p>
+<p>Then we get a response from the Gen-AI model. For example:
+<img src="image-24.png" alt="alt text" />
+"Once upon a time, there was a clever dog named Max. One day, Max noticed something strange happening at the park. A group of children had lost their favorite ball. Max sniffed around and found the ball hidden in a bush, solving the mystery and making the children very happy."</p>
+<h3 id="key-characteristics"><a class="header" href="#key-characteristics">Key Characteristics:</a></h3>
+<p>• We rely fully on the model's general knowledge<br>
+• The larger and more capable the foundation model, the more likely we're going to get good results<br>
+• It's called zero-shot prompting because we go right away and present our prompt<br></p>
+<h2 id="few-shot-prompting"><a class="header" href="#few-shot-prompting"><strong>Few-Shot Prompting</strong></a></h2>
+<p>Here we provide examples of a task to the model to make sure we have guided its outputs. That's why it's called few-shot because we provide a few shots to the model to perform the task.</p>
+<h3 id="example-structure"><a class="header" href="#example-structure">Example Structure:</a></h3>
+<p><img src="image-25.png" alt="alt text" />
+Let's take the exact same prompt as before, but now we're going to use the few-shot prompting technique. We say "here are two examples of stories where animals help solve mysteries":</p>
+<ol>
+<li>
+<p><strong>Whiskers the Cat</strong> noticed the missing cookies from the jar. She followed the crumbs and found the culprit...</p>
+</li>
+<li>
+<p><strong>Buddy the Bird</strong> saw that all the garden flowers were disappearing. He watched closely and discovered a rabbit...</p>
+</li>
+</ol>
+<p>Then we say: "Write a short story about a dog that helps solve a mystery."</p>
+<h3 id="benefits"><a class="header" href="#benefits">Benefits:</a></h3>
+<p>• Because we have provided a few shots to the Gen-AI model, it's able to respond in a way that follows the few shots we have provided before
+• This is a good technique when you know exactly what kind of output you want and you want the model to write based on examples you provide
+• If you provide only one example, this is also called <strong>one-shot</strong> or <strong>single-shot prompting</strong></p>
+<h2 id="chain-of-thought-prompting"><a class="header" href="#chain-of-thought-prompting"><strong>Chain of Thought Prompting</strong></a></h2>
+<p>Here we divide the task into a sequence of reasoning steps leading to more structure and coherence. When we use a sentence in our prompt, such as "think step by step," this will help the model go into chain of thought prompting.</p>
+<h3 id="when-to-use"><a class="header" href="#when-to-use">When to Use:</a></h3>
+<p>This is very helpful when you want to solve a problem as a human, and that usually requires several steps.</p>
+<h3 id="example-structure-1"><a class="header" href="#example-structure-1">Example Structure:</a></h3>
+<p><img src="image-26.png" alt="alt text" />
+Let's again do our prompt that would say, "let's write a story about a dog solving a mystery." But then we say:</p>
+<ol>
+<li>First describe the setting and the dog</li>
+<li>Then introduce the mystery</li>
+<li>Next show how the dog discovers clues</li>
+<li>Finally reveal how the dog solves the mystery and concludes the story</li>
+</ol>
+<p>And so therefore we say, "write a short story following these steps, think step by step," and the response will follow this structure.</p>
+<h3 id="additional-notes"><a class="header" href="#additional-notes">Additional Notes:</a></h3>
+<p>• This is chain of thought prompting
+• This can be combined with zero-shot or few-shot prompting if you wanted to</p>
+<h2 id="retrieval-augmented-generation-rag"><a class="header" href="#retrieval-augmented-generation-rag"><strong>Retrieval-Augmented Generation (RAG)</strong></a></h2>
+<p>Here we combine the model's capability with external data sources in order to create a more informed and contextually rich response.</p>
+<h3 id="how-rag-works"><a class="header" href="#how-rag-works">How RAG Works:</a></h3>
+<p>As a reminder, we go and ask something to the Gen-AI model, and some parts of the model is going to retrieve relevant information from an external data source. Then we add this as an enhanced prompt, an augmented prompt, and then we get the answer from it.</p>
+<h3 id="rag-example"><a class="header" href="#rag-example">RAG Example:</a></h3>
+<p><img src="image-27.png" alt="alt text" />
+We say "write a short story about a dog solving a mystery" and then "use the following information from the text about dogs and their behavior and details about common mysteries involving theft."</p>
+<p><strong>External Information Provided:</strong>
+• Dogs have an excellent sense of smell, which they use to track scents<br>
+• Common neighborhood mysteries often involve stolen or missing items  <br>
+• Dogs can detect scents even from a day old and follow trails to locate items<br></p>
+<p>Then we say "write the story considering these details."</p>
+<h3 id="results"><a class="header" href="#results">Results:</a></h3>
+<p>Of course, the story is going to be guided towards dogs having a great sense of smell and locating missing items. This information can come from an external data source and that is being added. This is what's called augmented generation - it's being augmented into our main prompt.</p>
+<p>We've seen RAG already at length in the Bedrock session, but it was good to see it again here as a little reminder.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-templates"><a class="header" href="#prompt-templates">Prompt Templates</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-on-prompt-engineering"><a class="header" href="#quiz-on-prompt-engineering">Quiz on Prompt Engineering</a></h1>
