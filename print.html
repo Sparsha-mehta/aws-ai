@@ -1039,21 +1039,106 @@ We want the travel itinerary with specific times, locations, descriptions, and d
 <p>Now, we also must include, if we want to improve it, negative prompting. Negative prompting is what do we not want to see? (see the example image below)
 <img src="IMG_9274.jpeg" alt="alt text" /></p>
 <h3 id="negative-prompting-example"><a class="header" href="#negative-prompting-example"><strong>Negative Prompting Example:</strong></a></h3>
-<p>Here, for example:
-• Do not include activities that are primarily for children or families
-• Avoid overly touristy restaurants<br />
-• Include anything that requires too much travel, except Versailles</p>
+<p>Here, for example:<br>
+• Do not include activities that are primarily for children or families<br>
+• Avoid overly touristy restaurants  <br>
+• Include anything that requires too much travel, except Versailles<br></p>
 <p>Let's paste it and run it. Again, you can have a look at whether this output was better than the previous one or not based on the negative prompting.
 <img src="IMG_9275.jpeg" alt="alt text" /></p>
 <h2 id="creative-negative-prompting"><a class="header" href="#creative-negative-prompting"><strong>Creative Negative Prompting</strong></a></h2>
-<p>We can do any kind of creative negative prompting. For example, we can say:
-• Here's the instructions
-• Do not recommend more than three activities per day</p>
+<p>We can do any kind of creative negative prompting. For example, we can say:<br>
+• Here's the instructions<br>
+• Do not recommend more than three activities per day<br></p>
 <p>We run it, and again, with the negative prompting, now we're getting fewer activities per day. So it's a bit shorter day and maybe we'll have more time to do stuff in Paris.</p>
 <h2 id="conclusion-1"><a class="header" href="#conclusion-1"><strong>Conclusion</strong></a></h2>
 <p>I cannot tell you if this is a good recommendation or not. I lived in Paris, but AI can be sometimes surprising. Anyway, if you would trust AI to organize your next travel, you know how to do it now and you know how to properly build a prompt for it.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-performance-optimization"><a class="header" href="#prompt-performance-optimization">Prompt Performance Optimization</a></h1>
-<p>Coming Soon</p>
+<h2 id="introduction-to-text-generation-process"><a class="header" href="#introduction-to-text-generation-process">Introduction to Text Generation Process</a></h2>
+<p>So now let's talk about how we can improve the performance of our prompts in our model. First, let's step back and remember how text is being generated from an LLM.</p>
+<p><img src="image-6.png" alt="alt text" /></p>
+<p>For example, we have the sentence: "After the rain, the streets were..." and then we have the next word that will be computed by the Gen-AI Model. We can have wet, flooded, slippery, empty, muddy, clean, blocked, and all of these words have associated probabilities for how likely this is going to be the next picked word.</p>
+<p>The Gen-AI Model will do some <strong>probability calculation</strong> and will select a <strong>word randomly</strong>, for example, "flooded"</p>
+<p>This is something we've seen and I hope you remember it because now we're going to do a deep dive into that specific process and see how we can slightly influence it.</p>
+<h2 id="understanding-the-core-concepts"><a class="header" href="#understanding-the-core-concepts">Understanding the Core Concepts</a></h2>
+<p>Before diving in, let us review core concepts:</p>
+<h3 id="temperature-vs-top-p-vs-top-k---the-key-differences"><a class="header" href="#temperature-vs-top-p-vs-top-k---the-key-differences"><strong>Temperature vs Top P vs Top K - The Key Differences</strong></a></h3>
+<p>Think of it this way: when the AI is choosing the next word, it has a list of possible words with probabilities (like in your first image).</p>
+<h4 id="temperature"><a class="header" href="#temperature"><strong>Temperature</strong></a></h4>
+<ul>
+<li><strong>What it does</strong>: Controls how "random" or "creative" the selection process is</li>
+<li><strong>How it works</strong>:
+<ul>
+<li>Low temperature (0.2) = AI picks the most likely words more often (conservative)</li>
+<li>High temperature (1.0) = AI is more willing to pick less likely words (creative/risky)</li>
+</ul>
+</li>
+<li><strong>Think of it as</strong>: The "boldness" setting - how willing is the AI to take chances?</li>
+</ul>
+<h4 id="top-p"><a class="header" href="#top-p"><strong>Top P</strong></a></h4>
+<ul>
+<li><strong>What it does</strong>: Limits which words the AI can even consider, based on cumulative probability</li>
+<li><strong>How it works</strong>:
+<ul>
+<li>Low P (0.25) = Only consider words that make up the top 25% of total probability</li>
+<li>High P (0.99) = Consider almost all possible words</li>
+</ul>
+</li>
+<li><strong>Think of it as</strong>: The "vocabulary filter" - what percentage of the total probability mass should we include?</li>
+</ul>
+<h4 id="top-k"><a class="header" href="#top-k"><strong>Top K</strong></a></h4>
+<ul>
+<li><strong>What it does</strong>: Limits which words the AI can consider, based on a fixed number</li>
+<li><strong>How it works</strong>:
+<ul>
+<li>Low K (10) = Only look at the 10 most likely words</li>
+<li>High K (500) = Look at the top 500 most likely words</li>
+</ul>
+</li>
+<li><strong>Think of it as</strong>: The "shortlist size" - how many words should we put on the candidate list?</li>
+</ul>
+<h4 id="simple-example"><a class="header" href="#simple-example"><strong>Simple Example</strong></a></h4>
+<p>If the AI is completing "The sky is..." and has 1000 possible next words:</p>
+<ul>
+<li><strong>Top K = 10</strong>: Only consider the 10 most likely words (blue, clear, dark, etc.)</li>
+<li><strong>Top P = 0.25</strong>: Only consider words that together make up 25% of all probability (might be just 3-4 words)</li>
+<li><strong>Temperature = 0.2</strong>: From whichever words made it through Top K/Top P, pick very conservatively (probably "blue")</li>
+</ul>
+<h2 id="prompt-performance-optimization-parameters"><a class="header" href="#prompt-performance-optimization-parameters"><strong>Prompt Performance Optimization Parameters</strong></a></h2>
+<p>Let's go into the prompt performance optimization. This is a screenshot from Amazon Bedrock, and as you can see, we have a few knobs that we can change.
+<img src="image-20.png" alt="alt text" /></p>
+<h3 id="system-prompts"><a class="header" href="#system-prompts"><strong>System Prompts</strong></a></h3>
+<p>We can specify how the model should behave and reply. In my example, I say "reply as if you are a teacher in the AWS Cloud Space." Of course, we set the tone for the answer, and this will really help the LLM to respond the way we want to.</p>
+<h3 id="temperature-0-to-1"><a class="header" href="#temperature-0-to-1"><strong>Temperature (0 to 1)</strong></a></h3>
+<p>This is a value you set from zero to one that defines the creativity of the model's outputs.</p>
+<p>• <strong>Low Temperature (e.g., 0.2)</strong> - The outputs are going to be more conservative, repetitive, and focused on the most likely response (the words with the highest probability)</p>
+<p>• <strong>High Temperature (e.g., 1.0)</strong> - The outputs are going to be more diverse, more creative, less predictable, and also maybe less coherent because it's going to select more words that would be less likely over time</p>
+<p>It's for you to try and see what temperature works for you, but think at least, like if you have a high temperature, everything moves and so therefore you have more creativity.</p>
+<h3 id="top-p-0-to-1"><a class="header" href="#top-p-0-to-1"><strong>Top P (0 to 1)</strong></a></h3>
+<p>Top P is a value again, from zero to one.</p>
+<p>• <strong>Low P (e.g., 0.25)</strong> - In the list that we saw before about the next word that can be selected, we will only consider the 25% most likely words. Therefore, we'll have a more coherent response because we only select the words that really make sense.</p>
+<p>• <strong>High P (e.g., 0.99)</strong> - We're going to consider a very broad range of possible words, and therefore we have a long list to choose from, so possibly we're going to get a more creative and more diverse output.</p>
+<p>As you can see, Temperature, Top P, and then of course, Top K and all the rest of these parameters can be used together.</p>
+<h3 id="top-k-1"><a class="header" href="#top-k-1"><strong>Top K</strong></a></h3>
+<p>Top K is the limit of the number of probable words. While Top P is considering the most likely words as a distribution, Top K is a number.<br><br></p>
+<p>• <strong>Low K (e.g., 10)</strong> - You're going to get the top 10 most probable words. You're going to get probably a more coherent response.<br><br></p>
+<p>• <strong>High K (e.g., 500)</strong> - You're going to consider the top 500 words. Therefore there's a chance if one of them is selected, that you get a more diverse and more creative answer.<br><br></p>
+<h3 id="length"><a class="header" href="#length"><strong>Length</strong></a></h3>
+<p>We define what is the maximum length of the answer. We tell the model to stop at some point.</p>
+<h3 id="stop-sequences"><a class="header" href="#stop-sequences"><strong>Stop Sequences</strong></a></h3>
+<p>What are some of the tokens that will signal the model to stop generating outputs? If the model has that token, then it stops.</p>
+<h2 id="exam-preparation-note"><a class="header" href="#exam-preparation-note"><strong>Exam Preparation Note</strong></a></h2>
+<blockquote>
+<p>From an exam perspective, you need to remember the definition of all of these, what they mean for low and high values. So remember: <strong>Temperature</strong>, <strong>Top P</strong>, <strong>Top K</strong>, <strong>length</strong>, <strong>system prompts</strong>, and <strong>stop sequences</strong>.</p>
+</blockquote>
+<h2 id="prompt-latency"><a class="header" href="#prompt-latency"><strong>Prompt Latency</strong></a></h2>
+<p>What about prompt latency? Well, latency means <em><strong>how fast the model is going to respond to your inputs</strong></em>.</p>
+<h3 id="factors-that-impact-latency"><a class="header" href="#factors-that-impact-latency"><strong>Factors That Impact Latency:</strong></a></h3>
+<p>• <strong>Model size</strong> - How big or how small the model is<br><br></p>
+<p>• <strong>Model type</strong> - For example, Llama is going to show different performance than Claude<br><br></p>
+<p>• <strong>Number of tokens in the input</strong> - The more context you give in the context window, the slower it's going to be<br><br></p>
+<p>• <strong>Output size</strong> - The bigger the output, the slower as well it's going to be<br><br></p>
+<h3 id="important-note-about-latency"><a class="header" href="#important-note-about-latency"><strong>Important Note About Latency</strong></a></h3>
+<p>These are very important factors, but you should know as well that <strong>latency is NOT impacted by Top P, Top K, or the Temperature parameters</strong>. It's good for you to know because the exam may ask you some questions about it.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-performance-optimization---hands-on"><a class="header" href="#prompt-performance-optimization---hands-on">Prompt Performance Optimization - Hands On</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering-techniques"><a class="header" href="#prompt-engineering-techniques">Prompt Engineering Techniques</a></h1>
