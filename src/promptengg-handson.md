@@ -49,19 +49,19 @@ Now, we also must include, if we want to improve it, negative prompting. Negativ
 
 ### **Negative Prompting Example:**
 
-Here, for example:
-• Do not include activities that are primarily for children or families
-• Avoid overly touristy restaurants  
-• Include anything that requires too much travel, except Versailles
+Here, for example:<br>
+• Do not include activities that are primarily for children or families<br>
+• Avoid overly touristy restaurants  <br>
+• Include anything that requires too much travel, except Versailles<br>
 
 Let's paste it and run it. Again, you can have a look at whether this output was better than the previous one or not based on the negative prompting.
 ![alt text](IMG_9275.jpeg)
 
 ## **Creative Negative Prompting**
 
-We can do any kind of creative negative prompting. For example, we can say:
-• Here's the instructions
-• Do not recommend more than three activities per day
+We can do any kind of creative negative prompting. For example, we can say:<br>
+• Here's the instructions<br>
+• Do not recommend more than three activities per day<br>
 
 We run it, and again, with the negative prompting, now we're getting fewer activities per day. So it's a bit shorter day and maybe we'll have more time to do stuff in Paris.
 
