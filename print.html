@@ -944,6 +944,120 @@ Now let's talk about Foundational Models</li>
 </ul>
 <p>Pricing is a key differentiator. <strong>Claude is the most expensive</strong>, while <strong>Amazon Titan offers the lowest cost</strong> per token. Rapid cost accumulation is possible with large-scale inference or continuous image generation, so monitoring usage is essential.</p>
 <h2 id="foundational-model---hands-on"><a class="header" href="#foundational-model---hands-on"><a href="https://github.com/Sparsha-mehta/aws-ai/blob/main/Foundation%20Models%20Hands%20On.pdf">Foundational Model - Hands On</a></a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-bedrock---fine-tuning-a-model"><a class="header" href="#amazon-bedrock---fine-tuning-a-model">Amazon Bedrock - Fine Tuning a Model</a></h1>
+<p>Now let's talk about fine-tuning on Amazon Bedrock. Fine-tuning is going to be a big part of your exam, so understanding these concepts is crucial for success.</p>
+<h2 id="what-is-fine-tuning"><a class="header" href="#what-is-fine-tuning"><strong>What is Fine-Tuning?</strong></a></h2>
+<p>Fine-tuning allows you to adapt a copy of a foundation model by adding your own data. When you fine-tune a model, it actually changes the underlying weights of the base foundation model. You need to provide training data that adheres to a specific format and must be stored in Amazon S3.</p>
+<p>For example, you have the LLAMA 2 model and you're going to add data from Amazon S3. Bedrock will process this data (we will look further in this lecture, stay tuned). Bedrock will do his thing and you'll get a <strong>fine-tuned version of LLAMA 2</strong> that incorporates your own data as well. (see the image below for the understanding)</p>
+<p><img src="image-31.png" alt="alt text" /></p>
+<p><strong>Important Requirements:</strong></p>
+<ul>
+<li>In order to use a fine-tuned custom model, you must use <strong>provisioned throughput</strong> (different pricing model than on-demand)</li>
+<li>Not all models can be fine-tuned, but few can and they're usually open source</li>
+</ul>
+<h2 id="types-of-fine-tuning"><a class="header" href="#types-of-fine-tuning"><strong>Types of Fine-Tuning</strong></a></h2>
+<h3 id="1-instruction-based-fine-tuning"><a class="header" href="#1-instruction-based-fine-tuning"><strong>1. Instruction-Based Fine-Tuning</strong></a></h3>
+<p>This approach improves the performance of the pre-trained foundation model on domain-specific tasks. Domain-specific tasks means the model will be further trained on a particular field or area of knowledge.</p>
+<p><strong>Key Characteristics:</strong> (Tricks for the exam)</p>
+<ul>
+<li>Uses <strong>labeled examples</strong> in the form of prompt-response pairs (<strong>This will identify the scenario for the exam</strong>)</li>
+<li>For labeled data only</li>
+<li>Example format:
+<ul>
+<li><strong>Prompt:</strong> "Who is Stephane Maarek?"</li>
+<li><strong>Response:</strong> "Stephane Maarek is an AWS instructor who dedicates his time to make the best AWS courses so that his students can pass all certifications with flying colors!"</li>
+</ul>
+</li>
+</ul>
+<p>This type of fine-tuning shows the model not just information, but also how you want it to answer certain questions. The model might already have similar information, but with a different tone.</p>
+<h3 id="2-continued-pre-training"><a class="header" href="#2-continued-pre-training"><strong>2. Continued Pre-Training</strong></a></h3>
+<p>Here you continue the training of the foundation model using unlabeled data. Since foundation models have been trained using unlabeled data, you need to provide unlabeled data for continued pre-training as well.</p>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li>Also called <strong>domain-adaptation fine-tuning</strong>, it makes a model an expert in a specific domain</li>
+<li>Uses unlabeled data only</li>
+</ul>
+<p><strong>For Example</strong>:</p>
+<ul>
+<li>I am going to feed the entire AWS documentation to a model and the model is going to be an expert on AWS.</li>
+<li>So here we are just giving all the documentation, which is unlabelled data (so this is continued pre-training)</li>
+<li>Now the model has become domain expert</li>
+<li>Here is how the input looks like:
+<img src="image-32.png" alt="alt text" /></li>
+</ul>
+<p><strong>Observation from the Input Format (from the image):</strong>
+Here you will notice that, there are:</p>
+<ul>
+<li>No <strong>prompt-output</strong> pairs</li>
+<li>Just <strong>input</strong> containing large amounts of information</li>
+<li>Excellent for teaching acronyms or industry-specific terminology</li>
+<li>Can <strong>continue training</strong> as more data becomes available</li>
+</ul>
+<h3 id="3-single-turn-and-multi-turn-messaging"><a class="header" href="#3-single-turn-and-multi-turn-messaging"><strong>3. Single-Turn and Multi-Turn Messaging</strong></a></h3>
+<p>You may also encounter single-turn messaging and multi-turn messaging, which are subsets of instruction-based fine-tuning.<br></p>
+<p><strong>Single-Turn Messaging</strong>: Here we give a hint to a user and an assistant about what the user is asking and what the assistant (the bot) should be replying.</p>
+<p><strong>Format includes</strong>:<br>
+Here we have:</p>
+<ul>
+<li><strong>System</strong>: This is optional context for the conversation</li>
+<li><strong>Messages</strong>: Contains various messages, each with a role (<strong>user</strong> or <strong>assistant</strong>) and content (the text content of the message)
+<img src="image-33.png" alt="alt text" /></li>
+</ul>
+<p>This fine-tunes how a chatbot should be replying.</p>
+<p><strong>Multi-Turn Messaging</strong>:</p>
+<ul>
+<li>
+<p>This follows the same idea, but this time we have a conversation with <strong>multiple turns</strong>.</p>
+</li>
+<li>
+<p>We alternate between <strong>user</strong> and <strong>assistant</strong> roles and have a full conversation.
+<img src="image-34.png" alt="alt text" /></p>
+</li>
+<li>
+<p>This helps the model understand how to handle conversations with bigger context.</p>
+</li>
+</ul>
+<h2 id="cost-considerations"><a class="header" href="#cost-considerations"><strong>Cost Considerations</strong></a></h2>
+<p>Fine-tuning a foundational model requires a higher budget because you need to spend computation resources on it.</p>
+<p><strong>Instruction-Based Fine-Tuning:</strong></p>
+<ul>
+<li>Usually cheaper</li>
+<li>Less intense computations</li>
+<li>Usually requires less data</li>
+<li>Just fine-tunes how the model replies based on specific instructions</li>
+</ul>
+<p><strong>Continued Pre-Training:</strong></p>
+<ul>
+<li>Usually more expensive</li>
+<li>Requires much more data</li>
+<li>Needs an experienced machine learning engineer</li>
+<li>Must prepare data, perform fine-tuning, and evaluate the model</li>
+<li>More expensive to run because you must use provisioned throughput</li>
+</ul>
+<h2 id="transfer-learning"><a class="header" href="#transfer-learning"><strong>Transfer Learning</strong></a></h2>
+<p>Transfer learning is a bit broader than fine-tuning. It is the concept of using a pre-trained model to adapt it to a new related task. For example, we have Claude 3 and then we're going to do transfer learning to adapt it to a new task.
+<img src="image-35.png" alt="alt text" />
+You might say this is very similar to fine-tuning, and it is, but here are some examples:</p>
+<p><strong>For Image Classification:</strong> We may want to use a pre-trained model that knows how to recognize edges and images, but we may want to do transfer learning to apply it to recognize specifically a kind of image.</p>
+<p><strong>For Language Processing:</strong> Models like BERT or GPT already know how to process language. Now that we have the language figured out, let's just fine-tune them or use transfer learning to adapt them to newer tasks.</p>
+<blockquote>
+<p><strong>Important Note for Exam:</strong>  Transfer learning appears in this lecture because it can appear in the exam as a general machine learning concept. If you don't see fine-tuning specifically, just know that the general answer is to use transfer learning because fine-tuning is a specific kind of transfer learning.</p>
+</blockquote>
+<h2 id="use-cases-for-fine-tuning"><a class="header" href="#use-cases-for-fine-tuning"><strong>Use Cases for Fine-Tuning</strong></a></h2>
+<p>The use cases of fine-tuning include:</p>
+<ul>
+<li><strong>Custom Chatbots:</strong> Have chatbots designed with a particular persona or tone, or geared towards a specific purpose such as existing customer service or crafting advertisements</li>
+<li><strong>Updated Training:</strong> Train with more up-to-date data than what the model previously accessed</li>
+<li><strong>Exclusive Data:</strong> Train with exclusive data that you have only, such as historical emails, messages, or records for customer service interactions (base foundation models do not have access to this because this is your data)</li>
+<li><strong>Targeted Use Cases:</strong> Applications such as categorization or assessing accuracy</li>
+</ul>
+<h2 id="exam-focus"><a class="header" href="#exam-focus"><strong>Exam Focus</strong></a></h2>
+<p>When you're fine-tuning, the exam will ask you about:</p>
+<ul>
+<li>When fine-tuning is a good idea</li>
+<li>The kind of fine-tuning you will need based on the type of data you get (labeled or unlabeled data)</li>
+<li>Pricing questions related to fine-tuning approaches</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-2---amazon-bedrock"><a class="header" href="#quiz-2---amazon-bedrock">Quiz 2 - Amazon Bedrock</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
