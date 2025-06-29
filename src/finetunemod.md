@@ -94,6 +94,8 @@ Fine-tuning a foundational model requires a higher budget because you need to sp
 
 Transfer learning is a bit broader than fine-tuning. It is the concept of using a pre-trained model to adapt it to a new related task. For example, we have Claude 3 and then we're going to do transfer learning to adapt it to a new task.
 ![alt text](image-35.png)
+
+
 You might say this is very similar to fine-tuning, and it is, but here are some examples:
 
 **For Image Classification:** We may want to use a pre-trained model that knows how to recognize edges and images, but we may want to do transfer learning to apply it to recognize specifically a kind of image.
