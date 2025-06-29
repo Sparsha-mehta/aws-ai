@@ -7,7 +7,7 @@
   - [What is Generative AI?](genai.md)
   - [Amazon Bedrock Overview](bedrockover.md)
   - [Amazon Bedrock - Foundational Model](foundationalmodel.md)
-  - [Fine Tuning a Model]()
+  - [Fine Tuning a Model](finetunemod.md)
   - [FM Evaluation]()
   - [FM Evaluation - Hands On]()
   - [RAG & Knowledge Bases]()
