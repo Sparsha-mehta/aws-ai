@@ -1,0 +1,529 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What is Generative AI? - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="what-is-genai"><a class="header" href="#what-is-genai">What is GenAI?</a></h1>
+<h2 id="introduction-to-generative-ai"><a class="header" href="#introduction-to-generative-ai">Introduction to Generative AI</a></h2>
+<p>Now that we are about to dive into <strong>Amazon Bedrock</strong>, which is a service for Generative AI (Gen AI) on AWS, let’s take a step back and understand <strong>what Gen AI actually is</strong>.</p>
+<p>Generative AI is a <strong>subset of deep learning</strong>, which is itself a <strong>subset of machine learning</strong>, and in turn, a subset of <strong>artificial intelligence (AI)</strong>.</p>
+<p><img src="image-16.png" alt="alt text" /></p>
+<h2 id="what-is-generative-ai"><a class="header" href="#what-is-generative-ai">What is Generative AI?</a></h2>
+<ul>
+<li>
+<p>Gen AI is used to <strong>generate new data</strong> that resembles the data it was trained on.</p>
+</li>
+<li>
+<p>It can be trained on <strong>various types of data</strong>:</p>
+<ul>
+<li>Text</li>
+<li>Images</li>
+<li>Audio</li>
+<li>Code</li>
+<li>Video</li>
+<li>And more</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong>:
+If we train a Gen AI model on a lot of dog images and also on hand-drawn cartoons, then ask it to generate a “cartoon dog,” it will combine the two together and create a dog that looks like a cartoon. That is the power of Generative AI</p>
+<ul>
+<li>This is the <strong>power of Gen AI</strong>: it <strong>combines its knowledge into new, and unique ways</strong>.</li>
+</ul>
+<p><img src="image-4.png" alt="GenAI Model Image" /></p>
+<ul>
+<li>We are going to start with lots of unlabelled data (we will look later in the course, what it means by unlabelled data).</li>
+<li>We are going to train Foundational Model.</li>
+<li>Foundational Model (FM) are very broad, they are very big and very wide.</li>
+<li>FM can easily adapt to different kind of general tasks.</li>
+<li>A good foundational model can do:
+<ul>
+<li>Text Generation</li>
+<li>Text Summarization</li>
+<li>Information Extraction</li>
+<li>Image Generation</li>
+<li>Can become a <strong>Chatbot</strong></li>
+<li>Question Answering</li>
+</ul>
+</li>
+<li>In general, we feed a lot of data into a foundational model, which has a option to do a lot of different tasks.
+<img src="image-14.png" alt="alt text" />
+Now let's talk about Foundational Models</li>
+</ul>
+<h2 id="foundation-models"><a class="header" href="#foundation-models">Foundation Models</a></h2>
+<ul>
+<li>
+<p>In order to generate data, as we said, we need to have Foundational Model.</p>
+</li>
+<li>
+<p>FM are trained on a wide variety of inputs.</p>
+</li>
+<li>
+<p>Now to train foundational models:
+<img src="image-13.png" alt="alt text" />
+<strong>Training foundation models:</strong></p>
+</li>
+<li>
+<p>It requires <strong>millions of dollars</strong>, massive computing resources, and a lot of data.</p>
+</li>
+<li>
+<p>It is typically built by <strong>large companies</strong> like:</p>
+<ul>
+<li><strong>OpenAI</strong> – (e.g., GPT-4o)</li>
+<li><strong>Meta</strong></li>
+<li><strong>Amazon</strong></li>
+<li><strong>Google</strong></li>
+<li><strong>Anthropic</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="open-source-vs-commercial-models"><a class="header" href="#open-source-vs-commercial-models">Open Source vs Commercial Models</a></h2>
+<ul>
+<li>
+<p>Some foundation models are <strong>open source</strong> (free to use):</p>
+<ul>
+<li>Example: Meta’s open-source efforts, Google’s BERT</li>
+</ul>
+</li>
+<li>
+<p>Others are <strong>commercially licensed</strong>:</p>
+<ul>
+<li>Example: OpenAI’s GPT models, Anthropic models</li>
+</ul>
+</li>
+</ul>
+<p>We will also see how to access these models on AWS as well.</p>
+<h2 id="large-language-models-llms"><a class="header" href="#large-language-models-llms">Large Language Models (LLMs)</a></h2>
+<ul>
+<li>LLMs are a <strong>type of AI</strong> that rely on foundation models and are designed to <strong>generate coherent human-like text</strong>.</li>
+<li>Example: <strong>ChatGPT</strong> using <strong>GPT-4</strong></li>
+<li>These LLMs are usually very Big Models:
+<ul>
+<li>They are trained on large corpus of text data</li>
+<li>They are computionally heavy and use <strong>Billions of parameters</strong></li>
+<li>They are trained on Books, articles, websites, other textual data</li>
+</ul>
+</li>
+<li>They can perform wide range of language related tasks, which involves:
+<ul>
+<li>Translation, Summarization</li>
+<li>Question Answering</li>
+<li>Content Creation</li>
+</ul>
+</li>
+<li>How does it work when we interact with the LLM</li>
+</ul>
+<p><strong>Interaction:</strong></p>
+<ul>
+<li>We interact with the LLM by giving a prompt, for example : <em>"What is AWS"</em></li>
+</ul>
+<blockquote>
+<p>Note that, we will have dedicated section to understand about how to create prompt</p>
+</blockquote>
+<ul>
+<li>Then the model is going to leverage all the existing content that it has learned from to generate new content.</li>
+<li>The generated text is <strong>Non Deterministic</strong>,that means that for every user that is using the same prompt, will get different generated text. (it won't be the same answer every time, see the image below)</li>
+</ul>
+<p><img src="image-5.png" alt="alt text" /></p>
+<h2 id="non-determinism-in-llms"><a class="header" href="#non-determinism-in-llms">Non-Determinism in LLMs</a></h2>
+<p>So let's understand why though it is non-deterministic. Let's take an example:</p>
+<h3 id="example-sentence"><a class="header" href="#example-sentence">Example sentence:</a></h3>
+<p><em>“After the rain, the streets were…”</em></p>
+<p>When an LLM sees this prompt, it calculates a <strong>list of potential next words</strong> along with <strong>probabilities</strong>:</p>
+<div class="table-wrapper"><table><thead><tr><th>Word</th><th>Probability</th></tr></thead><tbody>
+<tr><td>wet</td><td>0.40</td></tr>
+<tr><td>flooded</td><td>0.25</td></tr>
+<tr><td>slippery</td><td>0.15</td></tr>
+<tr><td>empty</td><td>0.05</td></tr>
+<tr><td>muddy</td><td>0.05</td></tr>
+<tr><td>clean</td><td>0.04</td></tr>
+<tr><td>blocked</td><td>0.03</td></tr>
+<tr><td>...</td><td>...</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li>
+<p>These are <strong>statistically likely next words</strong>, based on what the model has seen during training.</p>
+</li>
+<li>
+<p>Then, an <strong>algorithm picks</strong> one of the words — maybe “flooded”.</p>
+</li>
+</ul>
+<p>So the model outputs:</p>
+<blockquote>
+<p><em>“After the rain, the streets were flooded.”</em></p>
+</blockquote>
+<p>This selection is based on <strong>random sampling with probabilities</strong>, not fixed logic.
+<img src="image-6.png" alt="alt text" /></p>
+<p>The process <strong>repeats for every next word</strong>.</p>
+<p>Given:</p>
+<blockquote>
+<p><em>“After the rain, the streets were flooded...”</em></p>
+</blockquote>
+<p>The next word could be:</p>
+<div class="table-wrapper"><table><thead><tr><th>Word</th><th>Probability</th></tr></thead><tbody>
+<tr><td>and</td><td>0.40</td></tr>
+<tr><td>with</td><td>0.25</td></tr>
+<tr><td>from</td><td>0.15</td></tr>
+<tr><td>because</td><td>0.05</td></tr>
+<tr><td>until</td><td>0.05</td></tr>
+<tr><td><code>.</code></td><td>0.04</td></tr>
+<tr><td>...</td><td>...</td></tr>
+</tbody></table>
+</div>
+<ul>
+<li>All of these again, have associated probabilites, then the next word is going to be selected based on these probabilities.</li>
+<li>This is why when you ask the AI twice the same prompt, you may not get the same answers</li>
+<li>Because the sentence is determined with the statistical methods and not with the deterministic methods.
+<img src="image-7.png" alt="alt text" /></li>
+</ul>
+<h2 id="generative-ai-for-images"><a class="header" href="#generative-ai-for-images">Generative AI for Images</a></h2>
+<p>Let’s now understand how <strong>Generative AI works with images</strong>.</p>
+<p>Gen AI is not limited to text. It can also <strong>generate images</strong> based on prompts or existing images, and it can even <strong>understand images</strong> to generate text descriptions.</p>
+<h3 id="types-of-image-based-gen-ai-tasks"><a class="header" href="#types-of-image-based-gen-ai-tasks">Types of Image-Based Gen AI Tasks</a></h3>
+<h4 id="1-text-to-image-generation"><a class="header" href="#1-text-to-image-generation">1. <strong>Text-to-Image Generation</strong></a></h4>
+<p><img src="image-8.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>You give a prompt like:</p>
+<blockquote>
+<p><em>“Generate a blue sky with white clouds and the word ‘Hello’ written in the sky.”</em></p>
+</blockquote>
+</li>
+<li>
+<p>The Gen AI model uses that input to <strong>create a new image</strong> that visually matches the description.</p>
+</li>
+<li>
+<p>The image is generated <strong>from scratch</strong>, not copied from a dataset.</p>
+</li>
+</ul>
+<h4 id="2-image-to-image-translation"><a class="header" href="#2-image-to-image-translation">2. <strong>Image-to-Image Translation</strong></a></h4>
+<p><img src="image-9.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>You provide an <strong>input image</strong> and a <strong>style transformation instruction</strong>.</p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>Input: A photo of someone playing the piano</p>
+</li>
+<li>
+<p>Prompt: <em>“Transform this into Japanese anime style.”</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Output: A version of the same image that now looks like it was drawn in <strong>manga/anime style</strong>.</p>
+</li>
+</ul>
+<h4 id="3-image-to-text-visual-question-answering"><a class="header" href="#3-image-to-text-visual-question-answering">3. <strong>Image-to-Text (Visual Question Answering)</strong></a></h4>
+<p><img src="image-10.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>You give a picture and ask a question about it.</p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>
+<p>Image: One apple and one orange</p>
+</li>
+<li>
+<p>Prompt: <em>“How many apples do you see in the picture?”</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Output:</p>
+<blockquote>
+<p><em>“The picture shows one apple and the other fruit is an orange.”</em></p>
+</blockquote>
+</li>
+<li>
+<p>The model is capable of <strong>understanding the contents of the image</strong> and generating relevant, human-like answers.</p>
+</li>
+</ul>
+<h2 id="diffusion-models-behind-the-scenes"><a class="header" href="#diffusion-models-behind-the-scenes">Diffusion Models (Behind the Scenes)</a></h2>
+<p>One popular technique behind image generation is called a <strong>diffusion model</strong>. A well-known example is <strong>Stable Diffusion</strong>, which is based on this method.</p>
+<p>Let’s break this down into two key processes:</p>
+<h3 id="1-forward-diffusion-training-phase"><a class="header" href="#1-forward-diffusion-training-phase"><strong>1. Forward Diffusion (Training Phase)</strong></a></h3>
+<ul>
+<li>
+<p>We start with a <strong>clear image</strong>, like a picture of a cat.</p>
+</li>
+<li>
+<p>Then, we <strong>gradually add noise</strong> to the image, step by step:</p>
+<ul>
+<li>Slight noise → more noise → until the image becomes <strong>pure noise</strong>.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-11.png" alt="alt text" /></p>
+<ul>
+<li>
+<p>Eventually, the image becomes <strong>completely unrecognizable</strong>.</p>
+</li>
+<li>
+<p>This teaches the model <strong>how images degrade into noise</strong>.</p>
+</li>
+</ul>
+<p>This is called the <strong>forward diffusion process</strong>.</p>
+<p>This process is done for a lot of pictures. Once the algorithm is trained to take images and create noise out of it,  then we do the opposite that is  <strong>Reverse Diffusion</strong></p>
+<h3 id="2-reverse-diffusion-image-generation-phase"><a class="header" href="#2-reverse-diffusion-image-generation-phase"><strong>2. Reverse Diffusion (Image Generation Phase)</strong></a></h3>
+<ul>
+<li>
+<p>Now we want to <strong>generate a new image</strong> from scratch.</p>
+</li>
+<li>
+<p>The model starts with <strong>random noise</strong> and a <strong>text prompt</strong> like:</p>
+<blockquote>
+<p><em>“A cat with a computer”</em></p>
+</blockquote>
+</li>
+<li>
+<p>The model then works <strong>in reverse</strong>:</p>
+<ul>
+<li>
+<p>It <strong>removes the noise step-by-step</strong>, each time refining the image.</p>
+</li>
+<li>
+<p>Over multiple steps, the image <strong>gradually becomes clear</strong>.</p>
+</li>
+<li>
+<p>Final output: A unique image of <strong>a cat with a computer</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-12.png" alt="alt text" /></p>
+<blockquote>
+<p>This image is <strong>new</strong> — not taken from training data — but created using the knowledge learned from how <strong>real images look and how noise distorts them</strong>.</p>
+</blockquote>
+<h2 id="summary-of-key-concepts"><a class="header" href="#summary-of-key-concepts">Summary of Key Concepts</a></h2>
+<ul>
+<li><strong>Gen AI</strong> creates new content (text, images, audio) from training data.</li>
+<li><strong>Foundation models</strong> are trained on vast, diverse data to support multiple tasks.</li>
+<li><strong>LLMs</strong> generate human-like text and are based on probability, not fixed rules.</li>
+<li><strong>Non-deterministic output</strong> ensures variability in responses.</li>
+<li><strong>Diffusion models</strong> generate images by reversing a noise process.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="amazonbedrock.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="bedrockover.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="amazonbedrock.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="bedrockover.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
