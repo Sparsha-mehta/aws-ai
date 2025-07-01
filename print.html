@@ -1058,6 +1058,234 @@ Here we have:</p>
 <li>The kind of fine-tuning you will need based on the type of data you get (labeled or unlabeled data)</li>
 <li>Pricing questions related to fine-tuning approaches</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fine-tuning-evaluation"><a class="header" href="#fine-tuning-evaluation">Fine Tuning Evaluation</a></h1>
+<p>When you want to choose a model, you may want to evaluate that model and bring some level of rigor when you evaluate that model. Amazon Bedrock provides comprehensive evaluation capabilities to help you assess model quality and performance.</p>
+<h2 id="automatic-evaluation-on-amazon-bedrock"><a class="header" href="#automatic-evaluation-on-amazon-bedrock"><strong>Automatic Evaluation on Amazon Bedrock</strong></a></h2>
+<p>Amazon Bedrock offers Automatic Evaluation for quality control of your models. This system allows you to evaluate models by giving them specific tasks and calculating scores automatically.</p>
+<h3 id="built-in-task-types"><a class="header" href="#built-in-task-types"><strong>Built-in Task Types</strong></a></h3>
+<ul>
+<li>Text summarization</li>
+<li>Question and answer</li>
+<li>Text classification</li>
+<li>Open-ended text generation</li>
+</ul>
+<h3 id="prompt-datasets"><a class="header" href="#prompt-datasets"><strong>Prompt Datasets</strong></a></h3>
+<p>You can either:</p>
+<ul>
+<li>Add your own prompt datasets</li>
+<li>Use built-in, curated prompt datasets from AWS on Amazon Bedrock</li>
+</ul>
+<h2 id="how-automatic-evaluation-works"><a class="header" href="#how-automatic-evaluation-works"><strong>How Automatic Evaluation Works</strong></a></h2>
+<p>The automatic evaluation process follows a structured workflow:</p>
+<ol>
+<li>
+<p><strong>Benchmark Questions and Answers</strong></p>
+<ul>
+<li>You can bring your own benchmark questions or use AWS provided ones</li>
+<li>Benchmark answers represent the ideal answer to your benchmark question</li>
+</ul>
+</li>
+<li>
+<p><strong>Model Evaluation Process</strong></p>
+<ul>
+<li>Submit all benchmark questions to the model being evaluated</li>
+<li>The model generates answers using GenAI</li>
+<li>Compare benchmark answers to generated answers</li>
+</ul>
+</li>
+<li>
+<p><strong>Judge Model Assessment</strong></p>
+<ul>
+<li>Another GenAI model acts as a judge model</li>
+<li>The judge model compares benchmark answers and generated answers</li>
+<li>It determines if the answers are similar or not</li>
+<li>Provides a grading score using methods like BERTScore or F1</li>
+</ul>
+</li>
+</ol>
+<h2 id="benchmark-datasets"><a class="header" href="#benchmark-datasets"><strong>Benchmark Datasets</strong></a></h2>
+<p>Benchmark datasets are curated collections of data designed specifically to evaluate the performance of language models. They can cover many different topics, complexities, or linguistic phenomena.</p>
+<h3 id="benefits-of-using-benchmark-datasets"><a class="header" href="#benefits-of-using-benchmark-datasets"><strong>Benefits of Using Benchmark Datasets</strong></a></h3>
+<ul>
+<li><strong>Measure accuracy</strong> of your model</li>
+<li><strong>Speed and efficiency</strong> assessment</li>
+<li><strong>Scalability</strong> testing by throwing many requests simultaneously</li>
+<li><strong>Bias detection</strong> - quickly detect potential discrimination against groups of people</li>
+<li><strong>Low administrative effort</strong> for model evaluation</li>
+</ul>
+<h3 id="custom-benchmark-datasets"><a class="header" href="#custom-benchmark-datasets"><strong>Custom Benchmark Datasets</strong></a></h3>
+<p>You can create your own benchmark datasets specific to your business if you need specific business criteria.</p>
+<h2 id="human-evaluations"><a class="header" href="#human-evaluations"><strong>Human Evaluations</strong></a></h2>
+<p>Human evaluations follow the same concept as automatic evaluation but involve human reviewers instead of judge models.</p>
+<h3 id="human-evaluators"><a class="header" href="#human-evaluators"><strong>Human Evaluators</strong></a></h3>
+<ul>
+<li>Employees from your work team</li>
+<li>Company employees</li>
+<li>Subject matter experts (SME)</li>
+</ul>
+<h3 id="human-evaluation-process"><a class="header" href="#human-evaluation-process"><strong>Human Evaluation Process</strong></a></h3>
+<ul>
+<li>Humans review benchmark answers and generated answers</li>
+<li>They determine if answers look correct or not correct</li>
+<li>More flexibility in task creation since humans are evaluating</li>
+</ul>
+<h3 id="human-evaluation-metrics"><a class="header" href="#human-evaluation-metrics"><strong>Human Evaluation Metrics</strong></a></h3>
+<ul>
+<li>Thumbs up or thumbs down</li>
+<li>Ranking systems</li>
+<li>Various grading scores</li>
+</ul>
+<h2 id="foundation-model-evaluation-metrics"><a class="header" href="#foundation-model-evaluation-metrics"><strong>Foundation Model Evaluation Metrics</strong></a></h2>
+<p>There are several metrics you can use to evaluate the output of a Foundation Model from a generic perspective:</p>
+<h3 id="rouge-recall-oriented-understudy-for-gisting-evaluation"><a class="header" href="#rouge-recall-oriented-understudy-for-gisting-evaluation"><strong>ROUGE (Recall-Oriented Understudy for Gisting Evaluation)</strong></a></h3>
+<ul>
+<li><strong>Purpose</strong>: Evaluate automatic summarization and machine translation systems</li>
+<li><strong>ROUGE-N</strong>: Measures the number of matching n-grams between reference and generated text
+<ul>
+<li>N can be 1, 2, 3, or 4 usually</li>
+<li>1-gram = individual words</li>
+<li>2-gram = combination of two words</li>
+<li>Higher n-grams require exact matching sequences</li>
+</ul>
+</li>
+<li><strong>ROUGE-L</strong>: Computes the longest common subsequence between reference and generated text</li>
+<li>Easy to compute and understand</li>
+</ul>
+<h3 id="bleu-bilingual-evaluation-understudy"><a class="header" href="#bleu-bilingual-evaluation-understudy"><strong>BLEU (Bilingual Evaluation Understudy)</strong></a></h3>
+<ul>
+<li><strong>Purpose</strong>: Evaluate quality of generated text, especially for translation</li>
+<li>Considers both precision and penalizes for too much brevity</li>
+<li>Looks at combination of n-grams with advanced formula</li>
+<li>Gives bad scores for translations that are too short</li>
+<li>More advanced than ROUGE</li>
+</ul>
+<h3 id="bertscore"><a class="header" href="#bertscore"><strong>BERTScore</strong></a></h3>
+<ul>
+<li><strong>Purpose</strong>: Measure semantic similarity between generated texts</li>
+<li>Compares the actual meaning of text rather than just words</li>
+<li>Uses model to compare embeddings of both texts</li>
+<li>Computes cosine similarity between embeddings</li>
+<li>Looks at context and nuance, not individual words</li>
+<li>More advanced because it leverages AI capabilities</li>
+</ul>
+<h3 id="perplexity"><a class="header" href="#perplexity"><strong>Perplexity</strong></a></h3>
+<ul>
+<li><strong>Purpose</strong>: Measures how well the model predicts the next token</li>
+<li><strong>Lower is better</strong></li>
+<li>Less perplexed models are more confident about next token prediction</li>
+<li>More accurate models have lower perplexity</li>
+</ul>
+<h2 id="business-metrics-for-model-evaluation"><a class="header" href="#business-metrics-for-model-evaluation"><strong>Business Metrics for Model Evaluation</strong></a></h2>
+<p>Beyond technical metrics, you may have business metrics to evaluate models, which are more difficult to assess but equally important:</p>
+<h3 id="key-business-metrics"><a class="header" href="#key-business-metrics"><strong>Key Business Metrics</strong></a></h3>
+<ul>
+<li><strong>User Satisfaction</strong>: Gather user feedback and assess satisfaction with model responses</li>
+<li><strong>Average Revenue Per User</strong>: Monitor if GenAI app success increases this metric</li>
+<li><strong>Cross-domain Performance</strong>: Assess if model performs across varied tasks in different domains</li>
+<li><strong>Conversion Rates</strong>: Monitor desired outcomes and conversion improvements</li>
+<li><strong>Efficiency</strong>: Evaluate model cost, resource utilization, and computational efficiency</li>
+</ul>
+<h2 id="feedback-loop-integration"><a class="header" href="#feedback-loop-integration"><strong>Feedback Loop Integration</strong></a></h2>
+<p>All evaluation metrics can be incorporated back into a feedback loop to:</p>
+<ul>
+<li>Retrain the model</li>
+<li>Get better outputs</li>
+<li>Improve quality based on scoring metrics</li>
+<li>Continuously enhance model performance</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rag-and-knowledge-bases"><a class="header" href="#rag-and-knowledge-bases">RAG and Knowledge Bases</a></h1>
+<h2 id="what-is-rag"><a class="header" href="#what-is-rag">What is RAG?</a></h2>
+<p>RAG stands for Retrieval Augmented Generation. Behind this very fancy name, there is a very simple concept. This allows your foundation model to reference a data source from outside of its training data without being fine-tuned.</p>
+<h2 id="how-rag-works"><a class="header" href="#how-rag-works">How RAG Works</a></h2>
+<p>Now that we understand what RAG is, let's see how it actually works. We have a knowledge base that is being built and managed by Amazon Bedrock. For this, it must rely on a data source, for example Amazon S3.</p>
+<p><strong>The RAG Process:</strong></p>
+<ol>
+<li>Your data is stored in Amazon S3</li>
+<li>Bedrock automatically builds a knowledge base from this data</li>
+<li>A user asks a question to your foundation model (e.g., "Who is the product manager for John?")</li>
+<li>The foundation model doesn't know anything about John because this is specific company data</li>
+<li>A search happens automatically in the knowledge base (all behind the scenes)</li>
+<li>The knowledge base retrieves relevant information from the vector database</li>
+<li>Retrieved text is combined with the original query as an "augmented prompt"</li>
+<li>The foundation model generates a response using both the original question and the retrieved context</li>
+</ol>
+<p><strong>Example Response Flow:</strong></p>
+<ul>
+<li>Query: "Who is the product manager for John?"</li>
+<li>Retrieved information: Support contacts, product manager Jesse Smith, engineer Sarah Ronald</li>
+<li>Final response: "Jesse Smith is the product manager for John"</li>
+</ul>
+<p>This is called Retrieval Augmented Generation because we retrieve data outside of the foundation model, and it's augmented generation because we augment the prompt with external data that has been retrieved.</p>
+<h2 id="knowledge-bases-in-amazon-bedrock"><a class="header" href="#knowledge-bases-in-amazon-bedrock">Knowledge Bases in Amazon Bedrock</a></h2>
+<p>RAG in AWS Amazon Bedrock is implemented as a knowledge base. This is very helpful when you need to have data that is very up-to-date, in real time, and needs to be fed into the foundation model.</p>
+<p><strong>Example Use Case:</strong>
+When you ask "Give me talking points for benefits of air travel," the response includes citations linking back to source documents like "Air travel.pdf" stored in Amazon S3.</p>
+<h2 id="vector-databases"><a class="header" href="#vector-databases">Vector Databases</a></h2>
+<p>Everything goes into a vector database. Vector databases on AWS and Amazon Bedrock can be of several kinds:</p>
+<p><strong>AWS Services:</strong></p>
+<ul>
+<li><strong>Amazon OpenSearch Service</strong></li>
+<li><strong>Amazon Aurora</strong></li>
+</ul>
+<p><strong>Third-Party Options:</strong></p>
+<ul>
+<li>MongoDB</li>
+<li>Redis</li>
+<li>Pinecone</li>
+</ul>
+<p>If you don't specify anything, AWS will create an OpenSearch Service serverless database for you automatically.</p>
+<h3 id="choosing-the-right-vector-database"><a class="header" href="#choosing-the-right-vector-database">Choosing the Right Vector Database</a></h3>
+<p><strong>High Performance Options:</strong></p>
+<ul>
+<li><strong>Amazon OpenSearch Service</strong> - Search and analytics database with scalable index management and very fast nearest neighbor search capability (KNN). Best for real-time similarity queries and storing millions of vector embeddings</li>
+<li><strong>Amazon DocumentDB</strong> - NoSQL database with MongoDB compatibility, also excellent for real-time similarity queries and millions of vector embeddings</li>
+</ul>
+<p><strong>Relational Database Options:</strong></p>
+<ul>
+<li><strong>Amazon Aurora</strong> - Proprietary AWS database that's cloud-friendly</li>
+<li><strong>Amazon RDS for PostgreSQL</strong> - Open source relational database</li>
+</ul>
+<p><strong>Graph Database Option:</strong></p>
+<ul>
+<li><strong>Amazon Neptune</strong> - For graph database requirements</li>
+</ul>
+<h2 id="embeddings-models"><a class="header" href="#embeddings-models">Embeddings Models</a></h2>
+<p>We need an embeddings model to convert data into vectors. Options include Amazon Titan or Cohere. The embeddings model and the foundation model can be different - they don't need to match.</p>
+<p><strong>The Process:</strong></p>
+<ol>
+<li>S3 documents are chunked (split into different parts)</li>
+<li>These parts are fed into the embeddings model</li>
+<li>The model generates vectors</li>
+<li>Vectors are placed in the vector database</li>
+<li>Vectors become easily searchable for RAG queries</li>
+</ol>
+<h2 id="data-sources-for-amazon-bedrock"><a class="header" href="#data-sources-for-amazon-bedrock">Data Sources for Amazon Bedrock</a></h2>
+<p>Amazon Bedrock supports several data sources:</p>
+<ul>
+<li><strong>Amazon S3</strong> - Cloud file storage</li>
+<li><strong>Confluence</strong></li>
+<li><strong>Microsoft SharePoint</strong></li>
+<li><strong>Salesforce</strong></li>
+<li><strong>Web pages</strong> - Including websites and social media feeds</li>
+</ul>
+<p>Amazon Bedrock will likely add more sources over time, but from an exam perspective, remembering Amazon S3 and these core sources should be sufficient.</p>
+<h2 id="use-cases-for-amazon-bedrock-rag"><a class="header" href="#use-cases-for-amazon-bedrock-rag">Use Cases for Amazon Bedrock RAG</a></h2>
+<p><strong>Customer Service ChatBot:</strong></p>
+<ul>
+<li>Knowledge base: Products, features, specifications, troubleshooting guides, FAQs</li>
+<li>Application: ChatBot that answers customer queries</li>
+</ul>
+<p><strong>Legal Research and Analysis:</strong></p>
+<ul>
+<li>Knowledge base: Laws, regulations, case precedents, legal opinions, expert analysis</li>
+<li>Application: ChatBot for specific legal queries</li>
+</ul>
+<p><strong>Healthcare Question Answering:</strong></p>
+<ul>
+<li>Knowledge base: Diseases, treatments, clinical guidelines, research papers, patient data</li>
+<li>Application: ChatBot for complex medical queries</li>
+</ul>
+<p>RAG opens up a lot of possibilities for doing generative AI on AWS, making it possible to create intelligent applications that can access and reason over your specific organizational knowledge.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-2---amazon-bedrock"><a class="header" href="#quiz-2---amazon-bedrock">Quiz 2 - Amazon Bedrock</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
@@ -1379,7 +1607,7 @@ Let's again do our prompt that would say, "let's write a story about a dog solvi
 • This can be combined with zero-shot or few-shot prompting if you wanted to</p>
 <h2 id="retrieval-augmented-generation-rag"><a class="header" href="#retrieval-augmented-generation-rag"><strong>Retrieval-Augmented Generation (RAG)</strong></a></h2>
 <p>Here we combine the model's capability with external data sources in order to create a more informed and contextually rich response.</p>
-<h3 id="how-rag-works"><a class="header" href="#how-rag-works">How RAG Works:</a></h3>
+<h3 id="how-rag-works-1"><a class="header" href="#how-rag-works-1">How RAG Works:</a></h3>
 <p>As a reminder, we go and ask something to the Gen-AI model, and some parts of the model is going to retrieve relevant information from an external data source. Then we add this as an enhanced prompt, an augmented prompt, and then we get the answer from it.</p>
 <h3 id="rag-example"><a class="header" href="#rag-example">RAG Example:</a></h3>
 <p><img src="image-27.png" alt="alt text" />
