@@ -1677,7 +1677,7 @@ The prompt template states: "You are an expert in film and script writing. Respe
 <li>
 <p>And on top of it, Amazon Q is starting to slowly change your experience of interacting with the AWS Cloud. Amazon Q will moreover become more and more prominent, powerful. Here is what quick index what we are going to study in Amazon Q:</p>
 <ol>
-<li><a href="">Amazon Q Business</a></li>
+<li><a href="./amazonq/amzqb.html">Amazon Q Business</a></li>
 <li><a href="">Amazon Q Apps</a></li>
 <li><a href="">Amazon Q Developer</a></li>
 <li><a href="">Amazon Q Developer - Hands On</a></li>
@@ -1687,6 +1687,79 @@ The prompt template states: "You are an expert in film and script writing. Respe
 </ol>
 </li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q-business"><a class="header" href="#amazon-q-business">Amazon Q Business</a></h1>
+<p>Now let's talk about Amazon Q Business. Amazon Q Business is a fully managed Gen-AI assistant for your employees. What does that mean? Well, we have an assistant, but it's based entirely on your company's knowledge and data. This is a very specific use case where Gen-AI is for your company and it's trained on your internal data.</p>
+<h2 id="what-can-you-ask-amazon-q-business"><a class="header" href="#what-can-you-ask-amazon-q-business"><strong>What Can You Ask Amazon Q Business?</strong></a></h2>
+<p>Here are some examples of what you can ask Amazon Q Business:</p>
+<p>• <strong>"Write a job posting for a senior product manager role"</strong> - where this role will be very relevant to whatever your company is doing
+• <strong>"Create a social media post under 50 words to advertise the new role"</strong>
+• <strong>"What was discussed during the team meeting in the week of 4/12?"</strong></p>
+<p>Of course, all of this cannot be answered by a general foundation model. It needs to be a model that has been trained on your own internal data with the right security.</p>
+<h2 id="amazon-q-business-capabilities"><a class="header" href="#amazon-q-business-capabilities"><strong>Amazon Q Business Capabilities</strong></a></h2>
+<p>As a whole, Amazon Q Business can:</p>
+<p>• Answer questions
+• Provide summaries
+• Generate content and automate tasks
+• Perform routine actions such as:</p>
+<ul>
+<li>Submitting time-off requests</li>
+<li>Sending meeting invites</li>
+</ul>
+<p>Behind the scenes, Amazon Q Business is built on Amazon Bedrock, but we have less control so we cannot choose what the underlying foundation model is. Actually, Amazon Q Business is built on multiple foundation models from Amazon Bedrock. This is a service that's a little bit higher level, geared toward the very specific use case of using and exposing your company's internal data from an LLM Gen-AI perspective.</p>
+<h2 id="example-use-case"><a class="header" href="#example-use-case"><strong>Example Use Case</strong></a></h2>
+<p>Here's an example: we're asking "What is the annual total out-of-pocket maximum mentioned in the health plan summary?" This is for our company - we're in the medical space and we have a company document, a PDF, that has the very answer. Amazon Q Business is able to look up that document, look at what the document says, and then give us the answer in our chat, similar to RAG of course. We will have a sources section where it says the source of this is the health plan PDF document, and you can click on it and find it right away.</p>
+<h2 id="amazon-q-business-architecture"><a class="header" href="#amazon-q-business-architecture"><strong>Amazon Q Business Architecture</strong></a></h2>
+<p>Let's have a look at a diagram to better understand Amazon Q Business.</p>
+<h3 id="data-connectors"><a class="header" href="#data-connectors"><strong>Data Connectors</strong></a></h3>
+<p>First, we have data connectors. Data connectors are fully managed RAG, and you can connect to over 40 popular enterprise data sources. You don't have to learn about them all, but it's good to see some of them:</p>
+<p><strong>AWS Services:</strong>
+• Amazon S3 - where we can store data files onto AWS, it's a very popular service
+• Amazon RDS - a database service
+• Aurora - another database service
+• WorkDocs - a service used specifically for documents on AWS</p>
+<p><strong>Non-AWS Services:</strong>
+• Microsoft 365
+• Salesforce
+• Google Drive
+• Gmail
+• Slack
+• SharePoint
+• And many others</p>
+<p>The idea is that Amazon Q Business will have built-in integrations with these services. Once the integration is made, it will crawl these sources and do what it's supposed to do to allow you to search them and query them.</p>
+<h3 id="plugins"><a class="header" href="#plugins"><strong>Plugins</strong></a></h3>
+<p>Next, we have plugins. While data connectors are about retrieving data and understanding what knowledge is inside our company, plugins are different. Plugins allow Amazon Q Business to actually interact with third-party services.</p>
+<p><strong>Examples include:</strong>
+• Jira
+• ServiceNow
+• Zendesk
+• Salesforce
+• And others</p>
+<p>The idea is that if we say to Amazon Q Business "Hey, create a Jira issue" (this is to create a ticket so we can track a problem in our company), then Amazon Q Business will leverage the plugin and automatically create that Jira issue for us. So on top of reading data, Amazon Q Business has the ability to create and move data in your company as well. You can extend it because you can create custom plugins to connect to any third-party application using APIs.</p>
+<h2 id="user-access-and-authentication"><a class="header" href="#user-access-and-authentication"><strong>User Access and Authentication</strong></a></h2>
+<h3 id="iam-identity-center"><a class="header" href="#iam-identity-center"><strong>IAM Identity Center</strong></a></h3>
+<p>How do we access Amazon Q Business? Our users are going to be authenticated through something called IAM Identity Center. IAM Identity Center is a way for users to log in, and once users are logged in, they will only have access to the documents they should have access to.</p>
+<p>By using your whole company data with Amazon Q Business, you still have the certainty that someone with less privilege will not be able to access all your documents - otherwise that would be a big security risk.</p>
+<p>Here we have IAM Identity Center, and our users are going to log into it by just having a sign-in box where you enter a username and password and you're good to go. Then you have what's called an authenticated user with its own permissions because IAM Identity Center knows what the user is able to access or not. The user can then ask questions to Amazon Q Business, which is a web application, and access only the documents it should have access to.</p>
+<h3 id="external-identity-providers-idp"><a class="header" href="#external-identity-providers-idp"><strong>External Identity Providers (IDP)</strong></a></h3>
+<p>On top of it, you can integrate IAM Identity Center with what's called External Identity Providers or IDP. It could be, for example:</p>
+<p>• Google login
+• Microsoft Active Directory
+• And others</p>
+<p>This means that instead of logging in and getting an AWS-based sign-in page, you're going to log in with a system where users are already created. For example, it could be your Active Directory where you have your Microsoft login, or it could be your Google login if you're using the G Suite type of workspace for your company. This is very handy and really goes hand in hand with whatever security systems you have in place in your company.</p>
+<h2 id="admin-controls"><a class="header" href="#admin-controls"><strong>Admin Controls</strong></a></h2>
+<p>Next, we have admin controls. These are controls used to customize responses based on what your organization needs. Admin controls are pretty much the exact same thing as Guardrails in Amazon Bedrock.</p>
+<h3 id="examples-of-admin-controls"><a class="header" href="#examples-of-admin-controls"><strong>Examples of Admin Controls:</strong></a></h3>
+<p><strong>Blocked Topics:</strong> If we have a blocked topic such as gaming consoles, and our employee asks "Hey, how can I configure a brand new Nintendo Switch?" then Amazon Q Business is going to say "Well, this is a restricted topic." So we can block specific words or topics.</p>
+<p><strong>Response Sources:</strong> We can also choose for Amazon Q to respond only with internal information versus using also external knowledge. If we specify it to only use internal information, then only your company documents will be used to respond to a query. If not, then we have access to the broader knowledge of the foundation model.</p>
+<h3 id="admin-control-levels"><a class="header" href="#admin-control-levels"><strong>Admin Control Levels:</strong></a></h3>
+<p>You can set up these admin controls in two ways:</p>
+<ol>
+<li><strong>Global Level</strong> - for all types of topics and all types of subjects</li>
+<li><strong>Topic Level</strong> - more specific admin controls applied to particular topics</li>
+</ol>
+<p>The difference is just at what level you want to apply them.</p>
+<hr />
+<p>That's it for Amazon Q Business. I hope you liked it and I will see you in the next lecture.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ai--ml--dl-concepts"><a class="header" href="#ai--ml--dl-concepts">AI &amp; ML &amp; DL Concepts</a></h1>
 <p>Coming soon — stay tuned!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="managed-ai-services"><a class="header" href="#managed-ai-services">Managed AI Services</a></h1>
