@@ -31,7 +31,7 @@
   - [Quiz](quiz3.md)
 - [AWS AI (Amazon Q)](amazon-q.md)
   - [Amazon Q Business](./amazonq/amzqb.md)
-  - [Amazon Q Apps]()
+  - [Amazon Q Apps](./amazonq/amzqapp.md)
   - [Amazon Q Developer]()
   - [Amazon Q Developer - Hands On]()
   - [Amazon Q for AWS Services]()
