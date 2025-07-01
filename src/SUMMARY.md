@@ -30,7 +30,7 @@
   - [Prompt Templates](promptemp.md)
   - [Quiz](quiz3.md)
 - [AWS AI (Amazon Q)](amazon-q.md)
-  - [Amazon Q Business]()
+  - [Amazon Q Business](./amazonq/amzqb.md)
   - [Amazon Q Apps]()
   - [Amazon Q Developer]()
   - [Amazon Q Developer - Hands On]()
