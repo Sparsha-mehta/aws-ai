@@ -1945,6 +1945,69 @@ Behind the scenes, Amazon Q Business is built on Amazon Bedrock, but we have les
 </ol>
 <h2 id="summary-1"><a class="header" href="#summary-1"><strong>Summary</strong></a></h2>
 <p>That's it for Amazon Q for other services. This lecture will continue to be updated if there are new services that come up, but so far, you should be good for the exam with this knowledge of Amazon Q integrations.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="partyrock"><a class="header" href="#partyrock">PartyRock</a></h1>
+<p>Now let's talk about PartyRock, which is in the exam guide. It's important to understand that <strong>PartyRock is not a real AWS service</strong>. Instead, it's a playground for you to build Gen AI apps, and in the backend, it's powered by Amazon Bedrock.</p>
+<h2 id="what-is-partyrock"><a class="header" href="#what-is-partyrock"><strong>What is PartyRock?</strong></a></h2>
+<p>PartyRock allows anyone to build AI apps and you can access it simply without having an AWS account. This playground lets you experiment with various foundational models with no coding or accounts required.</p>
+<p>The UI is actually very similar to Amazon Q Apps, but you have way less setup and no account required. So if you wanted to experiment with Q Apps, you could instead use PartyRock. Of course, you won't use your company internal data, but you can experiment with the different widgets that it can offer.</p>
+<h2 id="partyrock-features-and-demo"><a class="header" href="#partyrock-features-and-demo"><strong>PartyRock Features and Demo</strong></a></h2>
+<h3 id="featured-apps-example-good-eats"><a class="header" href="#featured-apps-example-good-eats"><strong>Featured Apps Example: Good Eats</strong></a></h3>
+<p>Let's look at the "Good Eats" app to get restaurant recommendations based on what we like. The app requires these user inputs:</p>
+<ul>
+<li><strong>Location</strong>: Las Vegas, Nevada</li>
+<li><strong>Cuisine</strong>: American</li>
+<li><strong>Meal</strong>: Dinner</li>
+</ul>
+<h3 id="widget-configuration"><a class="header" href="#widget-configuration"><strong>Widget Configuration</strong></a></h3>
+<p>Each input widget has:</p>
+<ul>
+<li><strong>Widget title</strong>: Called "cuisine"</li>
+<li><strong>Placeholder text</strong>: "What kind of cuisine would you like?"</li>
+<li><strong>Default value</strong>: Can be set if needed</li>
+</ul>
+<p>When you run the app using Command + Enter, you need to log in, then press play to generate results.</p>
+<h3 id="app-output"><a class="header" href="#app-output"><strong>App Output</strong></a></h3>
+<p>The app generates two outputs:</p>
+<ol>
+<li><strong>Restaurant recommendations</strong>: "Here are some great recommendations for American burger restaurants in Las Vegas, Nevada for dinner"</li>
+<li><strong>Restaurant guide</strong>: "I'd be happy to share more details about the things I've provided you"</li>
+</ol>
+<h3 id="model-configuration"><a class="header" href="#model-configuration"><strong>Model Configuration</strong></a></h3>
+<p>When you click "Show Configuration," you can see:</p>
+<ul>
+<li>The app uses a <strong>model</strong> for generation</li>
+<li>The <strong>prompt is a prompt template</strong> that says "recommend a great restaurant in [location] for [cuisine] and for [meal]"</li>
+<li>The template uses the user inputs from the top left</li>
+<li>The restaurant guide widget uses the output from the first widget to feed into the second widget</li>
+</ul>
+<h2 id="creating-your-own-app"><a class="header" href="#creating-your-own-app"><strong>Creating Your Own App</strong></a></h2>
+<p>You can generate your own app using Gen AI. For example, you can say "I want to generate an app which gives recipe ideas based on the ingredients as well as a possible image of the recipe."</p>
+<p>PartyRock will automatically try to be smart and find out the types of widgets you need and how these widgets are linked together.</p>
+<h3 id="recipe-app-example"><a class="header" href="#recipe-app-example"><strong>Recipe App Example</strong></a></h3>
+<p>The generated app includes:</p>
+<ol>
+<li><strong>Ingredients input</strong>: Enter ingredients separated by comma</li>
+<li><strong>Recipe idea generation</strong>: Creates a recipe from the ingredients</li>
+<li><strong>Recipe image generation</strong>: Creates an image of the recipe</li>
+</ol>
+<p><strong>Example input</strong>: tomato, cucumber, raclette cheese, olives</p>
+<p>The app uses <strong>Stable Diffusion XL</strong> to generate the recipe image.</p>
+<h2 id="available-widgets"><a class="header" href="#available-widgets"><strong>Available Widgets</strong></a></h2>
+<p>PartyRock offers different widget types:</p>
+<ul>
+<li><strong>User input</strong></li>
+<li><strong>Static text</strong></li>
+<li><strong>Document</strong></li>
+<li><strong>Generation options</strong>:
+<ul>
+<li>Text</li>
+<li>Image</li>
+<li>Chat bots</li>
+</ul>
+</li>
+</ul>
+<h2 id="purpose-and-value"><a class="header" href="#purpose-and-value"><strong>Purpose and Value</strong></a></h2>
+<p>PartyRock serves as a very good playground to create AI apps and it's a good way for AWS to get people to use Amazon Bedrock because it shows the potential of using Amazon Bedrock and Amazon Q.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ai--ml--dl-concepts"><a class="header" href="#ai--ml--dl-concepts">AI &amp; ML &amp; DL Concepts</a></h1>
 <p>Coming soon — stay tuned!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="managed-ai-services"><a class="header" href="#managed-ai-services">Managed AI Services</a></h1>
