@@ -1690,50 +1690,51 @@ The prompt template states: "You are an expert in film and script writing. Respe
 <div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q-business"><a class="header" href="#amazon-q-business">Amazon Q Business</a></h1>
 <p>Now let's talk about Amazon Q Business. Amazon Q Business is a fully managed Gen-AI assistant for your employees. What does that mean? Well, we have an assistant, but it's based entirely on your company's knowledge and data. This is a very specific use case where Gen-AI is for your company and it's trained on your internal data.</p>
 <h2 id="what-can-you-ask-amazon-q-business"><a class="header" href="#what-can-you-ask-amazon-q-business"><strong>What Can You Ask Amazon Q Business?</strong></a></h2>
-<p>Here are some examples of what you can ask Amazon Q Business:</p>
-<p>• <strong>"Write a job posting for a senior product manager role"</strong> - where this role will be very relevant to whatever your company is doing
-• <strong>"Create a social media post under 50 words to advertise the new role"</strong>
-• <strong>"What was discussed during the team meeting in the week of 4/12?"</strong></p>
+<p>Here are some examples of what you can ask Amazon Q Business:<br><br></p>
+<p>• <strong>"Write a job posting for a senior product manager role"</strong> - where this role will be very relevant to whatever your company is doing<br>
+• <strong>"Create a social media post under 50 words to advertise the new role"</strong><br>
+• <strong>"What was discussed during the team meeting in the week of 4/12?"</strong><br><br></p>
 <p>Of course, all of this cannot be answered by a general foundation model. It needs to be a model that has been trained on your own internal data with the right security.</p>
 <h2 id="amazon-q-business-capabilities"><a class="header" href="#amazon-q-business-capabilities"><strong>Amazon Q Business Capabilities</strong></a></h2>
-<p>As a whole, Amazon Q Business can:</p>
-<p>• Answer questions
-• Provide summaries
-• Generate content and automate tasks
+<p>As a whole, Amazon Q Business can:<br><br></p>
+<p>• Answer questions<br>
+• Provide summaries<br>
+• Generate content and automate tasks<br>
 • Perform routine actions such as:</p>
 <ul>
 <li>Submitting time-off requests</li>
-<li>Sending meeting invites</li>
+<li>Sending meeting invites
+<br>
+Behind the scenes, Amazon Q Business is built on Amazon Bedrock, but we have less control so we cannot choose what the underlying foundation model is. Actually, Amazon Q Business is built on multiple foundation models from Amazon Bedrock. This is a service that's a little bit higher level, geared toward the very specific use case of using and exposing your company's internal data from an LLM Gen-AI perspective.</li>
 </ul>
-<p>Behind the scenes, Amazon Q Business is built on Amazon Bedrock, but we have less control so we cannot choose what the underlying foundation model is. Actually, Amazon Q Business is built on multiple foundation models from Amazon Bedrock. This is a service that's a little bit higher level, geared toward the very specific use case of using and exposing your company's internal data from an LLM Gen-AI perspective.</p>
 <h2 id="example-use-case"><a class="header" href="#example-use-case"><strong>Example Use Case</strong></a></h2>
 <p>Here's an example: we're asking "What is the annual total out-of-pocket maximum mentioned in the health plan summary?" This is for our company - we're in the medical space and we have a company document, a PDF, that has the very answer. Amazon Q Business is able to look up that document, look at what the document says, and then give us the answer in our chat, similar to RAG of course. We will have a sources section where it says the source of this is the health plan PDF document, and you can click on it and find it right away.</p>
 <h2 id="amazon-q-business-architecture"><a class="header" href="#amazon-q-business-architecture"><strong>Amazon Q Business Architecture</strong></a></h2>
 <p>Let's have a look at a diagram to better understand Amazon Q Business.</p>
 <h3 id="data-connectors"><a class="header" href="#data-connectors"><strong>Data Connectors</strong></a></h3>
 <p>First, we have data connectors. Data connectors are fully managed RAG, and you can connect to over 40 popular enterprise data sources. You don't have to learn about them all, but it's good to see some of them:</p>
-<p><strong>AWS Services:</strong>
-• Amazon S3 - where we can store data files onto AWS, it's a very popular service
-• Amazon RDS - a database service
-• Aurora - another database service
-• WorkDocs - a service used specifically for documents on AWS</p>
-<p><strong>Non-AWS Services:</strong>
-• Microsoft 365
-• Salesforce
-• Google Drive
-• Gmail
-• Slack
-• SharePoint
-• And many others</p>
+<p><strong>AWS Services:</strong><br>
+• Amazon S3 - where we can store data files onto AWS, it's a very popular service<br>
+• Amazon RDS - a database service<br>
+• Aurora - another database service<br>
+• WorkDocs - a service used specifically for documents on AWS<br></p>
+<p><strong>Non-AWS Services:</strong><br>
+• Microsoft 365<br>
+• Salesforce<br>
+• Google Drive<br>
+• Gmail<br>
+• Slack<br>
+• SharePoint<br>
+• And many others<br><br></p>
 <p>The idea is that Amazon Q Business will have built-in integrations with these services. Once the integration is made, it will crawl these sources and do what it's supposed to do to allow you to search them and query them.</p>
 <h3 id="plugins"><a class="header" href="#plugins"><strong>Plugins</strong></a></h3>
 <p>Next, we have plugins. While data connectors are about retrieving data and understanding what knowledge is inside our company, plugins are different. Plugins allow Amazon Q Business to actually interact with third-party services.</p>
-<p><strong>Examples include:</strong>
-• Jira
-• ServiceNow
-• Zendesk
-• Salesforce
-• And others</p>
+<p><strong>Examples include:</strong><br>
+• Jira<br>
+• ServiceNow<br>
+• Zendesk<br>
+• Salesforce<br>
+• And others<br><br></p>
 <p>The idea is that if we say to Amazon Q Business "Hey, create a Jira issue" (this is to create a ticket so we can track a problem in our company), then Amazon Q Business will leverage the plugin and automatically create that Jira issue for us. So on top of reading data, Amazon Q Business has the ability to create and move data in your company as well. You can extend it because you can create custom plugins to connect to any third-party application using APIs.</p>
 <h2 id="user-access-and-authentication"><a class="header" href="#user-access-and-authentication"><strong>User Access and Authentication</strong></a></h2>
 <h3 id="iam-identity-center"><a class="header" href="#iam-identity-center"><strong>IAM Identity Center</strong></a></h3>
@@ -1741,10 +1742,10 @@ The prompt template states: "You are an expert in film and script writing. Respe
 <p>By using your whole company data with Amazon Q Business, you still have the certainty that someone with less privilege will not be able to access all your documents - otherwise that would be a big security risk.</p>
 <p>Here we have IAM Identity Center, and our users are going to log into it by just having a sign-in box where you enter a username and password and you're good to go. Then you have what's called an authenticated user with its own permissions because IAM Identity Center knows what the user is able to access or not. The user can then ask questions to Amazon Q Business, which is a web application, and access only the documents it should have access to.</p>
 <h3 id="external-identity-providers-idp"><a class="header" href="#external-identity-providers-idp"><strong>External Identity Providers (IDP)</strong></a></h3>
-<p>On top of it, you can integrate IAM Identity Center with what's called External Identity Providers or IDP. It could be, for example:</p>
-<p>• Google login
-• Microsoft Active Directory
-• And others</p>
+<p>On top of it, you can integrate IAM Identity Center with what's called External Identity Providers or IDP. It could be, for example:<br><br></p>
+<p>• Google login<br>
+• Microsoft Active Directory<br>
+• And others<br><br></p>
 <p>This means that instead of logging in and getting an AWS-based sign-in page, you're going to log in with a system where users are already created. For example, it could be your Active Directory where you have your Microsoft login, or it could be your Google login if you're using the G Suite type of workspace for your company. This is very handy and really goes hand in hand with whatever security systems you have in place in your company.</p>
 <h2 id="admin-controls"><a class="header" href="#admin-controls"><strong>Admin Controls</strong></a></h2>
 <p>Next, we have admin controls. These are controls used to customize responses based on what your organization needs. Admin controls are pretty much the exact same thing as Guardrails in Amazon Bedrock.</p>
@@ -1778,6 +1779,165 @@ The prompt template states: "You are an expert in film and script writing. Respe
 <li>Leveraging plugins</li>
 </ol>
 <p>The core concept is that anyone can create a very quick app without using developers, and that's the idea behind Amazon Q Apps.</p>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q-developer---hands-on"><a class="header" href="#amazon-q-developer---hands-on">Amazon Q Developer - Hands On</a></h1>
+<p>Now let's have a look at Amazon Q and Amazon Q Developer, which to me are similar, but depends on how they're named. We'll explore both services and their practical applications in AWS.</p>
+<h2 id="amazon-q-developer"><a class="header" href="#amazon-q-developer"><strong>Amazon Q Developer</strong></a></h2>
+<p>Amazon Q Developer is designed to build applications faster and spend less time solving software development problems. This is the coding assistant on AWS that helps developers with their programming tasks.</p>
+<h3 id="pricing-structure"><a class="header" href="#pricing-structure"><strong>Pricing Structure</strong></a></h3>
+<ul>
+<li><strong>Amazon Q Developer Free Tier</strong> - Basic functionality at no cost</li>
+<li><strong>Amazon Q Developer Pro Tier</strong> - $20 per month per user
+<ul>
+<li>Includes advanced features</li>
+<li>Higher usage limits</li>
+</ul>
+</li>
+</ul>
+<p>From an exam perspective, you need to know that Amazon Q Developer is a coding assistant. For practice purposes, you can find YouTube videos that show how it can improve your coding skills if you're interested in this functionality.</p>
+<h2 id="amazon-q-for-infrastructure-management"><a class="header" href="#amazon-q-for-infrastructure-management"><strong>Amazon Q for Infrastructure Management</strong></a></h2>
+<p>The other way we can use Amazon Q is around helping us deal with our infrastructure (business).</p>
+<ul>
+<li>Go to Amazon Console and type in the search box for <strong>Amazon Q</strong>:
+<img src="amazonq/image.png" alt="Alt text" /></li>
+</ul>
+<p>Amazon Q provides different bundles that we can use for managing our AWS environment.</p>
+<h3 id="available-bundles"><a class="header" href="#available-bundles"><strong>Available Bundles</strong></a></h3>
+<ul>
+<li><strong>Amazon Q Business Lite</strong></li>
+<li><strong>Amazon Q Business Pro</strong></li>
+<li><strong>Amazon Q Developer Pro</strong></li>
+</ul>
+<h3 id="integration-with-iam-identity-center"><a class="header" href="#integration-with-iam-identity-center"><strong>Integration with IAM Identity Center</strong></a></h3>
+<p>We have Amazon Q and we have connected it already to IAM Identity Center. So we saw Amazon Q Business Lite and Amazon Q Business Pro when we were doing Amazon Q Business. Amazon Q connects directly to IAM Identity Center, allowing you to manage entire subscriptions of Amazon Q directly from this UI and set settings as needed.</p>
+<p>[IMAGE: Amazon Q subscription management interface]</p>
+<h2 id="amazon-q-assistant-interface"><a class="header" href="#amazon-q-assistant-interface"><strong>Amazon Q Assistant Interface</strong></a></h2>
+<p>But more importantly, I want to show you here the little button, which is Amazon Q, and it's considered to be Amazon Q Developer based on where you look at in the documentation. Amazon Q appears as a little button accessible from many different places in AWS, which I find really, really nice.</p>
+<p>[IMAGE: Amazon Q button in AWS console]</p>
+<p>When you first access it, Amazon Q introduces itself saying "Hello, I'm Amazon Q, and I'm your AWS generative assistant."</p>
+<p>[IMAGE: Amazon Q welcome message]</p>
+<h3 id="cross-region-data-access"><a class="header" href="#cross-region-data-access"><strong>Cross-Region Data Access</strong></a></h3>
+<p>Amazon Q says it should be able to access cross-region data. And I say, yes, please continue, because this is quite important. So now we have Amazon Q in this little window, and it's accessible from many different places in AWS.</p>
+<p>[IMAGE: Cross-region data access permission dialog]</p>
+<h2 id="practical-examples-and-commands"><a class="header" href="#practical-examples-and-commands"><strong>Practical Examples and Commands</strong></a></h2>
+<p>So now we can do a conversation with Amazon Q, and we have some suggestions. Now we have Amazon Q in this conversation window, and we can interact with it using natural language. Here are some practical examples:</p>
+<p>[IMAGE: Amazon Q conversation interface with suggestions]</p>
+<h3 id="listing-s3-buckets"><a class="header" href="#listing-s3-buckets"><strong>Listing S3 Buckets</strong></a></h3>
+<p>One of the suggestions is, for example, "list my S3 buckets." So I click on it, and it's going to actually look in my account and list my S3 buckets. Remember, we created one bucket before, so Amazon Q should be able to find this bucket for us, and here it is.</p>
+<p>[IMAGE: Amazon Q listing S3 buckets command]</p>
+<p>So we have one S3 bucket called my-demo-bucket-knowledge-base-stefane. And we can click on it and directly go in it. So it's very nice, because now we are starting to have a gen AI assistant that is customized and knows what is going on in your AWS accounts.</p>
+<p>[IMAGE: S3 bucket results from Amazon Q]</p>
+<h3 id="generating-cli-commands"><a class="header" href="#generating-cli-commands"><strong>Generating CLI Commands</strong></a></h3>
+<p>But I'm going to ask something else. So I'll request: "Please send me the CLI code to create an S3 bucket in the us-east-1 region with the name stefane-demo-amazon-q." So here we're asking Amazon Q to suggest a command for us to actually create an S3 bucket.</p>
+<p>[IMAGE: Amazon Q CLI command generation request]</p>
+<p>So before we saw how to create an S3 bucket by going into Buckets, and then click on Create bucket. But now I want to show you another way. So this is called a CLI - command line interface. We can run this and we should be able to create an S3 bucket.</p>
+<p>[IMAGE: Generated CLI command from Amazon Q]</p>
+<h3 id="using-cloudshell"><a class="header" href="#using-cloudshell"><strong>Using CloudShell</strong></a></h3>
+<p>Now where to run it? Well, we can run it in what's called the CloudShell. So this button right here is CloudShell. I'm going to just open it.</p>
+<p>[IMAGE: CloudShell button in AWS console]</p>
+<p>The first time you open it, it can take a little bit of time to create the environment and be ready. But here we go. This was much faster than before actually.</p>
+<p>[IMAGE: CloudShell environment loading]</p>
+<p>And let's just paste the command we have right here from Amazon Q, and press Enter. And now the bucket has been created.</p>
+<p>[IMAGE: Executing CLI command in CloudShell]</p>
+<h3 id="verification-process"><a class="header" href="#verification-process"><strong>Verification Process</strong></a></h3>
+<p>How do we verify this? Well, two options. Number one, let's see if Amazon Q is actually fast. I'm going to ask it again, "list my S3 buckets again," and now it's going to look up hopefully and find another S3 bucket.</p>
+<p>[IMAGE: Amazon Q listing updated S3 buckets]</p>
+<p>And also we can go, right now, I can show you, we can go directly into Amazon S3 and find that yes, a stefane-demo-amazon-q bucket was created for us. But let's verify. And in here, yes, that was awesome. So Amazon Q, using the gen AI capabilities, found that now we have two buckets in our accounts.</p>
+<p>[IMAGE: S3 console showing both buckets]</p>
+<h2 id="security-and-compliance-restrictions"><a class="header" href="#security-and-compliance-restrictions"><strong>Security and Compliance Restrictions</strong></a></h2>
+<p>And again, I can always say, "suggest a command to delete the S3 buckets." And then we give the name again right here, and then it is going to generate a command line interface for us. So here we go.</p>
+<p>[IMAGE: Request for S3 bucket deletion command]</p>
+<p>Ah, this is related to... so you see, you have restrictions as well on Amazon Q. So sometimes if it's related to security or compliance, they're sensitive and so therefore, there's no answer generated.</p>
+<p>[IMAGE: Amazon Q security restriction message]</p>
+<p>But maybe I didn't ask it correctly. So let me try: "Generate the CLI command that I can use to delete the S3 bucket stefane-demo-amazon-q," and hopefully this is going to work.</p>
+<p>[IMAGE: Revised deletion command request]</p>
+<p>So Amazon Q right now has the capability to list things. Maybe later, it will have some capability to delete things and create things, but this, over time, is going to get better. But hopefully you get the idea.</p>
+<p>[IMAGE: Generated deletion command or restriction]</p>
+<p>So now if I just press my command right here, now the bucket has been removed, and I can verify this by going into Amazon S3, refreshing, and now I only see one bucket.</p>
+<p>[IMAGE: S3 console showing single bucket after deletion]</p>
+<h3 id="command-limitations"><a class="header" href="#command-limitations"><strong>Command Limitations</strong></a></h3>
+<p>Currently, Amazon Q has the capability to:</p>
+<ul>
+<li>List existing resources</li>
+<li>Generate creation commands</li>
+<li>Provide informational responses</li>
+</ul>
+<p>Future capabilities may include:</p>
+<ul>
+<li>Delete operations</li>
+<li>More comprehensive resource management</li>
+<li>Enhanced security-aware operations</li>
+</ul>
+<h2 id="cost-analysis-features"><a class="header" href="#cost-analysis-features"><strong>Cost Analysis Features</strong></a></h2>
+<p>You can also ask Amazon Q about your bill, so it can analyze your bill and help you understand how it's working. So if you have any kind of cost being incurred in your account, this would be a good place to ask and say, "Can you explain to me my current AWS charges?"</p>
+<p>[IMAGE: Amazon Q cost analysis request]</p>
+<p>And right now I don't have any charges, because this is a new account. So maybe the answer is not going to be very good. But in one month from now, if you're starting to see any cost data, as you can see, yes, we don't have anything right now, but later on we will have some answers from Amazon Q.</p>
+<p>[IMAGE: Amazon Q response about billing with no charges]</p>
+<blockquote>
+<p><strong>Note</strong>: For new accounts without cost data, Amazon Q may not provide meaningful cost analysis initially. However, after one month of usage with some cost data, Amazon Q will be able to provide detailed answers about your AWS charges.</p>
+</blockquote>
+<h2 id="key-takeaways-1"><a class="header" href="#key-takeaways-1"><strong>Key Takeaways</strong></a></h2>
+<p>So that's it for this lecture. This is the power of Amazon Q - it provides a generative AI assistant that is customized and knows what is going on in your AWS accounts. And over time it's going to be more and more developed and more and more featured, making AWS management more intuitive and efficient through natural language interactions.</p>
+<p>I hope you liked it and I will see you in the next lecture.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q-integration-with-aws-services"><a class="header" href="#amazon-q-integration-with-aws-services">Amazon Q Integration with AWS Services</a></h1>
+<p>Amazon Q is a layer of intelligence that is slowly starting to be included in other AWS services, and these integrations can come up on the exam. Let's explore the key services where Amazon Q has been integrated.</p>
+<h2 id="amazon-q-for-quicksight"><a class="header" href="#amazon-q-for-quicksight"><strong>Amazon Q for QuickSight</strong></a></h2>
+<p>Amazon QuickSight is a way for you to create dashboards and visualize your data. Traditionally, when you work in Amazon QuickSight, it's drag and drop - you select your axes and configure your visualizations manually.</p>
+<p>But you can also now use Amazon Q with QuickSight. With Amazon Q, you simply:</p>
+<ul>
+<li>Upload your dataset</li>
+<li>Ask natural language questions to your data</li>
+<li>Automatically generate graphs based on your questions</li>
+</ul>
+<p>For example, you can ask for "sales by city and product as a map," and automatically, the map is created with the correct measures and configurations, which is very helpful.</p>
+<p>Now to create dashboards in QuickSight, you can use Amazon Q and dictate what you want. You can:</p>
+<ul>
+<li>Get executive summaries of your data</li>
+<li>Ask and answer questions about your data</li>
+<li>Generate and edit visuals for your dashboards</li>
+</ul>
+<h2 id="amazon-q-for-ec2"><a class="header" href="#amazon-q-for-ec2"><strong>Amazon Q for EC2</strong></a></h2>
+<p>EC2 instances are virtual servers that you can start in AWS, and they are very important. Amazon Q for EC2 helps you choose which EC2 instance type you're going to need for your workload.</p>
+<p>For example, you can ask: "Hey, I have a web service and I would like to run it to serve 1,000 users. Which EC2 instance type do you recommend?"</p>
+<p>The system might recommend instance types like M7g and C7g, and provide information explaining why these are suitable choices. You can also keep talking to Amazon Q to:</p>
+<ul>
+<li>Add more requirements</li>
+<li>Get a better understanding if these requirements fit the selected EC2 instance type</li>
+<li>Determine if you need to change your selection</li>
+</ul>
+<p>It's a dialog-based approach, and we'll see Amazon EC2 instances geared for AI and ML workloads later on in this course.</p>
+<h2 id="amazon-q-for-aws-chatbot"><a class="header" href="#amazon-q-for-aws-chatbot"><strong>Amazon Q for AWS Chatbot</strong></a></h2>
+<p>AWS Chatbot is a way for you to deploy a chatbot from AWS in a chat application, for example, Slack or Microsoft Teams. This chatbot knows about your AWS accounts, so you can even ask it to run commands for you, and it will execute them.</p>
+<p>It's a way for you to never leave your chat application and still use AWS. Thanks to this AWS chatbot, you can:</p>
+<ul>
+<li>Troubleshoot issues</li>
+<li>Receive notifications for alarms</li>
+<li>Get security findings</li>
+<li>Receive billing alerts</li>
+<li>Create support requests directly from the chats</li>
+</ul>
+<p>Amazon Q is integrated with AWS Chatbot, allowing you to directly access Amazon Q through the AWS Chatbot. This will accelerate your ability to:</p>
+<ul>
+<li>Understand services</li>
+<li>Troubleshoot issues</li>
+<li>Identify remediation paths</li>
+</ul>
+<h2 id="amazon-q-developer-for-glue"><a class="header" href="#amazon-q-developer-for-glue"><strong>Amazon Q Developer for Glue</strong></a></h2>
+<p>Glue is an ETL service - that means extract, transform, and load. It's used to move data across places on your cloud and from databases or storage options.</p>
+<p>You may not know what Glue is or know how Glue works, but you may want to use it, and Amazon Q can be very helpful in that instance.</p>
+<p>Amazon Q Developer can help with Glue in several ways:</p>
+<ol>
+<li>
+<p><strong>General Support</strong>: Chat to answer general questions about Glue and provide links to documentation</p>
+</li>
+<li>
+<p><strong>Code Generation</strong>: Generate code for AWS Glue, including generating code or answering questions about specific ETL scripts that you find in Glue</p>
+</li>
+<li>
+<p><strong>Error Resolution</strong>: In case you have errors in your Glue jobs, Amazon Q Developer has been trained to understand these errors and provide you step-by-step instructions to root cause and resolve your issues</p>
+</li>
+</ol>
+<h2 id="summary-1"><a class="header" href="#summary-1"><strong>Summary</strong></a></h2>
+<p>That's it for Amazon Q for other services. This lecture will continue to be updated if there are new services that come up, but so far, you should be good for the exam with this knowledge of Amazon Q integrations.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ai--ml--dl-concepts"><a class="header" href="#ai--ml--dl-concepts">AI &amp; ML &amp; DL Concepts</a></h1>
 <p>Coming soon — stay tuned!</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="managed-ai-services"><a class="header" href="#managed-ai-services">Managed AI Services</a></h1>
