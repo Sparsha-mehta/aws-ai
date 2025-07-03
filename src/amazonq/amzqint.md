@@ -18,11 +18,15 @@ Now to create dashboards in QuickSight, you can use Amazon Q and dictate what yo
 - Ask and answer questions about your data
 - Generate and edit visuals for your dashboards
 
+![alt text](image-1.png)  
+
 ## **Amazon Q for EC2**
 
-EC2 instances are virtual servers that you can start in AWS, and they are very important. Amazon Q for EC2 helps you choose which EC2 instance type you're going to need for your workload.
+- EC2 instances are virtual servers that you can start in AWS, and they are very important. 
+- Amazon Q for EC2 helps you choose which EC2 instance type you're going to need for your workload.
 
 For example, you can ask: "Hey, I have a web service and I would like to run it to serve 1,000 users. Which EC2 instance type do you recommend?"
+![alt text](image-2.png)
 
 The system might recommend instance types like M7g and C7g, and provide information explaining why these are suitable choices. You can also keep talking to Amazon Q to:
 - Add more requirements
@@ -34,6 +38,8 @@ It's a dialog-based approach, and we'll see Amazon EC2 instances geared for AI a
 ## **Amazon Q for AWS Chatbot**
 
 AWS Chatbot is a way for you to deploy a chatbot from AWS in a chat application, for example, Slack or Microsoft Teams. This chatbot knows about your AWS accounts, so you can even ask it to run commands for you, and it will execute them.
+
+![alt text](image-3.png)
 
 It's a way for you to never leave your chat application and still use AWS. Thanks to this AWS chatbot, you can:
 - Troubleshoot issues
@@ -50,6 +56,8 @@ Amazon Q is integrated with AWS Chatbot, allowing you to directly access Amazon 
 ## **Amazon Q Developer for Glue**
 
 Glue is an ETL service - that means extract, transform, and load. It's used to move data across places on your cloud and from databases or storage options.
+
+![alt text](image-4.png)
 
 You may not know what Glue is or know how Glue works, but you may want to use it, and Amazon Q can be very helpful in that instance.
 
