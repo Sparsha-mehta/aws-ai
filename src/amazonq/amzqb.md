@@ -4,25 +4,25 @@ Now let's talk about Amazon Q Business. Amazon Q Business is a fully managed Gen
 
 ## **What Can You Ask Amazon Q Business?**
 
-Here are some examples of what you can ask Amazon Q Business:
+Here are some examples of what you can ask Amazon Q Business:<br><br>
 
-• **"Write a job posting for a senior product manager role"** - where this role will be very relevant to whatever your company is doing
-• **"Create a social media post under 50 words to advertise the new role"**
-• **"What was discussed during the team meeting in the week of 4/12?"**
+• **"Write a job posting for a senior product manager role"** - where this role will be very relevant to whatever your company is doing<br>
+• **"Create a social media post under 50 words to advertise the new role"**<br>
+• **"What was discussed during the team meeting in the week of 4/12?"**<br><br>
 
 Of course, all of this cannot be answered by a general foundation model. It needs to be a model that has been trained on your own internal data with the right security.
 
 ## **Amazon Q Business Capabilities**
 
-As a whole, Amazon Q Business can:
+As a whole, Amazon Q Business can:<br><br>
 
-• Answer questions
-• Provide summaries
-• Generate content and automate tasks
+• Answer questions<br>
+• Provide summaries<br>
+• Generate content and automate tasks<br>
 • Perform routine actions such as:
   - Submitting time-off requests
   - Sending meeting invites
-
+<br>
 Behind the scenes, Amazon Q Business is built on Amazon Bedrock, but we have less control so we cannot choose what the underlying foundation model is. Actually, Amazon Q Business is built on multiple foundation models from Amazon Bedrock. This is a service that's a little bit higher level, geared toward the very specific use case of using and exposing your company's internal data from an LLM Gen-AI perspective.
 
 ## **Example Use Case**
@@ -37,20 +37,20 @@ Let's have a look at a diagram to better understand Amazon Q Business.
 
 First, we have data connectors. Data connectors are fully managed RAG, and you can connect to over 40 popular enterprise data sources. You don't have to learn about them all, but it's good to see some of them:
 
-**AWS Services:**
-• Amazon S3 - where we can store data files onto AWS, it's a very popular service
-• Amazon RDS - a database service
-• Aurora - another database service
-• WorkDocs - a service used specifically for documents on AWS
+**AWS Services:**<br>
+• Amazon S3 - where we can store data files onto AWS, it's a very popular service<br>
+• Amazon RDS - a database service<br>
+• Aurora - another database service<br>
+• WorkDocs - a service used specifically for documents on AWS<br>
 
-**Non-AWS Services:**
-• Microsoft 365
-• Salesforce
-• Google Drive
-• Gmail
-• Slack
-• SharePoint
-• And many others
+**Non-AWS Services:**<br>
+• Microsoft 365<br>
+• Salesforce<br>
+• Google Drive<br>
+• Gmail<br>
+• Slack<br>
+• SharePoint<br>
+• And many others<br><br>
 
 The idea is that Amazon Q Business will have built-in integrations with these services. Once the integration is made, it will crawl these sources and do what it's supposed to do to allow you to search them and query them.
 
@@ -58,12 +58,12 @@ The idea is that Amazon Q Business will have built-in integrations with these se
 
 Next, we have plugins. While data connectors are about retrieving data and understanding what knowledge is inside our company, plugins are different. Plugins allow Amazon Q Business to actually interact with third-party services.
 
-**Examples include:**
-• Jira
-• ServiceNow
-• Zendesk
-• Salesforce
-• And others
+**Examples include:**<br>
+• Jira<br>
+• ServiceNow<br>
+• Zendesk<br>
+• Salesforce<br>
+• And others<br><br>
 
 The idea is that if we say to Amazon Q Business "Hey, create a Jira issue" (this is to create a ticket so we can track a problem in our company), then Amazon Q Business will leverage the plugin and automatically create that Jira issue for us. So on top of reading data, Amazon Q Business has the ability to create and move data in your company as well. You can extend it because you can create custom plugins to connect to any third-party application using APIs.
 
@@ -79,11 +79,11 @@ Here we have IAM Identity Center, and our users are going to log into it by just
 
 ### **External Identity Providers (IDP)**
 
-On top of it, you can integrate IAM Identity Center with what's called External Identity Providers or IDP. It could be, for example:
+On top of it, you can integrate IAM Identity Center with what's called External Identity Providers or IDP. It could be, for example:<br><br>
 
-• Google login
-• Microsoft Active Directory
-• And others
+• Google login<br>
+• Microsoft Active Directory<br>
+• And others<br><br>
 
 This means that instead of logging in and getting an AWS-based sign-in page, you're going to log in with a system where users are already created. For example, it could be your Active Directory where you have your Microsoft login, or it could be your Google login if you're using the G Suite type of workspace for your company. This is very handy and really goes hand in hand with whatever security systems you have in place in your company.
 
