@@ -35,7 +35,7 @@
   - [Amazon Q Developer](./amazonq/amzqdev.md)
   - [Amazon Q Developer - Hands On](./amazonq/amzqdevhandson.md)
   - [Amazon Q for AWS Services](./amazonq/amzqint.md)
-  - [Partystock]()
+  - [Partystock](./amazonq/partyrock.md)
   - [Quiz]()
 - [AWS AI (AI, ML, DL)](ai-ml-dl.md)
   - [AI,ML, DL and GenAI]()
