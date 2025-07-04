@@ -1779,9 +1779,71 @@ Behind the scenes, Amazon Q Business is built on Amazon Bedrock, but we have les
 <li>Leveraging plugins</li>
 </ol>
 <p>The core concept is that anyone can create a very quick app without using developers, and that's the idea behind Amazon Q Apps.</p>
-<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q-developer---hands-on"><a class="header" href="#amazon-q-developer---hands-on">Amazon Q Developer - Hands On</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q-developer"><a class="header" href="#amazon-q-developer">Amazon Q Developer</a></h1>
+<p>Now, let's talk about Amazon Q Developer. Amazon Q Developer is a service that has two sides, offering different capabilities for AWS developers and users.</p>
+<h2 id="aws-account-management-and-documentation"><a class="header" href="#aws-account-management-and-documentation"><strong>AWS Account Management and Documentation</strong></a></h2>
+<p>The first side is about answering questions about AWS documentation and helping you select the right AWS service. It can also answer questions about the resources in your AWS accounts.</p>
+<p>For example, as developers we can say, "Hey, list all of my Lambda functions." Lambda is a service in AWS, and we may have created many Lambda functions, but we don't know what they are or where they are. Amazon Q Developer will respond, "Yes, you have five AWS Lambda resources in the region us-east-1 and here are the names of them."</p>
+<p>This is pretty cool because now we can talk to our AWS accounts using natural language.</p>
+<h3 id="key-capabilities"><a class="header" href="#key-capabilities">Key Capabilities:</a></h3>
+<ul>
+<li><strong>CLI Command Suggestions</strong>: It can suggest Command Line Interface commands to run and make changes to your accounts</li>
+<li><strong>AWS Bill Analysis</strong>: It can analyze your AWS bill</li>
+<li><strong>Error Resolution</strong>: It can resolve errors and do troubleshooting</li>
+<li><strong>Continuous Improvement</strong>: It's going to become more and more powerful over time</li>
+</ul>
+<h3 id="examples-in-action"><a class="header" href="#examples-in-action">Examples in Action:</a></h3>
+<p><strong>Example 1 - Lambda Function Management:</strong>
+When we ask Amazon Q: "Change the timeout of a Lambda function Test API1 in the Singapore region to 10 seconds."</p>
+<p>Right now Amazon Q cannot do this for us directly, but what it can do is set up a command for us. It will create the command, and then we can run this command to actually change the timeout. This is pretty cool because this is a step that we don't have to figure out - the command is going to be perfectly executed when we run it.</p>
+<p><strong>Example 2 - Cost Analysis:</strong>
+We can ask Amazon Q: "What were the top three highest cost services in Q1 from my accounts?"</p>
+<p>It will automatically respond with something like: "Well, you had Amazon SageMaker, you had Amazon Elastic Container Service and AWS Config" and give us a cost analysis. This is pretty cool because this type of data analysis would maybe take us a little bit of time, but Amazon Q is doing it for us by using the data from our own AWS accounts.</p>
+<h2 id="ai-code-companion"><a class="header" href="#ai-code-companion"><strong>AI Code Companion</strong></a></h2>
+<p>The other side of Amazon Q Developer is an AI code companion - very different from the first side. The idea is that you can code new applications similarly to GitHub Copilot, and it's specialized of course for AWS-based development.</p>
+<h3 id="code-generation-example"><a class="header" href="#code-generation-example">Code Generation Example:</a></h3>
+<p>We can say: "Write me Python code to list all the files in a given Amazon S3 bucket. It will accept one parameter named bucket_name and return a list of files in that S3 bucket."</p>
+<p>Amazon Q Developer will then generate Python code that fits this purpose.</p>
+<h3 id="language-support"><a class="header" href="#language-support">Language Support:</a></h3>
+<p>Amazon Q Developer supports many languages:</p>
+<ul>
+<li>Java</li>
+<li>JavaScript</li>
+<li>Python</li>
+<li>TypeScript</li>
+<li>C#</li>
+</ul>
+<p>It's going to add more languages over time in terms of support.</p>
+<h3 id="additional-features"><a class="header" href="#additional-features">Additional Features:</a></h3>
+<ul>
+<li><strong>Real-time Code Suggestions</strong>: Provides suggestions while you code in your code editor</li>
+<li><strong>Security Scanning</strong>: Scans your code for security vulnerabilities</li>
+<li><strong>Software Agent</strong>: There's even a software agent from Amazon Q that can:
+<ul>
+<li>Implement features</li>
+<li>Generate documentation in your code</li>
+<li>Bootstrap new projects (creating the base files for new projects to get started)</li>
+</ul>
+</li>
+</ul>
+<h3 id="ide-integration"><a class="header" href="#ide-integration">IDE Integration:</a></h3>
+<p>The AI Code Assistant works with several IDEs (Integrated Development Environments - software used to create code):</p>
+<ul>
+<li>Visual Studio Code</li>
+<li>Visual Studio</li>
+<li>JetBrains</li>
+</ul>
+<h3 id="development-capabilities"><a class="header" href="#development-capabilities">Development Capabilities:</a></h3>
+<ul>
+<li>Answer questions about AWS development</li>
+<li>Code completion and code generation</li>
+<li>Scan code for security vulnerabilities</li>
+<li>Debugging optimizations and improvements</li>
+</ul>
+<p>The idea is that using Amazon Q Developer, you can really enhance the way you write code. This is a very popular thing right now in the AI space - getting a code companion. You have GitHub Copilot, which is the most popular one, but we also have Amazon Q Developer, which is very helpful when you want to do specialized things on AWS.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-q-developer---hands-on"><a class="header" href="#amazon-q-developer---hands-on">Amazon Q Developer - Hands On</a></h1>
 <p>Now let's have a look at Amazon Q and Amazon Q Developer, which to me are similar, but depends on how they're named. We'll explore both services and their practical applications in AWS.</p>
-<h2 id="amazon-q-developer"><a class="header" href="#amazon-q-developer"><strong>Amazon Q Developer</strong></a></h2>
+<h2 id="amazon-q-developer-1"><a class="header" href="#amazon-q-developer-1"><strong>Amazon Q Developer</strong></a></h2>
 <p>Amazon Q Developer is designed to build applications faster and spend less time solving software development problems. This is the coding assistant on AWS that helps developers with their programming tasks.</p>
 <h3 id="pricing-structure"><a class="header" href="#pricing-structure"><strong>Pricing Structure</strong></a></h3>
 <ul>
