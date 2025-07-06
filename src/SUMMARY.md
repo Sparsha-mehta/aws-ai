@@ -9,8 +9,8 @@
   - [Amazon Bedrock - Foundational Model](foundationalmodel.md)
   - [Fine Tuning a Model](finetunemod.md)
   - [FM Evaluation](fmeval.md)
-  - [FM Evaluation - Hands On]()
-  - [RAG & Knowledge Bases](ragkb.md)
+  - [FM Evaluation - Hands On](fmevalhandson.md) pending
+  - [RAG & Knowledge Bases](ragkb.md) pending
   - [RAG & Knowledge Bases - Hands On]()
   - [More GenAI Concepts]()
   - [Guardrails]()
