@@ -1143,6 +1143,52 @@ Here we have:</p>
 </li>
 </ul>
 <p>So that's it for evaluating a foundation model.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-bedrock---fm-evaluation-hands-on"><a class="header" href="#amazon-bedrock---fm-evaluation-hands-on">Amazon Bedrock - FM Evaluation Hands On</a></h1>
+<p><img src="image-40.png" alt="alt text" />
+<img src="image-41.png" alt="alt text" />
+<img src="image-42.png" alt="alt text" />
+<img src="image-43.png" alt="alt text" />
+<img src="image-44.png" alt="alt text" />
+<img src="image-45.png" alt="alt text" />
+<img src="image-46.png" alt="alt text" />
+<img src="image-47.png" alt="alt text" /></p>
+<h2 id="human-evaluation-setup"><a class="header" href="#human-evaluation-setup">Human Evaluation Setup</a></h2>
+<p>Human evaluation brings the human factor into model assessment:</p>
+<h3 id="aws-managed-team"><a class="header" href="#aws-managed-team">AWS Managed Team</a></h3>
+<ul>
+<li>Requires providing substantial information</li>
+<li>AWS handles the evaluation workforce</li>
+</ul>
+<h3 id="bring-your-own-workforce"><a class="header" href="#bring-your-own-workforce">Bring Your Own Workforce</a></h3>
+<ol>
+<li>
+<p><strong>Select up to two models</strong> for comparison</p>
+<ul>
+<li>Example: Compare Nova Pro with Claude 3.5 Sonnet</li>
+</ul>
+</li>
+<li>
+<p><strong>Choose task type</strong>:</p>
+<ul>
+<li>General</li>
+<li>Text summarization</li>
+<li>Custom tasks</li>
+</ul>
+</li>
+<li>
+<p><strong>Select metrics</strong> to evaluate (same options as automatic evaluation)</p>
+</li>
+<li>
+<p><strong>Human judges</strong> (either your team or AWS team) will:</p>
+<ul>
+<li>Compare model performances</li>
+<li>Rate each model's performance</li>
+<li>Determine which model performs better</li>
+</ul>
+</li>
+</ol>
+<p>This human evaluation process provides insights that only human judgment can offer, complementing the automatic evaluation methods available in Amazon Bedrock.</p>
+<hr />
 <div style="break-before: page; page-break-before: always;"></div><h1 id="rag-and-knowledge-bases"><a class="header" href="#rag-and-knowledge-bases">RAG and Knowledge Bases</a></h1>
 <h2 id="what-is-rag"><a class="header" href="#what-is-rag">What is RAG?</a></h2>
 <p>RAG stands for Retrieval Augmented Generation. Behind this very fancy name, there is a very simple concept. This allows your foundation model to reference a data source from outside of its training data without being fine-tuned.</p>
