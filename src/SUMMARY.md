@@ -8,7 +8,7 @@
   - [Amazon Bedrock Overview](bedrockover.md)
   - [Amazon Bedrock - Foundational Model](foundationalmodel.md)
   - [Fine Tuning a Model](finetunemod.md)
-  - [FM Evaluation](fmeval.md)
+  - [FM Evaluation](fmeval.md) pending
   - [FM Evaluation - Hands On](fmevalhandson.md)
   - [RAG & Knowledge Bases](ragkb.md) pending
   - [RAG & Knowledge Bases - Hands On]()
