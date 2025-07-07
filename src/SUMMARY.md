@@ -15,7 +15,7 @@
   - [More GenAI Concepts](moregenai.md)
   - [Guardrails](guardrails.md)
   - [Guardrails - Hands On]()
-  - [Agents]()
+  - [Agents](agents.md)
   - [Cloudwatch Integration]()
   - [Cloudwatch Integration - Hands On]()
   - [Pricing]()
