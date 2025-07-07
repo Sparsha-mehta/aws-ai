@@ -18,7 +18,7 @@
   - [Agents](agents.md)
   - [Cloudwatch Integration](cloudwatch.md)
   - [Cloudwatch Integration - Hands On]()
-  - [Pricing]()
+  - [Pricing](pricing.md)
   - [AI Stylist - Hands On]()
   - [Quiz](quiz2.md)
 - [AWS AI (Prompt Engineering)](prompt-engineering.md)
