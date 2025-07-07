@@ -38,7 +38,7 @@
   - [Partystock](./amazonq/partyrock.md)
   - [Quiz]()
 - [AWS AI (AI, ML, DL)](ai-ml-dl.md)
-  - [AI,ML, DL and GenAI]()
+  - [AI,ML, DL and GenAI](./aimldl/aiml.md)
   - [ML Terms you may encounter during the exam]()
   - [Training Data]()
   - [Supervised Learning]()
