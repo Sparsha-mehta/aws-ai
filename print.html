@@ -1490,6 +1490,100 @@ There is a semantic relationship between tokens with similar embeddings, and tha
 <p><img src="image-55.png" alt="Image Placeholder: CloudWatch Metrics flow diagram showing Bedrock publishing ContentFilteredCount metric to CloudWatch Metrics" /></p>
 <h2 id="exam-importance"><a class="header" href="#exam-importance"><strong>Exam Importance</strong></a></h2>
 <p>Model invocation logging and CloudWatch metrics are very important in Amazon Bedrock and they are topics that can appear in the exam.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-bedrock-pricing"><a class="header" href="#amazon-bedrock-pricing">Amazon Bedrock Pricing</a></h1>
+<p>Now that we understand the basics of Amazon Bedrock, let's explore the pricing options and cost optimization strategies. Amazon Bedrock offers different pricing models to accommodate various use cases and workload patterns.</p>
+<h2 id="pricing-models"><a class="header" href="#pricing-models"><strong>Pricing Models</strong></a></h2>
+<h3 id="on-demand-mode"><a class="header" href="#on-demand-mode"><strong>On-Demand Mode</strong></a></h3>
+<ul>
+<li><strong>Pay-as-you-go</strong> with no commitment required</li>
+<li>Pricing structure:
+<ul>
+<li><strong>Text models</strong>: Charged for every input and output token processed</li>
+<li><strong>Embeddings models</strong>: Charged for every input token processed</li>
+<li><strong>Image models</strong>: Charged for every image generated</li>
+</ul>
+</li>
+<li>Works with <strong>base models only</strong> that are provided as part of Amazon Bedrock</li>
+</ul>
+<h3 id="batch-mode"><a class="header" href="#batch-mode"><strong>Batch Mode</strong></a></h3>
+<ul>
+<li>Make <strong>multiple predictions at a time</strong> with output delivered as a single file in Amazon S3</li>
+<li><strong>Discounts of up to 50%</strong> compared to on-demand pricing</li>
+<li>Trade-off: Responses are delivered later than real-time</li>
+<li>Ideal for cost savings when immediate results aren't required</li>
+</ul>
+<h3 id="provisioned-throughput"><a class="header" href="#provisioned-throughput"><strong>Provisioned Throughput</strong></a></h3>
+<ul>
+<li>Purchase <strong>model units for a specific time period</strong> (e.g., one month or six months)</li>
+<li>Provides <strong>guaranteed throughput</strong> with maximum number of input and output tokens processed per minute</li>
+<li>Primary benefit: <strong>Maintains capacity and performance</strong></li>
+<li>Does <strong>not necessarily provide cost savings</strong></li>
+<li>Works with base models but is <strong>required for</strong>:
+<ul>
+<li>Fine-tuned models</li>
+<li>Custom models</li>
+<li>Imported models</li>
+</ul>
+</li>
+<li>Note: Cannot use on-demand mode with custom or fine-tuned models</li>
+</ul>
+<h2 id="model-improvement-pricing"><a class="header" href="#model-improvement-pricing"><strong>Model Improvement Pricing</strong></a></h2>
+<p>Understanding the cost implications of different model improvement approaches:</p>
+<h3 id="1-prompt-engineering"><a class="header" href="#1-prompt-engineering"><strong>1. Prompt Engineering</strong></a></h3>
+<ul>
+<li>Uses techniques to improve prompts and model outputs</li>
+<li><strong>No additional computation or fine-tuning required</strong></li>
+<li><strong>Very cheap to implement</strong></li>
+<li>No further model training needed</li>
+</ul>
+<h3 id="2-rag-retrieval-augmented-generation"><a class="header" href="#2-rag-retrieval-augmented-generation"><strong>2. RAG (Retrieval Augmented Generation)</strong></a></h3>
+<ul>
+<li>Uses external knowledge base to supplement model knowledge</li>
+<li><strong>Less complex</strong> with no financial model changes</li>
+<li><strong>No retraining or fine-tuning required</strong></li>
+<li>Additional costs include:
+<ul>
+<li>Vector database maintenance</li>
+<li>System to access the vector database</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-instruction-based-fine-tuning"><a class="header" href="#3-instruction-based-fine-tuning"><strong>3. Instruction-Based Fine-Tuning</strong></a></h3>
+<ul>
+<li>Fine-tunes the model with specific instructions</li>
+<li><strong>Requires additional computation</strong></li>
+<li>Used to steer how the model answers questions and set the tone</li>
+<li>Uses <strong>labeled data</strong></li>
+</ul>
+<h3 id="4-domain-adaptation-fine-tuning"><a class="header" href="#4-domain-adaptation-fine-tuning"><strong>4. Domain Adaptation Fine-Tuning</strong></a></h3>
+<ul>
+<li><strong>Most expensive option</strong></li>
+<li>Adapts model trained on domain-specific datasets</li>
+<li>Requires creating extensive data and retraining the model</li>
+<li>Uses <strong>unlabeled data</strong> (unlike instruction-based fine-tuning)</li>
+<li>Requires <strong>intensive computation</strong></li>
+</ul>
+<h2 id="cost-savings-strategies"><a class="header" href="#cost-savings-strategies"><strong>Cost Savings Strategies</strong></a></h2>
+<h3 id="pricing-model-selection"><a class="header" href="#pricing-model-selection"><strong>Pricing Model Selection</strong></a></h3>
+<ul>
+<li><strong>On-demand pricing</strong>: Great for unpredictable workloads with no long-term commitments</li>
+<li><strong>Batch mode</strong>: Achieve up to 50% discounts when you can wait for results</li>
+<li><strong>Provisioned throughput</strong>: Not a cost-saving measure - use for capacity reservation from AWS and providers</li>
+</ul>
+<h3 id="model-configuration"><a class="header" href="#model-configuration"><strong>Model Configuration</strong></a></h3>
+<ul>
+<li><strong>Temperature, Top K, and Top P parameters</strong>: Modifying these has <strong>no impact on pricing</strong></li>
+<li><strong>Model size</strong>: Smaller models are generally cheaper, but this varies by provider</li>
+</ul>
+<h3 id="token-optimization"><a class="header" href="#token-optimization"><strong>Token Optimization</strong></a></h3>
+<p>The <strong>main driver of cost savings</strong> in Amazon Bedrock is optimizing token usage:</p>
+<ul>
+<li><strong>Minimize input tokens</strong>: Write prompts as efficiently as possible</li>
+<li><strong>Minimize output tokens</strong>: Keep outputs concise and short</li>
+<li>Focus on token optimization as the primary cost reduction strategy</li>
+</ul>
+<hr />
+<p>That's the key information about Amazon Bedrock pricing and cost optimization strategies. The main takeaway is that token usage is the primary cost driver, so optimizing your prompts and outputs is essential for cost management.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-2---amazon-bedrock"><a class="header" href="#quiz-2---amazon-bedrock">Quiz 2 - Amazon Bedrock</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
@@ -2247,7 +2341,7 @@ then within this, there are 3 user inputs it requires:
 <li><strong>Restaurant recommendations</strong>: "Here are some great recommendations for American burger restaurants in Las Vegas, Nevada for dinner" <code>(this is from the generated text)</code></li>
 <li><strong>Restaurant guide</strong>: "I'd be happy to share more details about the things I've provided you" <code>(this is from the generated text)</code></li>
 </ol>
-<h3 id="model-configuration"><a class="header" href="#model-configuration"><strong>Model Configuration</strong></a></h3>
+<h3 id="model-configuration-1"><a class="header" href="#model-configuration-1"><strong>Model Configuration</strong></a></h3>
 <p>When you click "Show Configuration," you can see:</p>
 <p><img src="amazonq/image-10.png" alt="alt text" /></p>
 <ul>
