@@ -10,12 +10,15 @@ Now that we understand the basics of Amazon Bedrock, let's explore the pricing o
   - **Text models**: Charged for every input and output token processed
   - **Embeddings models**: Charged for every input token processed
   - **Image models**: Charged for every image generated
-- Works with **base models only** that are provided as part of Amazon Bedrock
+- Works with **base models only** that are provided as part of Amazon Bedrock.
+
+
+Now if you want to have some cost savings, you can use the **batch mode**.
 
 ### **Batch Mode**
 - Make **multiple predictions at a time** with output delivered as a single file in Amazon S3
 - **Discounts of up to 50%** compared to on-demand pricing
-- Trade-off: Responses are delivered later than real-time
+- **Trade-off**: Responses are delivered later than real-time
 - Ideal for cost savings when immediate results aren't required
 
 ### **Provisioned Throughput**
@@ -80,3 +83,5 @@ The **main driver of cost savings** in Amazon Bedrock is optimizing token usage:
 ---
 
 That's the key information about Amazon Bedrock pricing and cost optimization strategies. The main takeaway is that token usage is the primary cost driver, so optimizing your prompts and outputs is essential for cost management.
+
+Here is the [pdf link](Amazon%20Bedrock%20Pricing%20-%20Simple%20Guide.pdf) for better understanding. **Read this first**
