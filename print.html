@@ -1452,23 +1452,44 @@ There is a semantic relationship between tokens with similar embeddings, and tha
 <p>Now let's talk about the integration of Amazon Bedrock and a service called CloudWatch. CloudWatch is a way for you to do cloud monitoring. CloudWatch has many services, but you can have metrics, alarms, logs and so on in CloudWatch and view them all. Many services and areas have integration with CloudWatch.</p>
 <p><img src="image-54.png" alt="Image: CloudWatch integration overview showing the flow from model invocation through Bedrock to CloudWatch Logs and Amazon S3" /></p>
 <h2 id="model-invocation-logging"><a class="header" href="#model-invocation-logging"><strong>Model Invocation Logging</strong></a></h2>
-<p>For Amazon Bedrock, what you can do is model invocation logging, and that's something that can come up at the exam. The idea is that you want to send all the invocations - so all the inputs and the outputs of model invocations - into either CloudWatch Logs or Amazon S3.</p>
-<p>Key features of model invocation logging:
-• <strong>Send logs of all invocations</strong> to Amazon CloudWatch and S3
-• <strong>Can include text, images and embeddings</strong>
-• <strong>Analyze further and build alerting</strong> thanks to CloudWatch Logs Insights</p>
-<p>This is very helpful because you get a history of everything that happened within Bedrock. On top of it, you can analyze the data further and build alerting on top of it, thanks to CloudWatch Logs Insights, which is a service that allows you to analyze the logs in real time from CloudWatch Logs.</p>
+<p>For Amazon Bedrock, you can do model invocation logging, and that's something that can come up at the exam. The idea is that you want to send all the invocations - so all the inputs and the outputs of model invocations - into either:</p>
+<ul>
+<li><strong>CloudWatch Logs</strong></li>
+<li><strong>Amazon S3</strong></li>
+</ul>
+<h3 id="what-can-be-logged"><a class="header" href="#what-can-be-logged"><strong>What Can Be Logged:</strong></a></h3>
+<ul>
+<li>Text</li>
+<li>Images</li>
+<li>Embeddings</li>
+</ul>
+<h3 id="benefits"><a class="header" href="#benefits"><strong>Benefits:</strong></a></h3>
+<ul>
+<li>You get a history of everything that happened within Bedrock</li>
+<li>You can analyze the data further and build alerting on top of it</li>
+<li>Thanks to <strong>CloudWatch Logs Insights</strong>, which is a service that allows you to analyze the logs in real time from CloudWatch Logs</li>
+</ul>
 <p>The idea here is that we get full tracing and monitoring of Bedrock, thanks to CloudWatch Logs.</p>
 <h2 id="cloudwatch-metrics"><a class="header" href="#cloudwatch-metrics"><strong>CloudWatch Metrics</strong></a></h2>
-<p>The other integration is CloudWatch Metrics. The idea is that Amazon Bedrock is going to publish a lot of different metrics to CloudWatch, and then they can appear in CloudWatch Metrics.
-<img src="image-55.png" alt="Image: Metric flow showing ContentFilteredCount metric from Bedrock to CloudWatch Metrics" /></p>
-<h3 id="published-metrics-from-bedrock-to-cloudwatch"><a class="header" href="#published-metrics-from-bedrock-to-cloudwatch"><strong>Published Metrics from Bedrock to CloudWatch</strong></a></h3>
-<p>• <strong>Including ContentFilteredCount</strong> - which helps to see if Guardrails are functioning
-• <strong>Can build CloudWatch Alarms on top of Metrics</strong></p>
-<p>Some of them may be for general usage of Bedrock, but some of them may also be related to guardrails. So there is one called ContentFilteredCount, which helps you understand if some content was filtered from a guardrail.</p>
-<p>What we can do with it is that once you have these kinds of metrics in CloudWatch Metrics, you can build CloudWatch alarms on top of them to get alerted, for example, when something is caught by a guardrail or when Amazon Bedrock is exceeding a specific threshold for a specific metric.</p>
-<hr />
-<p><strong>Important for Exam:</strong> Model invocation logging and CloudWatch metrics are very important in Amazon Bedrock and they are topics that can appear in the exam.</p>
+<p>The other integration is CloudWatch Metrics. The idea is that Amazon Bedrock is going to publish a lot of different metrics to CloudWatch, and then they can appear in CloudWatch Metrics.</p>
+<h3 id="types-of-metrics"><a class="header" href="#types-of-metrics"><strong>Types of Metrics:</strong></a></h3>
+<ul>
+<li><strong>General usage metrics</strong> for Bedrock</li>
+<li><strong>Guardrails-related metrics</strong></li>
+</ul>
+<h3 id="key-metric-example"><a class="header" href="#key-metric-example"><strong>Key Metric Example:</strong></a></h3>
+<ul>
+<li><strong>ContentFilteredCount</strong> - helps you understand if some content was filtered from a guardrail</li>
+</ul>
+<h3 id="building-alarms"><a class="header" href="#building-alarms"><strong>Building Alarms:</strong></a></h3>
+<p>Once you have these metrics in CloudWatch Metrics, you can build CloudWatch Alarms on top of them to get alerted when:</p>
+<ul>
+<li>Something is caught by a guardrail</li>
+<li>Amazon Bedrock is exceeding a specific threshold for a specific metric</li>
+</ul>
+<p><img src="image-55.png" alt="Image Placeholder: CloudWatch Metrics flow diagram showing Bedrock publishing ContentFilteredCount metric to CloudWatch Metrics" /></p>
+<h2 id="exam-importance"><a class="header" href="#exam-importance"><strong>Exam Importance</strong></a></h2>
+<p>Model invocation logging and CloudWatch metrics are very important in Amazon Bedrock and they are topics that can appear in the exam.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-2---amazon-bedrock"><a class="header" href="#quiz-2---amazon-bedrock">Quiz 2 - Amazon Bedrock</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
@@ -1767,7 +1788,7 @@ Let's take the exact same prompt as before, but now we're going to use the few-s
 </li>
 </ol>
 <p>Then we say: "Write a short story about a dog that helps solve a mystery."</p>
-<h3 id="benefits"><a class="header" href="#benefits">Benefits:</a></h3>
+<h3 id="benefits-1"><a class="header" href="#benefits-1">Benefits:</a></h3>
 <p>• Because we have provided a few shots to the Gen-AI model, it's able to respond in a way that follows the few shots we have provided before
 • This is a good technique when you know exactly what kind of output you want and you want the model to write based on examples you provide
 • If you provide only one example, this is also called <strong>one-shot</strong> or <strong>single-shot prompting</strong></p>
