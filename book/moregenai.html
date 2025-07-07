@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>More GenAI Concepts - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="more-gen-ai-concepts-tokenization-context-windows-and-embeddings"><a class="header" href="#more-gen-ai-concepts-tokenization-context-windows-and-embeddings">More Gen Ai Concepts (Tokenization, Context Windows, and Embeddings)</a></h1>
+<p>Now that we've seen Gen AI and how to use it, let's look at bigger concepts around Gen AI. These are more theoretical, but very important to understand, and the exam can ask you a few things about them.</p>
+<h2 id="tokenization"><a class="header" href="#tokenization"><strong>Tokenization</strong></a></h2>
+<p>Tokenization is the process of converting raw text into a sequence of tokens. Here's a sentence: "Wow, learning AWS with Stephane Maarek is immensely fun," and here we have different ways of converting these words into tokens.</p>
+<p><strong>Types of Tokenization:</strong></p>
+<ul>
+<li><strong>Word-based tokenization</strong> - The text is split into individual words</li>
+<li><strong>Subword tokenization</strong> - Some words can be split too, which is very helpful for long words and for the model to have fewer tokens</li>
+</ul>
+<p>For example, the word "unacceptable" can be split into "un" (negative prefix) and "acceptable" (the base token). This way, the model just needs to understand that "un" is a negative and "acceptable" is the token "acceptable."</p>
+<p><strong>How Tokenization Works:</strong>
+You can experiment at OpenAI's website called Tokenizer. Using the sentence "Wow, learning with Stephane is immensely fun!" as an example:</p>
+<ul>
+<li>"Wow" becomes one token</li>
+<li>The comma itself is a token as well</li>
+<li>"Learning AWS with Steph" - Stephane was split in two, because probably "Steph" and "Stephane" are very close</li>
+<li>"Maarek" - "aare" is being split as well</li>
+<li>"Is immensely fun" - all of these are tokens</li>
+<li>The exclamation point is also a token</li>
+</ul>
+<p>Tokenization converts these words into tokens because now each token has an ID, and it's much easier to deal with IDs than to deal with the raw text itself.</p>
+<h2 id="context-windows"><a class="header" href="#context-windows"><strong>Context Windows</strong></a></h2>
+<p>Context is super important. This is the number of tokens that an LLM can consider when generating text. Different models have different context windows, and the larger the context window, the more information and coherence you get.</p>
+<p>It's kind of a race now to have the greatest context window, because the more context window you have, the more information you can feed to your Gen AI model.</p>
+<p><strong>Context Window Comparisons:</strong></p>
+<ul>
+<li><strong>GPT-4 Turbo</strong>: 128,000 tokens</li>
+<li><strong>Claude 2.1</strong>: 200,000 tokens</li>
+<li><strong>Google Gemini 1.5 Pro</strong>: 1 million tokens (up to 10 million tokens in research)</li>
+</ul>
+<p>For 1 million tokens, you can have:</p>
+<ul>
+<li>One hour of video fed to your model</li>
+<li>11 hours of audio</li>
+<li>Over 30,000 lines of code</li>
+<li>700,000 words</li>
+</ul>
+<p><strong>Important Considerations:</strong>
+When you have a large context window, you're going to get more benefit out of it, but it will require more memory and more processing power, and therefore may cost a little more. When you consider a model, the context window is going to be probably the first factor to consider, making sure that it fits your use case.</p>
+<h2 id="embeddings"><a class="header" href="#embeddings"><strong>Embeddings</strong></a></h2>
+<p>We've seen embeddings a little bit with RAG, but now we're going to go deep into how that works. The idea is that you want to create a vector (an array of numerical values) out of text, images, or audio.</p>
+<p><strong>The Embedding Process:</strong></p>
+<ol>
+<li><strong>Start with text</strong>: "The cat sat on the mat"</li>
+<li><strong>Tokenization</strong>: Each word is extracted - "the," "cat," "sat," "on," "the," "mat"</li>
+<li><strong>Token IDs</strong>: Every word is converted into a token ID (dictionary that says the word "the" is 865, etc.)</li>
+<li><strong>Embedding model</strong>: Create a vector for each token
+<ul>
+<li>The token "cats" is converted to a vector of many values (0.025, etc.)</li>
+<li>The word "the" has its own vector</li>
+<li>Vectors can be very big (could be 100 values)</li>
+</ul>
+</li>
+<li><strong>Storage</strong>: All these vectors are stored in a vector database</li>
+</ol>
+<p><strong>Why Convert Tokens to Vectors?</strong>
+When we have vectors with very high dimensionality, we can actually encode many features for one input token:</p>
+<ul>
+<li>The meaning of the word</li>
+<li>The syntactic role</li>
+<li>The sentiment (positive or negative word)</li>
+<li>Much more</li>
+</ul>
+<p>The model is able to capture a lot of information about the word just by storing it into a high-dimensionality vector, and this is what's used for vector databases and RAG.</p>
+<p><strong>Search Applications:</strong>
+Because embedding models can be easily searchable thanks to nearest neighbor capability in vector databases, it's a very good way to use an embedding model to power a search application, and that's something that can come up in the exam.</p>
+<h2 id="semantic-relationships-in-embeddings"><a class="header" href="#semantic-relationships-in-embeddings"><strong>Semantic Relationships in Embeddings</strong></a></h2>
+<p>Words that have a semantic relationship (meaning they're similar) will have similar embeddings.</p>
+<p><strong>Example Visualization:</strong>
+If we take the tokens "dog," "puppy," "cat," and "house," and make a vector with 100 dimensions (100 numerical values for each word or token), it's very difficult for humans to visualize 100 dimensions. We're very good at two dimensions (sheet of paper) and three dimensions (what we can visualize with our eyes), but 100 dimensions is very difficult.</p>
+<p><strong>Dimensionality Reduction:</strong>
+To visualize these things, sometimes we do dimensionality reduction - we reduce these 100 dimensions to two or three dimensions. In a two-dimension diagram, we would see:</p>
+<ul>
+<li>Puppy and dog are related (because a puppy is a small dog)</li>
+<li>Cat is not too far away from dog (because it's an animal)</li>
+<li>House is very different, so it's far away on that diagram</li>
+</ul>
+<p><strong>Color Embedding Visualization:</strong>
+Another way to visualize high-dimension vectors is to use colors. Each combination of numbers makes a color, and visually we can see that puppy and dog have very similar colors because they're very similar, but house is very different.</p>
+<p><strong>Practical Application:</strong>
+There is a semantic relationship between tokens with similar embeddings, and that's why we use them. Once we have them in a vector database, we can do a similarity search on the vector database. We give it "dog" and automatically, we'll be able to pull out all the tokens that have a similar embedding as "dog."</p>
+<hr />
+<p>These concepts appear in the exam, so hopefully now you understand them and you'll be all good.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ragkb.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="guardrails.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ragkb.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="guardrails.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

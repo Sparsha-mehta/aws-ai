@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Fine Tuning a Model - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="amazon-bedrock---fine-tuning-a-model"><a class="header" href="#amazon-bedrock---fine-tuning-a-model">Amazon Bedrock - Fine Tuning a Model</a></h1>
+<p>Now let's talk about fine-tuning on Amazon Bedrock. Fine-tuning is going to be a big part of your exam, so understanding these concepts is crucial for success.</p>
+<h2 id="what-is-fine-tuning"><a class="header" href="#what-is-fine-tuning"><strong>What is Fine-Tuning?</strong></a></h2>
+<p>Fine-tuning allows you to adapt a copy of a foundation model by adding your own data. When you fine-tune a model, it actually changes the underlying weights of the base foundation model. You need to provide training data that adheres to a specific format and must be stored in Amazon S3.</p>
+<p>For example, you have the LLAMA 2 model and you're going to add data from Amazon S3. Bedrock will process this data (we will look further in this lecture, stay tuned). Bedrock will do his thing and you'll get a <strong>fine-tuned version of LLAMA 2</strong> that incorporates your own data as well. (see the image below for the understanding)</p>
+<p><img src="image-31.png" alt="alt text" /></p>
+<p><strong>Important Requirements:</strong></p>
+<ul>
+<li>In order to use a fine-tuned custom model, you must use <strong>provisioned throughput</strong> (different pricing model than on-demand)</li>
+<li>Not all models can be fine-tuned, but few can and they're usually open source</li>
+</ul>
+<h2 id="types-of-fine-tuning"><a class="header" href="#types-of-fine-tuning"><strong>Types of Fine-Tuning</strong></a></h2>
+<h3 id="1-instruction-based-fine-tuning"><a class="header" href="#1-instruction-based-fine-tuning"><strong>1. Instruction-Based Fine-Tuning</strong></a></h3>
+<p>This approach improves the performance of the pre-trained foundation model on domain-specific tasks. Domain-specific tasks means the model will be further trained on a particular field or area of knowledge.</p>
+<p><strong>Key Characteristics:</strong> (Tricks for the exam)</p>
+<ul>
+<li>Uses <strong>labeled examples</strong> in the form of prompt-response pairs (<strong>This will identify the scenario for the exam</strong>)</li>
+<li>For labeled data only</li>
+<li>Example format:
+<ul>
+<li><strong>Prompt:</strong> "Who is Stephane Maarek?"</li>
+<li><strong>Response:</strong> "Stephane Maarek is an AWS instructor who dedicates his time to make the best AWS courses so that his students can pass all certifications with flying colors!"</li>
+</ul>
+</li>
+</ul>
+<p>This type of fine-tuning shows the model not just information, but also how you want it to answer certain questions. The model might already have similar information, but with a different tone.</p>
+<h3 id="2-continued-pre-training"><a class="header" href="#2-continued-pre-training"><strong>2. Continued Pre-Training</strong></a></h3>
+<p>Here you continue the training of the foundation model using unlabeled data. Since foundation models have been trained using unlabeled data, you need to provide unlabeled data for continued pre-training as well.</p>
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li>Also called <strong>domain-adaptation fine-tuning</strong>, it makes a model an expert in a specific domain</li>
+<li>Uses unlabeled data only</li>
+</ul>
+<p><strong>For Example</strong>:</p>
+<ul>
+<li>I am going to feed the entire AWS documentation to a model and the model is going to be an expert on AWS.</li>
+<li>So here we are just giving all the documentation, which is unlabelled data (so this is continued pre-training)</li>
+<li>Now the model has become domain expert</li>
+<li>Here is how the input looks like:
+<img src="image-32.png" alt="alt text" /></li>
+</ul>
+<p><strong>Observation from the Input Format (from the image):</strong>
+Here you will notice that, there are:</p>
+<ul>
+<li>No <strong>prompt-output</strong> pairs</li>
+<li>Just <strong>input</strong> containing large amounts of information</li>
+<li>Excellent for teaching acronyms or industry-specific terminology</li>
+<li>Can <strong>continue training</strong> as more data becomes available</li>
+</ul>
+<h3 id="3-single-turn-and-multi-turn-messaging"><a class="header" href="#3-single-turn-and-multi-turn-messaging"><strong>3. Single-Turn and Multi-Turn Messaging</strong></a></h3>
+<p>You may also encounter single-turn messaging and multi-turn messaging, which are subsets of instruction-based fine-tuning.<br></p>
+<p><strong>Single-Turn Messaging</strong>: Here we give a hint to a user and an assistant about what the user is asking and what the assistant (the bot) should be replying.</p>
+<p><strong>Format includes</strong>:<br>
+Here we have:</p>
+<ul>
+<li><strong>System</strong>: This is optional context for the conversation</li>
+<li><strong>Messages</strong>: Contains various messages, each with a role (<strong>user</strong> or <strong>assistant</strong>) and content (the text content of the message)
+<img src="image-33.png" alt="alt text" /></li>
+</ul>
+<p>This fine-tunes how a chatbot should be replying.</p>
+<p><strong>Multi-Turn Messaging</strong>:</p>
+<ul>
+<li>
+<p>This follows the same idea, but this time we have a conversation with <strong>multiple turns</strong>.</p>
+</li>
+<li>
+<p>We alternate between <strong>user</strong> and <strong>assistant</strong> roles and have a full conversation.
+<img src="image-34.png" alt="alt text" /></p>
+</li>
+<li>
+<p>This helps the model understand how to handle conversations with bigger context.</p>
+</li>
+</ul>
+<h2 id="cost-considerations"><a class="header" href="#cost-considerations"><strong>Cost Considerations</strong></a></h2>
+<p>Fine-tuning a foundational model requires a higher budget because you need to spend computation resources on it.</p>
+<p><strong>Instruction-Based Fine-Tuning:</strong></p>
+<ul>
+<li>Usually cheaper</li>
+<li>Less intense computations</li>
+<li>Usually requires less data</li>
+<li>Just fine-tunes how the model replies based on specific instructions</li>
+</ul>
+<p><strong>Continued Pre-Training:</strong></p>
+<ul>
+<li>Usually more expensive</li>
+<li>Requires much more data</li>
+<li>Needs an experienced machine learning engineer</li>
+<li>Must prepare data, perform fine-tuning, and evaluate the model</li>
+<li>More expensive to run because you must use provisioned throughput</li>
+</ul>
+<h2 id="transfer-learning"><a class="header" href="#transfer-learning"><strong>Transfer Learning</strong></a></h2>
+<p>Transfer learning is a bit broader than fine-tuning. It is the concept of using a pre-trained model to adapt it to a new related task. For example, we have Claude 3 and then we're going to do transfer learning to adapt it to a new task.
+<img src="image-35.png" alt="alt text" /></p>
+<p>You might say this is very similar to fine-tuning, and it is, but here are some examples:</p>
+<p><strong>For Image Classification:</strong> We may want to use a pre-trained model that knows how to recognize edges and images, but we may want to do transfer learning to apply it to recognize specifically a kind of image.</p>
+<p><strong>For Language Processing:</strong> Models like BERT or GPT already know how to process language. Now that we have the language figured out, let's just fine-tune them or use transfer learning to adapt them to newer tasks.</p>
+<blockquote>
+<p><strong>Important Note for Exam:</strong>  Transfer learning appears in this lecture because it can appear in the exam as a general machine learning concept. If you don't see fine-tuning specifically, just know that the general answer is to use transfer learning because fine-tuning is a specific kind of transfer learning.</p>
+</blockquote>
+<h2 id="use-cases-for-fine-tuning"><a class="header" href="#use-cases-for-fine-tuning"><strong>Use Cases for Fine-Tuning</strong></a></h2>
+<p>The use cases of fine-tuning include:</p>
+<ul>
+<li><strong>Custom Chatbots:</strong> Have chatbots designed with a particular persona or tone, or geared towards a specific purpose such as existing customer service or crafting advertisements</li>
+<li><strong>Updated Training:</strong> Train with more up-to-date data than what the model previously accessed</li>
+<li><strong>Exclusive Data:</strong> Train with exclusive data that you have only, such as historical emails, messages, or records for customer service interactions (base foundation models do not have access to this because this is your data)</li>
+<li><strong>Targeted Use Cases:</strong> Applications such as categorization or assessing accuracy</li>
+</ul>
+<h2 id="exam-focus"><a class="header" href="#exam-focus"><strong>Exam Focus</strong></a></h2>
+<p>When you're fine-tuning, the exam will ask you about:</p>
+<ul>
+<li>When fine-tuning is a good idea</li>
+<li>The kind of fine-tuning you will need based on the type of data you get (labeled or unlabeled data)</li>
+<li>Pricing questions related to fine-tuning approaches</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="foundationalmodel.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="fmeval.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="foundationalmodel.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="fmeval.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
