@@ -1352,6 +1352,102 @@ There is a semantic relationship between tokens with similar embeddings, and tha
 <li><strong>Monitor and analyze all the user inputs</strong> that will violate the Guardrails to make sure that you have set the Guardrails up properly</li>
 </ul>
 <p>That's it, just a short intro to the Guardrails. I hope you liked it and I will see you in the next lecture for Hands On.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-bedrock-agents"><a class="header" href="#amazon-bedrock-agents">Amazon Bedrock Agents</a></h1>
+<p>So now let's talk about Amazon Bedrock Agents. The agent is going to be a very smart thing that is going to act a little bit like a human. The idea is that instead of just asking questions to a model, now the model is going to be able to start thinking a little bit and to perform various multi-step tasks. These tasks may have an impact on our own databases or our own infrastructure. So the agent can actually create infrastructure, deploy applications, and perform operations on our systems.</p>
+<p>Here now, the agent doesn't just provide us information. It also starts to think and act. So for example, it's going to look at tasks, and then it's going to perform the task in the correct order and ensure that the correct information is passed within the task even if we haven't programmed the agent to do so.</p>
+<p>So what we do is that we are going to create what's called action groups, and the agents are going to be configured to understand what these action groups do and what they mean. And then automatically the agent will be able to integrate with other systems, services, databases, and APIs to exchange data or to initiate actions. And also if you need to get some information out of your systems in terms of unlabeled data, it can look at RAG to retrieve the information when necessary.</p>
+<p>So that sounds a little bit magical, but I will show you exactly how that works.</p>
+<p><img src="image-51.png" alt="alt text" />
+<em>Shows the core capabilities and features of Amazon Bedrock Agents</em></p>
+<h2 id="core-agent-capabilities"><a class="header" href="#core-agent-capabilities"><strong>Core Agent Capabilities</strong></a></h2>
+<p>Amazon Bedrock Agents can:</p>
+<ul>
+<li><strong>Manage and carry out various multi-step tasks</strong> related to infrastructure provisioning, application deployment, and operational activities</li>
+<li><strong>Task coordination:</strong> perform tasks in the correct order and ensure information is passed correctly between tasks</li>
+<li><strong>Agents are configured to perform</strong> specific pre-defined action groups</li>
+<li><strong>Integrate with other systems,</strong> services, databases and APIs to exchange data or initiate actions</li>
+<li><strong>Leverage RAG</strong> to retrieve information when necessary</li>
+</ul>
+<h2 id="bedrock-agent-setup"><a class="header" href="#bedrock-agent-setup"><strong>Bedrock Agent Setup</strong></a></h2>
+<p>In Amazon Bedrock, you would go and create an agent and you are defining what the agent is responsible for. So for example, you are an agent responsible for accessing purchase history for our customers as well as recommendations into what they can purchase next. And you are responsible for placing new orders.</p>
+<p>So the agent knows that it can do all these things. So if the user is asking something for the agent or the model to do one of these things, Bedrock is smart. It's going to say, well, this agent probably is going to be responsible for these actions.</p>
+<h3 id="instructions-for-the-agent"><a class="header" href="#instructions-for-the-agent"><strong>Instructions for the Agent</strong></a></h3>
+<p>"You are an agent responsible for accessing purchase history for our customers, as well as recommendations into what they can purchase next. You are also responsible for placing new orders."</p>
+<h3 id="action-groups-configuration"><a class="header" href="#action-groups-configuration"><strong>Action Groups Configuration</strong></a></h3>
+<p>Then the agent knows about a few action groups. There are two main ways to set up action groups:</p>
+<h4 id="action-group-1-api-integration"><a class="header" href="#action-group-1-api-integration"><strong>Action Group 1: API Integration</strong></a></h4>
+<p>We have defined an API - it's a way to interface with our system, and we have, for example, defined:</p>
+<ul>
+<li><strong>API defined with OpenAPI Schema:</strong>
+<ul>
+<li><code>/getRecentPurchases</code></li>
+<li><code>/getRecommendedPurchases</code></li>
+<li><code>/getPurchaseDetails/{purchaseId}</code></li>
+</ul>
+</li>
+</ul>
+<p>So all these things are known to the agent in terms of what is the expected input for these APIs, and what do these APIs do, what is the documentation around it? And all this is provided thanks to an OpenAPI schema. And so when done well the agent can invoke these and behind the scenes, of course, interact with our backend systems, for example, make changes to our database.</p>
+<h4 id="action-group-2-lambda-functions"><a class="header" href="#action-group-2-lambda-functions"><strong>Action Group 2: Lambda Functions</strong></a></h4>
+<p>The other way to set up an action group is to use Lambda functions. So Lambda functions are a way to run a little bit of code in AWS without provisioning infrastructure. So the Lambda functions again can be used to be created and place an order through a Lambda function:</p>
+<ul>
+<li><strong>PlaceOrderLambda</strong></li>
+</ul>
+<p>And so it could use the same database or a new database. But the idea is that I wanted to show here that the agent can interact either with an external API or with Lambda functions on your AWS accounts.</p>
+<h4 id="knowledge-bases"><a class="header" href="#knowledge-bases"><strong>Knowledge Bases</strong></a></h4>
+<p>And finally it has access to knowledge bases that we define, of course. And so for example, say we have a knowledge base around our company shipping policy and return policy, et cetera, et cetera:</p>
+<ul>
+<li><strong>Company return policy</strong></li>
+</ul>
+<p>So if the user is asking something about the return policy for an order it's about to do, the agent is smart enough to also provide that to the user.</p>
+<p>So the agents are very smart, and they know what to access and then automatically will know how to do it.</p>
+<p><img src="image-52.png" alt="alt text" />
+<em>Shows the complete agent configuration including Instructions, Action Groups (APIs and Lambda Functions), and Knowledge Bases</em></p>
+<h2 id="how-it-works-behind-the-scenes"><a class="header" href="#how-it-works-behind-the-scenes"><strong>How It Works Behind the Scenes</strong></a></h2>
+<p>So how does that work behind the scenes? Well, say we have a task, and we give this task to a Bedrock agent.</p>
+<h3 id="step-1-information-analysis"><a class="header" href="#step-1-information-analysis"><strong>Step 1: Information Analysis</strong></a></h3>
+<p>Now the agent is going to look at:</p>
+<ul>
+<li>The <strong>prompt</strong></li>
+<li>All the <strong>conversation history</strong></li>
+<li>All the <strong>actions available</strong> (Actions, KBs)</li>
+<li>The <strong>instructions</strong></li>
+<li>What is the <strong>task</strong></li>
+</ul>
+<h3 id="step-2-chain-of-thought-planning"><a class="header" href="#step-2-chain-of-thought-planning"><strong>Step 2: Chain of Thought Planning</strong></a></h3>
+<p>It's going to take all this information together and send it to a Generative AI model backed by Amazon Bedrock and say, "Please tell me how you would proceed to perform these actions given all this information."</p>
+<p>So it's using the chain of thought. Chain of thought means that the output of the Bedrock model is going to be a list of steps:</p>
+<ul>
+<li><strong>Step 1:</strong> you need to do this</li>
+<li><strong>Step 2:</strong> do this</li>
+<li><strong>Step 3:</strong> do this</li>
+<li><strong>Step N:</strong> last step, do that</li>
+</ul>
+<h3 id="step-3-step-execution"><a class="header" href="#step-3-step-execution"><strong>Step 3: Step Execution</strong></a></h3>
+<p>And so the steps are going to be executed by the agent, and say:</p>
+<ul>
+<li><strong>First one:</strong> call an API. Call on this action group and get the results</li>
+<li><strong>Step 2:</strong> do it again</li>
+<li><strong>Step 3:</strong> call another API, et cetera, et cetera</li>
+<li>Maybe it could be a search into a knowledge base, and get the results and so on</li>
+</ul>
+<p>But so the agent is going to work and do all these things for us thanks to the steps that were generated by the Bedrock model, which is amazing.</p>
+<h3 id="step-4-final-response-generation"><a class="header" href="#step-4-final-response-generation"><strong>Step 4: Final Response Generation</strong></a></h3>
+<p>And then the final result is returned to the Bedrock agent. The Bedrock agent then sends the tasks and the results to another Bedrock model. And the Bedrock model is going to synthesize everything and give a final response to our user and we will get the final response.</p>
+<h2 id="agent-workflow-summary"><a class="header" href="#agent-workflow-summary"><strong>Agent Workflow Summary</strong></a></h2>
+<p>So this is all happening behind the scenes. Of course us, we just use the agent, and the agent does stuff and automatically we see the final response. But Bedrock is really nice because you actually have something called <strong>tracing</strong> on your agent, and this allows you to see the list of steps that were done by the agent. So you can debug in case you don't like the way an agent performed something.</p>
+<p>The complete workflow shows:</p>
+<ol>
+<li><strong>Task</strong> input to Bedrock Agent</li>
+<li>Agent analyzes prompt, conversation history, actions, and instructions</li>
+<li><strong>Bedrock Model</strong> generates chain of thought steps</li>
+<li>Agent executes steps (API calls to Action Groups, searches in Knowledge Bases)</li>
+<li>Results are collected and sent to another <strong>Bedrock Model</strong></li>
+<li><strong>Final Response</strong> is generated and returned to the user</li>
+</ol>
+<p><img src="image-53.png" alt="alt text" />
+<em>Shows the complete end-to-end workflow of how a Bedrock Agent processes tasks, from initial input through chain of thought planning, step execution, and final response generation</em></p>
+<hr />
+<p>That's it for Amazon Bedrock Agents.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-2---amazon-bedrock"><a class="header" href="#quiz-2---amazon-bedrock">Quiz 2 - Amazon Bedrock</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
