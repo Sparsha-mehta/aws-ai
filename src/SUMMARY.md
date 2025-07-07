@@ -12,8 +12,8 @@
   - [FM Evaluation - Hands On](fmevalhandson.md)
   - [RAG & Knowledge Bases](ragkb.md) pending
   - [RAG & Knowledge Bases - Hands On]()
-  - [More GenAI Concepts]()
-  - [Guardrails]()
+  - [More GenAI Concepts](moregenai.md)
+  - [Guardrails](guardrails.md)
   - [Guardrails - Hands On]()
   - [Agents]()
   - [Cloudwatch Integration]()
