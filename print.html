@@ -1248,6 +1248,110 @@ When you ask "Give me talking points for benefits of air travel," the response i
 <li>Application: ChatBot for complex medical queries</li>
 </ul>
 <p>RAG opens up a lot of possibilities for doing generative AI on AWS, making it possible to create intelligent applications that can access and reason over your specific organizational knowledge.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="more-gen-ai-concepts-tokenization-context-windows-and-embeddings"><a class="header" href="#more-gen-ai-concepts-tokenization-context-windows-and-embeddings">More Gen Ai Concepts (Tokenization, Context Windows, and Embeddings)</a></h1>
+<p>Now that we've seen Gen AI and how to use it, let's look at bigger concepts around Gen AI. These are more theoretical, but very important to understand, and the exam can ask you a few things about them.</p>
+<h2 id="tokenization"><a class="header" href="#tokenization"><strong>Tokenization</strong></a></h2>
+<p>Tokenization is the process of converting raw text into a sequence of tokens. Here's a sentence: "Wow, learning AWS with Stephane Maarek is immensely fun," and here we have different ways of converting these words into tokens.</p>
+<p><strong>Types of Tokenization:</strong></p>
+<ul>
+<li><strong>Word-based tokenization</strong> - The text is split into individual words</li>
+<li><strong>Subword tokenization</strong> - Some words can be split too, which is very helpful for long words and for the model to have fewer tokens</li>
+</ul>
+<p>For example, the word "unacceptable" can be split into "un" (negative prefix) and "acceptable" (the base token). This way, the model just needs to understand that "un" is a negative and "acceptable" is the token "acceptable."</p>
+<p><strong>How Tokenization Works:</strong>
+You can experiment at OpenAI's website called Tokenizer. Using the sentence "Wow, learning with Stephane is immensely fun!" as an example:</p>
+<ul>
+<li>"Wow" becomes one token</li>
+<li>The comma itself is a token as well</li>
+<li>"Learning AWS with Steph" - Stephane was split in two, because probably "Steph" and "Stephane" are very close</li>
+<li>"Maarek" - "aare" is being split as well</li>
+<li>"Is immensely fun" - all of these are tokens</li>
+<li>The exclamation point is also a token</li>
+</ul>
+<p>Tokenization converts these words into tokens because now each token has an ID, and it's much easier to deal with IDs than to deal with the raw text itself.</p>
+<h2 id="context-windows"><a class="header" href="#context-windows"><strong>Context Windows</strong></a></h2>
+<p>Context is super important. This is the number of tokens that an LLM can consider when generating text. Different models have different context windows, and the larger the context window, the more information and coherence you get.</p>
+<p>It's kind of a race now to have the greatest context window, because the more context window you have, the more information you can feed to your Gen AI model.</p>
+<p><strong>Context Window Comparisons:</strong></p>
+<ul>
+<li><strong>GPT-4 Turbo</strong>: 128,000 tokens</li>
+<li><strong>Claude 2.1</strong>: 200,000 tokens</li>
+<li><strong>Google Gemini 1.5 Pro</strong>: 1 million tokens (up to 10 million tokens in research)</li>
+</ul>
+<p>For 1 million tokens, you can have:</p>
+<ul>
+<li>One hour of video fed to your model</li>
+<li>11 hours of audio</li>
+<li>Over 30,000 lines of code</li>
+<li>700,000 words</li>
+</ul>
+<p><strong>Important Considerations:</strong>
+When you have a large context window, you're going to get more benefit out of it, but it will require more memory and more processing power, and therefore may cost a little more. When you consider a model, the context window is going to be probably the first factor to consider, making sure that it fits your use case.</p>
+<h2 id="embeddings"><a class="header" href="#embeddings"><strong>Embeddings</strong></a></h2>
+<p>We've seen embeddings a little bit with RAG, but now we're going to go deep into how that works. The idea is that you want to create a vector (an array of numerical values) out of text, images, or audio.</p>
+<p><strong>The Embedding Process:</strong></p>
+<ol>
+<li><strong>Start with text</strong>: "The cat sat on the mat"</li>
+<li><strong>Tokenization</strong>: Each word is extracted - "the," "cat," "sat," "on," "the," "mat"</li>
+<li><strong>Token IDs</strong>: Every word is converted into a token ID (dictionary that says the word "the" is 865, etc.)</li>
+<li><strong>Embedding model</strong>: Create a vector for each token
+<ul>
+<li>The token "cats" is converted to a vector of many values (0.025, etc.)</li>
+<li>The word "the" has its own vector</li>
+<li>Vectors can be very big (could be 100 values)</li>
+</ul>
+</li>
+<li><strong>Storage</strong>: All these vectors are stored in a vector database</li>
+</ol>
+<p><strong>Why Convert Tokens to Vectors?</strong>
+When we have vectors with very high dimensionality, we can actually encode many features for one input token:</p>
+<ul>
+<li>The meaning of the word</li>
+<li>The syntactic role</li>
+<li>The sentiment (positive or negative word)</li>
+<li>Much more</li>
+</ul>
+<p>The model is able to capture a lot of information about the word just by storing it into a high-dimensionality vector, and this is what's used for vector databases and RAG.</p>
+<p><strong>Search Applications:</strong>
+Because embedding models can be easily searchable thanks to nearest neighbor capability in vector databases, it's a very good way to use an embedding model to power a search application, and that's something that can come up in the exam.</p>
+<h2 id="semantic-relationships-in-embeddings"><a class="header" href="#semantic-relationships-in-embeddings"><strong>Semantic Relationships in Embeddings</strong></a></h2>
+<p>Words that have a semantic relationship (meaning they're similar) will have similar embeddings.</p>
+<p><strong>Example Visualization:</strong>
+If we take the tokens "dog," "puppy," "cat," and "house," and make a vector with 100 dimensions (100 numerical values for each word or token), it's very difficult for humans to visualize 100 dimensions. We're very good at two dimensions (sheet of paper) and three dimensions (what we can visualize with our eyes), but 100 dimensions is very difficult.</p>
+<p><strong>Dimensionality Reduction:</strong>
+To visualize these things, sometimes we do dimensionality reduction - we reduce these 100 dimensions to two or three dimensions. In a two-dimension diagram, we would see:</p>
+<ul>
+<li>Puppy and dog are related (because a puppy is a small dog)</li>
+<li>Cat is not too far away from dog (because it's an animal)</li>
+<li>House is very different, so it's far away on that diagram</li>
+</ul>
+<p><strong>Color Embedding Visualization:</strong>
+Another way to visualize high-dimension vectors is to use colors. Each combination of numbers makes a color, and visually we can see that puppy and dog have very similar colors because they're very similar, but house is very different.</p>
+<p><strong>Practical Application:</strong>
+There is a semantic relationship between tokens with similar embeddings, and that's why we use them. Once we have them in a vector database, we can do a similarity search on the vector database. We give it "dog" and automatically, we'll be able to pull out all the tokens that have a similar embedding as "dog."</p>
+<hr />
+<p>These concepts appear in the exam, so hopefully now you understand them and you'll be all good.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amazon-bedrock-guardrails"><a class="header" href="#amazon-bedrock-guardrails">Amazon Bedrock Guardrails</a></h1>
+<p>Now let's talk about Guardrails in Amazon Bedrock. Guardrails allow you to control the interaction between your users and your Foundation Models.</p>
+<h2 id="what-guardrails-can-do"><a class="header" href="#what-guardrails-can-do"><strong>What Guardrails Can Do</strong></a></h2>
+<p>You can set up Guardrails to filter undesirable and harmful content. For example, say we have Amazon Bedrock and we set up a Guardrail to block any kind of food recipes, and the user is using your model and saying, "Hey, suggest me something to cook tonight." Then Amazon Bedrock will respond, "Sorry, this is a restricted topic." This is because we have set up a Guardrail to block this topic.</p>
+<p><img src="image-50.png" alt="alt text" /></p>
+<p>Of course, maybe you don't want to block food recipes, but something a bit more relevant to your business.</p>
+<h2 id="key-features"><a class="header" href="#key-features"><strong>Key Features</strong></a></h2>
+<p>You can also use Guardrails to:</p>
+<ul>
+<li><strong>Remove personally identifiable information (PII)</strong> to make sure that your users are safe</li>
+<li><strong>Enhance privacy</strong></li>
+<li><strong>Reduce hallucinations</strong> (we'll see what hallucinations are later on this course)</li>
+</ul>
+<p>The idea is that you want to make sure that the answers are safe and sound and that they're not just invented off the block. Guardrails can help you with that.</p>
+<h2 id="advanced-capabilities"><a class="header" href="#advanced-capabilities"><strong>Advanced Capabilities</strong></a></h2>
+<p>You can also:</p>
+<ul>
+<li><strong>Create multiple Guardrails</strong> and multiple levels of Guardrails</li>
+<li><strong>Monitor and analyze all the user inputs</strong> that will violate the Guardrails to make sure that you have set the Guardrails up properly</li>
+</ul>
+<p>That's it, just a short intro to the Guardrails. I hope you liked it and I will see you in the next lecture for Hands On.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quiz-2---amazon-bedrock"><a class="header" href="#quiz-2---amazon-bedrock">Quiz 2 - Amazon Bedrock</a></h1>
 <p>Coming Soon</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="prompt-engineering"><a class="header" href="#prompt-engineering">Prompt Engineering</a></h1>
