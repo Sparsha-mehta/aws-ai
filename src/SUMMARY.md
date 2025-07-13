@@ -41,7 +41,7 @@
   - [AI,ML, DL and GenAI](./aimldl/aiml.md)
   - [ML Terms you may encounter during the exam](./aimldl/mlterms.md)
   - [Training Data](./aimldl/trainingdata.md)
-  - [Supervised Learning]()
+  - [Supervised Learning](./aimldl/supervisedL.md)
   - [Unsupervised Learning]()
   - [Self-supervised Learning]()
   - [Reinforcement Learning]()
