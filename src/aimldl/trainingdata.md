@@ -49,20 +49,20 @@ Unlabeled data only includes input features without any output labels.
 ## **Structured vs Unstructured Data**
 
 ### **Structured Data**
-Structured data is organized in a structured format, usually in rows and columns, just like in Microsoft Excel (called tabular data).
+Structured data is organized in a structured format, usually in rows and columns, just like in Microsoft Excel.
 
-**Example 1: Customer Database**
-- Columns: Customer_ID, Name, Age, Purchase_Amount
-- Clear structure with rows and columns
+**Tabular Data**:
+- Data is arranged in a table with **rows** representing **records** and **columns** representing **features**
+- **For example:** Columns with Customer_ID, Name, Age, Purchase_Amount and with the rows
+![alt text](image-4.png)
 
-**Example 2: Time Series Data**
+**Time Series Data**
 - Data points collected or recorded at successive points in time
 - Example: Stock price of a company over time
-- Can be in tabular format or simply two columns (Date and Stock Price)
+- You can have **time series data** in tabular format or simply two columns (Date and Stock Price)
+![alt text](image-5.png)
 
-**Key characteristics:**
-- Very easy to read and structure
-- Multiple formats available beyond just tabular and time series
+> In both of the cases of **time series** and **tabular** data, it is very easy to read it and very easy to structure the data.
 
 ### **Unstructured Data**
 Unstructured data doesn't follow a specific structure and is usually text-heavy or multimedia content.
