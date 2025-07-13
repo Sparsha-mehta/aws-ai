@@ -40,7 +40,7 @@
 - [AWS AI (AI, ML, DL)](ai-ml-dl.md)
   - [AI,ML, DL and GenAI](./aimldl/aiml.md)
   - [ML Terms you may encounter during the exam](./aimldl/mlterms.md)
-  - [Training Data]()
+  - [Training Data](./aimldl/trainingdata.md)
   - [Supervised Learning]()
   - [Unsupervised Learning]()
   - [Self-supervised Learning]()
