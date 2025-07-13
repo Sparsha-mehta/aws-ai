@@ -11,7 +11,7 @@ If you've understood this, then you will be acing your questions at the exam.
 I hope you will really understand the behind those scenes of AI and machine learning.
 
 ## Index:
-1. AI,ML, Deep Learning and GenAI
+1. [AI,ML, Deep Learning and GenAI](./aimldl/aiml.md)
 2. ML Terms You May Encounter in the Exam
 3. Training Data
 4. Supervised Learning
