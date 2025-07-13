@@ -12,7 +12,7 @@ I hope you will really understand the behind those scenes of AI and machine lear
 
 ## Index:
 1. [AI,ML, Deep Learning and GenAI](./aimldl/aiml.md)
-2. ML Terms You May Encounter in the Exam
+2. [ML Terms You May Encounter in the Exam](./aimldl/mlterms.md)
 3. Training Data
 4. Supervised Learning
 5. Unsupervised Learning
