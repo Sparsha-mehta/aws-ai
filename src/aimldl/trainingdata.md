@@ -65,21 +65,28 @@ Structured data is organized in a structured format, usually in rows and columns
 > In both of the cases of **time series** and **tabular** data, it is very easy to read it and very easy to structure the data.
 
 ### **Unstructured Data**
-Unstructured data doesn't follow a specific structure and is usually text-heavy or multimedia content.
+Unstructured data is the data that doesn't follow a specific structure and is usually text-heavy or multimedia content.
 
 **Example 1: Text Data**
+You have:
 - Articles online
 - Social media posts  
-- Customer reviews
-- Example: "The instructor was excellent, the facility was well maintained..." - just a long text with no structure except being text
+- Customer review on your business
+
+Then this data is considered unstructured data.
+- **For Example**: Here is the review of a Yoga Class
+
+![alt text](image-6.png)
+
+This is long text with no structure except the fact that it is just a long text.
 
 **Example 2: Image Data**
-- Just pixels with no organized structure beyond the pixel data itself
+- Image data is unstructured data
+- This is just pixels with no organized structure beyond the pixel data itself
+![alt text](image-7.png)
 
-**Key characteristics:**
-- No specific organizational structure
-- Still considered good data
-- Requires specific types of algorithms to handle unstructured data
+> So both of these: **image** and **text** data are unstructured with no specific organizational structure. We have specific type of algorithms to deal with this data.
+
 
 ## **Summary**
 
