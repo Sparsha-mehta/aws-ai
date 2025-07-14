@@ -1,52 +1,53 @@
-# Supervised Learning Course Notes
+# Supervised Learning - Course Notes
 
-Now that we have learned about data, let's talk about supervised learning. In this context of supervised learning, we're trying to figure out a mapping function for our model that can predict the output for new unseen input data. To do supervised learning, you need labeled data. That means it's going to be very powerful, but as mentioned, it's going to be very difficult to have labeled data for millions of data points.
+Now that we have learned about data, let's talk about supervised learning. In this context of supervised learning, we're trying to figure out a mapping function for our model that can predict the output for new unseen input data.
+
+## **What is Supervised Learning?**
+
+To do supervised learning, you need labeled data. This means it's going to be very powerful, but as mentioned, it's going to be very difficult to have labeled data for millions of data points.
 
 ## **Regression**
 
-### **Linear Regression Example: Height and Weight**
-- We can perform regression on humans who have both height and weight measurements
-- Each human can be represented as crosses on a diagram with weight and height coordinates
-- We try to find a straight line (linear regression) that covers the trend of these data points
-- The line isn't perfect since some humans can be very tall and light, while others can be tiny and heavy
-- But it's one algorithm we can apply to these datasets
+![Image Placeholder 2 - Supervised Learning Regression](image-8.png)
 
-![alt text](image-8.png)
+### **Linear Regression Example**
+For example, say we are doing a regression on humans. Humans have a height and also have a weight. We can have little crosses for every human and put weight and height on a diagram. Then we can do a regression in which we try to find a straight line. This is called a linear regression.
 
-### **Making Predictions with Regression**
-Once we have the red line that crosses our datasets, we can ask the algorithm questions like "What is the weight of a person that is 1.6 meters tall?"
+We try to find a straight line that sort of covers the trend of these data points. Of course, it's not perfect, but it's one way of doing it. We know that some humans can be very tall and very light, and others can be very tiny and very heavy. But still, it's one algorithm that we can apply to these datasets.
 
-The process works as follows:
-1. Look at the 1.6 value on the height axis
-2. Go up to where it meets the red line
-3. Read the corresponding weight value (60 kilograms in this example)
+### **Making Predictions**
+Once we have this red line that crosses our datasets, then we can ask the algorithm, "Hey, what is the weight of a person that is 1.6 meters tall?" Based on this regression, we're going to look at the 1.6 value, go all the way to the red line and read the value, and it's going to be 60 kilograms.
+
+For a height of 1.6 meters, we predict that the weight is going to be 60 kilograms.
 
 ### **Regression Summary**
-- **Purpose**: Predict a numeric value based on input data
-- **Output**: Continuous variable that can take any value within a range
-- **Use case**: Predicting quantities or real values
+A regression is to predict a numeric value based on input data. The output variable that you're trying to predict is continuous. That means it can take any value within a range. This is when we try to predict a quantity or a real value.
 
-**Examples of regression applications:**
-- Predicting house prices based on house size
-- Stock price prediction
+Another example to consider:
+- We have house sizes and price and again, we do a linear regression,then we put the house size, and then we get the price from this linear regression.
+
+![alt text](image-9.png)
+
+**Examples of regression:**
+- Predicting house prices
+- Predicting stock prices
 - Weather forecasting
 
-*Note: The examples shown are two-dimensional regressions, but in practice, regressions can be much more complicated, non-linear, and work in more than two dimensions.*
+> Here we're showing a two-dimensional regression, but in practice, regressions can be a lot more complicated. They can be other things than linear, and they can be in more dimensions than two dimensions.
 
 ## **Classification**
 
-### **Classification Example: Animal Identification**
-- Using heights and weights to classify animals (dogs, cats, giraffes)
-- This creates a very diverse dataset where dogs and cats might have similar heights but different weights
-- Giraffes are clearly differentiated as they are very tall and heavy
-- When asked "What animal is this?" with input of 4.5 meters height and 800 kilograms weight, the classification model responds "giraffe"
+![Image Placeholder 3 - Supervised Learning Classification]
+
+### **Animal Classification Example**
+For classification, we have a different kind of algorithm. Say for example, we are again using heights and weights. This time we put animals there. We're going to have dogs, cats, and giraffes. As you can see, it's a very diverse dataset. It's very possible that dogs and cats will have the same height and different weights, so it can be all over the place.
+
+We can see clearly that giraffes are going to be very tall and very heavy, so they're going to be heavily differentiated from dogs and cats. Once we've classified things, and we ask the algorithm, "What animal is this?" and we give it a height of 4.5 meters and a weight of 800 kilograms, the classification model is going to say, "Well, based on the data you gave me, this looks like a giraffe."
 
 ### **Classification Summary**
-- **Purpose**: Predict the categorical label of input data
-- **Output**: Discrete variable with distinct values, where each value is a specific category or class
-- **Use case**: Predicting categories between different options
+Classification is to predict the categorical label of your input data. The output variable is discrete, meaning that it has very distinct values, and each value is a specific category or class. This is where you're trying to predict what it could be between different categories.
 
-**Examples of classification applications:**
+**Use cases for classification:**
 - Fraud detection
 - Image classification
 - Customer retention
@@ -55,80 +56,69 @@ The process works as follows:
 ### **Types of Classification**
 
 **1. Binary Classification**
-- Example: Email spam detection (spam or not spam)
-- Process:
-  - Train a classification model using labeled emails (known spam and non-spam)
-  - The model learns what makes an email spam or not spam
-  - When a new email arrives, the model classifies it based on learned patterns
-  - This is how spam filters work nowadays
+For example, when your emails are coming to your mailbox, they can be classified as spam or not spam. We train a classification model using labeled emails in our inbox - some emails that we know are not spam, and some emails that we know are spam. All these labeled emails go into our classification model, which learns what makes or doesn't make an email spam. After being trained, whenever the classification model sees a new incoming email, it will classify it as spam or not spam. This is how spam filters work nowadays.
 
 **2. Multi-class Classification**
-- More than two categories
-- Example: Mammal, bird, reptile classifications
+You have different kinds of categories, not just two categories, but a lot more. For example, classify animals in a zoo as "mammal," "bird," "reptile."
 
 **3. Multi-label Classification**
-- Multiple labels can be attached to one output
-- Example: A movie can be both action and comedy
+Assign multiple labels to a movie, like "action" and "comedy."
 
-**Common Algorithm**: K-nearest neighbors (k-NN) model used for classification
+### **Key Classification Algorithm**
+K-nearest neighbors (k-NN) model used for classification.
 
 ## **Data Splitting for Supervised Learning**
 
-### **Training, Validation, and Test Sets**
+![Image Placeholder 4 - Training vs Validation vs Test Set]
 
-**Training Set (60-80% of data)**
-- Used to train the model
-- Example: 800 labeled images out of 1,000 total images
-- The algorithm learns from these labeled examples
+In supervised learning, we have training versus validation versus test sets. Here's how we split our datasets:
 
-**Validation Set (10-20% of data)**
-- Used to tune model parameters and validate performance
-- Helps optimize the algorithm for best performance
-- Example: 100 labeled images used for tuning
+### **Training Set (60-80%)**
+Usually 80% is going to be used to train the model. For example, if you have 1,000 images, get 800 labeled images, and you're going to train your algorithm on these 800 labeled images.
 
-**Test Set (10-20% of data)**
-- Used to test and evaluate final model performance
-- Contains data not used for training or validation
-- Tests the model's accuracy on completely new data
-- Example: Submit an image of a cat, expect "cat" as output
+### **Validation Set (10-20%)**
+This is to tune what's called the model parameters and validate the performance. This is how to tune the algorithm so that it performs best. For example, if you have 1,000 images, then 100 labeled images could be used to tune the algorithm and make it more efficient.
+
+### **Test Set (10-20%)**
+This is where we actually test and evaluate the final model performance. We're going to use the remaining images that haven't been used for training or for validation. We're going to test the model's accuracy. For example, if I give an image of a cat, and if I get labeled cat as an outcome, then this is a good test, and I know that my model is working as it should.
 
 ## **Feature Engineering**
 
-Feature engineering is the process of using domain knowledge to select and transform raw data into meaningful features that help enhance the performance of machine learning models.
+![Image Placeholder 5 - Feature Engineering Overview]
 
-### **Example: Birth Date to Age Conversion**
-- Original dataset has a "birth date" column that is sparse and not easily usable
-- Through feature engineering, convert birth date to "age" column
-- Age is easier to use from a machine learning perspective and provides more valuable information
+Feature engineering is the process of using domain knowledge to select and transform raw data into meaningful features. This helps enhance the performance of machine learning models.
 
-### **Feature Engineering Techniques**
+### **Example**
+Here is a dataset in which we have structured data with labels. But actually one column, the birth date column, is not very nice and easily usable from a machine learning perspective because it's sparse data. Instead, maybe something that can be more relevant after doing feature engineering is to convert this birth date column into an age column, which is easier to use from a machine learning perspective and to extract valuable information out of.
 
-**1. Feature Extraction**
-- Derive new features from existing data
-- Example: Extract age from date of birth
+### **Techniques**
 
-**2. Feature Selection**
-- Select a subset of relevant features
-- Choose only the important features in datasets
+**Feature Extraction**
+For example, to derive the age from the date of birth.
 
-**3. Feature Transformation**
-- Transform data to change values for better model performance
-- Ensure all features are on the same range so algorithms converge faster
+**Feature Selection**
+For example, to select a subset of relevant features, to choose only the important features in our datasets.
 
-### **Feature Engineering Applications**
+**Feature Transformation**
+To transform data and to change the values to have better model performance.
 
-**Structured Data Example: House Price Prediction**
-- Input features: Size, location, number of rooms
-- **Feature Creation**: Create new column "price per square foot"
-- **Feature Selection**: Identify important features like location or number of bedrooms
-- **Feature Transformation**: Normalize features to same range for faster algorithm convergence
+### **Feature Engineering on Structured Data**
 
-**Unstructured Data Examples:**
-- **Text Data**: 
-  - Sentiment analysis of customer reviews to extract sentiment features
-  - TF-IDF technique to convert text into numerical features
-- **Image Data**: 
-  - Extract features like edges or textures using neural networks
-  - Create meaningful features for image data to feed into other algorithms
+![Image Placeholder 6 - Feature Engineering on Structured Data]
 
-Feature engineering is essential for creating new input labels that help machine learning algorithms perform better.
+Let's say we want to predict house prices based on size, location, and number of rooms:
+
+- **Creating new features:** Create a new column named price per square foot
+- **Feature selection:** Identifying only important features such as location or number of bedrooms
+- **Feature transformation:** Make sure that all the features are on a similar scale, which helps algorithms like gradient descent converge faster
+
+### **Feature Engineering on Unstructured Data**
+
+![Image Placeholder 7 - Feature Engineering on Unstructured Data]
+
+For example, long form text or images:
+
+- **Text data:** You can do sentiment analysis of customer reviews to extract the sentiments from long text. We can also use advanced techniques such as TF-IDF or word embeddings to convert text into numerical features.
+- **Image data:** We can extract features such as the edges or textures using techniques like convolutional neural networks (CNNs) to create nice features for image data and feed that into other algorithms.
+
+Feature engineering is used to create new input labels so that we can have our machine learning algorithms perform better.
