@@ -42,7 +42,7 @@
   - [ML Terms you may encounter during the exam](./aimldl/mlterms.md)
   - [Training Data](./aimldl/trainingdata.md)
   - [Supervised Learning](./aimldl/supervisedL.md)
-  - [Unsupervised Learning]()
+  - [Unsupervised Learning](./aimldl/unsupervisedL.md)
   - [Self-supervised Learning]()
   - [Reinforcement Learning]()
   - [RLHF - Reinforcement Learning from Human Feedback]()
