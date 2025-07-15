@@ -1,17 +1,17 @@
 # Self-Supervised Learning
 
-Now let's talk about Self-Supervised Learning. This is a bit of an odd concept, but the idea is that we have a model and we have a lot of unlabeled data, for example, text data. We want the model to generate its own pseudo-labels on its own, without having humans label any data first, because labeling data as humans can be very expensive.
+Now let's talk about Self-Supervised Learning. This is a bit of an odd concept, but the idea is that we have a model and we have a lot of unlabeled data, for example, text data. We want the model to generate its own **pseudo-labels** on its own, <mark>without having humans label</mark> any data first, because <mark>labeling data as humans can be very expensive</mark>.
 
 Here, we are not doing unsupervised learning because we're actually getting labels out of it, and then we're going to solve supervised learning tasks. However, we don't label any of the data first - we expect the data to label itself. The implementations can be quite complicated, but the core concept is straightforward.
 
 ## **How It Works with Text Data**
 
-Let's imagine we have a huge amount of text data that makes sense to us because it has the right structure, the right grammar, and so on. Using self-supervised learning techniques, we're going to have a model that will learn on its own:
+Let's imagine we have a huge amount of text data that makes sense to us because it has the right structure, the right grammar, and so on. Using self-supervised learning techniques, we're going to have a model that will learn on its own:<br>
 
-• The English language
-• The grammar 
-• The meaning of words
-• The relationship between words
+• The English language<br>
+• The grammar <br>
+• The meaning of words<br>
+• The relationship between words<br>
 
 This happens without us telling and writing out "What is the meaning of word, what is the grammar?" and so on, which is quite amazing.
 
@@ -19,9 +19,11 @@ This happens without us telling and writing out "What is the meaning of word, wh
 
 Once we have this model, then we can solve other problems that we can traditionally solve with supervised learning. For example, once we have this model, we can create a summarization task.
 
-This technique of self-supervised learning is what actually allowed a lot of the new models in AI to come out, such as:
-• GPT models
-• Image recognition tasks
+This technique of self-supervised learning is what actually allowed a lot of the new models in AI to come out, such as:<br>
+• GPT models<br>
+• Image recognition tasks<br><br>
+
+![alt text](image-21.png)
 
 ## **Pre-text Tasks**
 
