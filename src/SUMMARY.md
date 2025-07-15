@@ -44,7 +44,7 @@
   - [Supervised Learning](./aimldl/supervisedL.md)
   - [Unsupervised Learning](./aimldl/unsupervisedL.md)
   - [Self-supervised Learning](./aimldl/self-supervisedL.md)
-  - [Reinforcement Learning]()
+  - [Reinforcement Learning](./aimldl/reinforcementL.md)
   - [RLHF - Reinforcement Learning from Human Feedback]()
   - [Model Fit, Bias, and Variance]()
   - [Model Evaluation Metrics]()
