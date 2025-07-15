@@ -65,6 +65,8 @@ Once we solve these pre-text tasks, and there can be many of those, then the mod
 
 Therefore, once we have done a lot of the pre-text tasks, our model now knows how to understand texts, grammar, and meaning of words. Then we can ask it more useful tasks, and they're called **downstream tasks** - and that's the idea behind self-supervised learning.
 
+![alt text](image-23.png)
+
 ## **Summary**
 
 The core concept is that you have the model generate its own pseudo-labels by using pre-text tasks. It's a complex topic that can be quite technical at some points, but this approach allows models to learn meaningful representations from unlabeled data without human supervision.
