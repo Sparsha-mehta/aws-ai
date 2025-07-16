@@ -46,7 +46,7 @@
   - [Self-supervised Learning](./aimldl/self-supervisedL.md)
   - [Reinforcement Learning](./aimldl/reinforcementL.md)
   - [RLHF - Reinforcement Learning from Human Feedback](./aimldl/rlhf.md)
-  - [Model Fit, Bias, and Variance]()
+  - [Model Fit, Bias, and Variance](./aimldl/modelfitbiasvariance.md)
   - [Model Evaluation Metrics]()
   - [Machine Learning - Inferencing]()
   - [Phases of Machine Learning Project]()
