@@ -14,8 +14,16 @@ Here's an example of overfitting,
 ![alt text](image-28.png)<br>
 where we have a lot of points and we just have a line that links all these points. Of course, this is going to work great on the training data because we are always predicting the point itself. But when we look at new data, which is not part of the training dataset, it is 100% sure that it will fall outside of this line. Therefore, we are overfitting - we're trying too hard to reduce the error on the training data.
 
+**In Summary**:
+- Performs well on the training data
+- Does not perform well on evaluation data
+
 ### **Underfitting**
-On the opposite end, you have underfitting. Underfitting is when the model is performing very poorly on the training data. For example, on these data points, we have a horizontal line. This is a very bad model. It doesn't look at all like what the data is shaped like. This could be a problem of having a model that's too simple or you have very poor data features.
+On the opposite end, you have underfitting. Underfitting is when the model is **performing very poorly on the training data**. 
+
+For example, on these data points,
+![alt text](image-29.png)<br>
+we have a horizontal line. This is a very bad model. It doesn't look at all like what the data is shaped like. This could be a problem of having a model that's too simple or you have very poor data features.
 
 ### **Balanced**
 What you're striving for is balanced. Balanced is neither overfitting nor underfitting. This is a very balanced model. Of course, you have some error based on training data, but it looks like you are following closely the trend of your data.
