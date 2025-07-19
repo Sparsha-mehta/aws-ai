@@ -68,14 +68,14 @@ we are going to try to **match every single point**, then as soon as we **change
 
 When you have high variance, that means that your data is all over the place (See the image below).
 ![alt text](image-33.png)<br>
-It could be centered, like on average, things converge to the center, could be a low bias, but you have a lot of variance because if you change your model, then things will change.
+It could be **centered**, like on average, **things converge to the center**, could be a **low bias** (low error), but you have **a lot of variance** because if you change your model, then things will change.
 
 **How do you reduce the variance?**
 - Consider fewer features - only consider the more important features
 - Split the data into multiple sets into training and test data multiple times
 
 ## **Summary of Relationships**
-
+![alt text](image-34.png)
 ### **Overfitting**
 - High variance
 - If we change the input dataset, our model is going to change completely
@@ -93,6 +93,8 @@ It could be centered, like on average, things converge to the center, could be a
 ## **Bias-Variance Matrix Visualization**
 
 There's another type of visualization you can have to understand those. This is a matrix of low variance, high variance, as well as high bias and low bias:
+
+![alt text](image-35.png)
 
 1. **Low Bias + Low Variance** = **Balanced** (what we want)
    - All your data points are going to be in the center with low variance
