@@ -53,13 +53,18 @@ Some people like a visualization where you have like a circle,
 and this is like, imagine a dart board, and you're good if you hit the truth. The truth is in the center. If you have **high bias**, basically, you're going to be <mark>far from the truth every time</mark>, and so your **data points** are going to be <u>away from the center</u>. This is **high bias**.
 
 **How do we reduce the bias?**
-- Improve the model - maybe use a more complex model that will fit better our datasets
-- Increase the number of features in case our data is not prepared well enough, and therefore, we need new features to predict and have a good machine learning model
+- Improve the model - maybe use a **more complex model** that will fit better our datasets
+- **Increase the number of features** in case our <u>data is not prepared well enough</u>, and therefore, we need new features to predict and have a good machine learning model.
 
 ### **What is Variance?**
-Variance represents how much the performance of a model will change if it's trained on a different dataset which has a similar distribution.
+Variance represents how much the **performance of a model** will **change** if it's trained on a different dataset which has a **similar distribution**.
 
-If we take a dataset and we have something that is overfitting, we are going to try to match every single point, then as soon as we change the training data, our model is going to change a lot. It's going to be very sensitive to changes. When you're overfitting, you're performing well on training data, but poorly on unseen test data, and therefore, you have very, very high variance.
+**So let me explain**:<br>
+If we take a dataset and we have something that is overfitting,
+
+![alt text](image-32.png)<br>
+
+we are going to try to match every single point, then as soon as we change the training data, our model is going to change a lot. It's going to be very sensitive to changes. When you're overfitting, you're performing well on training data, but poorly on unseen test data, and therefore, you have very, very high variance.
 
 When you have high variance, that means that your data is all over the place. It could be centered, like on average, things converge to the center, could be a low bias, but you have a lot of variance because if you change your model, then things will change.
 
