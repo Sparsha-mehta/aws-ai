@@ -23,10 +23,16 @@ On the opposite end, you have underfitting. Underfitting is when the model is **
 
 For example, on these data points,
 ![alt text](image-29.png)<br>
-we have a horizontal line. This is a very bad model. It doesn't look at all like what the data is shaped like. This could be a problem of having a model that's too simple or you have very poor data features.
+we have a horizontal line. This is a very bad model. It doesn't look at all like what the data is shaped like. This could be a problem of having a **model that's too simple** or you have **very poor data features**.
+
+**In Summary**:
+- Model performs poorly on training data
+- Could be a problem of having a model too simple or poor data feature
 
 ### **Balanced**
-What you're striving for is balanced. Balanced is neither overfitting nor underfitting. This is a very balanced model. Of course, you have some error based on training data, but it looks like you are following closely the trend of your data.
+What you're striving for is balanced. **Balanced is neither overfitting nor underfitting**.
+
+![alt text](image-30.png)<br>This is a very balanced model. Of course, you have some error based on training data, but it looks like you are following closely the trend of your data.
 
 Remember: overfitting, underfitting, and balanced.
 
