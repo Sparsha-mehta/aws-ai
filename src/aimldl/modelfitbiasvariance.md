@@ -32,18 +32,25 @@ we have a horizontal line. This is a very bad model. It doesn't look at all like
 ### **Balanced**
 What you're striving for is balanced. **Balanced is neither overfitting nor underfitting**.
 
-![alt text](image-30.png)<br>This is a very balanced model. Of course, you have some error based on training data, but it looks like you are following closely the trend of your data.
+![alt text](image-30.png)<br>This is a very balanced model. Of course, you have **some error based on training data**, but it looks like you are **following closely the trend of your data**.
 
-Remember: overfitting, underfitting, and balanced.
+> Remember: overfitting, underfitting, and balanced for the exam.
 
 ## **Bias and Variance**
 
 ### **What is Bias?**
-Bias is the difference or the error between the predicted value and the actual value. Bias occurs normally because we can make, for example, the wrong choice in the machine learning process, but you always have some bias.
+Bias is the difference or the error between the **predicted value and the actual value**. 
 
-Here, for example, let's take our datasets, and we have a horizontal line to predict the data points. Obviously, it's a very bad choice, and so we are going to have a very high bias because the model doesn't closely match the training data. This can happen, for example, when you have a linear regression, but your dataset is non-linear - it doesn't follow a straight line type of trend. This is considered as underfitting when you have a very high bias.
+Bias occurs normally because we can make, for example, the wrong choice in the machine learning process, but you always have some bias.
 
-Some people like a visualization where you have like a circle, and this is like, imagine a dart board, and you're good if you hit the truth. The truth is in the center. If you have high bias, basically, you're going to be far from the truth every time, and so your data points are going to be away from the center. This is high bias.
+Here, for example, let's take our datasets, ![alt text](image-29.png)<br>
+and we have a horizontal line to predict the data points. Obviously, it's a very **bad choice**, and so we are going to have a **very high bias** (error or difference) because the <mark>model doesn't closely match the training data</mark>. 
+
+This can happen, for example, when you have a **linear regression**, but <mark>your dataset is non-linear</mark> - meaning that it doesn't follow a straight line type of trend. This is considered as **underfitting** when you have a **very high bias**.
+
+Some people like a visualization where you have like a circle,
+![alt text](image-31.png)<br>
+and this is like, imagine a dart board, and you're good if you hit the truth. The truth is in the center. If you have **high bias**, basically, you're going to be <mark>far from the truth every time</mark>, and so your **data points** are going to be <u>away from the center</u>. This is **high bias**.
 
 **How do we reduce the bias?**
 - Improve the model - maybe use a more complex model that will fit better our datasets
