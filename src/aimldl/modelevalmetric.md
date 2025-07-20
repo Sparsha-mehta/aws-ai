@@ -60,17 +60,21 @@ but is <u>rarely used</u>
 > You don't need to remember the exact formula. You barely need to remember what the metrics mean. But what you need to remember is that precision, the recall, the F1, and the accuracy are metrics used to evaluate the accuracy of **binary classification** and this is what the exam will test you on
 
 ### **When to Use Which Metric**
-
 The choice of metric depends on what you're looking for:
+
+>"Costly" = Bad Consequences of Wrong Predictions. **The "cost" isn't about which feature matters most - it's about which type of wrong answer causes more damage.**
+
 
 - **Precision**: Best when false positives are costly
 - **Recall**: Best when false negatives are costly  
 - **F1 Score**: Gives balance between precision and recall, especially useful for imbalanced datasets
 - **Accuracy**: Rarely used, only for balanced datasets
 
+*What do you mean by Balanced and Imbalanced Dataset?* (See below)
+
 **Balanced vs Imbalanced Datasets:**
 - Balanced dataset: Has balanced levels of classification for each category
-- Spam vs not-spam is typically not a balanced dataset
+- Note that ==> Spam vs not-spam is typically not a balanced dataset
 
 ### **AUC-ROC**
 
@@ -87,7 +91,9 @@ The curve shows multiple models, where a straight line represents a random model
 
 To draw this curve, you look at various thresholds in your model, vary the threshold with multiple confusion matrices, and plot this over time. AUC-ROC is very useful when comparing thresholds and choosing the right model for binary classification.
 
-**Note:** The confusion matrix can also be multi-dimensional for multiple categories in classification.
+### Confusion Matrix can be Multi-Dimensional 
+- The confusion matrix can also be multi-dimensional. 
+- That means that we can have multiple category for a classification and create a confusion matrix
 
 ![alt text](image-40.png)
 
