@@ -1,14 +1,16 @@
 # Machine Learning Model Evaluation Metrics
 
-Now let's talk about some of the metrics we can look at to evaluate our models. We'll start with binary classification and then move to regression models.
+Now let's talk about some of the metrics we can look at to <u>evaluate our models</u>. We'll start with binary classification and then move to regression models.
 
 ## **Binary Classification Evaluation**
 
 ### **Confusion Matrix**
 
-Let's take the example of binary classification with spam email detection. We have the true values from our labeled data - whether an email is spam or not spam. Our model makes predictions, and we can compare these predictions to the actual labels.
-
-For example:
+Let's take the example of binary classification with spam email detection.
+![alt text](image-36.png)<br>
+We have the **true values** from our <u>labeled data</u> - whether an email is spam or not spam. Our model makes predictions, and we can compare these predictions to the actual labels.<br>
+![alt text](image-37.png)<br>
+For example (Look into the image above):
 - First email: correctly classified as spam ✓
 - Second email: predicted spam, but actually wasn't spam ✗  
 - Third email: wrong prediction ✗
@@ -16,11 +18,11 @@ For example:
 - Fifth email: correct prediction ✓
 - Sixth email: wrong prediction ✗
 
-We can compare the true values with what our model predicted and create what's called a **confusion matrix**.
+We can compare the <u>true values</u> with what our <u>model predicted</u> and create what's called a **confusion matrix**.
 
 ### **Confusion Matrix Structure**
 
-A confusion matrix looks at the predictive value (positive for spam, negative for not spam) and compares it to the actual value from our training dataset:
+A confusion matrix looks at the **predictive value** (positive for spam, negative for not spam) and compares it to the actual value from our training dataset:
 
 - **True Positives (top-left)**: Predicted positive and actual value was positive
 - **False Negatives (top-right)**: Predicted not spam, but actually was spam  
