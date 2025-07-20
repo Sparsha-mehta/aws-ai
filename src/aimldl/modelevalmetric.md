@@ -89,9 +89,15 @@ For more explanation in detail, see this [link](https://claude.ai/share/b904f2e4
 - Vertical axis: How often your model classifies actual spam as spam (sensitivity)
 - Horizontal axis: How often your model classifies not-spam as spam (1 - specificity)
 
-The curve shows multiple models, where a straight line represents a random model. The more accurate your model, the more the curve leans toward the top-left. AUC measures how much area is under the curve.
+#### About the Curve:
+![alt text](image-41.png)<br>
+- The curve shows multiple models, where a straight line represents a random model. 
+- The more accurate your model, the more the curve leans toward the top-left. 
+- **AUC measures how much area is under the curve.**
 
-To draw this curve, you look at various thresholds in your model, vary the threshold with multiple confusion matrices, and plot this over time. AUC-ROC is very useful when comparing thresholds and choosing the right model for binary classification.
+To draw this curve, you look at **various thresholds** in your model, vary the threshold with multiple confusion matrices, and plot this over time. 
+
+AUC-ROC is very useful when comparing thresholds and choosing the right model for binary classification.
 
 ### Confusion Matrix can be Multi-Dimensional 
 - The confusion matrix can also be multi-dimensional. 
