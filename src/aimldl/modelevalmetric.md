@@ -29,8 +29,9 @@ A confusion matrix looks at the **predictive value** (positive for spam, negativ
 - **False Positives (bottom-left)**: Predicted spam, but actually wasn't spam
 - **True Negatives (bottom-right)**: Predicted not spam and actually was not spam
 
-We want to maximize true positives and true negatives while minimizing false positives and false negatives.
+We want to **maximize true positives and true negatives** while **minimizing false positives and false negatives**.
 
+**How do we create this matrix?**<br>
 To create this matrix, we look at our datasets (for example, 10,000 items we trained and predicted on) and count how many fall into each category.
 
 ### **Classification Metrics**
@@ -39,19 +40,22 @@ From the confusion matrix, we can compute several metrics:
 
 **1. Precision**
 - Formula: True Positives ÷ (True Positives + False Positives)
-- Measures: "If we find positives, how precise are we? How many times are we right about positives versus wrong about positives?"
+- Measures: It is called precision because "If we find positives, how precise are we? How many times are we right about positives versus how many times are we wrong about positives in predicting?"
 
 **2. Recall**  
 - Formula: True Positives ÷ (True Positives + False Negatives)
-- Measures: "How many times do we need to recall (walk back) our decision?"
+- Measures: "How many times do we need to **recall (walk back)** our decision?"
 
 **3. F1 Score**
 - Formula: 2 × (Precision × Recall) ÷ (Precision + Recall)
 - Widely used metric for confusion matrix evaluation
 
 **4. Accuracy**
-- Has a formula but is rarely used
-- You don't need to remember the exact formula
+- Here is the formula: <br>
+Accuracy = (True_Positive + True_Negative) ÷ (True_Positive + True_Negative + False_Positive + False_Negative) <br>
+but is <u>rarely used</u>
+
+> You don't need to remember the exact formula
 
 ### **When to Use Which Metric**
 
