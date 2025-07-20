@@ -22,8 +22,8 @@ We can compare the <u>true values</u> with what our <u>model predicted</u> and c
 
 ### **Confusion Matrix Structure**
 
-A confusion matrix looks at the **predictive value** (positive for spam, negative for not spam) and compares it to the actual value from our training dataset:
-
+A confusion matrix looks at the **predictive value** (positive for spam, negative for not spam) and <u>compares it</u> to the **actual value** from our **training dataset**:<br>
+![alt text](image-38.png)<br>
 - **True Positives (top-left)**: Predicted positive and actual value was positive
 - **False Negatives (top-right)**: Predicted not spam, but actually was spam  
 - **False Positives (bottom-left)**: Predicted spam, but actually wasn't spam
