@@ -77,16 +77,17 @@ The choice of metric depends on what you're looking for:
 - Note that ==> Spam vs not-spam is typically not a balanced dataset
 
 For more explanation in detail, see this [link](https://claude.ai/share/b904f2e4-3702-4c97-a90d-417847618834)
+
 ### **AUC-ROC**
 
-**AUC-ROC** stands for Area Under the Curve for the Receiver-Operator Curve. It's more complicated, but just remember the name for the exam.
+**AUC-ROC** stands for **Area Under the Curve for the Receiver-Operator Curve**. It's more complicated, but just remember the name for the exam.
 
-- Value ranges from 0 to 1, with 1 being the perfect model
-- Compares sensitivity (true positive rates) to 1 minus specificity (false positive rates)
+- Value ranges from 0 to 1, with <u>1 being the perfect model</u>
+- Compares **sensitivity** (true positive rates) to **1 minus specificity** (false positive rates)
 
 **The ROC Curve has two axes:**
 - Vertical axis: How often your model classifies actual spam as spam (sensitivity)
-- Horizontal axis: How often your model classifies not-spam as spam
+- Horizontal axis: How often your model classifies not-spam as spam (1 - specificity)
 
 The curve shows multiple models, where a straight line represents a random model. The more accurate your model, the more the curve leans toward the top-left. AUC measures how much area is under the curve.
 
