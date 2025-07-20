@@ -84,7 +84,7 @@ For more explanation in detail, see this [link](https://claude.ai/share/b904f2e4
 
 - Value ranges from 0 to 1, with <u>1 being the perfect model</u>
 - Compares **sensitivity** (true positive rates) to **1 minus specificity** (false positive rates)
-
+![graph-axes](IMG_9527.png)<br>
 **The ROC Curve has two axes:**
 - Vertical axis: How often your model classifies actual spam as spam (sensitivity)
 - Horizontal axis: How often your model classifies not-spam as spam (1 - specificity)
