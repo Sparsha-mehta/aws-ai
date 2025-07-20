@@ -76,6 +76,7 @@ The choice of metric depends on what you're looking for:
 - Balanced dataset: Has balanced levels of classification for each category
 - Note that ==> Spam vs not-spam is typically not a balanced dataset
 
+For more explanation in detail, see this [link](https://claude.ai/share/b904f2e4-3702-4c97-a90d-417847618834)
 ### **AUC-ROC**
 
 **AUC-ROC** stands for Area Under the Curve for the Receiver-Operator Curve. It's more complicated, but just remember the name for the exam.
