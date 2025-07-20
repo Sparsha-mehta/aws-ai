@@ -55,7 +55,9 @@ From the confusion matrix, we can compute several metrics:
 Accuracy = (True_Positive + True_Negative) ÷ (True_Positive + True_Negative + False_Positive + False_Negative) <br>
 but is <u>rarely used</u>
 
-> You don't need to remember the exact formula
+![alt text](image-39.png)
+
+> You don't need to remember the exact formula. You barely need to remember what the metrics mean. But what you need to remember is that precision, the recall, the F1, and the accuracy are metrics used to evaluate the accuracy of **binary classification** and this is what the exam will test you on
 
 ### **When to Use Which Metric**
 
@@ -86,6 +88,8 @@ The curve shows multiple models, where a straight line represents a random model
 To draw this curve, you look at various thresholds in your model, vary the threshold with multiple confusion matrices, and plot this over time. AUC-ROC is very useful when comparing thresholds and choosing the right model for binary classification.
 
 **Note:** The confusion matrix can also be multi-dimensional for multiple categories in classification.
+
+![alt text](image-40.png)
 
 ## **Regression Evaluation**
 
