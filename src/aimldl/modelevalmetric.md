@@ -44,6 +44,7 @@ From the confusion matrix, we can compute several metrics:
 
 **2. Recall**  
 - Formula: True Positives ÷ (True Positives + False Negatives)
+- Also known as **True Positive Rate**, and also **Sensitivity**
 - Measures: "How many times do we need to **recall (walk back)** our decision?"
 
 **3. F1 Score**
@@ -97,7 +98,7 @@ For more explanation in detail, see this [link](https://claude.ai/share/b904f2e4
 
 To draw this curve, you look at **various thresholds** in your model, vary the threshold with multiple confusion matrices, and plot this over time. 
 
-AUC-ROC is very useful when comparing thresholds and choosing the right model for binary classification.
+AUC-ROC is very useful when **comparing thresholds** and **choosing the right model** for binary classification.
 
 ### Confusion Matrix can be Multi-Dimensional 
 - The confusion matrix can also be multi-dimensional. 
