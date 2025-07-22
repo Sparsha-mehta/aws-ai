@@ -116,7 +116,8 @@ Remember, this applies to cases
 ![alt text](image-42.png)<br>
 like <u>linear regression</u> where we have data points and we're trying to find a line that represents these data points.
 
-We measure **accuracy** by measuring `the error - the sum of distances between predicted values and actual values`.
+We measure **accuracy** by measuring `the error -> the sum of distances between predicted values and actual values`.
+> Green Color Line is the predicted value, and the actual values are the Blue Color Dots. Remember ==> Y Hat is the predicted value from the model, Y is the actual value
 
 ### **Regression Metrics**
 
