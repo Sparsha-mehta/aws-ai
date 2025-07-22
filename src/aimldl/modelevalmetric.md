@@ -116,7 +116,8 @@ Remember, this applies to cases
 ![alt text](image-42.png)<br>
 like <u>linear regression</u> where we have data points and we're trying to find a line that represents these data points.
 
-We measure **accuracy** by measuring `the error -> the sum of distances between predicted values and actual values`.
+We measure **accuracy** by measuring the error, <u>the error is the sum of distances between what the predicted value would've been and what the actual value is</u> (See below the formulas for better understanding).
+
 > Green Color Line is the predicted value, and the actual values are the Blue Color Dots. Remember ==> Y Hat is the predicted value from the model, Y is the actual value
 
 ### **Regression Metrics**
@@ -124,16 +125,22 @@ We measure **accuracy** by measuring `the error -> the sum of distances between 
 Just remember the names of these metrics, not necessarily how they work:
 
 **1. MAE (Mean Absolute Error)**
-- Computes the difference between predicted and actual values as a mean of absolute values
+- Computes <mark>the difference between <u>predicted</u> and <u>actual values</u> as a mean of absolute values</mark>
 - Divide by the number of values you have
+
+![alt text](image-43.png)
 
 **2. MAPE (Mean Absolute Percentage Error)**  
 - Instead of computing actual difference of values, computes how far off you are as a percentage
 - Same idea as MAE, but computing the average of percentages
 
+![alt text](image-44.png)
+
 **3. RMSE (Root Mean Squared Error)**
 - Formula is more complicated
 - The idea is that you're trying to smooth out the error
+
+![alt text](image-45.png)
 
 **4. R Squared**
 - Looks at the variance in your model
