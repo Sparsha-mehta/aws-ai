@@ -100,6 +100,8 @@ To draw this curve, you look at **various thresholds** in your model, vary the t
 
 AUC-ROC is very useful when **comparing thresholds** and **choosing the right model** for binary classification.
 
+> To understand more, use this [link](https://chatgpt.com/share/687d87d2-5f94-8003-926a-700a2214226b)
+
 ### Confusion Matrix can be Multi-Dimensional 
 - The confusion matrix can also be multi-dimensional. 
 - That means that we can have multiple category for a classification and create a confusion matrix
@@ -108,9 +110,13 @@ AUC-ROC is very useful when **comparing thresholds** and **choosing the right mo
 
 ## **Regression Evaluation**
 
-Now let's look at how we evaluate regression models. Remember, this applies to cases like linear regression where we have data points and we're trying to find a line that represents these data points.
+Now let's look at how we evaluate regression models. 
 
-We measure accuracy by measuring the error - the sum of distances between predicted values and actual values.
+Remember, this applies to cases
+![alt text](image-42.png)<br>
+like <u>linear regression</u> where we have data points and we're trying to find a line that represents these data points.
+
+We measure **accuracy** by measuring `the error - the sum of distances between predicted values and actual values`.
 
 ### **Regression Metrics**
 
