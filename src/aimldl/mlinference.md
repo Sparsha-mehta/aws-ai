@@ -2,7 +2,11 @@
 
 Now that we understand the basics, let's talk about inferencing. 
 
-Inferencing is when a model makes predictions based on new data. There are different kinds of inferencing, each with their own characteristics and use cases.
+**Inferencing** (or **inference**) is the process of **using a trained machine learning model to make predictions or decisions** on new, unseen data.
+- **Training** is when a model learns from historical/labeled data.
+- **Inferencing** is when the trained model is used to make real-world predictions.
+
+There are different kinds of inferencing, each with their own characteristics and use cases.
 
 ## **Real-Time Inferencing**
 
@@ -30,39 +34,47 @@ Key characteristics:
 - **Accuracy over speed**: You don't really care about speed (of course, the faster the better, but you can wait). What you really want is <u>**maximum accuracy**</u>
 - **Primary use case**: Often used for data analysis
 
-## **Edge Inferencing**
+## **Inferencing at the Edge**
 
 ### **What is the Edge?**
 
-Edge devices are usually devices that have less computing power and are close to where your data is being generated. They're usually in places where internet connections can be limited. An edge device can be your phone (but your phone can be quite powerful), or it can be anything that's somewhere far in the world.
+Edge devices are usually devices that have **less computing power** and are close to where your data is being generated. They're usually in places where internet connections can be limited. An edge device can be your phone (but your phone can be quite powerful), or it can be anything that's somewhere far in the world.
 
 ### **Small Language Models (SLMs) on Edge Devices**
 
-To run a full large language model on an edge device may be very difficult because you don't have enough computing power. Therefore, there is a popular trend of small language models that can run with limited resources and on edge devices.
+To run a full large language model on an edge device may be very difficult because you don't have enough computing power. 
 
-**Advantages of SLMs on edge devices:**
-- **Very low latency**: Your edge device can invoke the model locally
-- **Low compute footprint**: Optimized for limited resources
-- **Offline capability**: Ability to use local inference
-- **Example deployment**: You may want to load these SLMs on a Raspberry Pi, which is an edge device
+![alt text](image-49.png)
+
+Therefore, there is a popular trend of small language models that can run with limited resources and on edge devices.
+
+You may want to load these SLMs on, for example, a Raspberry Pi, which is an edge device.
+
+**When loaded onto your edge device, you get**:
+
+- **Very low latency**: Because your edge device can just invoke the model locally
+- **Very low compute footprint**: Optimized for limited resources
+- **Offline capability**: With ability to use local inference
 
 ### **LLMs via Remote Server**
 
 If you want to have a more powerful model (for example, an LLM), it would maybe be impossible to run it on an edge device. Maybe in the future it will, but right now it may be very difficult because you don't have enough computing power.
 
 **Alternative approach:**
-- Run the LLM on a remote server (just like we've been doing so far, for example, on Amazon Bedrock)
+- Run the **LLM on a remote server** (just like we've been doing so far, for example, on **Amazon Bedrock**)
 - Your edge device makes API calls over the internet to your server, to your model, wherever it's deployed
 - Then get the results back
+
+![alt text](image-50.png)
 
 **Trade-offs:**
 
 *Advantages:*
-- Can use a more powerful model because the model lives somewhere else
+- Can use a **more powerful model** because the model lives somewhere else
 
 *Disadvantages:*
-- Higher latency because the call needs to be made over the internet to get the results back
-- Your edge device must be online and must have an internet connection to access the large language model
+- **Higher latency** because the call needs to be made over the internet to get the results back
+- Your edge device **must be online and must have an internet connection** to access the large language model
 
 ## **Exam Considerations**
 
