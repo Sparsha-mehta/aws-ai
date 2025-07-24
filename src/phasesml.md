@@ -116,7 +116,7 @@ With monitoring systems, you can do:
 ### **9. Iterations**
 The model must be continuously improved and refined as new data becomes available because requirements may change.
 
-For example, imagine that you're doing something around clothing prediction. What is true today in terms of clothing trends may not be true in 10 years. People may wear different types of clothes. So of course, retraining your model and making sure to monitor requirements is very important to do your iteration and making sure the model is accurate and relevant over time.
+For example, imagine that you're doing something around clothing prediction. What is true today in terms of clothing trends may not be true in 10 years. People may wear different types of clothes. So of course, **retraining your model and making sure to monitor requirements is very important to do your iteration and making sure the model is accurate and relevant over time**.
 
 ---
 
