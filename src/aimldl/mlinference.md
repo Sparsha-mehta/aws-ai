@@ -16,14 +16,18 @@ Real-time inferencing occurs when a user puts a prompt into a **chatbot** and we
 - **Immediate processing**: Responses must be generated without delay
 - **Primary use case**: Chatbots are a very good example of real-time inferencing
 
+The other end of inferencing is **batch inferencing**.
+
 ## **Batch Inferencing**
 
 Batch inferencing involves analyzing a large amount of data all at once. Here we give a lot of data into a model, and we can wait for the processing time to happen.
 
+![alt text](image-48.png)
+
 Key characteristics:
 - **Processing time flexibility**: It could take minutes, days, or weeks
 - **Results when ready**: We get the results when they're ready and analyze them then
-- **Accuracy over speed**: You don't really care about speed (of course, the faster the better, but you can wait). What you really want is maximum accuracy
+- **Accuracy over speed**: You don't really care about speed (of course, the faster the better, but you can wait). What you really want is <u>**maximum accuracy**</u>
 - **Primary use case**: Often used for data analysis
 
 ## **Edge Inferencing**

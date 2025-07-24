@@ -48,7 +48,7 @@
   - [RLHF - Reinforcement Learning from Human Feedback](./aimldl/rlhf.md)
   - [Model Fit, Bias, and Variance](./aimldl/modelfitbiasvariance.md)
   - [Model Evaluation Metrics](./aimldl/modelevalmetric.md)
-  - [Machine Learning - Inferencing]()
+  - [Machine Learning - Inferencing](./aimldl/mlinference.md)
   - [Phases of Machine Learning Project]()
   - [Hyperparameters]()
   - [When is ML not appropriate?]()
