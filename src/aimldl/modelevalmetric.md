@@ -116,7 +116,7 @@ Remember, this applies to cases
 ![alt text](image-42.png)<br>
 like <u>linear regression</u> where we have data points and we're trying to find a line that represents these data points.
 
-We measure **accuracy** by measuring the error, <u>the error is the sum of distances between what the predicted value would've been and what the actual value is</u> (See below the formulas for better understanding).
+We measure **accuracy** by measuring the **error**, <u>the error is the **sum** of distances between what the **predicted value** would've been and what the **actual value** is</u> (See below the formulas for better understanding).
 
 > Green Color Line is the predicted value, and the actual values are the Blue Color Dots. Remember ==> Y Hat is the predicted value from the model, Y is the actual value
 
@@ -132,35 +132,39 @@ Just remember the names of these metrics, not necessarily how they work:
 
 **2. MAPE (Mean Absolute Percentage Error)**  
 - Instead of computing actual difference of values, computes how far off you are as a percentage
-- Same idea as MAE, but computing the average of percentages
+- Same idea as MAE, but computing the **average of percentages**
+
+> So it is like take the difference (same as MAE) and then you need to divide the wholeby y-hat (predicted value)
 
 ![alt text](image-44.png)
 
 **3. RMSE (Root Mean Squared Error)**
-- Formula is more complicated
-- The idea is that you're trying to smooth out the error
+- The idea is that you're trying to **smooth out the error**
+- RMSE is a way to evaluate the error for your regression
 
 ![alt text](image-45.png)
 
 **4. R Squared**
-- Looks at the variance in your model
+- Explains the variance in your model
 - If R squared is close to 1, your predictions are good
+
+> From an exam perspective, remember that MAE, MAPE, RMSE, and R-squared are metrics used to give the quality of a regression and to see if it is going to be acceptable for us or not. From **model optimization point of view**, we are going to try to minimize these **errors' metrics**, so that we know our model is accurate
 
 ### **Understanding Regression Metrics with Examples**
 
 Let's say you're trying to predict how well students did on a test based on how many hours they studied.
 
 **Error Measurement Metrics (MAE, MAPE, RMSE):**
-- These show how accurate the model is
-- Example: If your RMSE is 5, that means on average, your model predictions will be about 5 points off from the actual student score
-- Easy to quantify and measure
+- These show how **"accurate"** the model is
+- Example: If your RMSE is 5, that means on average, your model predictions will be about **5 points off** from the actual student score
+- It is very Easy to quantify and measure
 
 **R Squared:**
-- Measures variance - a bit more difficult to understand
-- Example: R squared of 0.8 means that 80% of changes in test scores can be explained by how much students studied (your input feature)
+- It Measures **variance** - a bit more difficult to understand
+- For Example: R squared of 0.8 means that 80% of changes in test scores can be explained by how much students studied (which was your input feature)
 - The remaining 20% is due to other factors like natural ability or luck
 - These other factors may not be captured by your model because they're not features in your model
-- Very good R squared close to 1 means you can explain almost everything of the target variable's variance thanks to your input features
+- Very good R squared close to 1 means you can explain almost everything of the target variable's variance thanks to your input features that you have
 
 ## **Key Takeaways**
 
@@ -169,6 +173,20 @@ Let's say you're trying to predict how well students did on a test based on how 
 - **For Classification**: Use metrics from confusion matrix - accuracy, precision, recall, F1, and AUC-ROC
 - **For Regression**: Use MAE, MAPE, RMSE, and R squared for models that predict continuous values
 
-The purpose of a confusion matrix is to evaluate the performance of models that do classifications. For model optimization, we try to minimize these error metrics to ensure our model is accurate.
+![alt text](image-46.png)
+
+The purpose of a confusion matrix is to evaluate the performance of models that do classifications. 
+
+For model optimization, we try to minimize these error metrics to ensure our model is accurate.
 
 You should now understand which metrics are for classification and which are for regression, and have a high-level understanding of what these metrics do.
+
+# Sample MCQs for Reference:
+Q: A data scientist wants to evaluate a regression model that must heavily penalize large errors. Which metric should they use?<br>
+✅ Answer: RMSE
+
+Q: A team wants a regression metric that's easily understandable by a non-technical stakeholder and reports the average error in the same unit as the target variable. Which metric fits best?<br>
+✅ Answer: MAE
+
+Q: Which regression metric explains how much of the variability in the data is captured by the model?<br>
+✅ Answer: R-squared
