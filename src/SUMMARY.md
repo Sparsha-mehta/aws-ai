@@ -50,7 +50,7 @@
   - [Model Evaluation Metrics](./aimldl/modelevalmetric.md)
   - [Machine Learning - Inferencing](./aimldl/mlinference.md)
   - [Phases of Machine Learning Project](phasesml.md)
-  - [Hyperparameters]()
+  - [Hyperparameters](./aimldl/hyparametertuning.md)
   - [When is ML not appropriate?]()
   - [Quiz]()
 - [AWS Managed AI Services](managed-ai-services.md)
