@@ -49,7 +49,7 @@
   - [Model Fit, Bias, and Variance](./aimldl/modelfitbiasvariance.md)
   - [Model Evaluation Metrics](./aimldl/modelevalmetric.md)
   - [Machine Learning - Inferencing](./aimldl/mlinference.md)
-  - [Phases of Machine Learning Project]()
+  - [Phases of Machine Learning Project](phasesml.md)
   - [Hyperparameters]()
   - [When is ML not appropriate?]()
   - [Quiz]()
