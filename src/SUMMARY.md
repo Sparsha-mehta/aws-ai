@@ -51,7 +51,7 @@
   - [Machine Learning - Inferencing](./aimldl/mlinference.md)
   - [Phases of Machine Learning Project](phasesml.md)
   - [Hyperparameters](./aimldl/hyparametertuning.md)
-  - [When is ML not appropriate?]()
+  - [When is ML not appropriate?](./aimldl/mldeci.md)
   - [Quiz]()
 - [AWS Managed AI Services](managed-ai-services.md)
   - [Why AWS Managed Services?]()
