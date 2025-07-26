@@ -52,7 +52,7 @@
   - [Phases of Machine Learning Project](phasesml.md)
   - [Hyperparameters](./aimldl/hyparametertuning.md)
   - [When is ML not appropriate?](./aimldl/mldeci.md)
-  - [Quiz]()
+  - [Quiz](./aimldl/quiz5.md)
 - [AWS Managed AI Services](managed-ai-services.md)
   - [Why AWS Managed Services?]()
   - [Amazon Comprehend]()
