@@ -66,7 +66,9 @@ To make it super simple, it's to adjust the balance between a simple and a compl
 
 ## **Understanding Hyperparameters**
 
-These hyperparameters have no right or wrong type of answers. It's more about understanding what they are impacting and what they can lead to. The role of a machine learning engineer or data scientist will be to tune and optimize these hyperparameters.
+- These hyperparameters have **no right or wrong type of answers**. 
+- It's more about understanding what they are impacting and what they can lead to. 
+- The role of a machine learning engineer or data scientist will be to **tune and optimize these hyperparameters**.
 
 ## **Overfitting**
 
@@ -82,11 +84,11 @@ It can occur due to many things:
 
 ### **How to Prevent Overfitting**
 
-1. **Increase the training data size** - This means you're going to have a dataset that is much more representative of all the possible values for your production data (this is usually the best answer)
+1. **Increase the training data size** - This means you're going to have a dataset that is much more **representative of all the possible values** for your production data (this is usually the **best answer**)
 
 2. **Early stopping** of the training of the model - doing more epochs is not going to help with overfitting, it's the opposite direction instead
 
-3. **Data augmentation** - if you don't have enough diversity in your datasets
+3. **Data augmentation** - if you don't have enough diversity in your datasets, you would like to do Data Augmentation
 
 4. **Adjust the hyperparameters** - we can try adjusting the learning rate, batch size, and epochs, but you cannot add new hyperparameters as these are fixed. However, this is usually not the primary answer.
 
