@@ -1,19 +1,27 @@
 # Hyperparameter Tuning
 
-Now let's discuss hyperparameter tuning in greater detail. Hyperparameters are the settings that define the model structure and the learning algorithm and process. They are set before the training begins and are separate from your actual data - they're about the algorithm you're using to train your model.
+Now let's discuss hyperparameter tuning in greater detail. 
 
-## **Types of Hyperparameters**
+**Definition:**<br>
+- Hyperparameters are the settings that define the model structure and the learning algorithm and process. 
+- They are set before the training begins  
+- **Types of Hyperparameters**: Different types of hyperparameters include:
+  - **Learning rate** - How fast you want the model to incorporate new data
+  - **Batch size** - How many data points to consider at a time 
+  - **Number of epochs** - How many times you want to iterate on your model until you say you've converged to a good result
+  - **Regularization** - How flexible the model should be<br>
+- And hyparameters are separate from your actual data - they're about the algorithm you're using to train your model.
 
-Different types of hyperparameters include:
+> to better understand the above statement, here is the image below:
+> ![alt text](image-51.png)
 
-- **Learning rate** - How fast you want the model to incorporate new data
-- **Batch size** - How many data points to consider at a time  
-- **Number of epochs** - How many times you want to iterate on your model until you say you've converged to a good result
-- **Regularization** - How flexible the model should be
-
+Now you can do hyperparameter tuning
 ## **Why Hyperparameter Tuning Matters**
 
-To have the best model performance and optimize it, it's a matter of finding the best hyperparameter values. By doing tuning, we're going to improve the model accuracy, reduce overfitting, and enhance generalization.
+**Definition of Hyparameter Tuning**
+- To have the **best model performance** and **optimize it**, it's a matter of finding the best hyperparameter values. 
+**Reason of performing tuning**
+- By doing tuning, we're going to improve the **model accuracy**, **reduce overfitting, and enhance generalization**.
 
 ## **How to Do Hyperparameter Tuning**
 
@@ -29,23 +37,32 @@ This is a very important part of a machine learning project.
 ### **Learning Rate**
 This represents how large or small the steps are going to be when you update the model's weights during training.
 
-- **Higher learning rate** - Your model is going to have faster convergence, but there is a risk of overshooting the optimal solution because you're going too fast for learning
-- **Low learning rate** - May be more precise and have convergence to the optimal solution, but it may be slower
+- **Higher learning rate** - Your model is going to have faster conversions, but there is a risk of you to overshoot the optimal solution because while you're going too fast for learning
+
+> Convergence means when your model's training process reaches a stable point where it stops improving significantly.
+
+- **Low learning rate** - May be more precise and have the conversions to the optimal solution, but it may be slower
+
+> To better understand Learning Rate, see the image below:
+> ![alt text](image-52.png)
 
 ### **Batch Size**
-This is how many training examples are used to update the model's weights during one iteration.
+This is how many training examples are used to update the model's weights during **one iteration**.
 
-- **Smaller batch size** - Can lead to more stable learning experience, but requires more time to compute
+- **Smaller batch size** - Can lead to a more stable learning experience, but require more time to compute
 - **Larger batch size** - May be faster to go through your model, but it may lead to less stable updates
 
 ### **Number of Epochs**
-This is how many times the model is going to iterate over the entire training dataset. In the machine learning process, you're going to go many, many times over your entire dataset.
+This is to how many times the model is going to iterate over the entire training dataset. In the machine learning process, you're going to go many, many times over your entire dataset.
 
 - **Too few epochs** - You will have underfitting
 - **Too many epochs** - You may cause overfitting because you're trying really, really hard to fit the data to the dataset you have by going many, many times over
 
 ### **Regularization**
 To make it super simple, it's to adjust the balance between a simple and a complex model. What you should know for the exam is that if you want to reduce overfitting, then you need to increase the amount of regularization in your model.
+
+> For better understanding, see the image below:
+> ![alt text](image-53.png)
 
 ## **Understanding Hyperparameters**
 
