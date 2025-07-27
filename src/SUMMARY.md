@@ -57,7 +57,7 @@
   - [Why AWS Managed Services?](./managed-ai/whyawsaiserv.md)
   - [Amazon Comprehend](./managed-ai/awscomprehend.md)
   - [Amazon Comprehend - Hands On]()
-  - [Amazon Translate]()
+  - [Amazon Translate](./managed-ai/awstranslate.md)
   - [Amazon Translate - Hands On]()
   - [Amazon Polly]()
   - [Amazon Polly - Hands On]()
