@@ -61,7 +61,7 @@
   - [Amazon Translate - Hands On]()
   - [Amazon Transcribe](./managed-ai/awstranscribe.md)
   - [Amazon Transcribe - Hands On]()
-  - [Amazon Polly]()
+  - [Amazon Polly](./managed-ai/polly.md)
   - [Amazon Polly - Hands On]()
   - [Amazon Rekognition]()
   - [Amazon Rekognition - Hands On]()
