@@ -75,7 +75,7 @@ In a sample text (look the image below), named entity recognition can recognize 
 ![alt text](image-4.png)
 
 - <u>Zhang Wei</u> is a **person**
-- <u>John</u> is a **person ** 
+- <u>John</u> is a **person** 
 - <u>AnyCompany Financial Services, LLC</u> is an **organization**
 - <u>July 31st</u> is a **date**
 
