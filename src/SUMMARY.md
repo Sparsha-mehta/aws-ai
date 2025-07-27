@@ -59,6 +59,8 @@
   - [Amazon Comprehend - Hands On]()
   - [Amazon Translate](./managed-ai/awstranslate.md)
   - [Amazon Translate - Hands On]()
+  - [Amazon Transcribe](./managed-ai/awstranscribe.md)
+  - [Amazon Transcribe - Hands On]()
   - [Amazon Polly]()
   - [Amazon Polly - Hands On]()
   - [Amazon Rekognition]()
