@@ -55,7 +55,7 @@
   - [Quiz](./aimldl/quiz5.md)
 - [AWS Managed AI Services](managed-ai-services.md)
   - [Why AWS Managed Services?](./managed-ai/whyawsaiserv.md)
-  - [Amazon Comprehend]()
+  - [Amazon Comprehend](./managed-ai/awscomprehend.md)
   - [Amazon Comprehend - Hands On]()
   - [Amazon Translate]()
   - [Amazon Translate - Hands On]()
