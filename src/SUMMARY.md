@@ -65,7 +65,7 @@
   - [Amazon Polly - Hands On]()
   - [Amazon Rekognition](./managed-ai/awsrekongnition.md)
   - [Amazon Rekognition - Hands On]()
-  - [Amazon Lex]()
+  - [Amazon Lex](./managed-ai/lex.md)
   - [Amazon Lex - Hands On]()
   - [Amazon Personalize]()
   - [Amazon Textract]()
