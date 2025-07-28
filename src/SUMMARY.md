@@ -63,7 +63,7 @@
   - [Amazon Transcribe - Hands On]()
   - [Amazon Polly](./managed-ai/polly.md)
   - [Amazon Polly - Hands On]()
-  - [Amazon Rekognition]()
+  - [Amazon Rekognition](./managed-ai/awsrekongnition.md)
   - [Amazon Rekognition - Hands On]()
   - [Amazon Lex]()
   - [Amazon Lex - Hands On]()
