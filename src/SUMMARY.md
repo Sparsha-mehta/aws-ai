@@ -67,7 +67,7 @@
   - [Amazon Rekognition - Hands On]()
   - [Amazon Lex](./managed-ai/lex.md)
   - [Amazon Lex - Hands On]()
-  - [Amazon Personalize]()
+  - [Amazon Personalize](./managed-ai/personalize.md)
   - [Amazon Textract]()
   - [Amazon Textract - Hands On]()
   - [Amazon Kendra]()
