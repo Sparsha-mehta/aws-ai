@@ -70,7 +70,7 @@
   - [Amazon Personalize](./managed-ai/personalize.md)
   - [Amazon Textract](./managed-ai/awstextract.md)
   - [Amazon Textract - Hands On]()
-  - [Amazon Kendra]()
+  - [Amazon Kendra](./managed-ai/kendra.md)
   - [Amazon Mechanical Turk]()
   - [Amazon Augmented AI]()
   - [Amazon Augmented AI - Hands On]()
