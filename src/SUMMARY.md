@@ -68,7 +68,7 @@
   - [Amazon Lex](./managed-ai/lex.md)
   - [Amazon Lex - Hands On]()
   - [Amazon Personalize](./managed-ai/personalize.md)
-  - [Amazon Textract]()
+  - [Amazon Textract](./managed-ai/awstextract.md)
   - [Amazon Textract - Hands On]()
   - [Amazon Kendra]()
   - [Amazon Mechanical Turk]()
