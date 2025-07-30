@@ -72,7 +72,7 @@
   - [Amazon Textract - Hands On]()
   - [Amazon Kendra](./managed-ai/kendra.md)
   - [Amazon Mechanical Turk](./managed-ai/mechanicalturk.md)
-  - [Amazon Augmented AI]()
+  - [Amazon Augmented AI](./managed-ai/amazonaugmentai.md)
   - [Amazon Augmented AI - Hands On]()
   - [Amazon Comprehend Medical & Transcribe Medical]()
   - [Amazon Comprehend Medical & Transcribe Medical - Hands On]()
