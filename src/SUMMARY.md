@@ -74,7 +74,7 @@
   - [Amazon Mechanical Turk](./managed-ai/mechanicalturk.md)
   - [Amazon Augmented AI](./managed-ai/amazonaugmentai.md)
   - [Amazon Augmented AI - Hands On]()
-  - [Amazon Comprehend Medical & Transcribe Medical]()
+  - [Amazon Comprehend Medical & Transcribe Medical](./managed-ai/comprehendmedical.md)
   - [Amazon Comprehend Medical & Transcribe Medical - Hands On]()
   - [Amazon Hardware for AI]()
   - [Amazon Hardware for AI - Hands On]()
