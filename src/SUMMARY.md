@@ -80,7 +80,7 @@
   - [Amazon Hardware for AI - Hands On]()
   - [Quiz]() 
 - [SageMaker](sagemaker.md)
-  - [Sagemaker Overview]()
+  - [Sagemaker Overview](./sagemaker/overview.md)
   - [Sagemaker Hands On]()
   - [Data Tools]()
   - [Models and Humans]()
