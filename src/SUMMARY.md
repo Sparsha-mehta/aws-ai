@@ -90,7 +90,7 @@
   - [Amazon Sagemaker - Extra Features]()
   - [Quiz]()
 - [AI Challenges and Responsibilities](challenges-responsibilities.md)
-  - [AI Challenges and Responsibilities - Overview]()
+  - [AI Challenges and Responsibilities - Overview](./Aichallengesrespon.md)
   - [Responsible AI]()
   - [GENAI Challenges]()
   - [Compliance for AI]()
