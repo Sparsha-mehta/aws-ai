@@ -5,7 +5,7 @@ Now we're learning about responsible AI, security, governance and compliance. Be
 ## Topics that will be covered in this section
 
 1. [Ai Challenges and Responsibilities - Overview]()
-2. [Responsible AI](./Aichallengesrespon.md)
+2. [Responsible AI](https://sparsha-mehta.github.io/ai-prac/Aichallengesrespon.html)
 3. [GenAI Challenges]()
 4. [Compliance for AI]()
 5. [Governance for AI]()
