@@ -39,3 +39,6 @@ coverage.xml
 package-lock.json
 yarn.lock
 Cargo.lock
+
+# Ignore icloud synced files
+.nosync
