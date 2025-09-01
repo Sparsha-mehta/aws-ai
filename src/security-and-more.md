@@ -7,7 +7,7 @@ Welcome to this section, in which we discuss mostly AWS Services related to secu
 Well, it's only important for you to understand the service definition and the essence of what the service does. The exam questions that will be asking concepts about these services will be very simple and definitely not in-depth. So I included all need to know to get a good review of these services and I will hope you will like these lectures and benefits from them.
 
 **Topics Involved for this Section**:<br> 
-    1. [IAM Intro: Users, Groups, Policies]()<br>
+    1. [IAM Intro: Users, Groups, Policies](https://sparsha-mehta.github.io/ai-prac/securityandmore/iamintro_usersgroups.html)<br>
     2. [IAM Users and Groups - Hands On]()<br>
     3. [IAM Policies]()<br>
     4. [IAM Policies - Hands On]()<br>
