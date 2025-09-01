@@ -6,31 +6,31 @@ Welcome to this section, in which we discuss mostly AWS Services related to secu
 
 Well, it's only important for you to understand the service definition and the essence of what the service does. The exam questions that will be asking concepts about these services will be very simple and definitely not in-depth. So I included all need to know to get a good review of these services and I will hope you will like these lectures and benefits from them.
 
-**Topics Involved for this Section**:
-    1. [IAM Intro: Users, Groups, Policies]()
-    2. [IAM Users and Groups - Hands On]()
-    3. [IAM Policies]()
-    4. [IAM Policies - Hands On]()
-    5. [IAM Roles]()
-    6. [IAM Roles - Hands On]()
-    7. [Amazon S3]()
-    8. [Amazon S3 Hands On]()
-    9. [Amazon S3 Storage Classes]()
-    10. [Amazon S3 Storage Classes - Hands On]()
-    11. [Amazon EC2]()
-    12. [Website Creation on EC2 - Hands On]()
-    13. [AWS Lambda]()
-    14. [AWS Lambda - Hands On]()
-    15. [Amazon Macie]()
-    16. [AWS Config]()
-    17. [Amazon Inspector]()
-    18. [AWS Cloudtrail]()
-    19. [AWS Cloudtrail - Hands On]()
-    20. [AWS Artifact]()
-    21. [AWS Artifact - Hands On]()
-    22. [AWS Audit Manager]()
-    23. [AWS Trusted Advisor]()
-    24. [VPC and Network Security]()
-    25. [AWS Security Services - Summary]()
-    26. [Scenarios for Security]()
-    27. [Quiz]()
+**Topics Involved for this Section**:<br> 
+    1. [IAM Intro: Users, Groups, Policies]()<br>
+    2. [IAM Users and Groups - Hands On]()<br>
+    3. [IAM Policies]()<br>
+    4. [IAM Policies - Hands On]()<br>
+    5. [IAM Roles]()<br>
+    6. [IAM Roles - Hands On]()<br>
+    7. [Amazon S3]()<br>
+    8. [Amazon S3 Hands On]()<br>
+    9. [Amazon S3 Storage Classes]()<br>
+    10. [Amazon S3 Storage Classes - Hands On]()<br>
+    11. [Amazon EC2]()<br>
+    12. [Website Creation on EC2 - Hands On]()<br>
+    13. [AWS Lambda]()<br>
+    14. [AWS Lambda - Hands On]()<br>
+    15. [Amazon Macie]()<br>
+    16. [AWS Config]()<br>
+    17. [Amazon Inspector]()<br>
+    18. [AWS Cloudtrail]()<br>
+    19. [AWS Cloudtrail - Hands On]()<br>
+    20. [AWS Artifact]()<br>
+    21. [AWS Artifact - Hands On]()<br>
+    22. [AWS Audit Manager]()<br>
+    23. [AWS Trusted Advisor]()<br>
+    24. [VPC and Network Security]()<br>
+    25. [AWS Security Services - Summary]()<br>
+    26. [Scenarios for Security]()<br>
+    27. [Quiz]()<br>
