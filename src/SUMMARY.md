@@ -100,7 +100,7 @@
   - [MLOPs]()
   - [Quiz]()
 - [AWS Security & More](security-and-more.md)
-  - [IAM Intro: Users, Groups, Policies]()
+  - [IAM Intro: Users, Groups, Policies](./securityandmore/iamintro_usersgroups.md)
   - [IAM Users and Groups - Hands On]()
   - [IAM Policies]()
   - [IAM Policies - Hands On]()
