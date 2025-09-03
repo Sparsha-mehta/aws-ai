@@ -104,7 +104,7 @@
   - [IAM Users and Groups - Hands On](./securityandmore/iamhandson.md)
   - [AWS Console Simultaneous Sign-in](./securityandmore/awsconsolesimu.md)
   - [IAM Policies](./securityandmore/iampolicies.md)
-  - [IAM Policies - Hands On](./securityandmore/iamhandson.md)
+  - [IAM Policies - Hands On](./securityandmore/iampolicieshandson.md)
   - [IAM Roles](./securityandmore/iamroles.md)
   - [IAM Roles - Hands On](./securityandmore/iamrolehandson.md)
   - [Amazon S3]()
