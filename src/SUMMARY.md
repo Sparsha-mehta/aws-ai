@@ -115,7 +115,7 @@
   - [Website Creation on EC2 - Hands On](./securityandmore/ec2handson.md)
   - [AWS Lambda](./securityandmore/lambda.md)
   - [AWS Lambda - Hands On](./securityandmore/lambdahandson.md)
-  - [Amazon Macie]()
+  - [Amazon Macie](./securityandmore/amazonmacie.md)
   - [AWS Config]()
   - [Amazon Inspector]()
   - [AWS Cloudtrail]()
