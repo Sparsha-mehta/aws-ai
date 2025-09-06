@@ -116,7 +116,7 @@
   - [AWS Lambda](./securityandmore/lambda.md)
   - [AWS Lambda - Hands On](./securityandmore/lambdahandson.md)
   - [Amazon Macie](./securityandmore/amazonmacie.md)
-  - [AWS Config]()
+  - [AWS Config](./securityandmore/awsconfig.md)
   - [Amazon Inspector]()
   - [AWS Cloudtrail]()
   - [AWS Cloudtrail - Hands On]()
