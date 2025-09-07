@@ -34,6 +34,12 @@ The four main topics we'll cover in depth are:
   - Information assets
   - Infrastructure
 
+> **Confidentiality** means ensuring that sensitive information is only accessible to authorized people. This involves protecting data from unauthorized access or disclosure. Examples include using encryption, access controls, passwords, and user permissions to make sure only the right people can view confidential data like financial records, personal information, or trade secrets.
+> 
+> **Integrity** refers to maintaining the accuracy and completeness of data throughout its lifecycle. This means ensuring information hasn't been tampered with, corrupted, or altered in unauthorized ways. Integrity controls include checksums, digital signatures, version control, and audit trails that help detect if data has been modified improperly.
+> 
+> **Availability** ensures that information and systems are accessible and usable when needed by authorized users. This means preventing and recovering from disruptions like system outages, cyberattacks, or hardware failures. Availability is maintained through redundancy, backups, disaster recovery plans, and robust infrastructure design.
+
 <h3>
   Governance
   <img src="image-61.png" alt="icon" width="150" style="vertical-align: middle; float: right;" />
