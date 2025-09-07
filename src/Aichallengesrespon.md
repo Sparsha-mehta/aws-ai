@@ -45,12 +45,10 @@ The four main topics we'll cover in depth are:
   <img src="image-61.png" alt="icon" width="150" style="vertical-align: middle; float: right;" />
 </h3>
 
-- Ensures we can add value and manage risk in business operations
-- Provides clear policies, guidelines, and oversight mechanisms
-- Ensures all systems align with legal and regulatory requirements
+- Governance ensures we can add value and manage risk in business operations
+- Governance provides clear policies, guidelines, and oversight mechanisms to ensure all systems align with legal and regulatory requirements
 - Goal is to improve trust
 
-### **Compliance**
 
 <h3>
   Compliance
