@@ -7,6 +7,7 @@
   - [Different Types of Cloud Computing](typesofCC.md)
   - [AWS Cloud Overview](./awscc.md)
   - [AWS Shared Responsibility Model & AWS Acceptable Policy](./ssresponsibilitymodel.md)
+  - [Quiz 1](./quiz1.md)
 - [AWS AI (AWS Bedrock)](amazonbedrock.md)
   - [What is Generative AI?](genai.md)
   - [Amazon Bedrock Overview](bedrockover.md)
