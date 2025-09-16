@@ -83,4 +83,4 @@ While all these models are converging toward similar capabilities, the real deci
 
 Pricing is a key differentiator. **Claude is the most expensive**, while **Amazon Titan offers the lowest cost** per token. Rapid cost accumulation is possible with large-scale inference or continuous image generation, so monitoring usage is essential.
 
-## [Foundational Model - Hands On](https://github.com/Sparsha-mehta/aws-ai/blob/main/Foundation%20Models%20Hands%20On.pdf)
+Coming up next --> [Foundational Model - Hands On](https://github.com/Sparsha-mehta/aws-ai/blob/main/Foundation%20Models%20Hands%20On.pdf)

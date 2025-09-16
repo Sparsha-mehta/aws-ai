@@ -102,5 +102,3 @@ Let’s visualize how Bedrock works, using a simplified diagram explained during
 * Amazon Bedrock makes it easy to **build, test, and deploy** Gen AI applications using various foundation models.
 * It gives you **data privacy**, **scalability**, **fine-tuning**, and a **unified developer experience**.
 * In the next lecture, we’ll explore **hands-on practice** with Bedrock’s **interactive playground**.
-
-## [Amazon Bedrock - Hands On](https://github.com/Sparsha-mehta/aws-ai/blob/main/Bedrock%20Hands%20On.pdf)
