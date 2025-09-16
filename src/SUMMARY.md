@@ -1,8 +1,12 @@
 # Summary
 
 - [🏠 Home](README.md)
-- [AWS Introduction to Cloud](refernce.md)
-- [Types of Cloud Computing](typesofCC.md)
+- [Introduction to AWS & Cloud Computing](refernce.md)
+  - [Traditional IT Overview](./traditionalc.md)
+  - [What is Cloud Computing](./cc.md)
+  - [Different Types of Cloud Computing](typesofCC.md)
+  - [AWS Cloud Overview](./awscc.md)
+  - [AWS Shared Responsibility Model & AWS Acceptable Policy](./ssresponsibilitymodel.md)
 - [AWS AI (AWS Bedrock)](amazonbedrock.md)
   - [What is Generative AI?](genai.md)
   - [Amazon Bedrock Overview](bedrockover.md)
