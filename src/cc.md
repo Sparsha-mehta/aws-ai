@@ -176,5 +176,6 @@ There are different kinds of clouds out there.
 
 ## Problems Solved by the Cloud
 <img src="./images-cc/Screenshot 2025-05-27 at 12.01.10 PM.png"  style="width:55%;">
+
 For **high availability and fault tolerance** → Since the AWS data center is built worldwide, there is low  
 latency and the applications can be deployed from nearby datacenter from the location we are living.
