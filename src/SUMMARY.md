@@ -11,6 +11,7 @@
 - [AWS AI (AWS Bedrock)](amazonbedrock.md)
   - [What is Generative AI?](genai.md)
   - [Amazon Bedrock Overview](bedrockover.md)
+  - [Amazon Bedrock - Hands On](./AWS%20Bedrock%20Handson.md)
   - [Amazon Bedrock - Foundational Model](foundationalmodel.md)
   - [Fine Tuning a Model](finetunemod.md)
   - [FM Evaluation](fmeval.md) pending
