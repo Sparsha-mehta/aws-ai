@@ -118,7 +118,7 @@
   - [Amazon S3 Hands On](./securityandmore/s3handson.md)
   - [Amazon S3 Storage Classes](./securityandmore/s3storageclasses.md)
   - [Amazon S3 Storage Classes - Hands On](./securityandmore/s3storagehandson.md)
-  - [Amazon EC2](./securityandmore/ec2overview.md)
+  - [Amazon EC2](./securityandmore/ec2.md)
   - [Website Creation on EC2 - Hands On](./securityandmore/ec2handson.md)
   - [AWS Lambda](./securityandmore/lambda.md)
   - [AWS Lambda - Hands On](./securityandmore/lambdahandson.md)
