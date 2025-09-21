@@ -126,7 +126,7 @@
   - [AWS Config](./securityandmore/awsconfig.md)
   - [Amazon Inspector](./securityandmore/awsinsp.md)
   - [AWS Cloudtrail](./securityandmore/cloudtrail.md)
-  - [AWS Cloudtrail - Hands On]()
+  - [AWS Cloudtrail - Hands On](./securityandmore/awscloudtrailhandson.md)
   - [AWS Artifact](./securityandmore/awsartifact.md)
   - [AWS Artifact - Hands On]()
   - [AWS Audit Manager](./securityandmore/awsauditmanager.md)
