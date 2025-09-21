@@ -8,11 +8,11 @@
   margin: 20px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 ">
-    <iframe src="https://docs.google.com/document/d/e/2PACX-1vQyekpP4CYP4SULECwssQ6H800pLsrzPtgUCCehLH4z1rFmSp6UIspQgD_dB3lefyhsRIyHWJumU45W/pub?embedded=true" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
+    <iframe src="https://docs.google.com/document/d/e/2PACX-1vRzpIyI3CvAXXDAHMlCLjBFe-R89eohPFMtrSpZZP8ywNl1luUCjJb4kJyowOiOsDDENWBN9fhNCon0/pub?embedded=true" style="width: 100%; height: 100%; border: none;" frameborder="0"></iframe>
 </div>
 <p style="text-align: center; margin-top: 10px; font-style: italic; color: #666;">
   📱 For a better reading experience (especially on mobile), 
-  <a href="https://docs.google.com/document/d/1qCebqwC4zMtZXG8tcgN7bayOGe2zqvDFHnIA2A5K3cE/edit?usp=sharing" 
+  <a href="https://docs.google.com/document/d/1t5af-A4TMmoXJX5d3iG3rdtVpzHXd0yjRS4g9hkn_DA/edit?usp=sharing" 
      target="_blank" 
      style="color: #4285f4; text-decoration: none; font-weight: 500;">
     click here to open in Google Docs
