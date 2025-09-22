@@ -128,7 +128,7 @@
   - [AWS Cloudtrail](./securityandmore/cloudtrail.md)
   - [AWS Cloudtrail - Hands On](./securityandmore/awscloudtrailhandson.md)
   - [AWS Artifact](./securityandmore/awsartifact.md)
-  - [AWS Artifact - Hands On]()
+  - [AWS Artifact - Hands On](./securityandmore/awsartifacthandson.md)
   - [AWS Audit Manager](./securityandmore/awsauditmanager.md)
   - [AWS Trusted Advisor](./securityandmore/awstrustedadvisor.md)
   - [VPC and Network Security](./securityandmore/vpcandsecurity.md)
