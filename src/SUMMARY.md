@@ -134,5 +134,5 @@
   - [VPC and Network Security](./securityandmore/vpcandsecurity.md)
   - [AWS Security Services - Summary](./securityandmore/securitysummary.md)
   - [Scenarios for Security](./securityandmore/scenariossecurity.md)
-  - [Quiz]()
+  - [Quiz](./securityandmore/quiz.md)
 - [Practice Test](practice-test.md)
