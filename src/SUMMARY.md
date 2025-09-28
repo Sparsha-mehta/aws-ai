@@ -71,7 +71,7 @@
   - [Amazon Polly](./managed-ai/polly.md)
   - [Amazon Polly - Hands On](./managed-ai/pollyhandson.md)
   - [Amazon Rekognition](./managed-ai/awsrekongnition.md)
-  - [Amazon Rekognition - Hands On]()
+  - [Amazon Rekognition - Hands On](./managed-ai/rekognitionhandson.md)
   - [Amazon Lex](./managed-ai/lex.md)
   - [Amazon Lex - Hands On]()
   - [Amazon Personalize](./managed-ai/personalize.md)
