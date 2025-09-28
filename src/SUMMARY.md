@@ -82,7 +82,7 @@
   - [Amazon Augmented AI](./managed-ai/amazonaugmentai.md)
   - [Amazon Augmented AI - Hands On](./managed-ai/augmentedaihandson.md)
   - [Amazon Comprehend Medical & Transcribe Medical](./managed-ai/comprehendmedical.md)
-  - [Amazon Comprehend Medical & Transcribe Medical - Hands On]()
+  - [Amazon Comprehend Medical & Transcribe Medical - Hands On](./managed-ai/comprehendmedhandson.md)
   - [Amazon Hardware for AI](./managed-ai/awshardwareforai.md)
   - [Amazon Hardware for AI - Hands On](./managed-ai/awshardwareaihandson.md)
   - [Quiz]() 
