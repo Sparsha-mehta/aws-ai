@@ -10,6 +10,8 @@ For example, you have the LLAMA 2 model and you're going to add data from Amazon
 
 ![alt text](image-31.png)
 
+> Difference between fine tuning and transfer learning can be found [here](https://docs.google.com/document/d/1cShJXSt36yVNk7fs_toPqe9q-y7knaysguYgaqYAKrU/edit?usp=sharing)
+
 **Important Requirements:**
 - In order to use a fine-tuned custom model, you must use **provisioned throughput** (different pricing model than on-demand)
 - Not all models can be fine-tuned, but few can and they're usually open source
