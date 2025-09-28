@@ -15,7 +15,7 @@
   - [Amazon Bedrock - Foundational Model](foundationalmodel.md)
   - [Foundational Model - Hands On](./Foundation%20Models%20Hands%20On.md)
   - [Fine Tuning a Model](finetunemod.md)
-  - [FM Evaluation](fmeval.md) pending
+  - [FM Evaluation](fmeval.md)
   - [FM Evaluation - Hands On](fmevalhandson.md)
   - [RAG & Knowledge Bases](ragkb.md) pending
   - [RAG & Knowledge Bases - Hands On]()
