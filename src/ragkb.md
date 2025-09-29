@@ -2,36 +2,45 @@
 
 ## What is RAG?
 
-RAG stands for Retrieval Augmented Generation. Behind this very fancy name, there is a very simple concept. This allows your foundation model to reference a data source from outside of its training data without being fine-tuned.
+RAG stands for **Retrieval Augmented Generation**. Behind this very fancy name, there is a very simple concept. 
+
+This allows <u>your foundation model to reference a data source from outside of its training data without being fine-tuned</u>.
 
 ## How RAG Works
 
 Now that we understand what RAG is, let's see how it actually works. We have a knowledge base that is being built and managed by Amazon Bedrock. For this, it must rely on a data source, for example Amazon S3.
+
+![alt text](image-76.png)
 
 **The RAG Process:**
 
 1. Your data is stored in Amazon S3
 2. Bedrock automatically builds a knowledge base from this data
 3. A user asks a question to your foundation model (e.g., "Who is the product manager for John?")
-4. The foundation model doesn't know anything about John because this is specific company data
+4. The foundation model doesn't know anything about John because this is specific company data query
 5. A search happens automatically in the knowledge base (all behind the scenes)
-6. The knowledge base retrieves relevant information from the vector database
-7. Retrieved text is combined with the original query as an "augmented prompt"
+6. The knowledge base retrieves relevant information from the **vector database**
+7. Retrieved text is combined with the original query as an "augmented prompt" (Look into **example response flow to understand**)
 8. The foundation model generates a response using both the original question and the retrieved context
+
+![alt text](image-77.png)
 
 **Example Response Flow:**
 - Query: "Who is the product manager for John?"
 - Retrieved information: Support contacts, product manager Jesse Smith, engineer Sarah Ronald
 - Final response: "Jesse Smith is the product manager for John"
 
+
 This is called Retrieval Augmented Generation because we retrieve data outside of the foundation model, and it's augmented generation because we augment the prompt with external data that has been retrieved.
 
 ## Knowledge Bases in Amazon Bedrock
 
-RAG in AWS Amazon Bedrock is implemented as a knowledge base. This is very helpful when you need to have data that is very up-to-date, in real time, and needs to be fed into the foundation model.
+RAG in AWS Amazon Bedrock is implemented as a knowledge base. This is very helpful when you need to have data that is very <u>up-to-date</u>, in real time, and needs to be fed into the foundation model.
 
 **Example Use Case:**
 When you ask "Give me talking points for benefits of air travel," the response includes citations linking back to source documents like "Air travel.pdf" stored in Amazon S3.
+
+![alt text](image-78.png)
 
 ## Vector Databases
 
@@ -46,7 +55,9 @@ Everything goes into a vector database. Vector databases on AWS and Amazon Bedro
 - Redis
 - Pinecone
 
-If you don't specify anything, AWS will create an OpenSearch Service serverless database for you automatically.
+![alt text](image-79.png)
+
+If you **don't specify anything**, AWS will create an **OpenSearch Service serverless database** for you automatically.
 
 ### Choosing the Right Vector Database
 
@@ -61,16 +72,23 @@ If you don't specify anything, AWS will create an OpenSearch Service serverless 
 **Graph Database Option:**
 - **Amazon Neptune** - For graph database requirements
 
+- If you want something very cost effective and duarable storage with sub-second query performance then you would use **Amazon S3 Vectors**
+
+**REVISION IMAGE**:
+![alt text](image-80.png)
+
 ## Embeddings Models
 
-We need an embeddings model to convert data into vectors. Options include Amazon Titan or Cohere. The embeddings model and the foundation model can be different - they don't need to match.
+We need an embeddings model to convert **data** into **vectors** (look at the image diagram above). Options include **Amazon Titan** or **Cohere**. The embeddings model and the foundation model can be different - they don't need to match.
 
-**The Process:**
+**The Process:** (see the image above)
 1. S3 documents are chunked (split into different parts)
 2. These parts are fed into the embeddings model
 3. The model generates vectors
 4. Vectors are placed in the vector database
 5. Vectors become easily searchable for RAG queries
+
+![alt text](image-81.png)
 
 ## Data Sources for Amazon Bedrock
 
