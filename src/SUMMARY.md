@@ -17,8 +17,8 @@
   - [Fine Tuning a Model](finetunemod.md)
   - [FM Evaluation](fmeval.md)
   - [FM Evaluation - Hands On](fmevalhandson.md)
-  - [RAG & Knowledge Bases](ragkb.md) pending
-  - [RAG & Knowledge Bases - Hands On]()
+  - [RAG & Knowledge Bases](ragkb.md) 
+  - [RAG & Knowledge Bases - Hands On](./ragkbhandson.md)
   - [More GenAI Concepts](moregenai.md)
   - [Guardrails](guardrails.md)
   - [Guardrails - Hands On]()
