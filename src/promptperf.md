@@ -33,6 +33,8 @@ Think of it this way: when the AI is choosing the next word, it has a list of po
   - High P (0.99) = Consider almost all possible words
 - **Think of it as**: The "vocabulary filter" - what percentage of the total probability mass should we include?
 
+> Look at this [Google Doc](https://docs.google.com/document/d/1vVuwJEbz1wfZP6XH1GLGWbEo2kjG2zbeG2pgzSDp__c/edit?usp=sharing) for understanding the difference between Top P and Temperature
+
 #### **Top K**
 - **What it does**: Limits which words the AI can consider, based on a fixed number
 - **How it works**:
