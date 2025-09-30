@@ -1,113 +1,78 @@
-# Amazon Bedrock Agents
+<h1>
+  Amazon Bedrock Agents
+  <img src="2025-09-30-12-02-15-image.png" alt="icon" width="50" style="vertical-align: middle; float: right;" />
+</h1>
 
-So now let's talk about Amazon Bedrock Agents. The agent is going to be a very smart thing that is going to act a little bit like a human. The idea is that instead of just asking questions to a model, now the model is going to be able to start thinking a little bit and to perform various multi-step tasks. These tasks may have an impact on our own databases or our own infrastructure. So the agent can actually create infrastructure, deploy applications, and perform operations on our systems.
+Now, let's talk about Amazon Bedrock Agents. 
 
-Here now, the agent doesn't just provide us information. It also starts to think and act. So for example, it's going to look at tasks, and then it's going to perform the task in the correct order and ensure that the correct information is passed within the task even if we haven't programmed the agent to do so.
+- The agent is a very <u>smart thing</u> that is going to act a little bit like a <u>human</u>. 
 
-So what we do is that we are going to create what's called action groups, and the agents are going to be configured to understand what these action groups do and what they mean. And then automatically the agent will be able to integrate with other systems, services, databases, and APIs to exchange data or to initiate actions. And also if you need to get some information out of your systems in terms of unlabeled data, it can look at RAG to retrieve the information when necessary.
+- Instead of just asking questions to a model, <u>the model will now be able to start thinking and **performing various multi-step tasks**</u>. 
 
-So that sounds a little bit magical, but I will show you exactly how that works.
+- These tasks may have an <u>impact on our own databases </u>or <u>infrastructure</u>, as the agent can:
+  
+  - create infrastructure, 
+  
+  - deploy applications, and 
+  
+  - perform operations on our systems. 
 
-![alt text](image-51.png)
-*Shows the core capabilities and features of Amazon Bedrock Agents*
+- The agent doesn't just <u>provide us with information</u> <span style="color:red;">(It is not longer a chatbot)</span>; it also starts to **think** and **act**. 
 
-## **Core Agent Capabilities**
+- It will:
+  
+  - look at tasks, perform them in the correct order, and ensure the correct information is passed within the task, even if we haven't programmed the agent to do so.
 
-Amazon Bedrock Agents can:
+### **Action Groups**
 
-- **Manage and carry out various multi-step tasks** related to infrastructure provisioning, application deployment, and operational activities
-- **Task coordination:** perform tasks in the correct order and ensure information is passed correctly between tasks
-- **Agents are configured to perform** specific pre-defined action groups
-- **Integrate with other systems,** services, databases and APIs to exchange data or initiate actions
-- **Leverage RAG** to retrieve information when necessary
+To execute the tasks, what we do is:
 
-## **Bedrock Agent Setup**
+- We create what's called **action groups**, and <u>agents are configured to understand what these action groups do</u> and <u>what they mean</u>. 
 
-In Amazon Bedrock, you would go and create an agent and you are defining what the agent is responsible for. So for example, you are an agent responsible for accessing purchase history for our customers as well as recommendations into what they can purchase next. And you are responsible for placing new orders.
+- The agent will then be able to <u>automatically integrate with other systems, services, databases, and APIs to **exchange data**</u> or <u>**initiate an action**</u>.
 
-So the agent knows that it can do all these things. So if the user is asking something for the agent or the model to do one of these things, Bedrock is smart. It's going to say, well, this agent probably is going to be responsible for these actions.
+When you create an **agent in Amazon Bedrock,** you define what it is responsible for. For example:
 
-### **Instructions for the Agent**
-"You are an agent responsible for accessing purchase history for our customers, as well as recommendations into what they can purchase next. You are also responsible for placing new orders."
+- You are an agent responsible for accessing <u>purchase history for our customers</u>.
 
-### **Action Groups Configuration**
+- You are responsible for <u>providing recommendations</u> on what they can <u>purchase next</u>.
 
-Then the agent knows about a few action groups. There are two main ways to set up action groups:
+- You are responsible for <u>placing new orders</u>.
 
-#### **Action Group 1: API Integration**
-We have defined an API - it's a way to interface with our system, and we have, for example, defined:
-- **API defined with OpenAPI Schema:**
-  - `/getRecentPurchases`
-  - `/getRecommendedPurchases`
-  - `/getPurchaseDetails/{purchaseId}`
+The agent knows it can do all these things. If a user asks the model to perform one of these actions, Bedrock is smart enough to recognize that this agent is likely responsible.
 
-So all these things are known to the agent in terms of what is the expected input for these APIs, and what do these APIs do, what is the documentation around it? And all this is provided thanks to an OpenAPI schema. And so when done well the agent can invoke these and behind the scenes, of course, interact with our backend systems, for example, make changes to our database.
+There are two ways to set up an action group: (also look at the diagram below)
 
-#### **Action Group 2: Lambda Functions**
-The other way to set up an action group is to use Lambda functions. So Lambda functions are a way to run a little bit of code in AWS without provisioning infrastructure. So the Lambda functions again can be used to be created and place an order through a Lambda function:
-- **PlaceOrderLambda**
+1. **APIs**: We can define an API to interface with our system. For example, we can define functions like `get_recent_purchases`, `get_recommended_purchases`, or `get_purchase_details` with a <u>specific purchase ID</u>. All of this is made known to the agent—including the **expected input** for these APIs and **their documentation**—thanks to an <u>**OpenAPI schema**</u>. The agent can then invoke these APIs and interact with our **backend systems**, for instance, **to make changes to a database**.
 
-And so it could use the same database or a new database. But the idea is that I wanted to show here that the agent can interact either with an external API or with Lambda functions on your AWS accounts.
+2. **Lambda Functions**: Lambda functions are a way to run a <u>little bit of code in AWS without provisioning infrastructure</u>. A Lambda function can be created to place an order, interacting with the same database or a new one. This shows that an agent can interact with <u>either an external API or with Lambda functions on your AWS accounts</u>.
 
-#### **Knowledge Bases**
-And finally it has access to knowledge bases that we define, of course. And so for example, say we have a knowledge base around our company shipping policy and return policy, et cetera, et cetera:
-- **Company return policy**
+![](2025-09-30-12-22-32-image.png)
 
-So if the user is asking something about the return policy for an order it's about to do, the agent is smart enough to also provide that to the user.
+### **Knowledge Bases**
 
-So the agents are very smart, and they know what to access and then automatically will know how to do it.
+The agent also has access to knowledge bases that we define. If we have a knowledge base with our <u>company's shipping and return policies</u>, the agent is smart enough to **retrieve that information and provide it to the user**. 
 
-![alt text](image-52.png)
-*Shows the complete agent configuration including Instructions, Action Groups (APIs and Lambda Functions), and Knowledge Bases*
+For example, if a user asks about the <u>return policy for an order they are about to place</u>, the agent can look at this <u>unlabeled data using RAG </u>(Retrieval Augmented Generation) to retrieve the necessary information.
 
-## **How It Works Behind the Scenes**
+### **How it Works Behind the Scenes**
 
-So how does that work behind the scenes? Well, say we have a task, and we give this task to a Bedrock agent.
+This process all happens behind the scenes, but Bedrock allows you to see the steps through a feature called **"tracing."** Here is how the agent processes a task: (see the diagram below)
 
-### **Step 1: Information Analysis**
-Now the agent is going to look at:
-- The **prompt**
-- All the **conversation history**
-- All the **actions available** (Actions, KBs)
-- The **instructions**
-- What is the **task**
+1. The Bedrock agent receives a **task**. It looks at the **prompt**, the **conversation history**, **all available actions**, and the **knowledge bases**.
 
-### **Step 2: Chain of Thought Planning**
-It's going to take all this information together and send it to a Generative AI model backed by Amazon Bedrock and say, "Please tell me how you would proceed to perform these actions given all this information."
+2. It takes all this information and sends it to a <u>Generative AI</u> model backed by **Amazon Bedrock**, asking how it would proceed to perform the actions.
 
-So it's using the chain of thought. Chain of thought means that the output of the Bedrock model is going to be a list of steps:
-- **Step 1:** you need to do this
-- **Step 2:** do this
-- **Step 3:** do this
-- **Step N:** last step, do that
+3. The model uses **Chain of Thought**, meaning its output will be a list of steps (e.g., Step 1: do this, Step 2: do that, etc.).
 
-### **Step 3: Step Execution**
-And so the steps are going to be executed by the agent, and say:
-- **First one:** call an API. Call on this action group and get the results
-- **Step 2:** do it again
-- **Step 3:** call another API, et cetera, et cetera
-- Maybe it could be a search into a knowledge base, and get the results and so on
+4. The agent executes these **<u>steps in order</u>**. This could involve **calling an API**, **getting the results**, calling another API, **searching a knowledge base**, and so on.
 
-But so the agent is going to work and do all these things for us thanks to the steps that were generated by the Bedrock model, which is amazing.
+5. The **final result** is returned to the **Bedrock agent**.
 
-### **Step 4: Final Response Generation**
-And then the final result is returned to the Bedrock agent. The Bedrock agent then sends the tasks and the results to another Bedrock model. And the Bedrock model is going to synthesize everything and give a final response to our user and we will get the final response.
+6. The agent then sends <u>the tasks and the results to another **Bedrock model**</u>, which **synthesizes everything** and generates a <u>final response for the user.</u>
 
-## **Agent Workflow Summary**
+![](2025-09-30-12-25-45-image.png)
 
-So this is all happening behind the scenes. Of course us, we just use the agent, and the agent does stuff and automatically we see the final response. But Bedrock is really nice because you actually have something called **tracing** on your agent, and this allows you to see the list of steps that were done by the agent. So you can debug in case you don't like the way an agent performed something.
-
-The complete workflow shows:
-1. **Task** input to Bedrock Agent
-2. Agent analyzes prompt, conversation history, actions, and instructions
-3. **Bedrock Model** generates chain of thought steps
-4. Agent executes steps (API calls to Action Groups, searches in Knowledge Bases)
-5. Results are collected and sent to another **Bedrock Model**
-6. **Final Response** is generated and returned to the user
-
-![alt text](image-53.png)
-*Shows the complete end-to-end workflow of how a Bedrock Agent processes tasks, from initial input through chain of thought planning, step execution, and final response generation*
-
----
-
-That's it for Amazon Bedrock Agents.
+> **Important to Note:**
+> 
+> With **tracing**, you can see this list of steps and debug the agent's performance if you don't like the way it performed a certain action.
