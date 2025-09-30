@@ -21,7 +21,7 @@
   - [RAG & Knowledge Bases - Hands On](./ragkbhandson.md)
   - [More GenAI Concepts](moregenai.md)
   - [Guardrails](guardrails.md)
-  - [Guardrails - Hands On]()
+  - [Guardrails - Hands On](./guardrailshandson.md)
   - [Agents](agents.md)
   - [Cloudwatch Integration](cloudwatch.md)
   - [Cloudwatch Integration - Hands On]()
