@@ -24,7 +24,7 @@
   - [Guardrails - Hands On](./guardrailshandson.md)
   - [Agents](agents.md)
   - [Cloudwatch Integration](cloudwatch.md)
-  - [Cloudwatch Integration - Hands On]()
+  - [Cloudwatch Integration - Hands On](./cloudwatchintergation.md)
   - [Pricing](pricing.md)
   - [AI Stylist - Hands On]()
   - [Quiz](quiz2.md)
