@@ -26,7 +26,6 @@
   - [Cloudwatch Integration](cloudwatch.md)
   - [Cloudwatch Integration - Hands On](./cloudwatchintergation.md)
   - [Pricing](pricing.md)
-  - [AI Stylist - Hands On]()
   - [Quiz](quiz2.md)
 - [AWS AI (Prompt Engineering)](prompt-engineering.md)
   - [What is Prompt Engineering?](promptengg.md)
