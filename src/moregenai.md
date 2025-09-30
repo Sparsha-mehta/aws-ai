@@ -1,94 +1,109 @@
-# More Gen Ai Concepts (Tokenization, Context Windows, and Embeddings)
+# More GenAI Concepts
 
-Now that we've seen Gen AI and how to use it, let's look at bigger concepts around Gen AI. These are more theoretical, but very important to understand, and the exam can ask you a few things about them.
+Now that we've seen Gen AI and how to use it, let's look at the bigger concepts around it. These concepts are more theoretical but are very important to understand, as the exam may ask a few things about them.
 
-## **Tokenization**
+### **The Process of Tokenization**
 
-Tokenization is the process of converting raw text into a sequence of tokens. Here's a sentence: "Wow, learning AWS with Stephane Maarek is immensely fun," and here we have different ways of converting these words into tokens.
+**Tokenization** is the <u>idea of converting raw text into a sequence of tokens</u>. For example, take the sentence, `"Wow, learning AWS with Stephane Maarek is immensely fun."` There are different ways to convert these words into tokens.
 
-**Types of Tokenization:**
-- **Word-based tokenization** - The text is split into individual words
-- **Subword tokenization** - Some words can be split too, which is very helpful for long words and for the model to have fewer tokens
+- **Word-Based Tokenization:** The <u>text</u> is split into <u>individual words</u>.
 
-For example, the word "unacceptable" can be split into "un" (negative prefix) and "acceptable" (the base token). This way, the model just needs to understand that "un" is a negative and "acceptable" is the token "acceptable."
+- **Subword Tokenization:** 
+  
+  Some words can be split into smaller parts. This is very helpful for long words and allows the model to have a smaller total number of tokens. 
+  
+  - For example, the word `"unacceptable"` can be understood as the combination of a negative prefix `"un-" `and the token `"acceptable."`
 
-**How Tokenization Works:**
-You can experiment at OpenAI's website called Tokenizer. Using the sentence "Wow, learning with Stephane is immensely fun!" as an example:
-- "Wow" becomes one token
-- The comma itself is a token as well
-- "Learning AWS with Steph" - Stephane was split in two, because probably "Steph" and "Stephane" are very close
-- "Maarek" - "aare" is being split as well
-- "Is immensely fun" - all of these are tokens
-- The exclamation point is also a token
+You can experiment with this on the OpenAI website called [Tokenizer](https://platform.openai.com/tokenizer). Using the sentence, "Wow, learning with Stephane is immensely fun!," we can see how it's broken down:
 
-Tokenization converts these words into tokens because now each token has an ID, and it's much easier to deal with IDs than to deal with the raw text itself.
+![](2025-09-29-23-57-32-image.png)
 
-## **Context Windows**
+Tokenization is important because each **token is assigned an ID**, which is much <u>easier for the model to deal with than the raw text itself</u>.
 
-Context is super important. This is the number of tokens that an LLM can consider when generating text. Different models have different context windows, and the larger the context window, the more information and coherence you get.
+### **Context Window**
 
-It's kind of a race now to have the greatest context window, because the more context window you have, the more information you can feed to your Gen AI model.
+The **context** is the <u>number of tokens that an LLM can consider when generating text</u>. Different models have different context windows, and a <u>larger window</u> allows for <u>more information</u> and <u>coherence in the output</u>. It's a race now to have the greatest context window because it allows more information to be fed to the model.
 
-**Context Window Comparisons:**
-- **GPT-4 Turbo**: 128,000 tokens
-- **Claude 2.1**: 200,000 tokens
-- **Google Gemini 1.5 Pro**: 1 million tokens (up to 10 million tokens in research)
+- **GPT-4 Turbo:** 128,000 tokens
 
-For 1 million tokens, you can have:
-- One hour of video fed to your model
-- 11 hours of audio
-- Over 30,000 lines of code
-- 700,000 words
+- **Claude 2.1:** 200,000 tokens
 
-**Important Considerations:**
-When you have a large context window, you're going to get more benefit out of it, but it will require more memory and more processing power, and therefore may cost a little more. When you consider a model, the context window is going to be probably the first factor to consider, making sure that it fits your use case.
+- **Google Gemini 1.5 Pro:** 1 million tokens (and up to 10 million tokens in research)
+  
+  ![](2025-09-30-08-46-20-image.png)
 
-## **Embeddings**
+A context window of 1 million tokens means you can feed the model a one-hour video, 11 hours of audio, over 30,000 lines of code, or over 700,000 words. 
 
-We've seen embeddings a little bit with RAG, but now we're going to go deep into how that works. The idea is that you want to create a vector (an array of numerical values) out of text, images, or audio.
+While a **large context window** provides more benefits, it also requires **more memory and processing power**, which **may cost more**. When you consider a model, the context window is probably the first factor to consider to make sure it fits your use case.
 
-**The Embedding Process:**
+### **Embeddings**
 
-1. **Start with text**: "The cat sat on the mat"
-2. **Tokenization**: Each word is extracted - "the," "cat," "sat," "on," "the," "mat"
-3. **Token IDs**: Every word is converted into a token ID (dictionary that says the word "the" is 865, etc.)
-4. **Embedding model**: Create a vector for each token
-   - The token "cats" is converted to a vector of many values (0.025, etc.)
-   - The word "the" has its own vector
-   - Vectors can be very big (could be 100 values)
-5. **Storage**: All these vectors are stored in a vector database
+Embeddings are about creating a **vector**—<u>an array of numerical values</u>—out of text, images, or audio.
 
-**Why Convert Tokens to Vectors?**
-When we have vectors with very high dimensionality, we can actually encode many features for one input token:
+The process generally works like this:
+
+1. **Start with Text:** For example, "the cat sat on the mat."
+
+2. **Tokenization:** Each word is extracted as a token: "the", "cat", "sat", "on", "the", "mat".
+
+3. **Assign Token IDs:** Every token is converted into a numerical ID from a dictionary (e.g., "the" is 865).
+   
+   <img title="" src="2025-09-30-08-54-06-image.png" alt="" width="178" data-align="center">
+
+4. **Embeddings Model:** An embeddings model creates a unique vector for each token. The token "cat" is converted into a large vector of numerical values (e.g., [0.025, ...]). look at the image below:
+   
+   ![](2025-09-30-08-53-05-image.png)
+
+5. **Store in Vector Database:** All these vectors are stored in a vector database.
+
+
+
+The whole flow looks like this:
+
+![](2025-09-30-08-55-51-image.png)
+
+#### **Why Convert Tokens into Vectors?**
+
+When we have vectors with very high dimensionality (e.g., 100+ values), we can encode many features for a single input token.
+
 - The meaning of the word
-- The syntactic role
-- The sentiment (positive or negative word)
-- Much more
 
-The model is able to capture a lot of information about the word just by storing it into a high-dimensionality vector, and this is what's used for vector databases and RAG.
+- Its synthetic role
 
-**Search Applications:**
-Because embedding models can be easily searchable thanks to nearest neighbor capability in vector databases, it's a very good way to use an embedding model to power a search application, and that's something that can come up in the exam.
+- The sentiment (positive or negative)
 
-## **Semantic Relationships in Embeddings**
+- And much more
 
-Words that have a semantic relationship (meaning they're similar) will have similar embeddings.
+The model is able to <u>capture a lot of information about the word just by storing it in a high-dimensionality vector</u>. Because these embeddings can be easily searched in vector databases (**using nearest neighbor capabilities**), they are a very good way to power a search application. (**V.V IMP FOR EXAM**)
 
-**Example Visualization:**
-If we take the tokens "dog," "puppy," "cat," and "house," and make a vector with 100 dimensions (100 numerical values for each word or token), it's very difficult for humans to visualize 100 dimensions. We're very good at two dimensions (sheet of paper) and three dimensions (what we can visualize with our eyes), but 100 dimensions is very difficult.
+#### **Semantic Relationships and Similarity**
 
-**Dimensionality Reduction:**
-To visualize these things, sometimes we do dimensionality reduction - we reduce these 100 dimensions to two or three dimensions. In a two-dimension diagram, we would see:
-- Puppy and dog are related (because a puppy is a small dog)
-- Cat is not too far away from dog (because it's an animal)
-- House is very different, so it's far away on that diagram
+Words that have a semantic relationship (meaning they are similar) will have similar embeddings. Let's take the tokens `dog`, `puppy`, `cat`, and `house` and create a 100-dimension vector for each. Look at the image below:
 
-**Color Embedding Visualization:**
-Another way to visualize high-dimension vectors is to use colors. Each combination of numbers makes a color, and visually we can see that puppy and dog have very similar colors because they're very similar, but house is very different.
+![](2025-09-30-09-09-10-image.png)
 
-**Practical Application:**
-There is a semantic relationship between tokens with similar embeddings, and that's why we use them. Once we have them in a vector database, we can do a similarity search on the vector database. We give it "dog" and automatically, we'll be able to pull out all the tokens that have a similar embedding as "dog."
+It is difficult for us as humans to visualize <u>100 dimensions</u>. To help with this, we sometimes use a technique called **dimensionality reduction**, <u>which reduces the 100 dimensions to two or three</u>. If we did this, we might see a **2D diagram** where:
 
----
+<img src="2025-09-30-09-10-27-image.png" title="" alt="" data-align="center">
 
-These concepts appear in the exam, so hopefully now you understand them and you'll be all good.
+- `puppy` and `dog` are <u>very closely related</u>.
+
+- `cat` is not too far away from `dog` because it's also an <u>animal</u>.
+
+- `house` is very different and far away on the diagram.
+
+Another way to visualize a **high-dimension vector** is to <u>use colors</u>, where each <u>combination of numbers creates a color</u>. 
+
+<img title="" src="2025-09-30-09-11-46-image.png" alt="" data-align="center">
+
+Visually, we could see that `puppy` and `dog` have very <u>similar colors</u>, while `house` has a <u>very different color</u>.
+
+
+
+The whole flow looks like this:
+
+![](2025-09-30-09-13-34-image.png)
+
+
+
+This shows that there is a semantic relationship between tokens with similar embeddings. Once we have them in a vector database, we can perform a similarity search. If we provide the vector for `dog`, the database can automatically pull all the tokens that have a **similar embedding**.
