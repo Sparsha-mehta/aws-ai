@@ -57,13 +57,10 @@ we're asking `"What is the annual total out-of-pocket maximum mentioned in the h
 
   ### **Data Connectors**
 
-  First, we have data connectors. Data connectors are fully managed RAG, and you can connect to over 40 popular enterprise data sources. You don't have to learn about them all, but it's good to see some of them:
+  First, we have data connectors. Data connectors are **fully managed RAG**, and you can connect to over <u>40 popular enterprise data sources</u>. You don't have to learn about them all, but it's good to see some of them:
   </div>
   <img src="image-20.png" alt="SSML Example" width="200" />
 </div>
-
-
-
 
 **AWS Services:**<br>
 • Amazon S3 - where we can store data files onto AWS, it's a very popular service<br>
@@ -80,11 +77,13 @@ we're asking `"What is the annual total out-of-pocket maximum mentioned in the h
 • SharePoint<br>
 • And many others<br><br>
 
-The idea is that Amazon Q Business will have built-in integrations with these services. Once the integration is made, it will crawl these sources and do what it's supposed to do to allow you to search them and query them.
+The idea is that Amazon Q Business will have built-in integrations with these services. Once the integration is made, it will **crawl these sources** and do what it's supposed to do to allow you to **search them and query them**.
 
 ### **Plugins**
 
-Next, we have plugins. While data connectors are about retrieving data and understanding what knowledge is inside our company, plugins are different. Plugins allow Amazon Q Business to actually interact with third-party services.
+Next, we have plugins. While **data connectors are about retrieving data and understanding what knowledge is inside our company**, plugins are different. 
+
+**Plugins** allow <u>Amazon Q Business to **actually interact** with third-party services</u>.
 
 **Examples include:**<br>
 • Jira<br>
@@ -93,44 +92,69 @@ Next, we have plugins. While data connectors are about retrieving data and under
 • Salesforce<br>
 • And others<br><br>
 
-The idea is that if we say to Amazon Q Business "Hey, create a Jira issue" (this is to create a ticket so we can track a problem in our company), then Amazon Q Business will leverage the plugin and automatically create that Jira issue for us. So on top of reading data, Amazon Q Business has the ability to create and move data in your company as well. You can extend it because you can create custom plugins to connect to any third-party application using APIs.
+The idea is that if we say to Amazon Q Business `"Hey, create a Jira issue"` (this is to create a ticket so we can track a problem in our company), then Amazon Q Business will leverage the plugin and **automatically create that Jira issue for us**. 
+
+So on <u>top of reading data</u>, Amazon Q Business has the ability to **create and move data in your company as well**. You can extend it because you <u>can create **custom plugins**</u> to connect to **any third-party application** using **APIs**.
 
 ## **User Access and Authentication**
 
 ### **IAM Identity Center**
 
-How do we access Amazon Q Business? Our users are going to be authenticated through something called IAM Identity Center. IAM Identity Center is a way for users to log in, and once users are logged in, they will only have access to the documents they should have access to.
+**How do we access Amazon Q Business?** 
+<br>
+
+- **Our users** are going to be authenticated through something called **IAM Identity Center**. 
+- **IAM Identity Center** is a way for <u>users to log in, and once users are logged in, they will only have access to the documents they should have access to</u>.
 
 By using your whole company data with Amazon Q Business, you still have the certainty that someone with less privilege will not be able to access all your documents - otherwise that would be a big security risk.
 
-Here we have IAM Identity Center, and our users are going to log into it by just having a sign-in box where you enter a username and password and you're good to go. Then you have what's called an authenticated user with its own permissions because IAM Identity Center knows what the user is able to access or not. The user can then ask questions to Amazon Q Business, which is a web application, and access only the documents it should have access to.
+Here we have IAM Identity Center, and
+![alt text](image-21.png)
+
+- our users are going to log into it by just having a **sign-in box** (see image above) where you enter a username and password and you're good to go.
+-  Then you have what's called an **authenticated user** with its own permissions because **IAM Identity Center** knows what the user is able to access or not. 
+-  The user can then ask questions to Amazon Q Business, which is a **web application**, and access only the <u>documents it should have access to</u>.
 
 ### **External Identity Providers (IDP)**
 
-On top of it, you can integrate IAM Identity Center with what's called External Identity Providers or IDP. It could be, for example:<br><br>
+On top of it, you can integrate IAM Identity Center with what's called External Identity Providers or IDP (see image above). It could be, for example:<br><br>
 
-• Google login<br>
-• Microsoft Active Directory<br>
+• **Google login**<br>
+• **Microsoft Active Directory**<br>
 • And others<br><br>
 
-This means that instead of logging in and getting an AWS-based sign-in page, you're going to log in with a system where users are already created. For example, it could be your Active Directory where you have your Microsoft login, or it could be your Google login if you're using the G Suite type of workspace for your company. This is very handy and really goes hand in hand with whatever security systems you have in place in your company.
+This means that instead of logging in and getting an AWS-based sign-in page, you're going to log in with a system where users are already created. 
+
+For example, it could be your <u>Active Directory where you have your Microsoft login</u>, or it could be your <u>Google login if you're using the G Suite type of workspace for your company</u>. 
+
+This is very handy and really goes hand in hand with whatever security systems you have in place in your company.
 
 ## **Admin Controls**
 
-Next, we have admin controls. These are controls used to customize responses based on what your organization needs. Admin controls are pretty much the exact same thing as Guardrails in Amazon Bedrock.
+Next, we have admin controls. 
+
+These are **controls** used to <u>customize responses based on what your organization needs</u>. 
+
+**Admin controls** are pretty much the **exact same thing** as <u>Guardrails</u> in Amazon Bedrock.
 
 ### **Examples of Admin Controls:**
 
-**Blocked Topics:** If we have a blocked topic such as gaming consoles, and our employee asks "Hey, how can I configure a brand new Nintendo Switch?" then Amazon Q Business is going to say "Well, this is a restricted topic." So we can block specific words or topics.
+**Blocked Topics:** If we have a blocked topic such as gaming consoles, and our employee asks `"Hey, how can I configure a brand new Nintendo Switch?"` then Amazon Q Business is going to say `"Well, this is a restricted topic."` So we can **block specific words** or topics.
 
-**Response Sources:** We can also choose for Amazon Q to respond only with internal information versus using also external knowledge. If we specify it to only use internal information, then only your company documents will be used to respond to a query. If not, then we have access to the broader knowledge of the foundation model.
+![alt text](image-22.png)
+
+**Response Sources:** We can also choose for Amazon Q to respond only with <u>internal information versus using also external knowledge</u>. 
+
+If we specify it to only use **internal information**, then <u>only your company documents will be used to respond to a query</u>. 
+
+If not, then we have access to the <u>broader knowledge of the foundation model</u>.
 
 ### **Admin Control Levels:**
 
 You can set up these admin controls in two ways:
 
-1. **Global Level** - for all types of topics and all types of subjects
-2. **Topic Level** - more specific admin controls applied to particular topics
+1. **Global Level** - for <u>all types of topics</u> and all types of subjects
+2. **Topic Level** - more specific admin controls applied to <u>particular topics</u>
 
 The difference is just at what level you want to apply them.
 
