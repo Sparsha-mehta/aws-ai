@@ -1,6 +1,13 @@
-# Amazon Q Business
+<h1>
+  Amazon Q Business
+  <img src="image-17.png" alt="icon" width="50" style="vertical-align: middle; float: right;" />
+</h1>
 
-Now let's talk about Amazon Q Business. Amazon Q Business is a fully managed Gen-AI assistant for your employees. What does that mean? Well, we have an assistant, but it's based entirely on your company's knowledge and data. This is a very specific use case where Gen-AI is for your company and it's trained on your internal data.
+Now let's talk about Amazon Q Business. 
+Amazon Q Business is a fully managed <u>Gen-AI assistant for your employees</u>. 
+
+**What does that mean?**<br>
+Well, we have an **assistant**, but it's based entirely on your **company's knowledge and data**. This is a very <u>specific use case</u> where Gen-AI is for your company and **it's trained on your internal data**.
 
 ## **What Can You Ask Amazon Q Business?**
 
@@ -10,7 +17,9 @@ Here are some examples of what you can ask Amazon Q Business:<br><br>
 • **"Create a social media post under 50 words to advertise the new role"**<br>
 • **"What was discussed during the team meeting in the week of 4/12?"**<br><br>
 
-Of course, all of this cannot be answered by a general foundation model. It needs to be a model that has been trained on your own internal data with the right security.
+![alt text](image-18.png)
+
+Of course, all of this cannot be answered by a <u>general foundation model</u>. It needs to be a **model** that has been trained on <u>your own **internal data** with the right security</u>.
 
 ## **Amazon Q Business Capabilities**
 
@@ -23,19 +32,38 @@ As a whole, Amazon Q Business can:<br><br>
   - Submitting time-off requests
   - Sending meeting invites
 <br>
-Behind the scenes, Amazon Q Business is built on Amazon Bedrock, but we have less control so we cannot choose what the underlying foundation model is. Actually, Amazon Q Business is built on multiple foundation models from Amazon Bedrock. This is a service that's a little bit higher level, geared toward the very specific use case of using and exposing your company's internal data from an LLM Gen-AI perspective.
+
+Behind the scenes:
+- **Amazon Q Business** is built on **Amazon Bedrock**, but we have <u>less control so we cannot choose what the underlying foundation model is</u>. 
+- Actually, Amazon Q Business is built on **multiple foundation models from Amazon Bedrock**. 
+- This is a service that's a little bit higher level, geared toward the **very specific use case of using and exposing your company's internal data** from an LLM Gen-AI perspective.
 
 ## **Example Use Case**
 
-Here's an example: we're asking "What is the annual total out-of-pocket maximum mentioned in the health plan summary?" This is for our company - we're in the medical space and we have a company document, a PDF, that has the very answer. Amazon Q Business is able to look up that document, look at what the document says, and then give us the answer in our chat, similar to RAG of course. We will have a sources section where it says the source of this is the health plan PDF document, and you can click on it and find it right away.
+Here's an example: 
+![alt text](image-19.png)
+
+we're asking `"What is the annual total out-of-pocket maximum mentioned in the health plan summary?"` 
+
+- This is for <u>our company</u> - we're in the medical space and we have a **company document, a PDF**, that has <u>the very answer</u>. 
+- **Amazon Q Business** is able to <u>look up that document</u>, look at what the document says, and then give us the answer in our chat, **similar to RAG** of course. 
+- We will have a sources section where it says the source of this is the health plan PDF document, and you can click on it and find it right away.
 
 ## **Amazon Q Business Architecture**
 
-Let's have a look at a diagram to better understand Amazon Q Business.
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+  <div>
+  Let's have a look at a diagram to better understand Amazon Q Business.
 
-### **Data Connectors**
+  ### **Data Connectors**
 
-First, we have data connectors. Data connectors are fully managed RAG, and you can connect to over 40 popular enterprise data sources. You don't have to learn about them all, but it's good to see some of them:
+  First, we have data connectors. Data connectors are fully managed RAG, and you can connect to over 40 popular enterprise data sources. You don't have to learn about them all, but it's good to see some of them:
+  </div>
+  <img src="image-20.png" alt="SSML Example" width="200" />
+</div>
+
+
+
 
 **AWS Services:**<br>
 • Amazon S3 - where we can store data files onto AWS, it's a very popular service<br>
