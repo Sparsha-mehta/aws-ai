@@ -1,146 +1,146 @@
 # Amazon Q Developer - Hands On
 
-Now let's have a look at Amazon Q and Amazon Q Developer, which to me are similar, but depends on how they're named. We'll explore both services and their practical applications in AWS.
+This guide walks through using Amazon Q, the generative AI assistant integrated into the AWS Management Console. We will explore 
 
-## **Amazon Q Developer**
+1. how to interact with Amazon Q to query information about our AWS resources, 
 
-Amazon Q Developer is designed to build applications faster and spend less time solving software development problems. This is the coding assistant on AWS that helps developers with their programming tasks.
+2. Generate AWS CLI commands to manage those resources, and 
 
-### **Pricing Structure**
-- **Amazon Q Developer Free Tier** - Basic functionality at no cost
-- **Amazon Q Developer Pro Tier** - $20 per month per user
-  - Includes advanced features
-  - Higher usage limits
+3. Execute those commands using AWS CloudShell. 
 
-From an exam perspective, you need to know that Amazon Q Developer is a coding assistant. For practice purposes, you can find YouTube videos that show how it can improve your coding skills if you're interested in this functionality.
+This demonstrates how Amazon Q can serve as an assistant that is customized and aware of the resources within your AWS account.
 
-## **Amazon Q for Infrastructure Management**
+### Prerequisites
 
-The other way we can use Amazon Q is around helping us deal with our infrastructure (business). 
+- An AWS account with at least one S3 bucket already created.
 
-- Go to Amazon Console and type in the search box for **Amazon Q**:
-![Alt text](image.png)
+- IAM Identity Center is connected to Amazon Q.
 
-Amazon Q provides different bundles that we can use for managing our AWS environment.
+### Understanding Amazon Q Offerings
 
-### **Available Bundles**
-- **Amazon Q Business Lite**
-- **Amazon Q Business Pro** 
-- **Amazon Q Developer Pro**
+Before diving in, it's important to distinguish between the different Amazon Q services.
 
-### **Integration with IAM Identity Center**
-We have Amazon Q and we have connected it already to IAM Identity Center. So we saw Amazon Q Business Lite and Amazon Q Business Pro when we were doing Amazon Q Business. Amazon Q connects directly to IAM Identity Center, allowing you to manage entire subscriptions of Amazon Q directly from this UI and set settings as needed.
+- **Amazon Q Developer**: This is the AI coding assistant designed to help build applications faster and solve software development problems. It has a free tier and a pro tier (around $20 per user per month) which offers advanced features and higher limits. For exam purposes, it's important to know this is the coding assistant.
+  
+  ![](2025-10-01-07-49-34-image.png)
 
-[IMAGE: Amazon Q subscription management interface]
+- **Amazon Q for AWS (in the console)**: This is the **generative AI assistant** integrated directly into the <u>AWS console</u> that helps you manage your infrastructure. It can be accessed <u>via a button</u> in the console and is aware of the resources in your account. This is the version we will be using.
+  
+  ![](2025-10-01-07-51-23-image.png)
 
-## **Amazon Q Assistant Interface**
+### **Part 1: Interacting with Amazon Q in the AWS Console**
 
-But more importantly, I want to show you here the little button, which is Amazon Q, and it's considered to be Amazon Q Developer based on where you look at in the documentation. Amazon Q appears as a little button accessible from many different places in AWS, which I find really, really nice.
+Here, we will open the Amazon Q assistant and use it to get information about existing resources in our account.
 
-[IMAGE: Amazon Q button in AWS console]
+1. Launch the Amazon Q Assistant
+   
+   In the AWS Management Console, locate and click the "Amazon Q" button, typically found on the right-hand side of the screen.
+   
+   - **Instructor's Explanation**: The first time you open it, Amazon Q will present a welcome message stating, `"Hello, I'm Amazon Q, and I'm your AWS generative assistant."` It will also ask for permission to access cross-region data, which is quite important for it to function effectively across your entire account.
 
-When you first access it, Amazon Q introduces itself saying "Hello, I'm Amazon Q, and I'm your AWS generative assistant."
+2. Grant Permissions and Start a Conversation
+   
+   Click "Yes, please continue" to allow cross-region data access. The Amazon Q chat pane will open, ready for conversation. It provides some suggested prompts to get started.
 
-[IMAGE: Amazon Q welcome message]
+3. Click on the suggested prompt, `"list my S3 buckets."` Amazon Q will process the request by looking into your account for S3 resources.
+   
+   - **Instructor's Explanation**: It's very nice because now we are starting to have a gen AI assistant that is customized and knows what is going on in your AWS accounts. Over time it's going to be more and more developed and more and more featured.
 
-### **Cross-Region Data Access**
-Amazon Q says it should be able to access cross-region data. And I say, yes, please continue, because this is quite important. So now we have Amazon Q in this little window, and it's accessible from many different places in AWS.
+Amazon Q will return a list of your S3 buckets. In this case, it finds the one pre-existing bucket. You can click on the bucket name in the chat response to navigate directly to it in the S3 console.
 
-[IMAGE: Cross-region data access permission dialog]
+![](2025-10-01-07-54-42-image.png)
 
-## **Practical Examples and Commands**
+### **Part 2: Generating and Executing CLI Commands**
 
-So now we can do a conversation with Amazon Q, and we have some suggestions. Now we have Amazon Q in this conversation window, and we can interact with it using natural language. Here are some practical examples:
+Next, we will ask Amazon Q to generate a command line interface (CLI) command to create a new S3 bucket and then execute it using AWS CloudShell.
 
-[IMAGE: Amazon Q conversation interface with suggestions]
+1. Ask Amazon Q to Generate a CLI Command
+   
+   In the Amazon Q chat prompt, type the following request:
+   
+   `Please send me the CLI code to create an S3 bucket in the us-east-1 region with the name pratham-demo-amazon-q`.
+   
+   - **Instructor's Explanation**: Before, we saw how to create an S3 bucket by going into the "Buckets" section and clicking "Create bucket." Now, I want to show you another way using the CLI, or command line interface.
 
-### **Listing S3 Buckets**
-One of the suggestions is, for example, "list my S3 buckets." So I click on it, and it's going to actually look in my account and list my S3 buckets. Remember, we created one bucket before, so Amazon Q should be able to find this bucket for us, and here it is.
+  Amazon Q will generate the appropriate AWS CLI command to perform this action.
 
-[IMAGE: Amazon Q listing S3 buckets command]
+![](2025-10-01-07-57-20-image.png)
 
-So we have one S3 bucket called my-demo-bucket-knowledge-base-stefane. And we can click on it and directly go in it. So it's very nice, because now we are starting to have a gen AI assistant that is customized and knows what is going on in your AWS accounts.
+```bash
+aws s3api create-bucket --bucket pratham-demo-amazon-q --region us-east-1
+```
 
-[IMAGE: S3 bucket results from Amazon Q]
+2. Open AWS CloudShell
+   
+   In the top navigation bar of the AWS console, click the "CloudShell" icon.
+   
+   - Note: The first time you open CloudShell, it can take a little bit of time to create the environment and get ready.
+     
+     ![](2025-10-01-07-58-28-image.png)
+     
+     ![](2025-10-01-07-59-02-image.png)
 
-### **Generating CLI Commands**
-But I'm going to ask something else. So I'll request: "Please send me the CLI code to create an S3 bucket in the us-east-1 region with the name stefane-demo-amazon-q." So here we're asking Amazon Q to suggest a command for us to actually create an S3 bucket.
+3. Execute the CLI Command
+   
+   Once the CloudShell terminal is ready, copy the command generated by Amazon Q, paste it into the CloudShell prompt, and press Enter.
+   
+   ![](2025-10-01-08-00-14-image.png)
+   
+   If successful, the command will execute and the new S3 bucket will be created.
 
-[IMAGE: Amazon Q CLI command generation request]
+### **Part 3: Verification and Resource Cleanup**
 
-So before we saw how to create an S3 bucket by going into Buckets, and then click on Create bucket. But now I want to show you another way. So this is called a CLI - command line interface. We can run this and we should be able to create an S3 bucket.
+Finally, we will verify that our new bucket was created and then ask Amazon Q to help us clean it up.
 
-[IMAGE: Generated CLI command from Amazon Q]
+1. Verify the Bucket Creation
+   
+   We have two ways to verify the bucket was created:
+   
+   - **Option A** (Using Amazon Q): Go back to the Amazon Q chat pane and ask it again: list my S3 bucket again. It should now find and list two S3 buckets.
+     
+     ![](2025-10-01-08-01-46-image.png)
+   
+   - **Option B (Using the S3 Console)**: Navigate to the Amazon S3 service in the console. You will see that the `stefane-demo-amazon-q` bucket has been created.
+     
+     ![](2025-10-01-08-02-28-image.png)
+   
+   - **Key Learning**: This demonstrates the real-time awareness of Amazon Q. Using its gen AI capabilities, it found that we now have two buckets in our account immediately after the CLI command was run.
 
-### **Using CloudShell**
-Now where to run it? Well, we can run it in what's called the CloudShell. So this button right here is CloudShell. I'm going to just open it.
+2. Generate a Command to Delete the S3 Bucket
+   
+   Let's ask Amazon Q to generate the command to delete the bucket we just created.
+   
+   - **First Attempt**: Let's try asking: `suggest a command to delete the S3 bucket.`  And then we give the name again right here.
 
-[IMAGE: CloudShell button in AWS console]
+Amazon Q should successfully generate the delete command.
 
-The first time you open it, it can take a little bit of time to create the environment and be ready. But here we go. This was much faster than before actually.
+```shell
+aws s3api delete-bucket --bucket pratham-demo-amazon-q
+```
 
-[IMAGE: CloudShell environment loading]
+![](2025-10-01-08-07-13-image.png)
 
-And let's just paste the command we have right here from Amazon Q, and press Enter. And now the bucket has been created.
+- **Key Takeaway**: Amazon Q currently has the capability to list things and generate commands. Its capabilities, including potentially performing actions like creating or deleting directly, will likely improve over time.
+3. Execute the Delete Command
+   
+   Copy the delete-bucket command, paste it into your open CloudShell session, and press Enter. The bucket will be removed.
+   
+   ![](2025-10-01-08-08-38-image.png)
 
-[IMAGE: Executing CLI command in CloudShell]
+4. Verify the Deletion
+   
+   Go to the Amazon S3 console page and refresh your browser. You will now see only the original single bucket remains.
+   
+   ![](2025-10-01-08-09-00-image.png)
 
-### **Verification Process**
-How do we verify this? Well, two options. Number one, let's see if Amazon Q is actually fast. I'm going to ask it again, "list my S3 buckets again," and now it's going to look up hopefully and find another S3 bucket.
+### Exploring Other Amazon Q Capabilities
 
-[IMAGE: Amazon Q listing updated S3 buckets]
+You can also use Amazon Q to ask about other aspects of your account, such as your bill.
 
-And also we can go, right now, I can show you, we can go directly into Amazon S3 and find that yes, a stefane-demo-amazon-q bucket was created for us. But let's verify. And in here, yes, that was awesome. So Amazon Q, using the gen AI capabilities, found that now we have two buckets in our accounts.
+- **Example Query**: `Can you explain to me my current AWS charges?`
 
-[IMAGE: S3 console showing both buckets]
+- **Expected Result**: On a new account, there won't be any cost data to analyze. Amazon Q will respond that it cannot find any data. However, after a month or so, if you start incurring costs, this would be a good place to ask for an explanation of your charges.
+  
+  ![](2025-10-01-08-10-23-image.png)
 
-## **Security and Compliance Restrictions**
-
-And again, I can always say, "suggest a command to delete the S3 buckets." And then we give the name again right here, and then it is going to generate a command line interface for us. So here we go.
-
-[IMAGE: Request for S3 bucket deletion command]
-
-Ah, this is related to... so you see, you have restrictions as well on Amazon Q. So sometimes if it's related to security or compliance, they're sensitive and so therefore, there's no answer generated.
-
-[IMAGE: Amazon Q security restriction message]
-
-But maybe I didn't ask it correctly. So let me try: "Generate the CLI command that I can use to delete the S3 bucket stefane-demo-amazon-q," and hopefully this is going to work.
-
-[IMAGE: Revised deletion command request]
-
-So Amazon Q right now has the capability to list things. Maybe later, it will have some capability to delete things and create things, but this, over time, is going to get better. But hopefully you get the idea.
-
-[IMAGE: Generated deletion command or restriction]
-
-So now if I just press my command right here, now the bucket has been removed, and I can verify this by going into Amazon S3, refreshing, and now I only see one bucket.
-
-[IMAGE: S3 console showing single bucket after deletion]
-
-### **Command Limitations**
-Currently, Amazon Q has the capability to:
-- List existing resources
-- Generate creation commands
-- Provide informational responses
-
-Future capabilities may include:
-- Delete operations
-- More comprehensive resource management
-- Enhanced security-aware operations
-
-## **Cost Analysis Features**
-
-You can also ask Amazon Q about your bill, so it can analyze your bill and help you understand how it's working. So if you have any kind of cost being incurred in your account, this would be a good place to ask and say, "Can you explain to me my current AWS charges?"
-
-[IMAGE: Amazon Q cost analysis request]
-
-And right now I don't have any charges, because this is a new account. So maybe the answer is not going to be very good. But in one month from now, if you're starting to see any cost data, as you can see, yes, we don't have anything right now, but later on we will have some answers from Amazon Q.
-
-[IMAGE: Amazon Q response about billing with no charges]
-
-> **Note**: For new accounts without cost data, Amazon Q may not provide meaningful cost analysis initially. However, after one month of usage with some cost data, Amazon Q will be able to provide detailed answers about your AWS charges.
-
-## **Key Takeaways**
-
-So that's it for this lecture. This is the power of Amazon Q - it provides a generative AI assistant that is customized and knows what is going on in your AWS accounts. And over time it's going to be more and more developed and more and more featured, making AWS management more intuitive and efficient through natural language interactions.
-
-I hope you liked it and I will see you in the next lecture.
+That's it! You have successfully used Amazon Q as a generative AI assistant to interact with, manage, and understand resources within your AWS account.
