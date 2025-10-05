@@ -43,7 +43,7 @@
   - [Amazon Q Developer - Hands On](./amazonq/amzqdevhandson.md)
   - [Amazon Q for AWS Services](./amazonq/amzqint.md)
   - [Partystock](./amazonq/partyrock.md)
-  - [Quiz]()
+  - [Quiz](./amazonq/quiz4.md)
 - [AWS AI (AI, ML, DL)](ai-ml-dl.md)
   - [AI,ML, DL and GenAI](./aimldl/aiml.md)
   - [ML Terms you may encounter during the exam](./aimldl/mlterms.md)
