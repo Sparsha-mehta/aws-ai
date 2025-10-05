@@ -85,7 +85,7 @@
   - [Amazon Comprehend Medical & Transcribe Medical - Hands On](./managed-ai/comprehendmedhandson.md)
   - [Amazon Hardware for AI](./managed-ai/awshardwareforai.md)
   - [Amazon Hardware for AI - Hands On](./managed-ai/awshardwareaihandson.md)
-  - [Quiz]() 
+  - [Quiz](./managed-ai/quiz.md) 
 - [SageMaker](sagemaker.md)
   - [Sagemaker Overview](./sagemaker/overview.md)
   - [Sagemaker Hands On](./sagemaker/sagemakerhandson.md)
