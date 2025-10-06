@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Training Data - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="training-data"><a class="header" href="#training-data">Training Data</a></h1>
+<p>Now let's talk about training data in the context of machine learning.</p>
+<p>In machine learning, we need data to train our models, and on top of having data, we need <strong>good data</strong>. Good has to be defined, of course, but as a general effect, if you put bad data (called garbage) into your model, you're going to get garbage out of your model - meaning your model won't be good.</p>
+<p>Training data, cleaning the data, and making sure that it is good for your use case is one of, if not the most critical stage to build a good model.</p>
+<p>There are several options to model data, and this will impact the type of algorithms you can use to train your models. We'll cover two main categorizations:</p>
+<ol>
+<li>labeled versus unlabeled data, and</li>
+<li>structured versus unstructured data.</li>
+</ol>
+<h2 id="labeled-vs-unlabeled-data"><a class="header" href="#labeled-vs-unlabeled-data"><strong>Labeled vs Unlabeled Data</strong></a></h2>
+<h3 id="labeled-data"><a class="header" href="#labeled-data"><strong>Labeled Data</strong></a></h3>
+<p>Labeled data is data that has both input features and output labels.</p>
+<p><strong>Example:</strong> Here we have some images of animals, and each image is going to be labeled with the corresponding animal type. In the image we have dogs, and cats</p>
+<p><img src="image-2.png" alt="sup-cats-dogs" /></p>
+<p>In this, image is itself <strong>input feature</strong> and the <strong>output label</strong> corresponds to what the image is (i.e. <strong>Cats</strong> or <strong>Dogs</strong>)</p>
+<p><strong>Key characteristics:</strong></p>
+<ul>
+<li>When we have labeled data, it enables <strong>supervised learning</strong>.</li>
+<li>The algorithm learns to map inputs to known outputs like:
+<ul>
+<li>We teach the algorithm that "this image should have a predicted value of dog, and we know it's a dog because we've labeled it"</li>
+</ul>
+</li>
+</ul>
+<h3 id="unlabeled-data"><a class="header" href="#unlabeled-data"><strong>Unlabeled Data</strong></a></h3>
+<p>Unlabeled data only includes input features without any output labels.</p>
+<p><strong>Example:</strong> A collection of images without any associated labels:</p>
+<ul>
+<li>We have images (say, four cats and two dogs)</li>
+<li>We don't tell the algorithm "this is a dog" or "this is a cat"</li>
+<li>The algorithm must figure out that there is such thing as a cat and such thing as a dog.</li>
+</ul>
+<p><img src="image.png" alt="unsup-cats-dogs" /></p>
+<p><strong>Key characteristics:</strong></p>
+<ul>
+<li>Enables <strong>unsupervised learning</strong> when there are no labels</li>
+<li>It is more complicated than supervised learning</li>
+<li>The algorithm finds patterns between things or structures in the data and groups them together</li>
+<li>It is used when you have so much data that it's very costly or simply impossible to label everything. (It is when you have too much unlabelled data)</li>
+</ul>
+<p><img src="image-3.png" alt="alt text" /></p>
+<blockquote>
+<p>This is why in the field of machine learning, we have algorithm for both of the use case of labeled and unlabeled data.</p>
+</blockquote>
+<h2 id="structured-vs-unstructured-data"><a class="header" href="#structured-vs-unstructured-data"><strong>Structured vs Unstructured Data</strong></a></h2>
+<h3 id="structured-data"><a class="header" href="#structured-data"><strong>Structured Data</strong></a></h3>
+<p>Structured data is organized in a structured format, usually in rows and columns, just like in Microsoft Excel.</p>
+<p><strong>Tabular Data</strong>:</p>
+<ul>
+<li>Data is arranged in a table with <strong>rows</strong> representing <strong>records</strong> and <strong>columns</strong> representing <strong>features</strong></li>
+<li><strong>For example:</strong> Columns with Customer_ID, Name, Age, Purchase_Amount and with the rows
+<img src="image-4.png" alt="alt text" /></li>
+</ul>
+<p><strong>Time Series Data</strong></p>
+<ul>
+<li>Data points collected or recorded at successive points in time</li>
+<li>Example: Stock price of a company over time</li>
+<li>You can have <strong>time series data</strong> in tabular format or simply two columns (Date and Stock Price)
+<img src="image-5.png" alt="alt text" /></li>
+</ul>
+<blockquote>
+<p>In both of the cases of <strong>time series</strong> and <strong>tabular</strong> data, it is very easy to read it and very easy to structure the data.</p>
+</blockquote>
+<h3 id="unstructured-data"><a class="header" href="#unstructured-data"><strong>Unstructured Data</strong></a></h3>
+<p>Unstructured data is the data that doesn't follow a specific structure and is usually text-heavy or multimedia content.</p>
+<p><strong>Example 1: Text Data</strong>
+You have:</p>
+<ul>
+<li>Articles online</li>
+<li>Social media posts</li>
+<li>Customer review on your business</li>
+</ul>
+<p>Then this data is considered unstructured data.</p>
+<ul>
+<li><strong>For Example</strong>: Here is the review of a Yoga Class</li>
+</ul>
+<p><img src="image-6.png" alt="alt text" /></p>
+<p>This is long text with no structure except the fact that it is just a long text.</p>
+<p><strong>Example 2: Image Data</strong></p>
+<ul>
+<li>Image data is unstructured data</li>
+<li>This is just pixels with no organized structure beyond the pixel data itself
+<img src="image-7.png" alt="alt text" /></li>
+</ul>
+<blockquote>
+<p>So both of these: <strong>image</strong> and <strong>text</strong> data are unstructured with no specific organizational structure. We have specific type of algorithms to deal with this data.</p>
+</blockquote>
+<h2 id="summary"><a class="header" href="#summary"><strong>Summary</strong></a></h2>
+<p>Now we've learned about labeled and unlabeled data, the necessity of having good data for ML algorithms, and discussed structured and unstructured data. These concepts form the foundation for understanding how different types of data require different algorithmic approaches in machine learning.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../aimldl/mlterms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../aimldl/supervisedL.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../aimldl/mlterms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../aimldl/supervisedL.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

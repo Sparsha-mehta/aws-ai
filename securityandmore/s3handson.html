@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amazon S3 Hands On - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="amazon-s3---hands-on"><a class="header" href="#amazon-s3---hands-on">Amazon S3 - Hands On</a></h1>
+<p>In this guide, we will walk through the process of creating a new Amazon S3 bucket, configuring its basic settings, uploading files (objects), and understanding the fundamental concepts of object access. We will also cover how to organize objects using folders and how to properly delete them, all while following the verbose, step-by-step instructions from the original lesson.</p>
+<h3 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h3>
+<ul>
+<li>
+<p>An AWS account with access to the Amazon S3 console.</p>
+</li>
+<li>
+<p>The following files saved to your local computer for uploading:</p>
+<ul>
+<li>
+<p><code>coffee.jpg</code>, here is the <a href="https://plus.unsplash.com/premium_photo-1674327105076-36c4419864cf?fm=jpg&amp;q=60&amp;w=3000&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWVzdGhldGljJTIwY29mZmVlfGVufDB8fDB8fHww">link</a> to download</p>
+</li>
+<li>
+<p><code>beach.jpg</code>, here is the <a href="https://www.google.com/imgres?q=beach%20images&amp;imgurl=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F054%2F311%2F652%2Flarge%2Ftranquil-tropical-paradise-scene-starfish-and-seashells-rest-on-a-white-sandy-beach-with-sea-gentle-turquoise-waves-summer-background-copy-space-for-your-text-video.jpg&amp;imgrefurl=https%3A%2F%2Fwww.vecteezy.com%2Ffree-videos%2Fsummer-beach-background&amp;docid=jDDhRF8yQG5zKM&amp;tbnid=qgtnhUmalmYTcM&amp;vet=12ahUKEwjf6IDhjvqPAxX1j4kEHdD3FWMQM3oECBkQAA..i&amp;w=800&amp;h=450&amp;hcb=2&amp;ved=2ahUKEwjf6IDhjvqPAxX1j4kEHdD3FWMQM3oECBkQAA">link</a> to download</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-create-an-s3-bucket"><a class="header" href="#1-create-an-s3-bucket"><strong>1. Create an S3 Bucket</strong></a></h3>
+<p>Here I am in Amazon S3, and I'm going to go ahead and create a bucket.</p>
+<p><img src="images/2025-09-27-19-43-41-image.png" alt="" /></p>
+<ol>
+<li>
+<p>Select a Region</p>
+<p>You will notice here that there's a region selected, which is <code>US (N Virginia)</code>. This is because I have the region selection in here. Choose the region you want to create your bucket in. We'll see that Amazon S3 still has a view over all your buckets across all regions.</p>
+</li>
+<li>
+<p>Choose a Bucket Type</p>
+<p>Now, there's a bucket type that you may or may not see. If you're in some regions where it's available, you will see "General purpose" or "Directory new." Over time, it will be in more regions.</p>
+<blockquote>
+<p><strong>Note:</strong> If you don't see this in your region, this is fine. The option you should choose if you see it is "General purpose." If you don't see this option, it will be automatically "General purpose." So don't touch anything and don't feel alarmed if you don't see these options. Directory buckets are for a specific type of use case that is not covered at the exam, so I will not be talking about it.</p>
+<p>So, if you see the screen, choose "General purpose." If you don't see the screen, everything is fine, do not worry.</p>
+</blockquote>
+</li>
+<li>
+<p>Choose a Bucket Name</p>
+<p>Next, you need to choose a bucket name.</p>
+<blockquote>
+<p>Key Concept: Bucket Name Uniqueness</p>
+<p>If you enter a bucket name that is already taken, for example, <strong>"tests,"</strong> and you try all the way down to create your bucket, you're going to get an error saying that the bucket with the same name already exists. Your <strong>bucket name must be unique across all regions and all accounts ever created in AWS.</strong></p>
+<p>This is why I name my buckets with something very, very personal. For example, it could be <code>pratham-demo-s3</code>, and I usually add a version number, <code>v5</code>, because I've been creating this video many, many times over as the interface changes.</p>
+</blockquote>
+<p>Enter a <strong>unique bucket name</strong>, such as <code>pratham-s3-demo-v2</code>. This should be <strong>available</strong> and <strong>should have no errors</strong>. But <u>if someone already took it, then I will need to change the name</u>.</p>
+<p><img src="images/2025-09-27-19-46-51-image.png" alt="" /></p>
+</li>
+<li>
+<p><strong>Configure Initial Settings</strong></p>
+<p>We will leave most of the settings as their secure defaults.</p>
+<ul>
+<li>
+<p><strong>Object Ownership:</strong> Right now you have "ACLs disabled." This is recommended. This is a security setting. Don't worry about it. We'll leave it as the default.</p>
+</li>
+<li>
+<p><strong>Block public access for this bucket:</strong> Again, we'll leave this enabled. So we'll "Block all public access," and we want to have maximum security in our bucket so only we can upload files to it.</p>
+</li>
+<li>
+<p><strong>Bucket Versioning:</strong> We want to "Disable" bucket versioning right now, and we'll see later on how to enable it.</p>
+</li>
+<li>
+<p><strong>Tags:</strong> No tags are needed.</p>
+</li>
+<li>
+<p><strong>Default encryption:</strong> I'm going to use "Server-side encryption with Amazon S3 managed keys (SSE-S3)." So all my objects are going to be encrypted, and I will choose the first option. We'll talk about encryption later on. For "Bucket Key," I will "Enable" it.</p>
+</li>
+</ul>
+<p>As you can see, we'll leave all the settings as default. The only thing we have set, really, is the bucket name.</p>
+</li>
+<li>
+<p><strong>Create the Bucket</strong></p>
+<p>Scroll to the bottom of the page and click the "Create bucket" button. It has now been successfully created.</p>
+<p><img src="images/2025-09-27-19-49-08-image.png" alt="" /></p>
+</li>
+</ol>
+<h3 id="2-viewing-and-finding-your-buckets"><a class="header" href="#2-viewing-and-finding-your-buckets"><strong>2. Viewing and Finding Your Buckets</strong></a></h3>
+<p>You will see here in this UI all your buckets. If you have "Directory" enabled, you will also see directory buckets; right now I have none. But your "General purpose" buckets are here.</p>
+<blockquote>
+<p><strong>Note:</strong> Right now, you should see one bucket if you just started this course. For me, I have 33 because I've been using my account quite a lot. This will display buckets for all AWS regions, not just the one you're in right now, but all regions. As you can see, I have Ireland, London. If I scroll down, I get us-east-1, Frankfurt, and so on.</p>
+</blockquote>
+<p><img src="images/2025-09-27-19-53-12-image.png" alt="" /></p>
+<p><img src="images/2025-09-27-19-54-21-image.png" alt="" /></p>
+<p>All your buckets are going to be displayed here, and you can do a little search. For example, search for pratham-demo. Here is my bucket.</p>
+<h3 id="3-uploading-objects-to-your-bucket"><a class="header" href="#3-uploading-objects-to-your-bucket"><strong>3. Uploading Objects to Your Bucket</strong></a></h3>
+<ol>
+<li>
+<p>Click on your new bucket to have a look at it inside. Now in my bucket, I would like to start uploading objects because currently you have zero objects.</p>
+<p><img src="images/2025-09-27-19-55-46-image.png" alt="" /></p>
+</li>
+<li>
+<p>Click "Upload," and then we can "Add files."</p>
+<p><img src="images/2025-09-27-19-57-44-image.png" alt="" /></p>
+</li>
+<li>
+<p>Navigate into your code, go into the S3 folder, and then you will find a <code>coffee.jpg </code>file. Choose this coffee.jpg file. As you can see, it's an image jpg, it has 100 kilobytes in size, and the destination is <code>s3://pratham-demo...</code> which is my bucket.</p>
+<p>[SCREENSHOT: The S3 upload screen showing the coffee.jpg file staged for upload with its details.]</p>
+<p><img src="images/2025-09-27-19-59-53-image.png" alt="" /></p>
+</li>
+<li>
+<p>Click the "Upload" button. We're done.</p>
+</li>
+<li>
+<p>You can close the upload status panel on the right-hand side. Back in my S3 bucket, I can see the <code>coffee.jpg</code> file is under my "Objects."</p>
+</li>
+</ol>
+<p><img src="images/2025-09-27-20-00-24-image.png" alt="" /></p>
+<h3 id="4-understanding-object-access"><a class="header" href="#4-understanding-object-access"><strong>4. Understanding Object Access</strong></a></h3>
+<p>Now that we have an object, let's explore how to access it.</p>
+<ol>
+<li>
+<p>Click on the <code>coffee.jpg</code> object to see more details about that file.</p>
+<p><img src="images/2025-09-27-20-01-13-image.png" alt="" /></p>
+</li>
+<li>
+<p>Now that we are in the object page, we can have a look at a bunch of properties:</p>
+<ol>
+<li>
+<p>when it was uploaded,</p>
+</li>
+<li>
+<p>the size,</p>
+</li>
+<li>
+<p>the type, and</p>
+</li>
+<li>
+<p>there's an <code>"Object URL"</code> here.</p>
+</li>
+</ol>
+<p>We'll be playing with it in a moment.</p>
+<p><img src="images/2025-09-27-20-03-46-image.png" alt="" /></p>
+</li>
+<li>
+<p>Now we want to open this object and see if we can view it. I'm going to click on <code>"Open"</code> in the top right. If I do click on <code>"Open,"</code> as you can see, I can see my <code>coffee.jpg</code> file. So this is the one I have uploaded, and it is on the internet. Awesome, right?</p>
+<p><img src="images/2025-09-27-20-05-08-image.png" alt="" /></p>
+<p><img src="images/2025-09-27-20-05-27-image.png" alt="" /></p>
+</li>
+<li>
+<p>Now, go back to the object overview page and click on the "Object URL" to copy it. Paste it into a new browser tab and press Enter. As you can see, I get an "Access denied" error.</p>
+<p><img src="images/2025-09-27-20-06-56-image.png" alt="" /></p>
+<p><img src="images/2025-09-27-20-06-14-image.png" alt="" /></p>
+</li>
+</ol>
+<blockquote>
+<h3 id="key-learning-pre-signed-url-vs-public-url"><a class="header" href="#key-learning-pre-signed-url-vs-public-url"><strong>Key Learning: Pre-signed URL vs. Public URL</strong></a></h3>
+<p>So, what's the difference? This public URL is not working, but the URL from the "Open" button is working.</p>
+<p>Well, the URL from the "Open" button, if you have a look at it, the beginning is exactly the same, but then the rest is a very, very complicated and long URL. This is because it's called an <strong>S3 Pre-signed URL</strong>.</p>
+<p>This URL actually contains a signature that verifies that I am the one making the request, and therefore it has my credentials in it. Because my credentials are encoded in this URL, Amazon S3 says, "Well, Pratham is allowed to view his own object, therefore I will display it."</p>
+<p>The public URL does not work, but this pre-signed URL with my own credentials works. Of course, this URL is only for me. We'll see how to make that object public later on so that the public URL will function as well.</p>
+</blockquote>
+<h3 id="5-working-with-folders"><a class="header" href="#5-working-with-folders"><strong>5. Working with Folders</strong></a></h3>
+<p>Let's go back into our bucket, <code>pratham-demo-s3</code>.</p>
+<ol>
+<li>
+<p>I have one object, but I can create a folder. Click "Create folder."</p>
+<p><img src="images/2025-09-27-20-09-04-image.png" alt="" /></p>
+<p><img src="images/2025-09-27-20-09-33-image.png" alt="" /></p>
+</li>
+<li>
+<p>For the folder name, enter <code>images</code>. Scroll down and create this folder.</p>
+</li>
+<li>
+<p>Now I have the <code>images</code> folder in my bucket. I can click on it, and within it, I can upload again a file.</p>
+</li>
+<li>
+<p>Click "Upload" and then "Add files." This time, I will upload the <code>beach.jpg</code> file. As you can see, the destination is my <code>images</code> folder within my S3 bucket.</p>
+</li>
+<li>
+<p>Click "Upload" and then close the status panel.</p>
+</li>
+</ol>
+<p><img src="images/2025-09-27-20-11-34-image.png" alt="" /></p>
+<p>As we can see now, we have the <code>beach.jpg</code> object within the <code>images</code> folder. If I go one level up, we can see the folder here. This looks just like the cloud storage service you're used to, such as <strong>Google Drive</strong> or <strong>Dropbox</strong>. Here, we have something very similar in terms of the user experience on Amazon S3.</p>
+<h3 id="6-deleting-folders-and-objects"><a class="header" href="#6-deleting-folders-and-objects"><strong>6. Deleting Folders and Objects</strong></a></h3>
+<ol>
+<li>
+<p>Navigate into the <code>images</code> folder.</p>
+</li>
+<li>
+<p>Select the folder by clicking the checkbox next to it, and then click the "Delete" button. This will delete everything within the folder.</p>
+</li>
+<li>
+<p>To delete things, AWS will ask you to type permanently delete into the text input to confirm.</p>
+<p><img src="images/2025-09-27-20-20-43-image.png" alt="" /></p>
+</li>
+<li>
+<p>Click the "Delete objects" button, and I'm good to go.</p>
+</li>
+</ol>
+<p>That's it for this lecture. We've seen how we can upload objects into Amazon S3, how we can open them in two different ways, create folders, delete folders, and so on.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../securityandmore/s3overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../securityandmore/s3storageclasses.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../securityandmore/s3overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../securityandmore/s3storageclasses.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

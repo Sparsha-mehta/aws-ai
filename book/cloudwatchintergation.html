@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cloudwatch Integration - Hands On - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="amazon-bedrock---cloudwatch-integration"><a class="header" href="#amazon-bedrock---cloudwatch-integration">Amazon Bedrock - Cloudwatch Integration</a></h1>
+<p>This guide provides a step-by-step walkthrough of the integration between <u>Amazon Bedrock and CloudWatch Logs</u>.</p>
+<p>We will enable <strong>model invocation logging in Bedrock</strong> to send detailed logs to CloudWatch. This will allow us to collect all</p>
+<ol>
+<li>
+<p>metadata,</p>
+</li>
+<li>
+<p>requests, and</p>
+</li>
+<li>
+<p>responses</p>
+</li>
+</ol>
+<p>for all model invocations in the account.</p>
+<p>We will then examine these logs to understand the information they contain and explore the metrics that Bedrock automatically sends to CloudWatch for <u><strong>monitoring</strong> purposes like latency</u>.</p>
+<h3 id="part-1-enabling-model-invocation-logging"><a class="header" href="#part-1-enabling-model-invocation-logging"><strong>Part 1: Enabling Model Invocation Logging</strong></a></h3>
+<p>This section covers the initial setup for logging in the Amazon Bedrock console.</p>
+<ol>
+<li>
+<p>We're going to start by navigating to the Amazon Bedrock console. Go to "Settings" on the bottom left.</p>
+<p><img src="2025-09-30-14-51-28-image.png" alt="" /></p>
+</li>
+<li>
+<p>Here, you will find the "Model invocation logging" section. We can definitely enable it. Enabling this feature will collect all <code>metadata</code>, <code>requests</code>, and <code>responses</code> for all <strong>model invocations</strong> in your account.</p>
+<p><img src="2025-09-30-14-52-47-image.png" alt="" /></p>
+</li>
+<li>
+<p>Next, select the <u>type of data</u> you want to include with the logs. The options are <code>"text,"</code> <code>"images,"</code>, <code>video</code> and <code>"embeddings."</code> For this demonstration, you can select any or all of them.</p>
+</li>
+<li>
+<p>Now, choose the destination for the logs. This could be an "Amazon S3 bucket," "CloudWatch only," or "both." I'm just going to use "CloudWatch only."</p>
+</li>
+<li>
+<p>You need to specify a log group name. I'll call this one <code>Bedrock Invocation Logging</code>.</p>
+</li>
+<li>
+<p>Next, I will <code>create a new user role</code>. This is the role that Amazon Bedrock will need to send data to CloudWatch Logs. I'll call this one Bedrock Invocation Logging Role.</p>
+<p><img src="2025-09-30-14-58-00-image.png" alt="" /></p>
+</li>
+<li>
+<p>There is also an option for an "external location for larger delivery." In case a log is over 100 kilobytes, it can be published to <strong>Amazon S3</strong>. We don't need this right now, so we're going to just try to save these settings.</p>
+</li>
+</ol>
+<h3 id="part-2-troubleshooting-and-creating-the-cloudwatch-log-group"><a class="header" href="#part-2-troubleshooting-and-creating-the-cloudwatch-log-group"><strong>Part 2: Troubleshooting and Creating the CloudWatch Log Group</strong></a></h3>
+<p>Sometimes, the AWS console requires a resource to exist before it can be configured. We will address an error that may occur during this process.</p>
+<blockquote>
+<p>In my case, it already exists, so I got this error!</p>
+</blockquote>
+<p><img src="2025-09-30-15-00-01-image.png" alt="" /></p>
+<p><strong>Note:</strong> We get an error saying, <code>"The specified log group doesn't exist."</code> This means we have to create it <strong>manually in CloudWatch</strong> in this instance. Maybe this will be fixed by the time you use this.</p>
+<ol>
+<li>
+<p>Let's go into CloudWatch logs. Navigate to "Log groups."</p>
+<p><img src="2025-09-30-15-01-41-image.png" alt="" /></p>
+</li>
+<li>
+<p>You're going to create a new log group. The name is going to be the one I'm going to copy and paste from our Bedrock configuration: <code>BedrockInvocationLogging</code>.</p>
+<blockquote>
+<p>Note the name should be same as you created on Bedrock (<strong>name</strong>, and not the <strong>service role name</strong>)</p>
+</blockquote>
+</li>
+<li>
+<p>We can set up some settings, like if you want the log to expire or not, but we're just going to click on "Create" and get going.</p>
+<p><img src="2025-09-30-15-04-33-image.png" alt="" /></p>
+</li>
+<li>
+<p>Okay, so now my log group is created. It is here.</p>
+<p><img src="2025-09-30-15-05-07-image.png" alt="" /></p>
+</li>
+</ol>
+<h3 id="part-3-finalizing-bedrock-configuration"><a class="header" href="#part-3-finalizing-bedrock-configuration"><strong>Part 3: Finalizing Bedrock Configuration</strong></a></h3>
+<p>With the log group now created, we can return to Bedrock and complete the setup.</p>
+<ol>
+<li>
+<p>Let's go ahead back into Amazon Bedrock. We're going to save these settings one more time.</p>
+</li>
+<li>
+<p>We now need to say that we want to "use an existing service role."</p>
+<blockquote>
+<p><strong>Note:</strong> This is sometimes a bit annoying when you have issues on the console, but AWS may fix this at some point. Let me refresh this.</p>
+</blockquote>
+</li>
+<li>
+<p>Now we select the existing role that was created in the previous step, Bedrock Invocation Logging Role, and save the settings. We should be good to go.</p>
+<p><img src="2025-09-30-15-07-29-image.png" alt="" /></p>
+</li>
+<li>
+<p>Okay, so the settings have been saved successfully.</p>
+</li>
+</ol>
+<h3 id="part-4-generating-and-reviewing-logs-in-cloudwatch"><a class="header" href="#part-4-generating-and-reviewing-logs-in-cloudwatch"><strong>Part 4: Generating and Reviewing Logs in CloudWatch</strong></a></h3>
+<p>Now that logging is configured, we'll generate a log by using a model and then inspect the output in CloudWatch.</p>
+<ol>
+<li>
+<p>What I can do now is I can go into "Chat" in the Bedrock console. I will select a model, and I will just click on "Run" after sending an input. Then we're going to get an output, and we're good to go.</p>
+<p><img src="2025-09-30-15-09-30-image.png" alt="" /></p>
+</li>
+<li>
+<p>Now let's wait a little bit and then go into CloudWatch logs to see if this appears. I'm going into CloudWatch logs and we'll refresh this page. We have one log stream here. It is titled "Bedrock Model Invocations."</p>
+</li>
+<li>
+<p>Inside the log stream, we have the information that the permissions are set correctly for Amazon Bedrock logs. Then we get some information about a model invocation.</p>
+<p><img src="2025-09-30-15-10-20-image.png" alt="" /></p>
+</li>
+<li>
+<p>We get a lot of information around it, but we know that, for example, the <code>modelId</code> is <code>amazon.titan-text-express-v1</code>. This is a way for us to identify the models that we're using.</p>
+</li>
+<li>
+<p>We get information about the <code>region</code>, and then we get the <code>messages</code>. We have a <code>user</code>, that's us, and we sent this <code>input</code>. Then we have some information around the configuration for this invocation.</p>
+</li>
+<li>
+<p>We can see how many tokens it was: <code>271</code>. And the <code>output</code> is this message. The <code>assistant</code> role means that it's the <strong>model itself</strong>, and the <u>content</u> is the <strong>response</strong>.</p>
+</li>
+<li>
+<p>Again, we get the information that the <code>latency</code> was <code>4,038</code> milliseconds. We get information around the <code>outputTokenCount</code>, the <code>totalTokenCount</code>, and so on.</p>
+</li>
+</ol>
+<p><img src="2025-09-30-15-12-47-image.png" alt="" /></p>
+<p>This is very helpful because, as you can see, a lot of information is included here, and we can use this information later on to debug everything. For example, we could run <u>an alarm to look at if the latency is always beneath a specific number</u>.</p>
+<p>If one day the latency reaches a high number, then we may want to send an alert saying, <code>"Hey, your latency requirements are a little too high now, and the user experience may be degraded."</code> That's the way of doing it. Hopefully, you get the idea of integrating Amazon Bedrock with CloudWatch Logs.</p>
+<h3 id="part-5-exploring-bedrock-metrics-in-cloudwatch"><a class="header" href="#part-5-exploring-bedrock-metrics-in-cloudwatch"><strong>Part 5: Exploring Bedrock Metrics in CloudWatch</strong></a></h3>
+<p>In addition to logs, Bedrock also sends <strong><u>performance metrics</u></strong> directly to CloudWatch.</p>
+<ol>
+<li>
+<p>The other thing we can do is go into CloudWatch and go into "All metrics," and then click on "Bedrock."</p>
+<p><img src="2025-09-30-15-16-29-image.png" alt="" /></p>
+<p><img src="2025-09-30-15-17-12-image.png" alt="" /></p>
+</li>
+<li>
+<p>You may have more metrics than me, but we have here metrics "By Model ID" or "Across all model IDs." You can look at it either way.</p>
+<p><img src="2025-09-30-15-17-57-image.png" alt="" /></p>
+<blockquote>
+<p>I selected <strong>By ModelID</strong></p>
+</blockquote>
+</li>
+<li>
+<p>For example, we can have a look at the number of "Invocations" or, for example, the <code>"InvocationLatency."</code> We can see here that the latency is being plotted on this graph.</p>
+<p><img src="2025-09-30-15-19-11-image.png" alt="" /></p>
+<p><img src="2025-09-30-15-19-39-image.png" alt="" /></p>
+</li>
+<li>
+<p>Now, of course, if you have a sustained usage of Amazon Bedrock, then you will see a curve here with multiple data points.</p>
+</li>
+</ol>
+<p>A lot of metrics are being sent by <strong>Bedrock</strong> into <strong>CloudWatch metrics</strong>. You can then build <strong>metrics, graphs, dashboards</strong>, and <strong>alarms</strong> on top of it as well, in case, for example, the <u>invocation latency gets too high</u>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="cloudwatch.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="pricing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="cloudwatch.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="pricing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

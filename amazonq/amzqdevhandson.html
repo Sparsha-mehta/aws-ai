@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amazon Q Developer - Hands On - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="amazon-q-developer---hands-on"><a class="header" href="#amazon-q-developer---hands-on">Amazon Q Developer - Hands On</a></h1>
+<p>This guide walks through using Amazon Q, the generative AI assistant integrated into the AWS Management Console. We will explore</p>
+<ol>
+<li>
+<p>how to interact with Amazon Q to query information about our AWS resources,</p>
+</li>
+<li>
+<p>Generate AWS CLI commands to manage those resources, and</p>
+</li>
+<li>
+<p>Execute those commands using AWS CloudShell.</p>
+</li>
+</ol>
+<p>This demonstrates how Amazon Q can serve as an assistant that is customized and aware of the resources within your AWS account.</p>
+<h3 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h3>
+<ul>
+<li>
+<p>An AWS account with at least one S3 bucket already created.</p>
+</li>
+<li>
+<p>IAM Identity Center is connected to Amazon Q.</p>
+</li>
+</ul>
+<h3 id="understanding-amazon-q-offerings"><a class="header" href="#understanding-amazon-q-offerings">Understanding Amazon Q Offerings</a></h3>
+<p>Before diving in, it's important to distinguish between the different Amazon Q services.</p>
+<ul>
+<li>
+<p><strong>Amazon Q Developer</strong>: This is the AI coding assistant designed to help build applications faster and solve software development problems. It has a free tier and a pro tier (around $20 per user per month) which offers advanced features and higher limits. For exam purposes, it's important to know this is the coding assistant.</p>
+<p><img src="2025-10-01-07-49-34-image.png" alt="" /></p>
+</li>
+<li>
+<p><strong>Amazon Q for AWS (in the console)</strong>: This is the <strong>generative AI assistant</strong> integrated directly into the <u>AWS console</u> that helps you manage your infrastructure. It can be accessed <u>via a button</u> in the console and is aware of the resources in your account. This is the version we will be using.</p>
+<p><img src="2025-10-01-07-51-23-image.png" alt="" /></p>
+</li>
+</ul>
+<h3 id="part-1-interacting-with-amazon-q-in-the-aws-console"><a class="header" href="#part-1-interacting-with-amazon-q-in-the-aws-console"><strong>Part 1: Interacting with Amazon Q in the AWS Console</strong></a></h3>
+<p>Here, we will open the Amazon Q assistant and use it to get information about existing resources in our account.</p>
+<ol>
+<li>
+<p>Launch the Amazon Q Assistant</p>
+<p>In the AWS Management Console, locate and click the "Amazon Q" button, typically found on the right-hand side of the screen.</p>
+<ul>
+<li><strong>Instructor's Explanation</strong>: The first time you open it, Amazon Q will present a welcome message stating, <code>"Hello, I'm Amazon Q, and I'm your AWS generative assistant."</code> It will also ask for permission to access cross-region data, which is quite important for it to function effectively across your entire account.</li>
+</ul>
+</li>
+<li>
+<p>Grant Permissions and Start a Conversation</p>
+<p>Click "Yes, please continue" to allow cross-region data access. The Amazon Q chat pane will open, ready for conversation. It provides some suggested prompts to get started.</p>
+</li>
+<li>
+<p>Click on the suggested prompt, <code>"list my S3 buckets."</code> Amazon Q will process the request by looking into your account for S3 resources.</p>
+<ul>
+<li><strong>Instructor's Explanation</strong>: It's very nice because now we are starting to have a gen AI assistant that is customized and knows what is going on in your AWS accounts. Over time it's going to be more and more developed and more and more featured.</li>
+</ul>
+</li>
+</ol>
+<p>Amazon Q will return a list of your S3 buckets. In this case, it finds the one pre-existing bucket. You can click on the bucket name in the chat response to navigate directly to it in the S3 console.</p>
+<p><img src="2025-10-01-07-54-42-image.png" alt="" /></p>
+<h3 id="part-2-generating-and-executing-cli-commands"><a class="header" href="#part-2-generating-and-executing-cli-commands"><strong>Part 2: Generating and Executing CLI Commands</strong></a></h3>
+<p>Next, we will ask Amazon Q to generate a command line interface (CLI) command to create a new S3 bucket and then execute it using AWS CloudShell.</p>
+<ol>
+<li>
+<p>Ask Amazon Q to Generate a CLI Command</p>
+<p>In the Amazon Q chat prompt, type the following request:</p>
+<p><code>Please send me the CLI code to create an S3 bucket in the us-east-1 region with the name pratham-demo-amazon-q</code>.</p>
+<ul>
+<li><strong>Instructor's Explanation</strong>: Before, we saw how to create an S3 bucket by going into the "Buckets" section and clicking "Create bucket." Now, I want to show you another way using the CLI, or command line interface.</li>
+</ul>
+</li>
+</ol>
+<p>Amazon Q will generate the appropriate AWS CLI command to perform this action.</p>
+<p><img src="2025-10-01-07-57-20-image.png" alt="" /></p>
+<pre><code class="language-bash">aws s3api create-bucket --bucket pratham-demo-amazon-q --region us-east-1
+</code></pre>
+<ol start="2">
+<li>
+<p>Open AWS CloudShell</p>
+<p>In the top navigation bar of the AWS console, click the "CloudShell" icon.</p>
+<ul>
+<li>
+<p>Note: The first time you open CloudShell, it can take a little bit of time to create the environment and get ready.</p>
+<p><img src="2025-10-01-07-58-28-image.png" alt="" /></p>
+<p><img src="2025-10-01-07-59-02-image.png" alt="" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Execute the CLI Command</p>
+<p>Once the CloudShell terminal is ready, copy the command generated by Amazon Q, paste it into the CloudShell prompt, and press Enter.</p>
+<p><img src="2025-10-01-08-00-14-image.png" alt="" /></p>
+<p>If successful, the command will execute and the new S3 bucket will be created.</p>
+</li>
+</ol>
+<h3 id="part-3-verification-and-resource-cleanup"><a class="header" href="#part-3-verification-and-resource-cleanup"><strong>Part 3: Verification and Resource Cleanup</strong></a></h3>
+<p>Finally, we will verify that our new bucket was created and then ask Amazon Q to help us clean it up.</p>
+<ol>
+<li>
+<p>Verify the Bucket Creation</p>
+<p>We have two ways to verify the bucket was created:</p>
+<ul>
+<li>
+<p><strong>Option A</strong> (Using Amazon Q): Go back to the Amazon Q chat pane and ask it again: list my S3 bucket again. It should now find and list two S3 buckets.</p>
+<p><img src="2025-10-01-08-01-46-image.png" alt="" /></p>
+</li>
+<li>
+<p><strong>Option B (Using the S3 Console)</strong>: Navigate to the Amazon S3 service in the console. You will see that the <code>stefane-demo-amazon-q</code> bucket has been created.</p>
+<p><img src="2025-10-01-08-02-28-image.png" alt="" /></p>
+</li>
+<li>
+<p><strong>Key Learning</strong>: This demonstrates the real-time awareness of Amazon Q. Using its gen AI capabilities, it found that we now have two buckets in our account immediately after the CLI command was run.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Generate a Command to Delete the S3 Bucket</p>
+<p>Let's ask Amazon Q to generate the command to delete the bucket we just created.</p>
+<ul>
+<li><strong>First Attempt</strong>: Let's try asking: <code>suggest a command to delete the S3 bucket.</code>  And then we give the name again right here.</li>
+</ul>
+</li>
+</ol>
+<p>Amazon Q should successfully generate the delete command.</p>
+<pre><code class="language-shell">aws s3api delete-bucket --bucket pratham-demo-amazon-q
+</code></pre>
+<p><img src="2025-10-01-08-07-13-image.png" alt="" /></p>
+<ul>
+<li><strong>Key Takeaway</strong>: Amazon Q currently has the capability to list things and generate commands. Its capabilities, including potentially performing actions like creating or deleting directly, will likely improve over time.</li>
+</ul>
+<ol start="3">
+<li>
+<p>Execute the Delete Command</p>
+<p>Copy the delete-bucket command, paste it into your open CloudShell session, and press Enter. The bucket will be removed.</p>
+<p><img src="2025-10-01-08-08-38-image.png" alt="" /></p>
+</li>
+<li>
+<p>Verify the Deletion</p>
+<p>Go to the Amazon S3 console page and refresh your browser. You will now see only the original single bucket remains.</p>
+<p><img src="2025-10-01-08-09-00-image.png" alt="" /></p>
+</li>
+</ol>
+<h3 id="exploring-other-amazon-q-capabilities"><a class="header" href="#exploring-other-amazon-q-capabilities">Exploring Other Amazon Q Capabilities</a></h3>
+<p>You can also use Amazon Q to ask about other aspects of your account, such as your bill.</p>
+<ul>
+<li>
+<p><strong>Example Query</strong>: <code>Can you explain to me my current AWS charges?</code></p>
+</li>
+<li>
+<p><strong>Expected Result</strong>: On a new account, there won't be any cost data to analyze. Amazon Q will respond that it cannot find any data. However, after a month or so, if you start incurring costs, this would be a good place to ask for an explanation of your charges.</p>
+<p><img src="2025-10-01-08-10-23-image.png" alt="" /></p>
+</li>
+</ul>
+<p>That's it! You have successfully used Amazon Q as a generative AI assistant to interact with, manage, and understand resources within your AWS account.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../amazonq/amzqdev.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../amazonq/amzqint.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../amazonq/amzqdev.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../amazonq/amzqint.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Model Evaluation Metrics - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="machine-learning-model-evaluation-metrics"><a class="header" href="#machine-learning-model-evaluation-metrics">Machine Learning Model Evaluation Metrics</a></h1>
+<p>Now let's talk about some of the metrics we can look at to <u>evaluate our models</u>. We'll start with binary classification and then move to regression models.</p>
+<h2 id="binary-classification-evaluation"><a class="header" href="#binary-classification-evaluation"><strong>Binary Classification Evaluation</strong></a></h2>
+<h3 id="confusion-matrix"><a class="header" href="#confusion-matrix"><strong>Confusion Matrix</strong></a></h3>
+<p>Let's take the example of binary classification with spam email detection.
+<img src="image-36.png" alt="alt text" /><br>
+We have the <strong>true values</strong> from our <u>labeled data</u> - whether an email is spam or not spam. Our model makes predictions, and we can compare these predictions to the actual labels.<br>
+<img src="image-37.png" alt="alt text" /><br>
+For example (Look into the image above):</p>
+<ul>
+<li>First email: correctly classified as spam ✓</li>
+<li>Second email: predicted spam, but actually wasn't spam ✗</li>
+<li>Third email: wrong prediction ✗</li>
+<li>Fourth email: correct prediction ✓</li>
+<li>Fifth email: correct prediction ✓</li>
+<li>Sixth email: wrong prediction ✗</li>
+</ul>
+<p>We can compare the <u>true values</u> with what our <u>model predicted</u> and create what's called a <strong>confusion matrix</strong>.</p>
+<h3 id="confusion-matrix-structure"><a class="header" href="#confusion-matrix-structure"><strong>Confusion Matrix Structure</strong></a></h3>
+<p>A confusion matrix looks at the <strong>predictive value</strong> (positive for spam, negative for not spam) and <u>compares it</u> to the <strong>actual value</strong> from our <strong>training dataset</strong>:<br>
+<img src="image-38.png" alt="alt text" /><br></p>
+<ul>
+<li><strong>True Positives (top-left)</strong>: Predicted positive and actual value was positive</li>
+<li><strong>False Negatives (top-right)</strong>: Predicted not spam, but actually was spam</li>
+<li><strong>False Positives (bottom-left)</strong>: Predicted spam, but actually wasn't spam</li>
+<li><strong>True Negatives (bottom-right)</strong>: Predicted not spam and actually was not spam</li>
+</ul>
+<p>We want to <strong>maximize true positives and true negatives</strong> while <strong>minimizing false positives and false negatives</strong>.</p>
+<p><strong>How do we create this matrix?</strong><br>
+To create this matrix, we look at our datasets (for example, 10,000 items we trained and predicted on) and count how many fall into each category.</p>
+<h3 id="classification-metrics"><a class="header" href="#classification-metrics"><strong>Classification Metrics</strong></a></h3>
+<p>From the confusion matrix, we can compute several metrics:</p>
+<p><strong>1. Precision</strong></p>
+<ul>
+<li>Formula: True Positives ÷ (True Positives + False Positives)</li>
+<li>Measures: It is called precision because "If we find positives, how precise are we? How many times are we right about positives versus how many times are we wrong about positives in predicting?"</li>
+</ul>
+<p><strong>2. Recall</strong></p>
+<ul>
+<li>Formula: True Positives ÷ (True Positives + False Negatives)</li>
+<li>Also known as <strong>True Positive Rate</strong>, and also <strong>Sensitivity</strong></li>
+<li>Measures: "How many times do we need to <strong>recall (walk back)</strong> our decision?"</li>
+</ul>
+<p><strong>3. F1 Score</strong></p>
+<ul>
+<li>Formula: 2 × (Precision × Recall) ÷ (Precision + Recall)</li>
+<li>Widely used metric for confusion matrix evaluation</li>
+</ul>
+<p><strong>4. Accuracy</strong></p>
+<ul>
+<li>Here is the formula: <br>
+Accuracy = (True_Positive + True_Negative) ÷ (True_Positive + True_Negative + False_Positive + False_Negative) <br>
+but is <u>rarely used</u></li>
+</ul>
+<p><img src="image-39.png" alt="alt text" /></p>
+<blockquote>
+<p>You don't need to remember the exact formula. You barely need to remember what the metrics mean. But what you need to remember is that precision, the recall, the F1, and the accuracy are metrics used to evaluate the accuracy of <strong>binary classification</strong> and this is what the exam will test you on</p>
+</blockquote>
+<h3 id="when-to-use-which-metric"><a class="header" href="#when-to-use-which-metric"><strong>When to Use Which Metric</strong></a></h3>
+<p>The choice of metric depends on what you're looking for:</p>
+<blockquote>
+<p>"Costly" = Bad Consequences of Wrong Predictions. <strong>The "cost" isn't about which feature matters most - it's about which type of wrong answer causes more damage.</strong></p>
+</blockquote>
+<ul>
+<li><strong>Precision</strong>: Best when false positives are costly</li>
+<li><strong>Recall</strong>: Best when false negatives are costly</li>
+<li><strong>F1 Score</strong>: Gives balance between precision and recall, especially useful for imbalanced datasets</li>
+<li><strong>Accuracy</strong>: Rarely used, only for balanced datasets</li>
+</ul>
+<p><em>What do you mean by Balanced and Imbalanced Dataset?</em> (See below)</p>
+<p><strong>Balanced vs Imbalanced Datasets:</strong></p>
+<ul>
+<li>Balanced dataset: Has balanced levels of classification for each category</li>
+<li>Note that ==&gt; Spam vs not-spam is typically not a balanced dataset</li>
+</ul>
+<p>For more explanation in detail, see this <a href="https://claude.ai/share/b904f2e4-3702-4c97-a90d-417847618834">link</a></p>
+<h3 id="auc-roc"><a class="header" href="#auc-roc"><strong>AUC-ROC</strong></a></h3>
+<p><strong>AUC-ROC</strong> stands for <strong>Area Under the Curve for the Receiver-Operator Curve</strong>. It's more complicated, but just remember the name for the exam.</p>
+<ul>
+<li>Value ranges from 0 to 1, with <u>1 being the perfect model</u></li>
+<li>Compares <strong>sensitivity</strong> (true positive rates) to <strong>1 minus specificity</strong> (false positive rates)
+<img src="IMG_9527.png" alt="graph-axes" /><br>
+<strong>The ROC Curve has two axes:</strong></li>
+<li>Vertical axis: How often your model classifies actual spam as spam (sensitivity)</li>
+<li>Horizontal axis: How often your model classifies not-spam as spam (1 - specificity)</li>
+</ul>
+<h4 id="about-the-curve"><a class="header" href="#about-the-curve">About the Curve:</a></h4>
+<p><img src="image-41.png" alt="alt text" /><br></p>
+<ul>
+<li>The curve shows multiple models, where a straight line represents a random model.</li>
+<li>The more accurate your model, the more the curve leans toward the top-left.</li>
+<li><strong>AUC measures how much area is under the curve.</strong></li>
+</ul>
+<p>To draw this curve, you look at <strong>various thresholds</strong> in your model, vary the threshold with multiple confusion matrices, and plot this over time.</p>
+<p>AUC-ROC is very useful when <strong>comparing thresholds</strong> and <strong>choosing the right model</strong> for binary classification.</p>
+<blockquote>
+<p>To understand more, use this <a href="https://chatgpt.com/share/687d87d2-5f94-8003-926a-700a2214226b">link</a></p>
+</blockquote>
+<h3 id="confusion-matrix-can-be-multi-dimensional"><a class="header" href="#confusion-matrix-can-be-multi-dimensional">Confusion Matrix can be Multi-Dimensional</a></h3>
+<ul>
+<li>The confusion matrix can also be multi-dimensional.</li>
+<li>That means that we can have multiple category for a classification and create a confusion matrix</li>
+</ul>
+<p><img src="image-40.png" alt="alt text" /></p>
+<h2 id="regression-evaluation"><a class="header" href="#regression-evaluation"><strong>Regression Evaluation</strong></a></h2>
+<p>Now let's look at how we evaluate regression models.</p>
+<p>Remember, this applies to cases
+<img src="image-42.png" alt="alt text" /><br>
+like <u>linear regression</u> where we have data points and we're trying to find a line that represents these data points.</p>
+<p>We measure <strong>accuracy</strong> by measuring the <strong>error</strong>, <u>the error is the <strong>sum</strong> of distances between what the <strong>predicted value</strong> would've been and what the <strong>actual value</strong> is</u> (See below the formulas for better understanding).</p>
+<blockquote>
+<p>Green Color Line is the predicted value, and the actual values are the Blue Color Dots. Remember ==&gt; Y Hat is the predicted value from the model, Y is the actual value</p>
+</blockquote>
+<h3 id="regression-metrics"><a class="header" href="#regression-metrics"><strong>Regression Metrics</strong></a></h3>
+<p>Just remember the names of these metrics, not necessarily how they work:</p>
+<p><strong>1. MAE (Mean Absolute Error)</strong></p>
+<ul>
+<li>Computes <mark>the difference between <u>predicted</u> and <u>actual values</u> as a mean of absolute values</mark></li>
+<li>Divide by the number of values you have</li>
+</ul>
+<p><img src="image-43.png" alt="alt text" /></p>
+<p><strong>2. MAPE (Mean Absolute Percentage Error)</strong></p>
+<ul>
+<li>Instead of computing actual difference of values, computes how far off you are as a percentage</li>
+<li>Same idea as MAE, but computing the <strong>average of percentages</strong></li>
+</ul>
+<blockquote>
+<p>So it is like take the difference (same as MAE) and then you need to divide the wholeby y-hat (predicted value)</p>
+</blockquote>
+<p><img src="image-44.png" alt="alt text" /></p>
+<p><strong>3. RMSE (Root Mean Squared Error)</strong></p>
+<ul>
+<li>The idea is that you're trying to <strong>smooth out the error</strong></li>
+<li>RMSE is a way to evaluate the error for your regression</li>
+</ul>
+<p><img src="image-45.png" alt="alt text" /></p>
+<p><strong>4. R Squared</strong></p>
+<ul>
+<li>Explains the variance in your model</li>
+<li>If R squared is close to 1, your predictions are good</li>
+</ul>
+<blockquote>
+<p>From an exam perspective, remember that MAE, MAPE, RMSE, and R-squared are metrics used to give the quality of a regression and to see if it is going to be acceptable for us or not. From <strong>model optimization point of view</strong>, we are going to try to minimize these <strong>errors' metrics</strong>, so that we know our model is accurate</p>
+</blockquote>
+<h3 id="understanding-regression-metrics-with-examples"><a class="header" href="#understanding-regression-metrics-with-examples"><strong>Understanding Regression Metrics with Examples</strong></a></h3>
+<p>Let's say you're trying to predict how well students did on a test based on how many hours they studied.</p>
+<p><strong>Error Measurement Metrics (MAE, MAPE, RMSE):</strong></p>
+<ul>
+<li>These show how <strong>"accurate"</strong> the model is</li>
+<li>Example: If your RMSE is 5, that means on average, your model predictions will be about <strong>5 points off</strong> from the actual student score</li>
+<li>It is very Easy to quantify and measure</li>
+</ul>
+<p><strong>R Squared:</strong></p>
+<ul>
+<li>It Measures <strong>variance</strong> - a bit more difficult to understand</li>
+<li>For Example: R squared of 0.8 means that 80% of changes in test scores can be explained by how much students studied (which was your input feature)</li>
+<li>The remaining 20% is due to other factors like natural ability or luck</li>
+<li>These other factors may not be captured by your model because they're not features in your model</li>
+<li>Very good R squared close to 1 means you can explain almost everything of the target variable's variance thanks to your input features that you have</li>
+</ul>
+<h2 id="key-takeaways"><a class="header" href="#key-takeaways"><strong>Key Takeaways</strong></a></h2>
+<p><strong>From an exam perspective:</strong></p>
+<ul>
+<li><strong>For Classification</strong>: Use metrics from confusion matrix - accuracy, precision, recall, F1, and AUC-ROC</li>
+<li><strong>For Regression</strong>: Use MAE, MAPE, RMSE, and R squared for models that predict continuous values</li>
+</ul>
+<p><img src="image-46.png" alt="alt text" /></p>
+<p>The purpose of a confusion matrix is to evaluate the performance of models that do classifications.</p>
+<p>For model optimization, we try to minimize these error metrics to ensure our model is accurate.</p>
+<p>You should now understand which metrics are for classification and which are for regression, and have a high-level understanding of what these metrics do.</p>
+<h1 id="sample-mcqs-for-reference"><a class="header" href="#sample-mcqs-for-reference">Sample MCQs for Reference:</a></h1>
+<p>Q: A data scientist wants to evaluate a regression model that must heavily penalize large errors. Which metric should they use?<br>
+✅ Answer: RMSE</p>
+<p>Q: A team wants a regression metric that's easily understandable by a non-technical stakeholder and reports the average error in the same unit as the target variable. Which metric fits best?<br>
+✅ Answer: MAE</p>
+<p>Q: Which regression metric explains how much of the variability in the data is captured by the model?<br>
+✅ Answer: R-squared</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../aimldl/modelfitbiasvariance.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../aimldl/mlinference.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../aimldl/modelfitbiasvariance.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../aimldl/mlinference.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

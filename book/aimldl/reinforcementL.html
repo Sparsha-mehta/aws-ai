@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Reinforcement Learning - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="reinforcement-learning"><a class="header" href="#reinforcement-learning">Reinforcement Learning</a></h1>
+<p>Now let's talk about reinforcement learning. The idea, for example, here we have a maze and we're trying to train an AI to find the exit of a maze.</p>
+<p><img src="IMG_9398.png" alt="alt-text" /></p>
+<p><strong>Reinforcement learning</strong> is a type of <mark>machine learning where an agent is going to learn and make decisions by performing actions in an environment</mark> and <mark>maximize what's called cumulative reward</mark>.</p>
+<blockquote>
+<p>Note that we have to define what is reward.</p>
+</blockquote>
+<h2 id="key-concepts"><a class="header" href="#key-concepts"><strong>Key Concepts</strong></a></h2>
+<ul>
+<li><strong>Agent</strong>: The little robot - that's the learner or decision maker</li>
+<li><strong>Environment</strong>: The <mark>maze</mark> - that's the external system that the agent is interacting with</li>
+<li><strong>Action</strong>: The choices made by the agent. In the setting of a maze, for example, is to go up, to go left, to go right, to go down</li>
+<li><strong>Reward</strong>: The type of feedback that the <mark>environment</mark> is going to provide <mark>based on the agent's action</mark> (See below <strong>Reward System Example</strong>)</li>
+<li><strong>State</strong>: The <mark>current situation of the environment</mark>, what it looks like and what is available</li>
+<li><strong>Policy</strong>: A strategy used by the agent to <mark>determine what action to take based on the state</mark></li>
+</ul>
+<h2 id="reward-system-example"><a class="header" href="#reward-system-example"><strong>Reward System Example</strong></a></h2>
+<p>For this maze, we're going to assign numbers:</p>
+<p><img src="image-24.png" alt="alt text" /></p>
+<ul>
+<li><strong>-1</strong>: Whenever the robot walks somewhere and there is no wall, it's just a normal place to walk to, so it's good</li>
+<li><strong>-10</strong>: If the robot is walking into a wall</li>
+<li><strong>+100</strong>: If the robot is able to find the exit</li>
+</ul>
+<p>Of course, because the robot wants to maximize rewards and it needs to find the shortest path to the exit. The longer it takes to find the path, the more points it will lose. And of course, if it walks into a wall, it's going to lose points even faster, so we're going to teach the robot not to walk into walls.</p>
+<h2 id="learning-process"><a class="header" href="#learning-process"><strong>Learning Process</strong></a></h2>
+<p>The idea is that the robot is going to do many, many, many simulations and over time it's going to get better because it's going to learn from its mistakes by <strong>maximizing the reward function</strong>.</p>
+<p>Here is the learning process:
+<img src="image-25.png" alt="alt text" /></p>
+<ol>
+<li>The agent is going to have a look at the environment and the current state</li>
+<li>It's going to select an action based on the strategy, the policy (for example, go up, go down, go left, go right, and so on)</li>
+<li>The transition is going to transition the environment</li>
+<li>The environment is going to transition into a new state and provide a reward to the agent (so it could be -1, -10, +100 in our previous example)</li>
+<li>Then the environment will be in a new state, and then the agent is going to update its policy once it has figured out the exit to improve future decisions</li>
+</ol>
+<p>And so we go again in this learning process over and over and over again until the agent will run maybe a thousand or a million simulations, and then the agent will have learned how to properly navigate the maze.</p>
+<p>Here the <strong>Goal</strong> of the agent is to <strong>maximize</strong> the cumulative reward over time</p>
+<h2 id="maze-navigation-example"><a class="header" href="#maze-navigation-example"><strong>Maze Navigation Example</strong></a></h2>
+<p>So here, how it looks for example for our little maze.</p>
+<p>We have to train the robot over time to navigate this maze. The steps are:</p>
+<ol>
+<li><strong>First</strong>, the robot is going to observe its position - that's the <strong>state</strong></li>
+<li><strong>Then</strong> it's going to choose a direction to move in - that's the <strong>action</strong></li>
+<li><strong>Then</strong> it's going to receive <strong>reward</strong> - it's going to be <strong>-1</strong> to take a step, <strong>-10</strong> to hit a wall, and <strong>+100</strong> if going to the exit</li>
+<li><strong>Then</strong> it's going to update it's <strong>policy</strong> based on the Reward and new position</li>
+</ol>
+<p><img src="image-26.png" alt="alt text" /></p>
+<p>Over time, of course, the robot is going to first move randomly, but at some point it will find the exit. And then once it's found the exit, it's going to update its <strong>policy</strong> based on what it has learned from its movement and then try again. And over time the robot will learn to navigate the maze more efficiently.</p>
+<h2 id="visual-learning-example"><a class="header" href="#visual-learning-example"><strong>Visual Learning Example</strong></a></h2>
+<p>There is a cool YouTube channel that I would recommend for you to watch called AI Warehouse. The idea is that this person trains AI based on reinforcement learning based on different factors, and you actually see the AI visually getting better at doing some kind of actions.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2tamH76Tjvw?si=QkqIriT7malDPjao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p>In this video, we have the AI moving randomly and learning how to navigate the environment. It's going to gain points if it hits the green little things on the floor. Over time, it's going to get better to learn how to jump, to learn how to go to the green thing.</p>
+<p>You can see, there are many, many different iterations being done in this video, and over time it's going to learn how to move. It's quite interesting because after many, many iterations, as you can see, it's able to find the exits and move on to the next puzzle. And over time, of course, things are getting more complicated for the AI, which is going to keep on learning what it can and cannot do.</p>
+<p>It's a very interesting video because you can really visually see how the AI is getting better after so many iterations, and that is the whole process of reinforcement learning explained in a visual way.</p>
+<h2 id="applications-of-reinforcement-learning"><a class="header" href="#applications-of-reinforcement-learning"><strong>Applications of Reinforcement Learning</strong></a></h2>
+<p>Reinforcement learning is used for:</p>
+<ul>
+<li><strong>Gaming</strong>: To teach an AI to play very complex games, such as Chess and Go</li>
+<li><strong>Robotics</strong>: To teach robots how to <strong>navigate</strong> and <strong>manipulate objects</strong> in a <strong>dynamic environment</strong></li>
+<li><strong>Finance</strong>: For <strong>portfolio management</strong> and <strong>trading strategies</strong></li>
+<li><strong>Healthcare</strong>: To optimize treatment plans</li>
+<li><strong>Autonomous vehicles</strong>: For <strong>path planning</strong> and <strong>decision-making</strong></li>
+</ul>
+<p>That's it for reinforcement learning. I hope now you understand what it means.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../aimldl/self-supervisedL.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../aimldl/rlhf.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../aimldl/self-supervisedL.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../aimldl/rlhf.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

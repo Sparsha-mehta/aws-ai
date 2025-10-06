@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>AWS Shared Responsibility Model &amp; AWS Acceptable Policy - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="aws-shared-responsibility-model"><a class="header" href="#aws-shared-responsibility-model">AWS Shared Responsibility Model</a></h1>
+<p>This is a <strong>core AWS concept</strong> that shows <strong>who is responsible for what</strong> when using AWS cloud services. It’s often asked in the AWS CCP exam.</p>
+<p>You need to think like this:</p>
+<ul>
+<li>When you rent an apartment (like renting AWS services), the <strong>building structure, elevator, security systems</strong> etc., are the landlord’s job.</li>
+<li>But <strong>your furniture, your door lock, and how you use the apartment</strong> — that’s your job.</li>
+</ul>
+<p>Now here is how Shared Responsibility Model looks like from AWS Perspective:
+<img src="./images-cc/Screenshot 2025-06-07 at 12.34.28 PM.png"  style="width:75%;"></p>
+<p>Let us understand the diagram:</p>
+<h4 id="customer-responsibilities"><a class="header" href="#customer-responsibilities">Customer Responsibilities:</a></h4>
+<ul>
+<li>You are the customer, and you are the one who is responsible for <strong>security</strong> <strong>IN</strong> the cloud</li>
+<li>You manage how you use AWS services.</li>
+<li>You must secure your own:
+<ul>
+<li><strong>Customer Data</strong></li>
+<li><strong>Applications</strong>, Identity &amp; Access Management (IAM)</li>
+<li><strong>Operating System</strong> Network, &amp; Firewall Configs (if using EC2, etc.)</li>
+<li><strong>Client-side Encryption</strong> &amp; Authentication</li>
+<li><strong>Server-side Encryption settings</strong></li>
+<li><strong>Network traffic protection</strong> (for your VPC setup)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>💡 Think of it as: anything you create, configure, or upload = your responsibility.</p>
+</blockquote>
+<p>Now talking about <strong>AWS Responsibilites</strong>:</p>
+<ul>
+<li>AWS is responsible for <strong>security OF the cloud</strong></li>
+<li>AWS takes care of everything under the hood — basically the infrastructure which involves:
+<ul>
+<li>Physical hardware infrastructure</li>
+<li><strong>Global infrastructure</strong>:
+<ul>
+<li>Regions</li>
+<li>Availability Zones</li>
+<li>Edge Locations</li>
+</ul>
+</li>
+<li><strong>Software layer</strong> (Compute, Storage, Database, Networking)</li>
+<li><strong>Security of hardware, data centers, and AWS services</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note that</strong>: the software layer I mentioned about:</p>
+<ol>
+<li>Compute</li>
+<li>Storage</li>
+<li>Database</li>
+<li>Networking
+Those are known as <strong>Core AWS Services</strong> which the Cloud Service Provider has to provide.</li>
+</ol>
+<h4 id="another-important-thing-you-need-to-remember-for-the-exam-is-about-aws-acceptable-use-policy-aup"><a class="header" href="#another-important-thing-you-need-to-remember-for-the-exam-is-about-aws-acceptable-use-policy-aup">Another important thing you need to remember for the exam is about AWS Acceptable Use Policy (AUP)</a></h4>
+<p>When you use AWS, you're <strong>legally bound</strong> by their <strong>AUP</strong>, which prevents misuse.
+You CANNOT:</p>
+<ul>
+<li>Do <strong>illegal, harmful, or offensive</strong> activities</li>
+<li>Perform <strong>security violations</strong></li>
+<li>Do <strong>network abuse</strong> (e.g., DDoS attacks)</li>
+<li>Send <strong>spam emails or message abuse</strong></li>
+</ul>
+<p>That's it, down below is the section, let's say if you need to understand further but not to remember, it is <strong>example based use case</strong> for better understanding.</p>
+<h2 id="1st-example-from-customer-responsibility-perspective"><a class="header" href="#1st-example-from-customer-responsibility-perspective">1st Example from Customer Responsibility Perspective</a></h2>
+<p>Imagine you launch an EC2 instance. AWS gives you the <em>server and networking backbone</em> — but:</p>
+<h4 id="you-need-to-install-and-configure"><a class="header" href="#you-need-to-install-and-configure">You need to install and configure:</a></h4>
+<ul>
+<li>Applications (e.g., Node.js, Django, databases)</li>
+<li>IAM roles or policies for access control</li>
+<li>Your own code on that server</li>
+</ul>
+<p>So, if your app gets hacked or has weak IAM permissions (e.g., someone gets admin rights by mistake), it’s your fault, not AWS's.</p>
+<p>Let’s say:</p>
+<ul>
+<li>You create a user in AWS IAM called developer1</li>
+<li>You give them AdminAccess by mistake (full access 😱)
+If they accidentally delete your EC2 or S3 — it’s on you, not AWS.</li>
+</ul>
+<h2 id="2nd-example-to-understand-about-client-side-encryption-and-server-side-encryption"><a class="header" href="#2nd-example-to-understand-about-client-side-encryption-and-server-side-encryption">2nd Example to Understand about Client Side Encryption and Server Side Encryption</a></h2>
+<p>First of Encryption = making your data unreadable to unauthorized users.</p>
+<h4 id="what-is-client-side-encryption-your-responsibility"><a class="header" href="#what-is-client-side-encryption-your-responsibility">What is Client Side Encryption (Your Responsibility)?</a></h4>
+<ul>
+<li>You encrypt the data before sending it to AWS.
+Example: You encrypt a PDF on your laptop, then upload to S3.<br>
+💡 AWS only stores encrypted data — it doesn't know what’s inside.</li>
+</ul>
+<h4 id="what-is-server-side-encryption-your-responsibility"><a class="header" href="#what-is-server-side-encryption-your-responsibility">What is Server Side Encryption (Your Responsibility)?</a></h4>
+<ul>
+<li>You upload normal data to S3, but check a setting that says:
+<ul>
+<li><code>Enable server-side encryption</code></li>
+</ul>
+</li>
+<li>AWS encrypts it after it reaches S3.
+💡 You’re responsible for turning this on and managing keys (sometimes using KMS — Key Management Service)</li>
+</ul>
+<blockquote>
+<p>⚠️ If you don’t enable encryption, your data stays unencrypted, and AWS won’t stop you — that’s your call.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="awscc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="quiz1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="awscc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="quiz1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

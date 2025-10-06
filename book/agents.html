@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Agents - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1>
+  Amazon Bedrock Agents
+  <img src="2025-09-30-12-02-15-image.png" alt="icon" width="50" style="vertical-align: middle; float: right;" />
+</h1>
+<p>Now, let's talk about Amazon Bedrock Agents.</p>
+<ul>
+<li>
+<p>The agent is a very <u>smart thing</u> that is going to act a little bit like a <u>human</u>.</p>
+</li>
+<li>
+<p>Instead of just asking questions to a model, <u>the model will now be able to start thinking and <strong>performing various multi-step tasks</strong></u>.</p>
+</li>
+<li>
+<p>These tasks may have an <u>impact on our own databases </u>or <u>infrastructure</u>, as the agent can:</p>
+<ul>
+<li>
+<p>create infrastructure,</p>
+</li>
+<li>
+<p>deploy applications, and</p>
+</li>
+<li>
+<p>perform operations on our systems.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The agent doesn't just <u>provide us with information</u> <span style="color:red;">(It is not longer a chatbot)</span>; it also starts to <strong>think</strong> and <strong>act</strong>.</p>
+</li>
+<li>
+<p>It will:</p>
+<ul>
+<li>look at tasks, perform them in the correct order, and ensure the correct information is passed within the task, even if we haven't programmed the agent to do so.</li>
+</ul>
+</li>
+</ul>
+<h3 id="action-groups"><a class="header" href="#action-groups"><strong>Action Groups</strong></a></h3>
+<p>To execute the tasks, what we do is:</p>
+<ul>
+<li>
+<p>We create what's called <strong>action groups</strong>, and <u>agents are configured to understand what these action groups do</u> and <u>what they mean</u>.</p>
+</li>
+<li>
+<p>The agent will then be able to <u>automatically integrate with other systems, services, databases, and APIs to <strong>exchange data</strong></u> or <u><strong>initiate an action</strong></u>.</p>
+</li>
+</ul>
+<p>When you create an <strong>agent in Amazon Bedrock,</strong> you define what it is responsible for. For example:</p>
+<ul>
+<li>
+<p>You are an agent responsible for accessing <u>purchase history for our customers</u>.</p>
+</li>
+<li>
+<p>You are responsible for <u>providing recommendations</u> on what they can <u>purchase next</u>.</p>
+</li>
+<li>
+<p>You are responsible for <u>placing new orders</u>.</p>
+</li>
+</ul>
+<p>The agent knows it can do all these things. If a user asks the model to perform one of these actions, Bedrock is smart enough to recognize that this agent is likely responsible.</p>
+<p>There are two ways to set up an action group: (also look at the diagram below)</p>
+<ol>
+<li>
+<p><strong>APIs</strong>: We can define an API to interface with our system. For example, we can define functions like <code>get_recent_purchases</code>, <code>get_recommended_purchases</code>, or <code>get_purchase_details</code> with a <u>specific purchase ID</u>. All of this is made known to the agent—including the <strong>expected input</strong> for these APIs and <strong>their documentation</strong>—thanks to an <u><strong>OpenAPI schema</strong></u>. The agent can then invoke these APIs and interact with our <strong>backend systems</strong>, for instance, <strong>to make changes to a database</strong>.</p>
+</li>
+<li>
+<p><strong>Lambda Functions</strong>: Lambda functions are a way to run a <u>little bit of code in AWS without provisioning infrastructure</u>. A Lambda function can be created to place an order, interacting with the same database or a new one. This shows that an agent can interact with <u>either an external API or with Lambda functions on your AWS accounts</u>.</p>
+</li>
+</ol>
+<p><img src="2025-09-30-12-22-32-image.png" alt="" /></p>
+<h3 id="knowledge-bases"><a class="header" href="#knowledge-bases"><strong>Knowledge Bases</strong></a></h3>
+<p>The agent also has access to knowledge bases that we define. If we have a knowledge base with our <u>company's shipping and return policies</u>, the agent is smart enough to <strong>retrieve that information and provide it to the user</strong>.</p>
+<p>For example, if a user asks about the <u>return policy for an order they are about to place</u>, the agent can look at this <u>unlabeled data using RAG </u>(Retrieval Augmented Generation) to retrieve the necessary information.</p>
+<h3 id="how-it-works-behind-the-scenes"><a class="header" href="#how-it-works-behind-the-scenes"><strong>How it Works Behind the Scenes</strong></a></h3>
+<p>This process all happens behind the scenes, but Bedrock allows you to see the steps through a feature called <strong>"tracing."</strong> Here is how the agent processes a task: (see the diagram below)</p>
+<ol>
+<li>
+<p>The Bedrock agent receives a <strong>task</strong>. It looks at the <strong>prompt</strong>, the <strong>conversation history</strong>, <strong>all available actions</strong>, and the <strong>knowledge bases</strong>.</p>
+</li>
+<li>
+<p>It takes all this information and sends it to a <u>Generative AI</u> model backed by <strong>Amazon Bedrock</strong>, asking how it would proceed to perform the actions.</p>
+</li>
+<li>
+<p>The model uses <strong>Chain of Thought</strong>, meaning its output will be a list of steps (e.g., Step 1: do this, Step 2: do that, etc.).</p>
+</li>
+<li>
+<p>The agent executes these <strong><u>steps in order</u></strong>. This could involve <strong>calling an API</strong>, <strong>getting the results</strong>, calling another API, <strong>searching a knowledge base</strong>, and so on.</p>
+</li>
+<li>
+<p>The <strong>final result</strong> is returned to the <strong>Bedrock agent</strong>.</p>
+</li>
+<li>
+<p>The agent then sends <u>the tasks and the results to another <strong>Bedrock model</strong></u>, which <strong>synthesizes everything</strong> and generates a <u>final response for the user.</u></p>
+</li>
+</ol>
+<p><img src="2025-09-30-12-25-45-image.png" alt="" /></p>
+<blockquote>
+<p><strong>Important to Note:</strong></p>
+<p>With <strong>tracing</strong>, you can see this list of steps and debug the agent's performance if you don't like the way it performed a certain action.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="guardrailshandson.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="cloudwatch.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="guardrailshandson.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="cloudwatch.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

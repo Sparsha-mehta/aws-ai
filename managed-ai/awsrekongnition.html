@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amazon Rekognition - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1>
+  Amazon Rekognition
+  <img src="image-16.png" alt="icon" width="50" style="vertical-align: middle; float: right;" />
+</h1>
+<p>Now, let's talk about Amazon Rekognition. It's a service that allows you to find objects, people, texts, or scenes directly in images or videos, and it's using machine learning. You can do facial analysis or facial search if you want to do user verification or counting people in a photo. You can create a database of familiar faces or compare any face you find against celebrities.</p>
+<h2 id="use-cases-for-amazon-rekognition"><a class="header" href="#use-cases-for-amazon-rekognition"><strong>Use Cases for Amazon Rekognition</strong></a></h2>
+<ul>
+<li>Labeling</li>
+<li>Content moderation</li>
+<li>Text detection</li>
+<li>Face detection and analysis (understanding gender, age range, emotions)</li>
+<li>Face search and verification</li>
+<li>Celebrity recognition</li>
+<li>Pathing (for example, when doing sports game analysis to understand the path that a ball or player took)</li>
+</ul>
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+ <div>
+  <h2 id="key-features-and-capabilities"><a class="header" href="#key-features-and-capabilities"><strong>Key Features and Capabilities</strong></a></h2>
+   <ul>
+    <li><strong>Face liveness</strong> - to detect real users and detect bad actors using spoofs in seconds during facial verification</li>
+    <li><strong>Face Compare and Search</strong> - Determine the similarity of a Face against another picture or from your private image repository</li>
+    <li><strong>Face detection and analysis</strong> - Detect faces appearing in images and videos and recognize attributes, such as open eyes, glasses, and facial hair, for each face.</li>
+    <li><strong>Content moderation</strong> - to ensure content is safe for children to watch</li>
+    <li><strong>Label detection in pictures</strong> - Detect custom objects such as brand logos etc.</li>
+    <li><strong>Text detection</strong> - extract skew and distorted text from images and videos of street signs, social media posts, etc.</li>
+    <li><strong>Object labeling</strong> - identifying person, rock, crest, outdoors, mountain bike, etc.</li>
+    <li><strong>Celebrity detection</strong> - for example, identifying Werner Vogels in pictures</li>
+   </ul>
+ </div>
+ <img src="image-17.png" alt="Features & Capabilities" width="200" />
+</div>
+<p>Amazon Rekognition is a very broad and useful service that allows you to analyze videos and images and figure out many attributes thanks to AI and machine learning.</p>
+<h2 id="custom-labels-for-amazon-rekognition"><a class="header" href="#custom-labels-for-amazon-rekognition"><strong>Custom Labels for Amazon Rekognition</strong></a></h2>
+<p><u>A feature that may appear in the exam is called <strong>Custom Labels</strong></u> for Amazon Rekognition.</p>
+<p>The idea is that you want to identify your own products or find your own logo in social media posts. For example, the NFL uses this service to find their own logos in pictures.</p>
+<h3 id="how-custom-labels-work"><a class="header" href="#how-custom-labels-work"><strong>How Custom Labels Work:</strong></a></h3>
+<ol>
+<li>Label training images</li>
+<li>Upload them to Amazon Rekognition (you need only a few hundred images or less)</li>
+<li>Amazon Rekognition creates a custom model based on your images</li>
+<li>The model becomes able to recognize what your logo or products look like</li>
+<li>New images analyzed by Custom Labels will be checked for whatever you're looking for</li>
+</ol>
+<h3 id="the-process"><a class="header" href="#the-process"><strong>The Process:</strong></a></h3>
+<p><img src="image-18.png" alt="alt text" /></p>
+<ol>
+<li>Label images and store them in Amazon S3 (a bunch of images with your logo or products)</li>
+<li>Train Amazon Rekognition to create Custom Labels</li>
+<li>When users post on social media, you can analyze pictures and quickly determine if your logo appears in that picture, which could be beneficial for your brand</li>
+</ol>
+<h2 id="content-moderation"><a class="header" href="#content-moderation"><strong>Content Moderation</strong></a></h2>
+<p>The idea here is that you want to <u>automatically detect inappropriate, unwanted, or offensive content</u>. This could be very handy for your own social media page to filter out harmful media images or figure out if advertising is wrong.</p>
+<h3 id="content-moderation-benefits"><a class="header" href="#content-moderation-benefits"><strong>Content Moderation Benefits:</strong></a></h3>
+<ul>
+<li>
+<p>Brings down the number of human reviews to about 1-5% of content volume</p>
+<ul>
+<li>Because you don't want to review everything that's been flagged</li>
+</ul>
+</li>
+<li>
+<p>For human review needs, there's <strong>Amazon Augmented AI (Amazon A2I)</strong></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Amazon Augmented AI (Amazon A2I)</strong> is a separate AWS service that handles human review when AI isn't confident enough to make a decision on its own.</p>
+</blockquote>
+<h3 id="custom-moderation-adapter"><a class="header" href="#custom-moderation-adapter"><strong>Custom Moderation Adapter</strong></a></h3>
+<p>Beyond basic, out-of-the-box content moderation, it's possible to create a <strong>custom moderation adapter</strong>.</p>
+<ul>
+<li>You extend Rekognition's capability by providing <u>your own labeled set of images and defining what you want to moderate in or out</u>.</li>
+<li>This can either <u>enhance the accuracy of content moderation</u> or address specific use cases.</li>
+</ul>
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+  <div>
+    <h3 id="how-custom-moderation-works"><a class="header" href="#how-custom-moderation-works"><strong>How Custom Moderation Works:</strong></a></h3>
+    <ol>
+      <li>Label your images</li>
+      <li>Train a Rekognition Custom Moderation Adapter</li>
+      <li>When images arrive for moderation, they either pass or fail</li>
+      <li>If Rekognition has doubt, 1-5% can be sent for human review</li>
+      <li>Use Amazon Augmented AI to make final decisions on these images</li>
+      <li>The assessment results can be fed back into Rekognition training</li>
+    </ol>
+  </div>
+  <img src="image-19.png" alt="SSML Example" width="200" />
+</div>
+<h2 id="content-moderation-api-example"><a class="header" href="#content-moderation-api-example"><strong>Content Moderation API Example</strong></a></h2>
+<p>Here's an example of how you can use the Rekognition Content Moderation API:</p>
+<p><strong>Scenario:</strong> You've developed a chatbot application that can generate images.</p>
+<p><strong>Process:</strong></p>
+<ol>
+<li>User says: "Hey, please generate an image for this"</li>
+<li>The chatbot generates the image</li>
+<li>You don't know if the image is safe to return to the user yet</li>
+<li>Use Amazon Rekognition and send the image with the <code>DetectModerationLabels</code> API</li>
+<li>Amazon Rekognition examines the image and creates labels</li>
+<li>If the labels are clear of any unsafe or harmful content, the chatbot says "Okay, it's safe to return this to the user"</li>
+<li>The user receives the image</li>
+</ol>
+<p><img src="image-20.png" alt="alt text" /></p>
+<p>This is a very simple way to use the Content Moderation API from Rekognition to implement safety in your applications.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../managed-ai/pollyhandson.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../managed-ai/rekognitionhandson.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../managed-ai/pollyhandson.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../managed-ai/rekognitionhandson.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

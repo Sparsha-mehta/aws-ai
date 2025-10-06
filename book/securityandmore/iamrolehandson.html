@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>IAM Roles - Hands On - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="aws-iam-roles---creating-an-ec2-role-tutorial-notes"><a class="header" href="#aws-iam-roles---creating-an-ec2-role-tutorial-notes">AWS IAM Roles - Creating an EC2 Role (Tutorial Notes)</a></h1>
+<h2 id="what-well-accomplish"><a class="header" href="#what-well-accomplish"><strong>What We'll Accomplish</strong></a></h2>
+<p>In this hands-on practice, we're going to learn how to create IAM roles in AWS, specifically focusing on creating a role for an EC2 instance. A role is a way to give AWS entities permissions to do stuff on AWS. This is a very common thing to know in AWS, which is why we're learning about it. We'll create the role now and use it later when we get to the EC2 section.</p>
+<h2 id="understanding-aws-iam-roles"><a class="header" href="#understanding-aws-iam-roles"><strong>Understanding AWS IAM Roles</strong></a></h2>
+<p>Before we begin, it's important to understand that roles are different from users. Roles are designed to be assumed by AWS services (like EC2 instances) rather than by individual people. When we create a role for EC2, we're essentially saying "any EC2 instance that assumes this role will have these specific permissions."</p>
+<h2 id="step-by-step-procedure"><a class="header" href="#step-by-step-procedure"><strong>Step-by-Step Procedure</strong></a></h2>
+<h3 id="1-navigate-to-roles-in-iam-console"><a class="header" href="#1-navigate-to-roles-in-iam-console"><strong>1. Navigate to Roles in IAM Console</strong></a></h3>
+<p>On the left-hand side of the IAM console, click on "Roles".</p>
+<p><img src="image-1.png" alt="alt text" /></p>
+<p><strong>What you'll see</strong>: Some roles may have already been created for your account - could be two, could be more. It doesn't matter how many are there already.</p>
+<p><strong>What we're doing</strong>: We're going to create our own role from scratch to understand the process.</p>
+<h3 id="2-initiate-role-creation"><a class="header" href="#2-initiate-role-creation"><strong>2. Initiate Role Creation</strong></a></h3>
+<p>Click the button to create a new role.</p>
+<p><img src="image-2.png" alt="alt text" /></p>
+<p><strong>Understanding role types</strong>: You'll see that you can create different kinds of roles - actually five different types. However, the one that you need to know about for this hands-on and for the exam is going to be a role for an AWS service.</p>
+<p><img src="image-3.png" alt="alt text" /></p>
+<h3 id="3-select-role-type"><a class="header" href="#3-select-role-type"><strong>3. Select Role Type</strong></a></h3>
+<p>Choose "AWS service" as the type of role you want to create.</p>
+<p><strong>Why this matters</strong>: This selection determines what entity will be able to assume (use) this role. Since we want EC2 instances to use this role, we select AWS service.</p>
+<h3 id="4-choose-the-service"><a class="header" href="#4-choose-the-service"><strong>4. Choose the Service</strong></a></h3>
+<p>Now we need to choose for which service we want this role to apply to.</p>
+<p><img src="image-4.png" alt="alt text" />
+<img src="image-5.png" alt="alt text" /></p>
+<p><strong>What you'll see</strong>: If you click on the dropdown, you have commonly used services such as EC2 and Lambda, or a role for pretty much every service on AWS.</p>
+<p><strong>For our tutorial</strong>: We are going to create a role for an <strong>EC2 instance</strong> since we'll need it when we get to the EC2 section.</p>
+<ol>
+<li>Choose "EC2" from the service list</li>
+<li>The use case should just be "EC2" - disregard any other specialized use cases</li>
+</ol>
+<p><img src="image-6.png" alt="alt text" /></p>
+<p><strong>Key Learning</strong>: This step establishes which AWS service will be trusted to assume this role. By selecting EC2, we're saying only <u>EC2 instances can use this role.</u></p>
+<h3 id="5-attach-permissions-policy"><a class="header" href="#5-attach-permissions-policy"><strong>5. Attach Permissions Policy</strong></a></h3>
+<p>Click "Next" to proceed to the permissions step.</p>
+<p><img src="image-7.png" alt="alt text" /></p>
+<p>Now that we've created a role for an EC2 instance, we need to attach a policy that defines what permissions this role will have.</p>
+<p><strong>For this example</strong>: We're going to attach the "IAM Read Only Access" policy to allow our EC2 instance to read whatever is in IAM.</p>
+<ol>
+<li>Search for "IAM Read Only Access" in the policy search box</li>
+<li>Select the checkbox next to the policy</li>
+<li>Click "Next"</li>
+</ol>
+<p><img src="image-8.png" alt="alt text" /></p>
+<p><strong>Teaching point</strong>: The policy you attach determines exactly what the entity assuming this role will be able to do. In this case, read-only access to IAM means the EC2 instance can view IAM resources but cannot modify them.</p>
+<h3 id="6-configure-role-details"><a class="header" href="#6-configure-role-details"><strong>6. Configure Role Details</strong></a></h3>
+<p>Now we need to enter the role name and review our configuration.</p>
+<p><strong>Role Name</strong>: Enter a descriptive name - for example: <code>DemoRoleForEC2</code></p>
+<p><img src="image-9.png" alt="alt text" /></p>
+<p><strong>What you'll see during review</strong>:</p>
+<ul>
+<li><strong>Trusted entities</strong>: This shows that this role can be assumed by the EC2 service. This is what defines it as a role for Amazon EC2.</li>
+</ul>
+<p><img src="image-10.png" alt="alt text" /></p>
+<ul>
+<li><strong>Permissions</strong>: Verify that it has IAM Read Only Access attached</li>
+<li><strong>Role name</strong>: Confirm your role name is correct</li>
+</ul>
+<p><img src="image-11.png" alt="alt text" /></p>
+<h3 id="7-create-the-role"><a class="header" href="#7-create-the-role"><strong>7. Create the Role</strong></a></h3>
+<p>Click "Create role" to finalize the creation.</p>
+<p><strong>Confirmation</strong>: Your role is now created and will appear in your roles list.</p>
+<p><img src="image-12.png" alt="alt text" /></p>
+<h3 id="8-verify-role-creation"><a class="header" href="#8-verify-role-creation"><strong>8. Verify Role Creation</strong></a></h3>
+<p>You can click on the newly created role to verify that the permissions are correct.</p>
+<p><img src="image-13.png" alt="alt text" /></p>
+<p><strong>What this demonstrates</strong>: The role now exists with the proper permissions and trust relationships configured.</p>
+<h2 id="important-notes"><a class="header" href="#important-notes"><strong>Important Notes</strong></a></h2>
+<blockquote>
+<p><strong>Note</strong>: We cannot use this role just yet because we need to get to the EC2 section first. We will use it when we get to that part of the course.</p>
+</blockquote>
+<blockquote>
+<p><strong>Key Takeaway</strong>: You've now seen how to create a role for Amazon EC2 and how to attach correct permissions to it. This process - creating roles for AWS services and attaching appropriate policies - is a fundamental skill in AWS administration.</p>
+</blockquote>
+<h2 id="what-weve-learned"><a class="header" href="#what-weve-learned"><strong>What We've Learned</strong></a></h2>
+<ol>
+<li><strong>Roles vs Users</strong>: Roles are designed for AWS services to assume, not for human users</li>
+<li><strong>Service-specific roles</strong>: Different AWS services can have roles created specifically for them</li>
+<li><strong>Trust relationships</strong>: The service selection determines which AWS service can assume the role</li>
+<li><strong>Permission attachment</strong>: Policies attached to roles determine what actions can be performed</li>
+<li><strong>Practical application</strong>: This EC2 role will be used in upcoming EC2 hands-on exercises</li>
+</ol>
+<h2 id="next-steps"><a class="header" href="#next-steps"><strong>Next Steps</strong></a></h2>
+<p>This role is now ready to be attached to EC2 instances when we reach the EC2 section of the course. The hands-on practice there will demonstrate how EC2 instances can assume this role and use the IAM Read Only Access permissions we've configured.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../securityandmore/iamroles.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../securityandmore/s3overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../securityandmore/iamroles.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../securityandmore/s3overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

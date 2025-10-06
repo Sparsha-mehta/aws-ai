@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amazon Augmented AI - Hands On - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="introduction-to-amazon-augmented-ai"><a class="header" href="#introduction-to-amazon-augmented-ai"><strong>Introduction to Amazon Augmented AI</strong></a></h3>
+<p>In this guide, we will explore Amazon Augmented AI (A2I). You will learn</p>
+<ol>
+<li>
+<p>How to navigate to the service, which is part of Amazon SageMaker, and</p>
+</li>
+<li>
+<p>Create a human review workflow.</p>
+</li>
+</ol>
+<p>We'll focus on a</p>
+<ol>
+<li>common machine learning use case,</li>
+<li>content moderation,</li>
+</ol>
+<p>to understand how A2I can be used to review predictions from services like Amazon Rekognition and Amazon Textract, or even from your own custom models.</p>
+<h3 id="getting-started-with-amazon-augmented-ai"><a class="header" href="#getting-started-with-amazon-augmented-ai"><strong>Getting Started with Amazon Augmented AI</strong></a></h3>
+<ol>
+<li>
+<p>Let's have a look at Amazon Augmented AI. In the AWS Management Console, type "augmented AI" in the search bar.</p>
+<p><img src="img/2025-09-28-09-50-40-image.png" alt="" /></p>
+</li>
+<li>
+<p>Click on the "Amazon Augmented AI" service in the search results. You will be taken into the SageMaker console, as A2I is now part of Amazon SageMaker.</p>
+<blockquote>
+<p><strong>Instructor's Note:</strong> From here, we can set up a human review workflow for very common machine learning use cases, such as <strong>content moderation</strong> or <strong>text extraction</strong> from documents. This allows us to review predictions made by <u>Amazon Rekognition</u>, <u>Amazon Textract</u>, or even your own models using a custom task.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="creating-a-human-review-workflow"><a class="header" href="#creating-a-human-review-workflow"><strong>Creating a Human Review Workflow</strong></a></h3>
+<ol>
+<li>
+<p>Let's create a <code>"human review workflow."</code> I want to show you the different task types available.</p>
+</li>
+<li>
+<p><strong>Select a Task Type</strong>. We have different ones to choose from:</p>
+<ul>
+<li>
+<p><strong>Textract</strong>: To review key-value pair extraction from documents.</p>
+</li>
+<li>
+<p><strong>Rekognition</strong>: To perform image moderation.</p>
+</li>
+<li>
+<p><strong>Custom</strong>: To have your own custom workflow for your own models.</p>
+<p><img src="img/2025-09-28-09-55-00-image.png" alt="" /></p>
+</li>
+</ul>
+<p><strong>Instructor's Explanation:</strong> For this example, we'll focus on <strong>image moderation</strong> with Rekognition. The purpose of this is to review any unsafe content, such as very explicit adult content or violent content. We want humans to review these images to make sure that the predictions made by Amazon Rekognition are correct.</p>
+</li>
+</ol>
+<h3 id="configuring-conditions-for-human-review"><a class="header" href="#configuring-conditions-for-human-review"><strong>Configuring Conditions for Human Review</strong></a></h3>
+<ol>
+<li>
+<p>Next, we need to define the conditions to invoke a human review on Amazon Rekognition through Amazon Augmented AI.</p>
+<p><img src="img/2025-09-28-09-57-04-image.png" alt="" /></p>
+<p><strong>Instructor's Explanation:</strong> We have a couple of options here for triggering a review.</p>
+<ul>
+<li>
+<p><strong>Trigger based on confidence scores</strong>: We can tell the system, "Hey, if the label has a low confidence score, for example, between 0% and 50%, then send it to Amazon Augmented AI."</p>
+<p><img src="img/2025-09-28-09-57-34-image.png" alt="" /></p>
+</li>
+<li>
+<p><strong>Trigger based on random sampling</strong>: Alternatively, you can also randomly send a sample of all images and their labels for humans to review. For example, we could decide that 5% of our images are going to be sent to Amazon Augmented AI for review, no matter what the confidence score is.</p>
+<p><img src="img/2025-09-28-09-58-13-image.png" alt="" /></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="designing-the-worker-task-template"><a class="header" href="#designing-the-worker-task-template"><strong>Designing the Worker Task Template</strong></a></h3>
+<ol>
+<li>
+<p>Now you have the worker task template creation and design. This is where you are going to explain what you want the workers to do.</p>
+<p><img src="img/2025-09-28-09-59-39-image.png" alt="" /></p>
+<p><strong>Instructor's Explanation:</strong> For example, we might provide the instruction: <code>"Please review the images and all applicable categories."</code> The workers will then have to check if they see specific types of content.</p>
+<p>The categories they would check for include:</p>
+<ul>
+<li>
+<p>Nudity</p>
+</li>
+<li>
+<p>Sexual activity</p>
+</li>
+<li>
+<p>Stuff that could be considered offensive or violent</p>
+</li>
+</ul>
+<p><strong>Note:</strong> The full description of what goes in here can be quite detailed and is a lot to read.</p>
+</li>
+</ol>
+<h3 id="selecting-the-workforce"><a class="header" href="#selecting-the-workforce"><strong>Selecting the Workforce</strong></a></h3>
+<ol>
+<li>
+<p>Finally, we need to decide on the workers. Who will review this kind of work? You have several options for your workforce.</p>
+<p><img src="img/2025-09-28-10-20-22-image.png" alt="" /></p>
+<p><strong>Instructor's Explanation of Worker Types:</strong></p>
+<ul>
+<li>
+<p><strong>Amazon Mechanical Turk:</strong> You have access to over half a million independent contractors that will be doing this work for you. You set a price for each task. For example, you could offer 1.20 cents, 2.40 cents, or whatever you want, all the way up to $1 per task. You set the price you want to pay.</p>
+</li>
+<li>
+<p><strong>Private Team:</strong> This is a team of your own employees that can do this kind of review.</p>
+</li>
+<li>
+<p><strong>Vendors:</strong> You can go through the AWS Marketplace to find third-party vendors that will provide you with humans specializing in these kinds of services.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="key-takeaways"><a class="header" href="#key-takeaways"><strong>Key Takeaways</strong></a></h3>
+<p>And that's it! You have now seen the fundamental steps and concepts for using Amazon Augmented AI to create a human review workflow. The service provides a powerful way to integrate human oversight into your machine learning pipelines, ensuring higher accuracy and reliability for tasks like content moderation and data extraction.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../managed-ai/amazonaugmentai.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../managed-ai/comprehendmedical.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../managed-ai/amazonaugmentai.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../managed-ai/comprehendmedical.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

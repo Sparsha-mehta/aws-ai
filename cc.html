@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>What is Cloud Computing - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="what-is-cloud-computing"><a class="header" href="#what-is-cloud-computing">What is Cloud Computing?</a></h1>
+<ul>
+<li>
+<p><u>Cloud computing is the on-demand delivery of compute power, database storage, application,<br />
+and other IT resources.</u></p>
+</li>
+<li>
+<p>The very important keyword here is <strong>on-demand</strong>.</p>
+</li>
+<li>
+<p><strong>On-demand</strong> means you get it when you need it.</p>
+</li>
+<li>
+<p>Then through a cloud services platform, you are going to get <strong>pay-as-you-go pricing</strong>.</p>
+</li>
+<li>
+<p><strong>Pay-as-you-go</strong> pricing means that you are going to pay for what you have requested, when you<br />
+have requested it and as you are using it. When you are done using it, you are not going to pay<br />
+anymore.</p>
+</li>
+<li>
+<p>In cloud computing, you are going to exactly provision exactly the right type and size of<br />
+computing resources that you need.</p>
+<ul>
+<li>For example: Do you need a big server?
+<ul>
+<li>We have that for you</li>
+</ul>
+</li>
+<li>Do you want a small one?
+<ul>
+<li>We have that for you</li>
+</ul>
+</li>
+<li>Do you want 10 servers?
+<ul>
+<li>Yes, We have that for you</li>
+</ul>
+</li>
+<li>Do you need 2 of them?
+<ul>
+<li>Of course, We have that for you</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The cloud really allows you to adapt to the <strong>type</strong> and <strong>size</strong> that you need.</p>
+</li>
+<li>
+<p>Then you can access all of these resources (not with 24 hours’ notice, not with 2 hours’ notice)<br />
+but instantly.</p>
+<ul>
+<li>Whenever you want a server, you will have it within seconds</li>
+</ul>
+</li>
+<li>
+<p>Then the cloud will also give you a really nice interface so that you can easily access your servers,<br />
+your storage, databases, and set of application services.</p>
+</li>
+</ul>
+<h5 id="something-about-cloud-specifically-to-aws"><a class="header" href="#something-about-cloud-specifically-to-aws">Something about Cloud (Specifically to AWS)</a></h5>
+<ul>
+<li>Amazon Web Services owns and maintains the <u>network-connected hardware</u> required for these<br />
+application services, while <mark>you</mark> provision and use what you need via a <mark>web application</mark>.</li>
+</ul>
+<hr />
+<h5 id="now-lets-go-back-to-our-traditional-it"><a class="header" href="#now-lets-go-back-to-our-traditional-it">Now let’s go back to our traditional IT:</a></h5>
+<ul>
+<li>
+<p>We have our office or our garage,
+<img src="./images-cc/Screenshot 2025-05-27 at 11.03.15 AM.png"  style="width:55%;"></p>
+</li>
+<li>
+<p>But now instead of building our own data center we are going to use the cloud
+<img src="./images-cc/Screenshot 2025-05-27 at 11.03.26 AM.png"  style="width:55%;"></p>
+</li>
+<li>
+<p>And in the cloud, which is also a data center (it is not just our data center), we are going to have servers 1, 2, 3,… as we need
+<img src="./images-cc/Screenshot 2025-05-27 at 11.03.36 AM.png"  style="width:55%;"></p>
+</li>
+<li>
+<p>And we need and as we go, we are just going to pay for exactly for what we are using.</p>
+</li>
+</ul>
+<h3 id="you-have-been-using-some-cloud-services-cloud-examples"><a class="header" href="#you-have-been-using-some-cloud-services-cloud-examples">You have been using some Cloud Services (Cloud Examples)</a></h3>
+<ul>
+<li>
+<p>You have been using some cloud even without knowing it because it is omnipresent, but not necessarily visible</p>
+</li>
+<li>
+<p>So if you are using web client such as <strong>GMAIL</strong> it's an email cloud service
+<img src="./images-cc/Screenshot 2025-05-27 at 11.03.51 AM.png"  style="width:55%;"></p>
+<ul>
+<li>You're going to <u>pay only for the emails you stored</u>. (No Infrastructure involved in it)</li>
+<li>You're not provisioning servers when you use Gmail, you just use it</li>
+</ul>
+</li>
+<li>
+<p>Maybe you've stored some data on the cloud, for example: Google Drive, Dropbox, Google Photos, iCloud. But for <strong>Dropbox</strong>:
+<img src="./images-cc/Screenshot 2025-05-27 at 11.03.59 AM.png"  style="width:55%;"></p>
+<ul>
+<li>It is cloud storage service, meaning that you are going to put your files on Dropbox.</li>
+<li>Dropbox was built on AWS</li>
+</ul>
+</li>
+<li>
+<p><strong>Netflix</strong>, it is huge:
+<img src="./images-cc/Screenshot 2025-05-27 at 11.04.10 AM.png"  style="width:55%;"></p>
+<ul>
+<li>It is built entirely on AWS</li>
+<li>It provides you cloud service, which is to get <strong>Video-on-demand</strong>
+<br>
+Now, obviously these cloud services are very different from AWS, but we'll learn what it goes behind<br />
+these services and how AWS can help you build these kinds of cloud services. So let us go one step<br />
+further.</li>
+</ul>
+</li>
+</ul>
+<h2 id="different-kinds-of-clouds"><a class="header" href="#different-kinds-of-clouds">Different Kinds of Clouds:</a></h2>
+<p>There are different kinds of clouds out there.</p>
+<h5 id="--private-cloud"><a class="header" href="#--private-cloud">- Private Cloud</a></h5>
+<ul>
+<li>The first one is called a private cloud and the provider is <strong>Rackspace</strong>.</li>
+<li>This is cloud services used by a single organization, and are not exposed to the public</li>
+<li>So you can get your own private cloud, your own private data center, it's just managed<br />
+by someone else</li>
+<li>You still have <u>complete control over it</u> and</li>
+<li>You <u>have more security for sensitive application</u>, which may meet some specific business needs.
+<img src="./images-cc/Screenshot 2025-05-27 at 11.04.18 AM.png"  style="width:55%;"></li>
+</ul>
+<blockquote>
+<p>Private cloud is out of the scope for this course but still good to mention it.</p>
+</blockquote>
+<h5 id="--public-cloud"><a class="header" href="#--public-cloud">- Public Cloud</a></h5>
+<ul>
+<li>
+<p>The 3 famous cloud providers that are public are:</p>
+<ul>
+<li>Microsoft Azure</li>
+<li>Google Cloud</li>
+<li>Amazon Web Services (this is what we are learning it from course point of view)</li>
+</ul>
+</li>
+<li>
+<p>In this case, the cloud resources are owned and operated by a third party cloud service provider (CSP).</p>
+</li>
+<li>
+<p>These services are delivered over the internet.</p>
+</li>
+<li>
+<p>We will look over to <strong>6 advantages of using cloud computing</strong>.
+<img src="./images-cc/Screenshot 2025-05-27 at 11.04.58 AM.png"  style="width:55%;"></p>
+</li>
+</ul>
+<h5 id="--hybrid-cloud"><a class="header" href="#--hybrid-cloud">- Hybrid Cloud</a></h5>
+<ul>
+<li>
+<p>So with hybrid, we're actually getting the mix of private and public clouds, meaning that<br />
+we're going to keep some servers on premises and we'll extend some of the capabilities<br />
+we need into the cloud.</p>
+</li>
+<li>
+<p>For example, we can have a hybrid of our own infrastructure and the AWS cloud.</p>
+</li>
+<li>
+<p>We'll have control over sensitive assets in your private infrastructure</p>
+</li>
+<li>
+<p>We will have flexibility and the cost effectiveness of using public cloud.</p>
+</li>
+</ul>
+<img src="./images-cc/Screenshot 2025-05-27 at 11.05.05 AM.png"  style="width:55%;">
+<h2 id="the-5-characteristics-of-cloud-computing"><a class="header" href="#the-5-characteristics-of-cloud-computing">The 5 Characteristics of Cloud Computing</a></h2>
+<ol>
+<li>
+<p><span style="color: blue;font-weight:bold">On-demand self service</span></p>
+<ul>
+<li>Users will be able to provision resources and use them without having anyone from the service provider (AWS in our case) intervene.</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Broad network access</span></p>
+<ul>
+<li>We will be having access to a broad network, the resources will be available over the<br />
+network, and it can be accessed by diverse client platforms.</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Multi-tenancy and resource pooling</span></p>
+<ul>
+<li>It means that, it is not just us but other customers from AWS can share the same<br />
+infrastructure and applications while still having security and privacy.</li>
+<li>These multiple customers are serviced from the same physical resources. Meaning that<br />
+like me, you and other customers are going to share this entire same data center of the<br />
+cloud.</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Rapid Elasticity and scalability</span></p>
+<ul>
+<li>We can automatically and quickly acquire and dispose the resources when we need.</li>
+<li>That means that we can quickly and easily scale based on demand. And that is a major<br />
+advantage of the cloud.</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Measured service</span></p>
+<ul>
+<li>Usage is measured and the users have to pay correctly for what they have used.</li>
+</ul>
+</li>
+</ol>
+<h2 id="six-advantages-of-cloud-computing"><a class="header" href="#six-advantages-of-cloud-computing">Six Advantages of Cloud Computing</a></h2>
+<ol>
+<li>
+<p><span style="color: blue;font-weight:bold">Trade capital expense (CAPEX) for operational expense (OPEX)</span></p>
+<ul>
+<li>We are going to trade capital expenses for operational expenses</li>
+<li>That means, we don’t own the hardware, and you are going to pay-on-demand, which<br />
+will reduce your total cost of ownership (your TCO) and your operational expense.</li>
+<li>Meaning that you don’t buy hardware in advance, you are just going to rent it from AWS.</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Benefit from massive economies of scale</span></p>
+<ul>
+<li>The price would be lower because we are using AWS, not just us, but other customers<br />
+and so many people are using it, then the prices will be reduced by AWS over time<br />
+because AWS will be more efficient at running due to its large scale.</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Stop guessing capacity</span></p>
+<ul>
+<li>We also need to stop guessing the capacity.</li>
+<li>Before we had to plan and buy servers in advance and hope that it would meet the<br />
+capacity, but now we can actually scale automatically (due to AWS) based on the actual<br />
+measured usage for our application. (MEASURING IS DONE BY AWS &amp; USAGE)</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Increase speed and agility</span></p>
+<ul>
+<li>Because everything is on-demand, we have increased speed and agility.</li>
+<li>We can create, operate and do stuff right away….No blockers for us to become efficient.</li>
+</ul>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Stop spending money running and maintaining data centers</span></p>
+</li>
+<li>
+<p><span style="color: blue;font-weight:bold">Go global in minutes: leverage the AWS global infrastructure</span></p>
+<ul>
+<li>This allows a team of 5 people to create a global application in minutes, thanks to<br />
+leveraging this AWS global infrastructure that is going to be worldwide</li>
+</ul>
+</li>
+</ol>
+<h2 id="problems-solved-by-the-cloud"><a class="header" href="#problems-solved-by-the-cloud">Problems Solved by the Cloud</a></h2>
+<img src="./images-cc/Screenshot 2025-05-27 at 12.01.10 PM.png"  style="width:55%;">
+<p>For <strong>high availability and fault tolerance</strong> → Since the AWS data center is built worldwide, there is low<br />
+latency and the applications can be deployed from nearby datacenter from the location we are living.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="traditionalc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="typesofCC.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="traditionalc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="typesofCC.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

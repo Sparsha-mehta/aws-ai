@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amazon Comprehend - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1>
+  Amazon Comprehend - Natural Language Processing
+  <img src="image-2.png" alt="icon" width="50" style="vertical-align: middle; float: right;" />
+</h1>
+<p>Now let's talk about Amazon Comprehend. Amazon Comprehend is used for natural language processing (NLP), and it's a fully managed and serverless service. It's going to use machine learning to find insights and relationships in your text.</p>
+<blockquote>
+<p>Note that:<br>
+<strong>Fully managed</strong> means AWS handles all the underlying infrastructure and maintenance for you. You don't need to:</p>
+<ul>
+<li>Set up or configure servers</li>
+<li>Install or update software</li>
+<li>Monitor system health</li>
+<li>Handle scaling decisions</li>
+<li>Manage security patches or updates</li>
+</ul>
+<p>You simply use the service through API calls or the AWS console, and AWS takes care of everything behind the scenes.</p>
+<p><strong>Serverless</strong> means you don't have to provision, manage, or think about servers at all.</p>
+</blockquote>
+<h2 id="core-capabilities"><a class="header" href="#core-capabilities"><strong>Core Capabilities</strong></a></h2>
+<p>Amazon Comprehend will:</p>
+<ul>
+<li>Understand the language of the text</li>
+<li>Extract key phrases, places, people, brands, or events</li>
+<li>Determine how positive or negative the text is (sentiment analysis)</li>
+<li>Analyze text using tokenization and part of speech analysis if needed</li>
+<li>Organize a collection of text files by topics</li>
+</ul>
+<h2 id="use-cases"><a class="header" href="#use-cases"><strong>Use Cases</strong></a></h2>
+<p>Some use cases you have around Comprehend include:</p>
+<ul>
+<li>Analyzing customer interactions such as emails to find what leads to a positive or negative experience</li>
+<li>Creating groups of articles by topics that Comprehend will uncover itself</li>
+</ul>
+<p>In Amazon Comprehend, we have an option for advanced settings such as:</p>
+<ul>
+<li>Custom Classification</li>
+<li>Named Entity Recognition (NER)</li>
+<li>Custom Entity Recognition</li>
+</ul>
+<h2 id="custom-classification"><a class="header" href="#custom-classification"><strong>Custom Classification</strong></a></h2>
+<p>Here we define how we want Comprehend to categorize the documents for ourselves, so we define them.</p>
+<p>For example, we have a bunch of customer emails and we provide several kinds of categories based on the type of customer request, such as:</p>
+<ul>
+<li>Support requests</li>
+<li>Billing requests</li>
+<li>Complaints</li>
+</ul>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>It supports many different types of documents such as text, PDF, Word, and images</li>
+<li>We create training data and put it in Amazon S3 (look into 1st diagram below)</li>
+<li>Feed it into Amazon Comprehend, which builds and trains internally a custom classifier</li>
+<li>When a document arrives (email or whatever you want), the custom classifier will say "this looks like a complaint document" based on how you've defined what complaints look like (look into 2nd diagram below)</li>
+</ol>
+<p><img src="image-3.png" alt="alt text" /></p>
+<p>You can use custom classification with:</p>
+<ul>
+<li>Real-time analysis (synchronous analysis)</li>
+<li>Multiple documents in batch mode</li>
+<li>Asynchronous analysis for large documents</li>
+</ul>
+<blockquote>
+<p>Note that:<br></p>
+<ul>
+<li><strong>Real-time Analysis (Synchronous Analysis)</strong> means You send a document to Comprehend and wait for the response before continuing. You get results immediately (within seconds)</li>
+<li><strong>Batch Mode (Multiple Documents)</strong> means You submit many documents at once for processing. All documents are processed together, but you still wait for all results before proceeding.</li>
+<li><strong>Asynchronous Analysis (Large Documents)</strong> means You submit documents for processing and don't wait around - Comprehend processes them in the background and notifies you when done.</li>
+</ul>
+</blockquote>
+<h2 id="named-entity-recognition-ner"><a class="header" href="#named-entity-recognition-ner"><strong>Named Entity Recognition (NER)</strong></a></h2>
+<p>One of Comprehend's main out-of-the-box capabilities is to do <strong>named entity recognition or NER</strong>. This extracts <strong>predefined general-purpose entities</strong> like people, places, organizations, dates, and other standard categories from text.</p>
+<p><strong>Example:</strong>
+In a sample text (look the image below), named entity recognition can recognize that:
+<img src="image-4.png" alt="alt text" /></p>
+<ul>
+<li><u>Zhang Wei</u> is a <strong>person</strong></li>
+<li><u>John</u> is a <strong>person</strong></li>
+<li><u>AnyCompany Financial Services, LLC</u> is an <strong>organization</strong></li>
+<li><u>July 31st</u> is a <strong>date</strong></li>
+</ul>
+<p>All these capabilities are available out of the box from Comprehend through named entity recognition.</p>
+<h2 id="custom-entity-recognition"><a class="header" href="#custom-entity-recognition"><strong>Custom Entity Recognition</strong></a></h2>
+<p>We also have the option to make Comprehend recognize <strong>custom entities</strong>.</p>
+<p>Here we want to analyze the <strong>text for specific terms</strong> and <strong>noun-based phrases</strong>.</p>
+<p>For example, you have a document and you want to be able to consistently extract:</p>
+<ul>
+<li>Policy numbers</li>
+<li>Phrases that imply a customer escalation</li>
+<li>Anything related to your business</li>
+</ul>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Train the model with a <strong>list of the entities</strong> you're looking for and documents that contain them (by giving examples) to <strong>Comprehend</strong></li>
+<li>A custom entity recognizer gets trained</li>
+<li>Use it to look for policy numbers within your documents</li>
+</ol>
+<p><img src="image-5.png" alt="alt text" /></p>
+<p>This can be used for <strong>real-time</strong> or <strong>asynchronous analysis</strong>. (see the above explanation provided for <code>real-time</code> and <code>asynchronous analysis</code>)</p>
+<h2 id="summary"><a class="header" href="#summary"><strong>Summary</strong></a></h2>
+<p>That's it for Comprehend. Just understand that it is used for <strong>natural language processing and understanding</strong>, and you have the option to have <strong>custom classifications</strong> and <strong>custom entity recognition</strong> if you train the model on top of Comprehend.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../managed-ai/whyawsaiserv.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../managed-ai/comprehendhandson.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../managed-ai/whyawsaiserv.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../managed-ai/comprehendhandson.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

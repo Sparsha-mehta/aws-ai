@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amazon Hardware for AI - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="amazon-hardware-for-ai"><a class="header" href="#amazon-hardware-for-ai">Amazon Hardware for AI</a></h1>
+<p>Amazon EC2, which means Elastic Compute Cloud, is one of the most popular offerings from AWS.</p>
+<ul>
+<li>This is where you <strong>get your servers</strong> as part of an <u>infrastructure as a service</u>  <strong>(IAAS)</strong> model.</li>
+</ul>
+<p>While EC2 is not as central from an AI perspective because we often use managed AWS services, it's still important to have an overview.</p>
+<ul>
+<li>EC2 is fundamentally about <strong>renting virtual machines or servers in the cloud</strong>, and knowing how it works is key to understanding the cloud itself.</li>
+</ul>
+<h3 id="amazon-ec2-overview"><a class="header" href="#amazon-ec2-overview"><strong>Amazon EC2 Overview</strong>                                      <img title="" src="https://miro.medium.com/v2/resize:fit:792/1*UfkVdTaCy-ArRy3QgoZcbA.png" alt="AWS EC2. A short note on what to know about EC2 | by Michael ..." width="50"></a></h3>
+<p>When you have your virtual server, you can configure many aspects of it. You are pretty much creating a virtual computer on which you define what you want on it and how powerful you want it to be.</p>
+<ul>
+<li>
+<p>You can <u>attach disk space</u> to these servers using <strong>EBS drives</strong>.</p>
+</li>
+<li>
+<p>You can <u>distribute traffic</u> to your Amazon EC2 instances through <strong>load balancers (ELB)</strong>.</p>
+</li>
+<li>
+<p>You can scale the service automatically using <strong>auto-scaling groups (ASG)</strong>.</p>
+</li>
+</ul>
+<p>You can also define the following for your virtual server:</p>
+<ol>
+<li>
+<p><strong>Operating System:</strong> Choose from Linux, Windows, or Mac OS.</p>
+</li>
+<li>
+<p><strong>Compute &amp; Memory:</strong> Define how much compute (CPU cores) and Random Access Memory (RAM) you want.</p>
+</li>
+<li>
+<p><strong>Storage Space:</strong> Specify how much storage you need, which can be <span style="color:blue;font-weight:bold;">network-attached</span> or <span style="color:blue;font-weight:bold;">hardware-based</span>.</p>
+</li>
+<li>
+<p><strong>Network &amp; IP:</strong> Define <u>how fast you want the network to be</u> and if you want a <u>public IP</u>.</p>
+</li>
+<li>
+<p><strong>Firewall Rules:</strong> If you are <u>exposing the server</u>, you can set firewall rules called <strong>security groups</strong>.</p>
+</li>
+<li>
+<p><strong>Launch Configuration:</strong> To configure your virtual server at launch, you can use <strong><u>EC2 User Data</u></strong>.</p>
+</li>
+</ol>
+<h3 id="amazon-ec2-for-artificial-intelligence-ai"><a class="header" href="#amazon-ec2-for-artificial-intelligence-ai"><strong>Amazon EC2 for Artificial Intelligence (AI)</strong></a></h3>
+<p>When you create an Amazon EC2 instance, you must select an <strong>instance type</strong>. Some EC2 instances are based on GPUs or specialized machine learning chips, making them desirable from an AI perspective.</p>
+<p><strong>1. GPU-Based Instances</strong></p>
+<ul>
+<li>
+<p>A <strong>GPU</strong> (Graphical Processing Unit) is a very good processor that allows you to perform machine learning.</p>
+</li>
+<li>
+<p>EC2 families like the <strong>P family</strong> (P3, P4, P5) and the <strong>G family</strong> (G3, G6) have powerful GPUs and are great for machine learning.</p>
+</li>
+</ul>
+<p><strong>2. AWS Trainium</strong></p>
+<ul>
+<li>
+<p>These are <strong><u>machine learning chips</u></strong> used to perform <strong><u>deep learning on big models</u></strong> with over <strong>100 billion parameters</strong>.</p>
+</li>
+<li>
+<p>You would use these servers to <u>train models</u> if, for example, you don't want to use SageMaker.</p>
+<p><img src="data:image/jpeg;base64,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" alt="Amazon EC2 Trn1 Instances for High ..." /></p>
+</li>
+<li>
+<p>The <strong>Trn1</strong> instance, for example, will have <u>16 Trainium accelerators</u> and can provide a <strong>50% cost reduction</strong> for training.</p>
+</li>
+</ul>
+<p><strong>AWS Inferentia</strong></p>
+<ul>
+<li>
+<p>This is a <u><strong>machine learning chip</strong></u> built by AWS for <u>running inference at very high performance and low cost</u>. You can use these servers to <strong>serve the models</strong>.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2023/02/16/Site-Merch_Full-Build_Amazon-EC2-Inf2_Blog.png" alt="Amazon EC2 Inf2 Instances for Low-Cost, High-Performance Generative AI  Inference are Now Generally Available | AWS News Blog" /></p>
+</li>
+<li>
+<p><strong>Inf1</strong> or <strong>Inf2</strong> instances are powered by <strong>AWS Inferentia</strong>.</p>
+</li>
+<li>
+<p>Using these chips can result in up to <strong>4 times the throughput</strong> of a normal GPU-based instance and up to a <strong>70% cost reduction</strong>.</p>
+</li>
+</ul>
+<p><strong>Environmental Footprint</strong></p>
+<ul>
+<li>Something that can appear in the exam is that the <strong>Trainium</strong> and <strong>Inferentia</strong> instances have the <mark>lowest environmental footprint</mark> because they are the most efficient.</li>
+</ul>
+<h3 id="exam-summary"><a class="header" href="#exam-summary"><strong>Exam Summary</strong></a></h3>
+<p>From an exam perspective, remember that EC2 instances are virtual servers and they can be of different types. You have <strong>GPU-based types</strong> and also the ones based on <strong>AWS Trainium</strong> and <strong>AWS Inferentia</strong>.</p>
+<blockquote>
+<p>Important Note:</p>
+<ol>
+<li>
+<p>AWS Trainium is ML chip for training of DL models</p>
+</li>
+<li>
+<p>AWS Inferentia is ML chip for <strong>serving the model</strong>.</p>
+</li>
+</ol>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../managed-ai/comprehendmedhandson.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../managed-ai/awshardwareaihandson.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../managed-ai/comprehendmedhandson.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../managed-ai/awshardwareaihandson.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

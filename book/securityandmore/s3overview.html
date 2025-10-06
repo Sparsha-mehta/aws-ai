@@ -1,0 +1,455 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Amazon S3 - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="amazon-s3-overview"><a class="header" href="#amazon-s3-overview"><strong>Amazon S3 Overview</strong></a></h1>
+<ul>
+<li>
+<p>This section is very important because <strong>Amazon S3</strong> is one of the <strong>main building blocks of AWS</strong>.</p>
+</li>
+<li>
+<p>Amazon S3 is advertised as <strong>infinitely scaling storage</strong>.</p>
+</li>
+<li>
+<p>A lot of the <strong>web relies on Amazon S3</strong>.</p>
+</li>
+<li>
+<p>Many websites use S3 as a backbone.</p>
+</li>
+<li>
+<p>Many AWS services also use Amazon S3 for <strong>integrations</strong>.</p>
+</li>
+</ul>
+<h2 id="use-cases-for-amazon-s3"><a class="header" href="#use-cases-for-amazon-s3">Use Cases for Amazon S3</a></h2>
+<ul>
+<li>
+<p><strong>Backup and storage</strong> (for your files, disks, etc.)</p>
+</li>
+<li>
+<p><strong>Disaster recovery</strong>: You can move your data to another region in case one goes down.</p>
+</li>
+<li>
+<p><strong>Archival purposes</strong>: Archive files and retrieve them later at a <strong>much cheaper</strong> cost.</p>
+</li>
+<li>
+<p><strong>Hybrid cloud storage</strong>: Extend on-premises storage to the cloud using S3.</p>
+</li>
+<li>
+<p><strong>Application hosting</strong></p>
+</li>
+<li>
+<p><strong>Media hosting</strong>: Store video files, images, and more.</p>
+</li>
+<li>
+<p><strong>Data lake</strong> storage for <strong>big data analytics</strong>.</p>
+</li>
+<li>
+<p><strong>Software delivery</strong>: Deliver software updates via S3.</p>
+</li>
+<li>
+<p><strong>Static website hosting</strong></p>
+</li>
+</ul>
+<h3 id="real-world-examples"><a class="header" href="#real-world-examples">Real-world Examples:</a></h3>
+<ol>
+<li>
+<p><strong>Nasdaq</strong> stores <strong>7 years of data</strong> in the <strong>S3 Glacier</strong> service (Amazon S3’s archival option).</p>
+</li>
+<li>
+<p><strong>Sysco</strong> runs analytics and gains <strong>business insights</strong> from Amazon S3.</p>
+</li>
+</ol>
+<hr />
+<h2 id="amazon-s3--buckets"><a class="header" href="#amazon-s3--buckets">Amazon S3 – Buckets</a></h2>
+<ul>
+<li>
+<p>S3 stores files (called <strong>objects</strong>) into <strong>buckets</strong>.</p>
+</li>
+<li>
+<p>Buckets can be seen as <strong>top-level directories</strong>.</p>
+</li>
+<li>
+<p>Files in S3 buckets are called <strong>objects</strong>.</p>
+</li>
+<li>
+<p>Buckets are created in <strong>your AWS account</strong> and must have a <strong>globally unique name</strong>.</p>
+</li>
+<li>
+<p>That means the name must be:</p>
+<ul>
+<li>
+<p>Unique across <strong>all your regions</strong> and</p>
+</li>
+<li>
+<p>Across <strong>all AWS accounts globally</strong>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>This is the <strong>only resource</strong> in AWS that must be globally unique.</p>
+</li>
+<li>
+<p>Buckets are defined at the <strong>region level</strong>.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Important Note</strong>:<br />
+Even though the <strong>bucket name</strong> is globally unique, <strong>each bucket is created in a specific AWS region</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="-common-beginner-mistake"><a class="header" href="#-common-beginner-mistake">⚠️ Common Beginner Mistake</a></h2>
+<ul>
+<li>
+<p>S3 <strong>looks like a global service</strong>, but <strong>buckets are regional</strong>.</p>
+</li>
+<li>
+<p>This regional behavior is <strong>commonly misunderstood</strong>.</p>
+</li>
+</ul>
+<hr />
+<h2 id="s3-bucket-naming-convention"><a class="header" href="#s3-bucket-naming-convention">S3 Bucket Naming Convention</a></h2>
+<ul>
+<li>
+<p><strong>No uppercase letters</strong></p>
+</li>
+<li>
+<p><strong>No underscores</strong></p>
+</li>
+<li>
+<p>Must be between <strong>3 and 63 characters</strong> long</p>
+</li>
+<li>
+<p><strong>Must not be an IP address</strong></p>
+</li>
+<li>
+<p>Must start with a <strong>lowercase letter or number</strong></p>
+</li>
+<li>
+<p>Must not start with prefix <code>xn--</code></p>
+</li>
+<li>
+<p>Must not end with suffix <code>--s3alias</code></p>
+</li>
+<li>
+<p><strong>Use only letters, numbers, and hyphens</strong> — then you’re good to go.</p>
+</li>
+</ul>
+<hr />
+<div style="display: flex; align-items: flex-start; gap: 20px;">
+  <div>
+    <h2 id="amazon-s3-objects-and-keys"><a class="header" href="#amazon-s3-objects-and-keys"><strong>Amazon S3 Objects and Keys</strong></a></h2>
+    <ul>
+      <li>Objects = <strong>Files</strong></li>
+      <li>Every object has a <strong>key</strong></li>
+      <li>An Amazon S3 object key is the <strong>full path</strong> of your file</li>
+    </ul>
+  </div>
+  <img src="bucket-image.png" alt="bucket example" width="110" />
+</div>
+<h3 id="example"><a class="header" href="#example">Example:</a></h3>
+<pre><code>Bucket: my-bucket  
+Key: my_file.txt  
+Path: s3://my-bucket/my_file.txt
+</code></pre>
+<ul>
+<li>so if you look into the example above,<code>my-bucket</code> is the top level directory (as we discussed earlier), then the key of the file at TXT is <code>my_file.txt</code></li>
+<li>In case if you want to nest into folders, then the key is going to be full path as shown below in the example</li>
+</ul>
+<h3 id="example-with-folders"><a class="header" href="#example-with-folders">Example with folders:</a></h3>
+<ul>
+<li>Full path is : <code>s3//:my-bucket/my_folderI/another_folder/my_file.txt</code>, so the key is: <code>my_folderI/another_folder/my_file.txt</code></li>
+</ul>
+<pre><code>Key: my_folder1/another_folder/my_file.txt  
+Prefix: my_folder1/another_folder/  
+Object Name: my_file.txt
+</code></pre>
+<ul>
+<li>
+<p><strong>key</strong> = prefix name + Object Name (remember that object name is usually the file name at the end, rest all is prefix)</p>
+</li>
+<li>
+<p>Even if it <strong>looks like folders</strong>, <strong>S3 does not have a real concept of directories</strong>.</p>
+</li>
+<li>
+<p>In the UI, it might <strong>look like folders</strong>, but <strong>everything is actually a key</strong>.</p>
+</li>
+<li>
+<p>Keys are just <strong>long strings</strong> that may contain slashes (<code>/</code>), and they are composed of a <strong>prefix and an object name</strong>.</p>
+</li>
+</ul>
+<hr />
+<h2 id="what-are-amazon-s3-objects"><a class="header" href="#what-are-amazon-s3-objects">What Are Amazon S3 Objects?</a></h2>
+<ul>
+<li>
+<p>The <strong>value</strong> of an object is the <strong>file's content</strong> (called the “body”).</p>
+</li>
+<li>
+<p>You can upload <strong>any file type</strong> into S3.</p>
+</li>
+<li>
+<p><strong>Maximum object size</strong>: <strong>5 TB</strong> (5,000 GB)</p>
+</li>
+</ul>
+<blockquote>
+<p>If the file is <strong>larger than 5 GB</strong>, you must use <strong>multi-part upload</strong> to upload it in parts.</p>
+</blockquote>
+<h3 id="example-1"><a class="header" href="#example-1">Example:</a></h3>
+<ul>
+<li>A 5 TB file must be uploaded in <strong>at least 1,000 parts of 5 GB each</strong>.</li>
+</ul>
+<hr />
+<h2 id="amazon-s3-object-metadata-and-tags"><a class="header" href="#amazon-s3-object-metadata-and-tags">Amazon S3 Object Metadata and Tags</a></h2>
+<ul>
+<li>Every object can have <strong>metadata</strong> (key-value pairs describing the file)</li>
+</ul>
+<h3 id="types-of-metadata"><a class="header" href="#types-of-metadata">Types of Metadata:</a></h3>
+<p>There are two types of metadata:</p>
+<ol>
+<li>
+<p><strong>System-defined</strong> – added by AWS (e.g., file size, last modified)</p>
+</li>
+<li>
+<p><strong>User-defined</strong> – added by you (e.g., <code>author: John</code>, <code>type: image</code>)</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>You can also add <strong>tags</strong> to an object:</p>
+<ul>
+<li>
+<p>Tags are <strong>Unicode key-value pairs</strong>, up to <strong>10 per object</strong></p>
+</li>
+<li>
+<p>Useful for <strong>security</strong>, <strong>lifecycle rules</strong>, and <strong>organization</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="versioning"><a class="header" href="#versioning">Versioning</a></h3>
+<ul>
+<li>
+<p>If <strong>versioning is enabled</strong>, objects will have a <strong>version ID</strong>.</p>
+</li>
+<li>
+<p>This allows you to <strong>keep and restore older versions</strong>.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../securityandmore/iamrolehandson.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../securityandmore/s3handson.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../securityandmore/iamrolehandson.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../securityandmore/s3handson.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

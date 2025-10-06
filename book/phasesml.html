@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Phases of Machine Learning Project - AWS AI Practitioner Study Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="A complete and motivating study guide for the AWS Certified AI Practitioner exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">AWS AI Practitioner Study Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/YOUR_ORG/YOUR_REPO" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="machine-learning-project-phases"><a class="header" href="#machine-learning-project-phases">Machine Learning Project Phases</a></h1>
+<p>We have learned a lot about machine learning from a technical standpoint, but now let's talk about the implementation standpoint.</p>
+<p>What are the phases of a machine learning project?</p>
+<h2 id="overview-of-ml-project-phases"><a class="header" href="#overview-of-ml-project-phases"><strong>Overview of ML Project Phases</strong></a></h2>
+<p>The machine learning project lifecycle follows a structured approach with multiple interconnected phases:</p>
+<ol>
+<li><strong>Identify a business problem</strong> we want to solve</li>
+<li><strong>Frame that problem</strong> as a machine learning problem</li>
+<li><strong>Collect data and prepare</strong> this data</li>
+<li><strong>Feature engineering</strong> to transform the data into having features that can be helpful from a machine learning perspective</li>
+</ol>
+<p>Once we have prepared the dataset, then we do Model Training</p>
+<ol start="5">
+<li><strong>Model training</strong> - this is where we go into the machine learning part</li>
+<li><strong>Tune the parameters</strong> of the model (how our algorithm is working)</li>
+<li><strong>Evaluate the model</strong> - is it working on our test dataset? Do we get the results that we want?</li>
+<li><strong>Ask ourselves</strong>: are the business goals met?</li>
+</ol>
+<p>If the business goals are not met, we need to enhance the data to have more data or to have it better prepared. If we need more data, we can do what's called <strong>data augmentation</strong>. If we want to improve the features, we can do <strong>feature augmentation</strong>.</p>
+<p>The idea is that you will do this process over and over again. You're going to change your model if needed and tune it better up until you have a <strong>satisfactory model</strong>.</p>
+<ol start="9">
+<li><strong>Model Testing &amp; Deployment</strong>: Once the model is satisfactory, you're going to <strong>test it</strong> and then <strong>deploy it</strong>. Once it's deployed, your users can use it, so it starts making predictions.</li>
+</ol>
+<p>Even though our users are getting predictions, we want to make sure that we are <code>Step 10:</code><strong>monitoring and debugging</strong> our model because it is possible that the predictions sometimes will not be good, or that it will drift, or that things will change over time. So monitoring and debugging is a <strong>super important phase</strong>.</p>
+<p>As we make predictions, if they are correct, we want to <code>Step 11:</code> <strong>add this data to our original datasets</strong> (see the diagram below) to make it even better and to retrain our model. So there is a sort of loop that goes on where this new data helps with data collection, it helps with feature engineering, and it helps with the model training.</p>
+<p><img src="image-56.png" alt="alt text" /></p>
+<h2 id="detailed-phase-breakdown"><a class="header" href="#detailed-phase-breakdown"><strong>Detailed Phase Breakdown</strong></a></h2>
+<h3 id="1-define-business-goals"><a class="header" href="#1-define-business-goals"><strong>1. Define Business Goals</strong></a></h3>
+<p>You must have the stakeholders of your project define:</p>
+<ul>
+<li>The <strong>value</strong> of the project</li>
+<li>The <strong>budget</strong> for the project</li>
+<li>The <strong>success criteria</strong> of your project</li>
+<li>you define <strong>KPI (Key Performance Indicator)</strong> which is critical</li>
+</ul>
+<h3 id="2-frame-the-problem-as-a-machine-learning-problem"><a class="header" href="#2-frame-the-problem-as-a-machine-learning-problem"><strong>2. Frame the Problem as a Machine Learning Problem</strong></a></h3>
+<p>There's a conversion that needs to happen, and we need to determine if machine learning is actually an appropriate solution to solve that problem, because sometimes it is not.</p>
+<p>This is when the <strong>data scientists, data engineers, machine learning architects, and any subject matter experts</strong> will collaborate to figure out:</p>
+<ul>
+<li>How to convert the business problem into a machine learning problem</li>
+<li>If machine learning is appropriate</li>
+</ul>
+<h3 id="3-data-processing"><a class="header" href="#3-data-processing"><strong>3. Data Processing</strong></a></h3>
+<p>Once it is a machine learning project, then we need to do data processing:</p>
+<ul>
+<li><strong>Collect data</strong> and convert it into a usable format</li>
+<li>We need to Make it <strong>centrally accessible in one place</strong> so that we can really analyze it all at once</li>
+<li><strong>Understand our data</strong> - we need to pre-process it and also do data visualization to understand the type of data we are dealing with (EDA)</li>
+<li><strong>Feature engineering</strong> - After EDA, we have to do Feature Engineering by creating, transforming, and extracting variables out of the data</li>
+</ul>
+<h3 id="4-model-development"><a class="header" href="#4-model-development"><strong>4. Model Development</strong></a></h3>
+<p>Once the data is ready, we go into model development:</p>
+<p>In Model Development, we:</p>
+<ul>
+<li><strong>Train our model</strong></li>
+<li><strong>Tune it</strong></li>
+<li><strong>Evaluate it</strong> against our datasets (for example, our test datasets)</li>
+</ul>
+<p>It's a very iterative process, and as you develop your model, it's for sure going to feed back into your data processing because these two processes are very intertwined. You're going to do additional feature engineering, and you're going to tune the model hyperparameters. They are the parameters that define how the algorithm is working.</p>
+<h3 id="5-exploratory-data-analysis-phase"><a class="header" href="#5-exploratory-data-analysis-phase"><strong>5. Exploratory Data Analysis Phase</strong></a></h3>
+<p>One phase that is part of the beginning of your machine learning project is the exploratory data analysis phase:</p>
+<ul>
+<li><strong>Explore data</strong> and compute statistics</li>
+<li><strong>Visualize the data with graphs</strong> to really understand the shape it has and how influential it is</li>
+<li>Build what's called a <strong>correlation matrix</strong></li>
+</ul>
+<p><strong>What is Correlation Matrix?</strong> <br>
+<img src="image-57.png" alt="alt text" /></p>
+<p>You look at all your variables, all your features, and you're going to compute <strong>how linked they are</strong>.</p>
+<p>For example, if we compare how we studied to the test score, we can see 0.85. That means that whenever the hours studied are increasing, the test score is also increasing a lot. So they're positively correlated. It's not one because one would explain it perfectly, but it gives you an idea.</p>
+<p>Another Example: from the diagram, if you sleep a lot, then you are going to have better test score.</p>
+<p>This helps you decide which <strong>features can be important</strong> in your model and <strong>how correlated they are</strong>.</p>
+<h3 id="6-retraining"><a class="header" href="#6-retraining"><strong>6. Retraining</strong></a></h3>
+<p>If we retrain, we:</p>
+<ul>
+<li>Look at the data and the features to improve the model</li>
+<li>Adjust again the model training hyperparameters</li>
+</ul>
+<h3 id="7-deployment"><a class="header" href="#7-deployment"><strong>7. Deployment</strong></a></h3>
+<p>If the results are good, the model is going to be deployed and ready to make inferences - that means ready to make predictions for your users.</p>
+<p>We select a deployment model. You have:</p>
+<ul>
+<li><strong>Real-time</strong></li>
+<li><strong>Batch</strong></li>
+<li><strong>Serverless</strong></li>
+<li><strong>Asynchronous</strong></li>
+<li><strong>On-premises</strong></li>
+</ul>
+<p>So you select the deployment model you need.</p>
+<blockquote>
+<p>For better understanding, see the table below:
+<img src="image-58.png" alt="alt text" /></p>
+</blockquote>
+<h3 id="8-monitoring"><a class="header" href="#8-monitoring"><strong>8. Monitoring</strong></a></h3>
+<p>This means deploying a system that will check if your model is operating at the desired level of performance.</p>
+<p>With monitoring systems, you can do:</p>
+<ul>
+<li><strong>Early detection of problems</strong></li>
+<li><strong>Early mitigation of problems</strong> so that your users are not impacted</li>
+<li><strong>Debug issues</strong></li>
+<li><strong>Understand the model's behavior</strong> once deployed to production</li>
+</ul>
+<h3 id="9-iterations"><a class="header" href="#9-iterations"><strong>9. Iterations</strong></a></h3>
+<p>The model must be continuously improved and refined as new data becomes available because requirements may change.</p>
+<p>For example, imagine that you're doing something around clothing prediction. What is true today in terms of clothing trends may not be true in 10 years. People may wear different types of clothes. So of course, <strong>retraining your model and making sure to monitor requirements is very important to do your iteration and making sure the model is accurate and relevant over time</strong>.</p>
+<hr />
+<p>Now you know how to conduct properly a machine learning project.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="aimldl/mlinference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="aimldl/hyparametertuning.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="aimldl/mlinference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="aimldl/hyparametertuning.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
