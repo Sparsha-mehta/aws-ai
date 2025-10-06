@@ -95,7 +95,7 @@
   - [Consoles](./sagemaker/sagemakerjumpstart.md)
   - [Amazon Sagemaker Summary](./sagemaker/sagemakersummary.md)
   - [Amazon Sagemaker - Extra Features](./sagemaker/sagemakerextra.md)
-  - [Quiz]()
+  - [Quiz](./sagemaker/quiz7.md)
 - [AI Challenges and Responsibilities](challenges-responsibilities.md)
   - [AI Challenges and Responsibilities - Overview](./Aichallengesrespon.md)
   - [Responsible AI](./responsibleai.md)
